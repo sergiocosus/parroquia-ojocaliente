@@ -1,0 +1,14 @@
+:host{
+  display: flex;
+  align-items: stretch;
+}
+
+img {
+  max-height: 10em;
+  object-fit: cover;
+}
+
+mat-card-actions {
+  justify-content: flex-end;
+  display: flex;
+}

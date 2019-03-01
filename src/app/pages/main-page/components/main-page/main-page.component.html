@@ -1,0 +1,19 @@
+<div class="top-image"></div>
+
+<div class="content">
+  <div class="latest-posts">
+    <app-post-thumb *ngFor="let i of [0,1,2,3,4]">
+    </app-post-thumb>
+  </div>
+
+  <mat-card class="latest-links">
+    <h3>
+      Enlaces recomendados
+    </h3>
+    <a *ngFor="let link of links" target="_blank"
+       [href]="link.url">
+      {{link.title}}
+    </a>
+  </mat-card>
+
+</div>

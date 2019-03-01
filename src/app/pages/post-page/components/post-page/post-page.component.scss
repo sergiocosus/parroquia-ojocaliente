@@ -1,0 +1,45 @@
+@import "~src/variables";
+
+:host{
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.top-image {
+  height: 15em;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include mat-elevation(10, gray, 1);
+
+}
+
+.post-body {
+  display: flex;
+  padding: 1em;
+  width: 768px;
+  align-self: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-width: 100%;
+
+  h2 {
+    text-align: center;
+    color: gray;
+  }
+
+  .date {
+    color: gray;
+    text-align: right;
+  }
+
+  .content {
+    ::ng-deep{
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}
+

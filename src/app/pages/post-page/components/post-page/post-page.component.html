@@ -1,0 +1,14 @@
+<div class="top-image" [style.backgroundImage]="'url(' + post.image_url +')'">
+
+</div>
+<div class="post-body">
+  <h2>
+    {{post.title}}
+  </h2>
+
+  <div class="date">
+    {{post.created_at | date:'medium'}}
+  </div>
+
+  <div [innerHTML]="post.content" class="content"></div>
+</div>
