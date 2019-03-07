@@ -15,6 +15,14 @@ const routes: Routes = [
         path: 'post',
         loadChildren: './pages/post-page/post-page.module#PostPageModule'
       },
+      {
+        path: 'links',
+        loadChildren: './pages/links-page/links-page.module#LinksPageModule'
+      },
+      {
+        path: 'contact',
+        loadChildren: './pages/contact-page/contact-page.module#ContactPageModule'
+      },
     ]
   },
 ];
