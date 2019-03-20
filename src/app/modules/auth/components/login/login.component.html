@@ -1,0 +1,44 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="form-style">
+  <img src="assets/images/logo/logo-avatar.png">
+  <h2>{{'auth.welcomeAgain' | translate}}</h2>
+  <p>
+    {{'auth.introduceCredentials' | translate}}
+  </p>
+  <mat-form-field>
+    <span matSuffix>
+      <mat-icon>email</mat-icon>
+    </span>
+    <input matInput formControlName="email" required name="email"
+           placeholder="{{'user.email' | translate}}" cdk-focus-start/>
+    <mat-error *ngIf="form.get('email').hasError('email')">
+      {{'forms.emailInvalidFormat' | translate}}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="password" type="password" required
+           placeholder="{{'user.password' | translate}}"/>
+    <span matSuffix>
+      <mat-icon>security</mat-icon>
+    </span>
+    <mat-error *ngIf="form.get('password').hasError('password_format')">
+      {{'forms.passwordFormat' | translate}}
+    </mat-error>
+  </mat-form-field>
+
+  <button class="login-button" mat-raised-button color="primary" [disabled]="!form.valid || loading">
+    <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+    {{'auth.login' | translate}}
+  </button>
+</form>
+
+<div class="footer">
+  <a class="reset" routerLink="/register">
+    {{'auth.registerMe' | translate}}
+  </a>
+  -
+  <a class="reset" (click)="openResetPasswordRequestDialog()">
+    {{'auth.forgotPassword' | translate}}
+  </a>
+</div>
+
+

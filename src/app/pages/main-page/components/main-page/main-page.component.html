@@ -2,7 +2,7 @@
 
 <div class="content">
   <div class="latest-posts">
-    <app-post-thumb *ngFor="let i of [0,1,2,3,4]">
+    <app-post-thumb *ngFor="let post of posts" [post]="post">
     </app-post-thumb>
   </div>
 

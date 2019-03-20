@@ -1,0 +1,35 @@
+@import "~src/variables";
+
+.user-session {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: $secondary-light;
+
+  span {
+    margin-right: .25em;
+    max-width: 8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: none;
+
+    @media (min-width: $lgWidth) {
+      display: flex;
+    }
+  }
+
+  button.drop-down {
+    width: 1em;
+    margin: 0.25em 0;
+    display: none;
+
+    @media (min-width: $smWidth) {
+      display: flex;
+      margin-right: 1.5em;
+    }
+  }
+}
+
+mat-icon {
+  font-size: 1em;
+}

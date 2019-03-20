@@ -23,6 +23,10 @@ const routes: Routes = [
         path: 'contact',
         loadChildren: './pages/contact-page/contact-page.module#ContactPageModule'
       },
+      {
+        path: 'admin',
+        loadChildren: './pages/admin-pages/admin-pages.module#AdminPagesModule'
+      },
     ]
   },
 ];

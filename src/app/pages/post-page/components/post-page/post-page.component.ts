@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Post } from '@app/post/models/post.model';
+import { Post } from '@app/api/models/post.model';
 import * as moment from 'moment';
 
 @Component({

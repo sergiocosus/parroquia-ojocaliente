@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '@app/api/services/post.service';
+import { Post } from '@app/api/models/post.model';
 
 @Component({
   selector: 'app-main-page',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+  posts: Post[];
+
   links = [
     {
       title: 'Conviértete, nadie está seguro cómo ni cuándo terminará su vida',
@@ -17,9 +21,13 @@ export class MainPageComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+    this.postService.get().subscribe(paginatedPosts => {
+
+      this.posts = paginatedPosts.data;
+    });
   }
 
 }

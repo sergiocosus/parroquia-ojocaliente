@@ -10,6 +10,9 @@ import { SharedModule } from './shared/shared.module';
 import * as moment from 'moment';
 import { registerLocaleData } from '@angular/common';
 import localeMX from '@angular/common/locales/es-MX';
+import { environment } from '../environments/environment';
+import { ApiModule } from '@app/api/api.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 moment.locale('es');
 registerLocaleData(localeMX, 'es-MX');
@@ -25,6 +28,12 @@ registerLocaleData(localeMX, 'es-MX');
     LayoutModule,
     CoreModule,
     SharedModule,
+    TranslateModule.forRoot(),
+    ApiModule.forRoot({
+      apiUrl: environment.api.url,
+      apiClientID: environment.api.clientID,
+      apiClientSecret: environment.api.clientSecret,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

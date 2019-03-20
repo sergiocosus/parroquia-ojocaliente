@@ -1,0 +1,86 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="form-style">
+  <img src="assets/images/logo/logo-avatar.png"/>
+  <p>
+    {{'auth.welcome' | translate}}
+  </p>
+
+  <div class="invitation-message">
+    <div class="success" *ngIf="invitation">
+      {{'invitation.invitationFound' | translate:{team:invitation.team.name} }}
+    </div>
+
+    <div class="danger" *ngIf="invalidInvitation">
+      {{'invitation.invitationNotFound' | translate}}
+    </div>
+  </div>
+
+  <mat-form-field>
+    <span matSuffix>
+      <mat-icon>email</mat-icon>
+    </span>
+    <input matInput formControlName="email" required name="email"
+           placeholder="{{'user.email' | translate}}" cdk-focus-start/>
+    <mat-error *ngIf="form.get('email').hasError('email')">
+      {{'forms.emailInvalidFormat' | translate}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <span matSuffix>
+      <mat-icon class="fa fa-user"></mat-icon>
+    </span>
+    <input matInput formControlName="name" required name="name"
+           placeholder="{{'user.name' | translate}}"/>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="!invitation">
+    <span matSuffix>
+      <mat-icon class="fa fa-building"></mat-icon>
+    </span>
+    <input matInput formControlName="team" name="team"
+           placeholder="{{'user.company' | translate}}"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="password" type="password" required
+           placeholder="{{'user.password' | translate}}"/>
+    <span matSuffix>
+      <mat-icon class="fa fa-lock"></mat-icon>
+    </span>
+    <mat-error *ngIf="form.get('password').hasError('password_format')">
+      {{'forms.passwordFormat' | translate}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="password_confirmation" type="password"
+           required
+           placeholder="{{'user.passwordConfirmation' | translate}}"/>
+    <span matSuffix>
+      <mat-icon class="fa fa-lock"></mat-icon>
+    </span>
+    <mat-error
+      *ngIf="form.get('password_confirmation').hasError('password_format')">
+      {{'forms.passwordFormat' | translate}}
+    </mat-error>
+    <mat-error
+      *ngIf="form.get('password_confirmation').hasError('password_mismatch')">
+      {{'forms.passwordMismatch' | translate}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="terms" color="primary">
+    {{'auth.acceptTerms' | translate}}
+
+    <a href="/assets/docs/terms.pdf" target="_blank">
+      {{'auth.termsAndConditions' | translate}}
+    </a>
+  </mat-checkbox>
+
+  <button class="login-button" mat-raised-button color="primary"
+          [disabled]="!form.valid || loading">
+    <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+    {{'auth.registerMe' | translate}}
+  </button>
+</form>
+

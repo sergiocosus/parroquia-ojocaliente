@@ -1,0 +1,34 @@
+<ng-container *ngIf="user">
+  <div class="user-session" [matMenuTriggerFor]="appMenu">
+    <span> {{user.name}} </span>
+    <app-user-image [user]="user"></app-user-image>
+    <button mat-icon-button class="drop-down">
+      <mat-icon class="fas fa-caret-down"></mat-icon>
+    </button>
+
+    <app-logout-button></app-logout-button>
+  </div>
+
+  <mat-menu #appMenu="matMenu">
+    <a routerLink="/usuario" mat-menu-item>
+      <mat-icon class="fas fa-cogs">
+      </mat-icon>
+      <span>
+        {{'team.configuration' | translate}}
+      </span>
+    </a>
+    <a routerLink="/spark/kiosk" mat-menu-item *ngIf="user?.is_developer">
+      {{'spark.kiosk.kiosk' | translate}}
+    </a>
+    <button mat-menu-item *ngIf="$impersonatorUser | async"
+            (click)="stopImpersonate()">
+      {{'spark.kiosk.users.stopImpersonate' | translate}}
+    </button>
+  </mat-menu>
+</ng-container>
+
+<ng-container *ngIf="!user">
+  <button mat-icon-button (click)="openLoginModal()">
+    Iniciar sesión
+  </button>
+</ng-container>

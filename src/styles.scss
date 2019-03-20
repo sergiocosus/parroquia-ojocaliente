@@ -31,3 +31,15 @@ $parroquia-ojocaliente-theme: mat-light-theme($parroquia-ojocaliente-primary, $p
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+
+form.form-style {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 1em;
+  color: $gray;
+}

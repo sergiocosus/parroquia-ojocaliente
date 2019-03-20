@@ -1,0 +1,7 @@
+<button mat-raised-button [color]="color"
+        [appFormButton]="form"
+        [type]="type"
+        class="rounded-button">
+  <mat-spinner diameter="20" *ngIf="!form?.enabled"></mat-spinner>
+  <ng-content></ng-content>
+</button>

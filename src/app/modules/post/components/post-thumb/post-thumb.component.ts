@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Post } from '@app/post/models/post.model';
+import { Post } from '@app/api/models/post.model';
 import * as moment from 'moment';
 
 @Component({

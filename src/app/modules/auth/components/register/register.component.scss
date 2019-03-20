@@ -1,0 +1,81 @@
+@import "~src/variables";
+
+img {
+  object-fit: contain;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: lighten($gray, 40%) 1px solid;
+  border-radius: 1em;
+  padding: 1em;
+  color: $gray;
+
+  p {
+    text-align: center;
+  }
+
+  .login-button {
+    display: flex;
+
+    ::ng-deep {
+      .mat-button-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    mat-spinner {
+      margin-right: 1em;
+    }
+  }
+
+  .reset {
+    cursor: pointer;
+    font-size: .8em;
+    font-weight: bolder;
+    //color: $primaryFontColor;
+    margin-bottom: .25em;
+    text-align: right;
+
+    &:hover {
+      text-decoration: underline;
+      // color: $secondaryFontColor;
+    }
+  }
+
+  mat-checkbox {
+    margin: 1em 0;
+  }
+
+  [matSuffix] {
+    color: lighten($gray, 20%)
+  }
+}
+
+a {
+  color: $primary;
+}
+
+
+.invitation-message {
+  .success, .danger {
+    color: white;
+    padding: .5em;
+    border-radius: .5em;
+  }
+
+  .success {
+    background-color: rgba($success, .75);
+    border: $success 1px solid;
+  }
+
+  .danger {
+    background-color: rgba($warning, .9);
+    color: $warning 1px solid;
+  }
+}

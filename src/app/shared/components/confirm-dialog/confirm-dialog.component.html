@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>
+  {{(data.title || 'common.confirmMessage') | translate:data.titleParam }}
+</h2>
+
+<mat-dialog-content>
+  {{data.message | translate}}
+</mat-dialog-content>
+
+<mat-dialog-actions *ngIf="data.cancelAsPrimary">
+  <button mat-raised-button color="primary" class="rounded-button"
+          (click)="cancel()" autofocus>
+    {{data.cancelText || ('actions.cancel' | translate)}}
+  </button>
+  <button mat-raised-button class="rounded-button" (click)="accept()">
+    {{data.acceptText || ('actions.accept' | translate)}}
+  </button>
+</mat-dialog-actions>
+<mat-dialog-actions *ngIf="!data.cancelAsPrimary">
+  <button mat-raised-button class="rounded-button"
+          color="gray" (click)="cancel()">
+    {{data.cancelText || ('actions.cancel' | translate)}}
+  </button>
+  <button mat-raised-button class="rounded-button"
+          [color]="data.buttonColor || 'primary'" (click)="accept()" autofocus>
+    {{data.acceptText || ('actions.accept' | translate)}}
+  </button>
+</mat-dialog-actions>
