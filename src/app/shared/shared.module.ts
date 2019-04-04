@@ -17,6 +17,7 @@ import { LoadingButtonComponent } from '@app/shared/components/loading-button/lo
 import { LoadingFormButtonComponent } from '@app/shared/components/loading-form-button/loading-form-button.component';
 import { FormButtonDirective } from '@app/shared/directives/form-button.directive';
 import { ApiModule } from '@app/api/api.module';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,8 @@ import { ApiModule } from '@app/api/api.module';
     MatCheckboxModule,
     MatMenuModule,
     MatSnackBarModule,
+
+    NgxPermissionsModule,
 
     ApiModule,
 

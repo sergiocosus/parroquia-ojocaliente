@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: './pages/post-page/post-page.module#PostPageModule'
       },
       {
+        path: 'category',
+        loadChildren: './pages/category-page/category-page.module#CategoryPageModule'
+      },
+      {
         path: 'links',
         loadChildren: './pages/links-page/links-page.module#LinksPageModule'
       },
@@ -27,6 +31,10 @@ const routes: Routes = [
         path: 'admin',
         loadChildren: './pages/admin-pages/admin-pages.module#AdminPagesModule'
       },
+      {
+        path: '**',
+        redirectTo: '',
+      }
     ]
   },
 ];

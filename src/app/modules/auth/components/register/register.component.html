@@ -19,7 +19,7 @@
       <mat-icon>email</mat-icon>
     </span>
     <input matInput formControlName="email" required name="email"
-           placeholder="{{'user.email' | translate}}" cdk-focus-start/>
+           placeholder="{{'user.email' | translate}}" cdkFocusRegionstart/>
     <mat-error *ngIf="form.get('email').hasError('email')">
       {{'forms.emailInvalidFormat' | translate}}
     </mat-error>

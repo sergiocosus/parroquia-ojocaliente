@@ -1,0 +1,12 @@
+@import "~src/variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+app-categories-list {
+  max-width: $smWidth;
+  width: $smWidth;
+}

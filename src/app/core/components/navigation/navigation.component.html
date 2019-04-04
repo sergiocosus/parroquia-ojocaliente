@@ -11,23 +11,56 @@
          routerLinkActive="active"
          [routerLinkActiveOptions]="{exact: true}">
         <mat-icon>home</mat-icon>
-        Principal
+        {{'nav.main' | translate}}
       </a>
-      <a mat-list-item routerLink="/articles" (click)="close()"
+      <a mat-list-item routerLink="/post" (click)="close()"
          routerLinkActive="active">
         <mat-icon>book</mat-icon>
-        Artículos
+        {{'nav.articles' | translate}}
       </a>
+
+
+      <mat-expansion-panel
+        class="mat-elevation-z0"
+        *ngxPermissionsOnly="['create-category', 'update-category']">
+        <mat-expansion-panel-header expandedHeight="2.5em"
+                                    collapsedHeight="2.5em">
+          <mat-panel-title>
+            <mat-icon>security</mat-icon>
+            <span>{{'nav.administrator' | translate}}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list class="secondary-nav">
+          <a mat-list-item routerLink="/admin/category"
+             *ngxPermissionsOnly="['create-category', 'update-category']"
+             (click)="close()"
+             routerLinkActive="active">
+            <mat-icon>category</mat-icon>
+            <span>{{'nav.categories' | translate}}</span>
+          </a>
+
+          <a mat-list-item routerLink="/admin/post/new" (click)="close()"
+             routerLinkActive="active">
+            <mat-icon>book</mat-icon>
+            {{'nav.newArticle' | translate}}
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+
+      <!--
       <a mat-list-item routerLink="/links" (click)="close()"
          routerLinkActive="active">
         <mat-icon>link</mat-icon>
-        Enlaces externos
+        {{'nav.externalLinks' | translate}}
       </a>
       <a mat-list-item routerLink="/contact" (click)="close()"
          routerLinkActive="active">
         <mat-icon>contacts</mat-icon>
+        {{'nav.contact' | translate}}
         Contacto
       </a>
+      -->
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -40,7 +73,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Parroquia de Ojocaliente</span>
+      <span></span>
 
       <div class="spacer"></div>
 

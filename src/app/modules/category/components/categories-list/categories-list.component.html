@@ -1,0 +1,58 @@
+<h3>
+  {{'category.createCategory' | translate}}
+</h3>
+<form class="create-form"
+      [formGroup]="form" (ngSubmit)="submit()">
+  <mat-form-field>
+    <input matInput [placeholder]="'category.title' | translate"
+           formControlName="title">
+  </mat-form-field>
+
+  <button mat-icon-button color="primary">
+    <mat-icon>add_circle</mat-icon>
+  </button>
+</form>
+
+<h3>
+  {{'category.categories' | translate}}
+</h3>
+<mat-list dense>
+  <mat-list-item *ngFor="let category of categories">
+
+    <form [formGroup]="editForm"
+          id="categoryEditForm" (ngSubmit)="editCategory()"
+          *ngIf="selectedCategory === category; else notSelectedCategory">
+      <mat-form-field>
+        <input matInput formControlName="title"
+               [placeholder]="'category.title' | translate">
+      </mat-form-field>
+    </form>
+
+    <ng-template #notSelectedCategory>
+      {{category.title}}
+    </ng-template>
+
+    <div class="spacer"></div>
+
+    <ng-container *ngxPermissionsOnly="'update-category'">
+      <button mat-icon-button color="primary"
+              form="categoryEditForm"
+              *ngIf="selectedCategory === category; else notSelectedCategoryButton">
+        <mat-icon>check</mat-icon>
+      </button>
+
+      <ng-template #notSelectedCategoryButton>
+        <button mat-icon-button color="primary"
+                (click)="selectToEditCategory(category)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </ng-template>
+    </ng-container>
+
+    <button mat-icon-button color="warn"
+            *ngxPermissionsOnly="'delete-category'"
+            (click)="deleteCategory(category)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>

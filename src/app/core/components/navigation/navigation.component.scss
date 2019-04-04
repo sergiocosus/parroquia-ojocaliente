@@ -50,3 +50,20 @@
 .active {
   background-color: darken($secondary, 30%) !important;
 }
+
+mat-expansion-panel {
+  background-color: transparent;
+
+  mat-panel-title {
+    color: white;
+  }
+
+  mat-expansion-panel-header {
+    padding: 0 16px;
+  }
+  ::ng-deep {
+    .mat-expansion-panel-body {
+      padding: 0;
+    }
+  }
+}

@@ -7,11 +7,14 @@
 }
 
 .avatar {
-  height: 2em;
-  width: 2em;
-  min-width: 2em;
-  border: $primary 3px solid;
+  font-size: 2em;
+  height: 1em;
+  width: 1em;
+  min-width: 1em;
+  border: white 3px solid;
   border-radius: 50%;
   overflow: hidden;
   object-fit: cover;
+  color: white;
 }
+

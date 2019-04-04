@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '@app/api/services/post.service';
 import { Post } from '@app/api/models/post.model';
+import { CategoryService } from '@app/api/services/category.service';
+import { Category } from '@app/api/models/category.model';
 
 @Component({
   selector: 'app-main-page',
@@ -9,7 +11,9 @@ import { Post } from '@app/api/models/post.model';
 })
 export class MainPageComponent implements OnInit {
   posts: Post[];
+  categories: Category[];
 
+  /*
   links = [
     {
       title: 'Conviértete, nadie está seguro cómo ni cuándo terminará su vida',
@@ -20,14 +24,18 @@ export class MainPageComponent implements OnInit {
       url: 'https://www.aciprensa.com/recursos/ayuno-y-abstinencia-1923'
     }
   ];
-
-  constructor(private postService: PostService) { }
+  */
+  constructor(private postService: PostService,
+              private categoryService: CategoryService) { }
 
   ngOnInit() {
     this.postService.get().subscribe(paginatedPosts => {
-
       this.posts = paginatedPosts.data;
     });
+
+    this.categoryService.get().subscribe(
+      categories => this.categories = categories
+    );
   }
 
 }

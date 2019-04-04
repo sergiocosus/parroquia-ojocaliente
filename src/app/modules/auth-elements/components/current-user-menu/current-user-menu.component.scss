@@ -3,8 +3,8 @@
 .user-session {
   display: flex;
   align-items: center;
-  font-weight: bold;
-  color: $secondary-light;
+  font-weight: normal;
+  color: white;
 
   span {
     margin-right: .25em;
@@ -30,6 +30,3 @@
   }
 }
 
-mat-icon {
-  font-size: 1em;
-}

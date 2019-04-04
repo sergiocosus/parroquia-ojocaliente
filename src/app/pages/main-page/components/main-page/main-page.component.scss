@@ -35,7 +35,7 @@
     margin: .5em;
   }
 
-  .latest-links {
+  .categories, .latest-links {
     flex: 1 1 15em;
 
     display: flex;
@@ -48,8 +48,8 @@
     }
 
     a {
-      margin-bottom: 1em;
       line-height: 1em;
+      height: 2em;
       color: gray;
       text-decoration: none;
     }

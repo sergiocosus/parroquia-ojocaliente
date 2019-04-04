@@ -1,6 +1,7 @@
 :host{
   display: flex;
   align-items: stretch;
+  justify-content: stretch;
 }
 
 img {
@@ -11,4 +12,8 @@ img {
 mat-card-actions {
   justify-content: flex-end;
   display: flex;
+}
+
+mat-card {
+  flex: 1;
 }

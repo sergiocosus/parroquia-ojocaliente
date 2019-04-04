@@ -1,0 +1,39 @@
+@import "~src/variables";
+
+:host {
+  h2 {
+    margin-bottom: .25em;
+    padding: 0 1em;
+  }
+}
+
+form {
+  max-width: $smWidth;
+}
+
+image-cropper, .picture {
+  max-height: 20em;
+
+  object-fit: cover;
+}
+
+
+.file {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  .input {
+    flex: 0 0 2.9em;
+    margin-bottom: 1.7em;
+
+    &.error {
+      border-bottom: 1px solid $warning;
+    }
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}

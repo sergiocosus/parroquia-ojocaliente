@@ -1,0 +1,10 @@
+<h3>{{category.title}}</h3>
+
+<div class="content">
+  <app-post-thumb *ngFor="let post of category.posts"
+                  [post]="post">
+  </app-post-thumb>
+</div>
+
+
+

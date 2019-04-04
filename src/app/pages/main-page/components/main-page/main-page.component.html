@@ -6,6 +6,25 @@
     </app-post-thumb>
   </div>
 
+  <mat-card class="categories">
+    <mat-card-header>
+      <mat-card-title>
+        {{'category.categories' | translate}}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <a mat-list-item dense
+           *ngFor="let category of categories"
+           [routerLink]="category.viewUrl">
+          <mat-icon mat-list-icon>dashboard</mat-icon>
+          {{category.title}}
+        </a>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <!--
   <mat-card class="latest-links">
     <mat-card-header>
       <mat-card-title>
@@ -22,5 +41,5 @@
       </mat-list>
     </mat-card-content>
   </mat-card>
-
+  -->
 </div>

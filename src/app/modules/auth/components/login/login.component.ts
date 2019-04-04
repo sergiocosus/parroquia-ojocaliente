@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../api/services/auth.service';
 import { Router } from '@angular/router';
@@ -13,6 +13,8 @@ import { Notify } from '@app/shared/service/notify.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  @Output() logged = new EventEmitter();
+
   form: FormGroup;
 
   loading = false;
@@ -55,6 +57,7 @@ export class LoginComponent implements OnInit {
   private successLogin(user: User) {
     this.loading = false;
     this.authService.redirectRouteAfterLogin();
+    this.logged.emit(user);
    // this.notify.showTranslated(extract('auth.successfulCredentials'));
   }
 

@@ -13,14 +13,12 @@ export class PostService {
   }
 
   get() {
-    return this.httpClient.get('post').pipe(
-      map(response => new Pagination().parse(response['paginated_posts']).parseData(Post))
-    );
+    return this.httpClient.get('post').pipe(this.mapPostPaginated());
   }
 
-  getOne() {
-    return this.httpClient.get('post/${post_id}').pipe(
-      map(response => new Post().parse(response['post']))
+  getOne(slug: string) {
+    return this.httpClient.get(`post/${slug}`).pipe(
+      this.mapPost()
     );
   }
 
@@ -35,11 +33,11 @@ export class PostService {
     }
   }) {
     return this.httpClient.post('post', params).pipe(
-      map(response => new Post().parse(response['post']))
+      this.mapPost()
     );
   }
 
-  put(post_id: number, params: {
+  edit(slug: string, params: {
     title: string,
     content: string,
     posted_at: string,
@@ -49,12 +47,21 @@ export class PostService {
       base64: string,
     }
   }) {
-    return this.httpClient.post(`post/${post_id}`, params).pipe(
-      map(response => Post.parseArray(response['posts']))
+    return this.httpClient.put(`post/${slug}`, params).pipe(
+      this.mapPost()
     );
   }
 
   delete(post_id: number) {
     return this.httpClient.delete(`post/${post_id}`);
+  }
+
+  private mapPostPaginated() {
+    return map(response => new Pagination().parse(response['paginated_posts'])
+      .parseData(Post) as Pagination<Post>);
+  }
+
+  private mapPost() {
+    return map(response => new Post().parse(response['post']));
   }
 }

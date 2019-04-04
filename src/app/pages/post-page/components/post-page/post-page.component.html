@@ -1,14 +1,26 @@
-<div class="top-image" [style.backgroundImage]="'url(' + post.image_url +')'">
 
-</div>
-<div class="post-body">
-  <h2>
-    {{post.title}}
-  </h2>
+<ng-container *ngIf="post">
+  <img class="top-image" [srcset]="post.image_srcset"/>
 
-  <div class="date">
-    {{post.created_at | date:'medium'}}
+  <div class="post-body">
+    <h2>
+      {{post.title}}
+
+      <a mat-icon-button [routerLink]="post.editUrl"
+         *ngxPermissionsOnly="'update-post'">
+        <mat-icon>edit</mat-icon>
+      </a>
+    </h2>
+
+    <div class="date">
+      {{post.created_at | date:'medium'}}
+    </div>
+
+    <div [innerHTML]="post.content" class="content"></div>
   </div>
 
-  <div [innerHTML]="post.content" class="content"></div>
-</div>
+  <div class="post-footer">
+    {{'post.author' | translate}}
+    {{post.author.name}}
+  </div>
+</ng-container>

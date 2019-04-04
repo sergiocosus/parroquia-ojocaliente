@@ -14,14 +14,14 @@ import { User } from '@app/api/models/user.model';
   providedIn: 'root'
 })
 export class AuthService {
-
+  logoutRoute = '/';
+  loginRoute = '/';
 
   constructor(@Inject(BLOG_API_CONFIG) private config: BlogApiConfig,
               @Inject(PLATFORM_ID) private platformId: Object,
               private http: HttpClient,
               private router: Router,
               private userService: UserService,
-              // private laravelEcho: LaravelEchoService,
               private sessionService: SessionService) {
     this.updateLoggedUserObservable().subscribe();
   }
@@ -73,7 +73,7 @@ export class AuthService {
       if (data.logout) {
         this.sessionService.setLoggedUser(null);
 
-        this.router.navigateByUrl('/login');
+        this.router.navigateByUrl(this.logoutRoute);
       } else {
         if (isPlatformServer(this.platformId)) {
           return;
@@ -81,11 +81,10 @@ export class AuthService {
 
         this.userService.getMe().subscribe(
           sessionData => {
+            console.log(sessionData);
             const user = sessionData.user;
-            this.initLaravelEcho(user);
             this.sessionService.setLoggedUser(user);
             this.sessionService.setImpersonatorUser(sessionData.impersonator_user);
-
 
             obs.next(user);
             obs.complete();
@@ -101,15 +100,6 @@ export class AuthService {
     });
   }
 
-
-  private initLaravelEcho(user) {
-    if (user) {
-      // this.laravelEcho.init(this.sessionService.getAccessToken(), user);
-    } else {
-      // this.laravelEcho.disconect();
-    }
-  }
-
   passwordReset(data: {
     token: string,
     password: string,
@@ -119,16 +109,13 @@ export class AuthService {
     return this.http.post('auth/password/reset', data);
   }
 
-
   redirectRouteAfterLogin() {
-    console.log(this.sessionService.requestedRouteWithoutAuth);
     if (this.sessionService.requestedRouteWithoutAuth) {
       this.router.navigateByUrl(this.sessionService.requestedRouteWithoutAuth);
       this.sessionService.requestedRouteWithoutAuth = null;
     } else {
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl(this.loginRoute);
     }
-
   }
 
   requestPasswordReset(email) {

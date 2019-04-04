@@ -13,6 +13,7 @@ import localeMX from '@angular/common/locales/es-MX';
 import { environment } from '../environments/environment';
 import { ApiModule } from '@app/api/api.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 moment.locale('es');
 registerLocaleData(localeMX, 'es-MX');
@@ -29,6 +30,7 @@ registerLocaleData(localeMX, 'es-MX');
     CoreModule,
     SharedModule,
     TranslateModule.forRoot(),
+    NgxPermissionsModule.forRoot(),
     ApiModule.forRoot({
       apiUrl: environment.api.url,
       apiClientID: environment.api.clientID,

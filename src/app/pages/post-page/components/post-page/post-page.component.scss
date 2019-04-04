@@ -1,6 +1,6 @@
 @import "~src/variables";
 
-:host{
+:host {
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -8,8 +8,7 @@
 
 .top-image {
   height: 15em;
-  background-position: center;
-  background-repeat: no-repeat;
+  object-fit: cover;
 
   @include mat-elevation(10, gray, 1);
 
@@ -18,7 +17,7 @@
 .post-body {
   display: flex;
   padding: 1em;
-  width: 768px;
+  width: $smWidth;
   align-self: center;
   flex-direction: column;
   box-sizing: border-box;
@@ -35,7 +34,7 @@
   }
 
   .content {
-    ::ng-deep{
+    ::ng-deep {
       img {
         max-width: 100%;
       }
@@ -43,3 +42,10 @@
   }
 }
 
+.post-footer {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  width: $smWidth;
+  max-width: 100%;
+}

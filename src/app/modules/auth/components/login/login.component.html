@@ -1,5 +1,4 @@
 <form [formGroup]="form" (ngSubmit)="submit()" class="form-style">
-  <img src="assets/images/logo/logo-avatar.png">
   <h2>{{'auth.welcomeAgain' | translate}}</h2>
   <p>
     {{'auth.introduceCredentials' | translate}}
@@ -9,7 +8,7 @@
       <mat-icon>email</mat-icon>
     </span>
     <input matInput formControlName="email" required name="email"
-           placeholder="{{'user.email' | translate}}" cdk-focus-start/>
+           placeholder="{{'user.email' | translate}}" cdkFocusRegionstart/>
     <mat-error *ngIf="form.get('email').hasError('email')">
       {{'forms.emailInvalidFormat' | translate}}
     </mat-error>

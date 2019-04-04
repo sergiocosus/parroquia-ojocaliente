@@ -3,16 +3,23 @@
     <mat-card-title>{{post.title}}</mat-card-title>
     <mat-card-subtitle>{{post.created_at | date}}</mat-card-subtitle>
   </mat-card-header>
-  <img matCardImage [src]="post.image_url">
+  <img matCardImage [srcset]="post.image_srcset">
   <!--
   <mat-card-content>
     Text content
   </mat-card-content>
   -->
   <mat-card-actions align="start">
+    <button mat-icon-button
+            *appIfLogged="true"
+            color="accent"
+            [routerLink]="post.editUrl">
+      <mat-icon>edit</mat-icon>
+    </button>
+
     <button mat-raised-button color="accent"
             [routerLink]="post.viewUrl">
-      Ver
+      {{'common.see' | translate}}
     </button>
   </mat-card-actions>
 </mat-card>

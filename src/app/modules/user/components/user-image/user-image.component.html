@@ -1,1 +1,2 @@
-<img class="avatar" [src]="user.photo_url" alt="">
+<img *ngIf="user.photo_url" class="avatar" [src]="user.photo_url" alt="">
+<mat-icon class="avatar"  *ngIf="!user.photo_url">account_circle</mat-icon>

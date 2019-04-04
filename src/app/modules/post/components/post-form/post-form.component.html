@@ -1,4 +1,49 @@
-<p>
-  post-form works!
-</p>
-<ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+<h2>
+  {{post ? ('post.edit' | translate) : ('post.new' | translate) }}
+</h2>
+
+<form [formGroup]="form" class="form-style" (ngSubmit)="submit()">
+  <mat-form-field>
+    <input matInput [placeholder]="'post.title' | translate"
+           formControlName="title"/>
+  </mat-form-field>
+
+  <app-categories-search-chip-list
+    [control]="categoriesForm">
+  </app-categories-search-chip-list>
+
+  <div class="file" (click)="file.click()">
+    <div class="input"
+         [class.error]="form.get('image_base64').invalid && form.get('image_base64').touched">
+      <button mat-raised-button type="button">
+        <mat-icon>
+          add_photo_alternate
+        </mat-icon>
+        {{'common.selectPicture' | translate}}
+      </button>
+      <span class="file-name">
+        {{fileName}}
+      </span>
+      <input type="file" #file
+             (change)="changed($event)"/>
+    </div>
+  </div>
+
+  <img class="picture" *ngIf="!imageChangedEvent && post?.image_srcset"
+       [srcset]="post.image_srcset"/>
+  <image-cropper
+    *ngIf="imageChangedEvent"
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="false"
+    (imageCropped)="imageCropped($event)"
+    (loadImageFailed)="loadImageFailed()"
+  ></image-cropper>
+
+  <ckeditor [editor]="Editor"
+            [config]="editorConfig"
+            formControlName="content"></ckeditor>
+
+  <button mat-raised-button color="primary">
+    {{'forms.submit' | translate}}
+  </button>
+</form>

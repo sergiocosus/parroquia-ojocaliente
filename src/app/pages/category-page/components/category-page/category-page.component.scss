@@ -1,0 +1,13 @@
+:host {
+  padding: .5em;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+
+  app-post-thumb {
+    flex: 0 1 15em;
+    margin: .5em;
+  }
+}

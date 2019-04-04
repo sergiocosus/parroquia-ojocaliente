@@ -1,0 +1,73 @@
+{
+  "actions": {
+    "accept": "Aceptar",
+    "cancel": "Cancelar"
+  },
+  "auth": {
+    "acceptTerms": "He leído y acepto los",
+    "forgotPassword": "Olvidé mi Contraseña",
+    "introduceCredentials": "Introduce tus credenciales para continuar.",
+    "login": "Iniciar sesión",
+    "passwordMismatch": "Las contraseñas no coinciden",
+    "registerMe": "Registrarme",
+    "termsAndConditions": "términos y condiciones",
+    "welcome": "Bienvenido a Traky",
+    "welcomeAgain": "Bienvenido de nuevo"
+  },
+  "category": {
+    "categories": "Categorías",
+    "createCategory": "Crear categoría",
+    "title": "Título"
+  },
+  "common": {
+    "see": "Ver",
+    "selectPicture": "Seleccionar imágen",
+    "submit": "Enviar"
+  },
+  "form": {
+    "submit": "Enviar",
+    "success": "¡Éxito!"
+  },
+  "forms": {
+    "emailInvalidFormat": "E-mail inválido",
+    "error": "Error",
+    "passwordFormat": "Requiere de al menos 8 carácteres, 1 letra y un número",
+    "passwordMismatch": "Las contraseñas no coinciden",
+    "submit": "Enviar"
+  },
+  "invitation": {
+    "invitationFound": "¡Encontramos tu invitación para el equipo {{team}}!",
+    "invitationNotFound": "Whoops! Este código de invitación es inválido."
+  },
+  "nav": {
+    "administrator": "Administrador",
+    "articles": "Artículos",
+    "categories": "Categorias",
+    "contact": "Contacto",
+    "externalLinks": "Enlaces",
+    "main": "Principal"
+  },
+  "post": {
+    "edit": "Editar post",
+    "new": "Nuevo post",
+    "title": "Título"
+  },
+  "spark": {
+    "kiosk": {
+      "users": {
+        "stopImpersonate": "Detener personificación"
+      }
+    }
+  },
+  "team": {
+    "configuration": "Configuración"
+  },
+  "user": {
+    "company": "Empresa",
+    "email": "E-mail",
+    "name": "Nombre",
+    "password": "Contraseña",
+    "passwordConfirmation": "Confirmación de la contraseña",
+    "passwordReset": "Restablecer contraseña"
+  }
+}

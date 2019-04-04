@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Notify {
 
-  constructor(private snackBar: MatSnackBar
+  constructor(private snackBar: MatSnackBar,
+              private translateService: TranslateService
   ) {
   }
 
@@ -23,9 +25,12 @@ export class Notify {
       }
       this.show(messages.join(' | '));
     } else {
-      this.show(error.message);
+      this.showTranslated(error.message);
     }
     console.error(error);
   }
 
+  showTranslated(key: string | string[]) {
+    this.show(this.translateService.instant(key));
+  }
 }
