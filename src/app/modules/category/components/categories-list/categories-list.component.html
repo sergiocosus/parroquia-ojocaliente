@@ -13,9 +13,21 @@
   </button>
 </form>
 
-<h3>
-  {{'category.categories' | translate}}
-</h3>
+<header>
+  <h3>
+    {{'category.categories' | translate}}
+  </h3>
+
+  <div class="spacer"></div>
+
+  <form [formGroup]="filterForm">
+    <mat-checkbox formControlName="with_trashed">
+      <mat-icon>delete</mat-icon>
+      {{'common.withTrashed' | translate}}
+    </mat-checkbox>
+  </form>
+</header>
+
 <mat-list dense>
   <mat-list-item *ngFor="let category of categories">
 
@@ -49,10 +61,21 @@
       </ng-template>
     </ng-container>
 
-    <button mat-icon-button color="warn"
-            *ngxPermissionsOnly="'delete-category'"
-            (click)="deleteCategory(category)">
-      <mat-icon>delete</mat-icon>
-    </button>
+    <ng-container *ngIf="!category.deleted_at; else deleted">
+      <button mat-icon-button color="warn"
+              *ngxPermissionsOnly="'delete-category'"
+              (click)="deleteCategory(category)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </ng-container>
+
+    <ng-template #deleted>
+      <button mat-icon-button color="accent"
+              *ngxPermissionsOnly="'delete-category'"
+              (click)="restoreCategory(category)">
+        <mat-icon>restore</mat-icon>
+      </button>
+    </ng-template>
+
   </mat-list-item>
 </mat-list>

@@ -12,3 +12,16 @@
 h3, form, mat-list {
   margin: .5em;
 }
+
+
+header {
+  display: flex;
+}
+
+mat-checkbox {
+  ::ng-deep {
+    .mat-checkbox-label {
+      display: flex;
+    }
+  }
+}

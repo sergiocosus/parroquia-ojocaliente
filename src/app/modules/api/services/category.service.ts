@@ -54,6 +54,11 @@ export class CategoryService {
     return this.httpClient.delete(`category/${categorySlug}`);
   }
 
+  restore(categorySlug: string) {
+    return this.httpClient.patch(`category/${categorySlug}`, {})
+      .pipe(this.mapCategory());
+  }
+
   private mapCategoriesPaginated() {
     return map(response => new Pagination().parse(response['paginated_categories'])
       .parseData(Category) as Pagination<Category>);

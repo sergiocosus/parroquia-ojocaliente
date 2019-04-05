@@ -20,12 +20,14 @@
     "title": "Título"
   },
   "common": {
+    "confirmMessage": "¿Desea eliminar el elemento?",
+    "noResults": "No hay resultados",
     "see": "Ver",
     "selectPicture": "Seleccionar imágen",
-    "submit": "Enviar"
+    "submit": "Enviar",
+    "withTrashed": "Eliminados"
   },
   "form": {
-    "submit": "Enviar",
     "success": "¡Éxito!"
   },
   "forms": {
@@ -45,9 +47,11 @@
     "categories": "Categorias",
     "contact": "Contacto",
     "externalLinks": "Enlaces",
-    "main": "Principal"
+    "main": "Principal",
+    "newArticle": "Nuevo Articulo"
   },
   "post": {
+    "author": "Autor",
     "edit": "Editar post",
     "new": "Nuevo post",
     "title": "Título"

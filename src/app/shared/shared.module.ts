@@ -60,6 +60,9 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     LoadingButtonComponent,
     LoadingFormButtonComponent,
     FormButtonDirective,
+  ],
+  entryComponents: [
+    ConfirmDialogComponent,
   ]
 })
 export class SharedModule { }
