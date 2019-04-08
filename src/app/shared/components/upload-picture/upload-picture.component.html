@@ -1,0 +1,44 @@
+<!--
+<div class="input">
+
+ <button mat-raised-button type="button">
+   <mat-icon>
+     add_photo_alternate
+   </mat-icon>
+   {{'common.selectPicture' | translate}}
+ </button>
+ <span class="file-name">
+   {{fileName}}
+ </span>
+
+</div>
+-->
+
+<div class="picture-container">
+  <input type="file" #file (change)="changed($event)"/>
+
+  <ng-container *ngIf="!imageChangedEvent">
+    <img class="picture" *ngIf="image_srcset"
+         [srcset]="image_srcset"
+         [matTooltip]="'common.selectPicture' | translate"/>
+    <div class="picture-placeholder"
+         *ngIf="!image_srcset"
+         [matTooltip]="'common.selectPicture' | translate">
+      <mat-icon>
+        add_photo_alternate
+      </mat-icon>
+      {{'common.selectPicture' | translate}}
+    </div>
+  </ng-container>
+
+  <image-cropper
+    *ngIf="imageChangedEvent"
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="false"
+    (imageCropped)="imageCropped($event)"
+    (loadImageFailed)="loadImageFailed()"
+    (click)="$event.stopPropagation()"
+  ></image-cropper>
+</div>
+
+

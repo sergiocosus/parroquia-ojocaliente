@@ -1,0 +1,11 @@
+<a mat-list-item routerLink="/" (click)="selected.emit()"
+   routerLinkActive="active"
+   [routerLinkActiveOptions]="{exact: true}">
+  <mat-icon>home</mat-icon>
+  {{'nav.main' | translate}}
+</a>
+<a mat-list-item [routerLink]="postRoute" (click)="selected.emit()"
+   routerLinkActive="active">
+  <mat-icon>book</mat-icon>
+  {{'nav.articles' | translate}}
+</a>

@@ -1,0 +1,19 @@
+<form class="form-style" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="column">
+    <mat-form-field>
+      <input matInput formControlName="name"
+             [placeholder]="'user.name' | translate" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="last_name"
+             [placeholder]="'user.last_name' | translate" />
+    </mat-form-field>
+    <button mat-raised-button color="primary">
+      {{'form.submit' | translate}}
+    </button>
+  </div>
+  <div class="column">
+    <app-upload-picture [control]="form.get('profile')"
+                        [image_srcset]="user?.profile_srcset"></app-upload-picture>
+  </div>
+</form>

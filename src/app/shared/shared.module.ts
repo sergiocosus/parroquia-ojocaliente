@@ -7,7 +7,7 @@ import {
   MatInputModule,
   MatListModule, MatMenuModule, MatProgressSpinnerModule,
   MatSidenavModule, MatSnackBarModule,
-  MatToolbarModule
+  MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,13 +18,16 @@ import { LoadingFormButtonComponent } from '@app/shared/components/loading-form-
 import { FormButtonDirective } from '@app/shared/directives/form-button.directive';
 import { ApiModule } from '@app/api/api.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { UploadPictureComponent } from './components/upload-picture/upload-picture.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
     ConfirmDialogComponent,
     LoadingButtonComponent,
     LoadingFormButtonComponent,
-    FormButtonDirective
+    FormButtonDirective,
+    UploadPictureComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +35,9 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatIconModule,
+    ImageCropperModule,
+    MatTooltipModule,
   ],
   exports: [
     CommonModule,
@@ -60,6 +66,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     LoadingButtonComponent,
     LoadingFormButtonComponent,
     FormButtonDirective,
+    UploadPictureComponent,
   ],
   entryComponents: [
     ConfirmDialogComponent,

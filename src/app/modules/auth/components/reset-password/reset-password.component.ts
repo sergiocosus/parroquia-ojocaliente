@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { AuthService } from '@app/api/services/auth.service';
 import { Notify } from '@app/shared/service/notify.service';
+import { extract } from '@app/shared/service/i18n.service';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
@@ -50,7 +51,7 @@ export class ResetPasswordComponent implements OnInit {
 
   submit() {
     if (this.form.invalid) {
-      //this.notify.showTranslated(_('forms.error'));
+      this.notify.showTranslated(extract('forms.error'));
       return;
     }
 

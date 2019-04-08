@@ -1,9 +1,13 @@
 @import '~@angular/material/theming';
 @import 'mixins';
 
-$primary: #2196f3;
-$secondary: #ffba5a;
+$primary: #0d47a1;
+$primary-light: lighten($primary, 10);
+$primary-dark: darken($primary, 10);
 
+$secondary: #ffba5a;
+$secondary-light: lighten($secondary, 30);
+$secondary-dark: darken($secondary, 10);
 
 $red:#d93826;
 $yellow:#ffd000;
@@ -16,14 +20,6 @@ $blue-silver:#F0F0F7;
 $silver:#e4e4e4;
 $gray:#737373;
 
-
-$primary: #94c851;
-$primary-light: lighten($primary, 10);
-$primary-dark: darken($primary, 10);
-
-$secondary: #203860;
-$secondary-light: lighten($secondary, 30);
-$secondary-dark: darken($secondary, 10);
 $secondary-lighter: #EFF5F8;
 
 $success:       $green !default;

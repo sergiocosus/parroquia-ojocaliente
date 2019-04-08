@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material';
 import { LoginDialogComponent } from '@app/auth/components/login-dialog/login-dialog.component';
 import { Observable } from 'rxjs';
 import { ImpersonateUserService } from '@app/api/services/impersonate-user.service';
+import { RouteConstants } from '@app/api/classes/route-constants';
 
 @Component({
   selector: 'app-current-user-menu',
@@ -15,8 +16,13 @@ import { ImpersonateUserService } from '@app/api/services/impersonate-user.servi
 })
 @AutoUnsubscribe()
 export class CurrentUserMenuComponent implements OnInit {
+  readonly adminRoute = `/${RouteConstants.admin}/${RouteConstants.category}`;
+  readonly newPostRoute = `/${RouteConstants.admin}/${RouteConstants.post}/${RouteConstants.new}`;
+  readonly userRoute = `/${RouteConstants.admin}/${RouteConstants.user}`;
+
   sub = new SubscriptionManager();
   user: User;
+
   $impersonatorUser: Observable<User>;
 
   constructor(private sessionService: SessionService,

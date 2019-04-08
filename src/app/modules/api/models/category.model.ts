@@ -1,5 +1,6 @@
 import { Model } from './model';
 import { Post } from '@app/api/models/post.model';
+import { RouteConstants } from '@app/api/classes/route-constants';
 
 export class Category extends Model {
   id: number;
@@ -24,6 +25,6 @@ export class Category extends Model {
   }
 
   get viewUrl() {
-    return '/category/' + this.slug;
+    return `/${RouteConstants.category}/${this.slug}`;
   }
 }

@@ -9,9 +9,11 @@ import { MatListModule } from '@angular/material';
 import { SharedModule } from '@app/shared/shared.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { CategoryModule } from '@app/category/category.module';
+import { UserProfilePageComponent } from './components/user-profile-page/user-profile-page.component';
+import { UserModule } from '@app/user/user.module';
 
 @NgModule({
-  declarations: [NewPostPageComponent, CategoriesPageComponent],
+  declarations: [NewPostPageComponent, CategoriesPageComponent, UserProfilePageComponent],
   imports: [
     CommonModule,
     AdminPagesRoutingModule,
@@ -20,6 +22,7 @@ import { CategoryModule } from '@app/category/category.module';
     SharedModule,
     NgxPermissionsModule,
     CategoryModule,
+    UserModule,
   ]
 })
 export class AdminPagesModule { }

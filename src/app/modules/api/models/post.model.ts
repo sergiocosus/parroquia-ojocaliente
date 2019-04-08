@@ -1,8 +1,9 @@
 import { Model } from './model';
 import { Moment } from 'moment';
 import { PostComment } from './post-comment.model';
-import { Category } from '@app/api/models/category.model';
-import { User } from '@app/api/models/user.model';
+import { Category } from '../models/category.model';
+import { User } from '../models/user.model';
+import { RouteConstants } from '../classes/route-constants';
 
 export class Post extends Model {
   id: number;
@@ -32,10 +33,10 @@ export class Post extends Model {
   }
 
   get viewUrl() {
-    return '/post/' + this.slug;
+    return `/${RouteConstants.post}/${this.slug}`;
   }
 
   get editUrl() {
-    return '/admin/post/' + this.slug;
+    return `/admin/${RouteConstants.post}/${this.slug}`;
   }
 }

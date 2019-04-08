@@ -1,35 +1,52 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import '@ckeditor/ckeditor5-build-classic/build/translations/es';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '@app/api/services/post.service';
 import { extract } from '@app/shared/service/i18n.service';
 import { Notify } from '@app/shared/service/notify.service';
 import { Router } from '@angular/router';
 import { Post } from '@app/api/models/post.model';
-import { ImageCroppedEvent } from 'ngx-image-cropper';
-import { CategoryService } from '@app/api/services/category.service';
+import { MatDialog } from '@angular/material';
+import { SelectMediaDialogComponent } from '@app/media/select-media-dialog/select-media-dialog.component';
+import { filter } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-post-form',
   templateUrl: './post-form.component.html',
   styleUrls: ['./post-form.component.scss']
 })
-export class PostFormComponent implements OnInit {
+export class PostFormComponent implements OnInit, OnChanges {
+  @ViewChild('ck') ckeditor;
   @Input() post: Post;
   public Editor = ClassicEditor;
-  editorConfig = null;
+  editorConfig = {
+    language: 'es',
+    toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList',
+      'numberedList', 'blockQuote', '|',
+      'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight',
+      '|', 'mediaEmbed'
+    ],
+    image: {
+      toolbar: ['imageTextAlternative'],
+      styles: [
+        'full',
+        'alignLeft',
+        'alignRight',
+        'side',
+      ]
+    }
+  };
 
   form: FormGroup;
-
-  src: string;
-  fileName: string;
-  imageChangedEvent = null;
 
   constructor(private fb: FormBuilder,
               private postService: PostService,
               private notify: Notify,
               private router: Router,
-              private categoryService: CategoryService) {
+              private dialog: MatDialog) {
     this.form = this.fb.group({
       title: ['', Validators.required],
       content: ['', Validators.required],
@@ -37,18 +54,35 @@ export class PostFormComponent implements OnInit {
       thumbnail: [],
       categories: [[]],
     });
-
-
   }
 
   ngOnInit() {
+  }
+
+  private initForm() {
     if (this.post) {
       this.form.reset({
         title: this.post.title,
         content: this.post.content,
         categories: this.post.categories,
       });
+    } else {
+      this.form.reset({
+        categories: []
+      });
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['post']) {
+      this.initForm();
+    }
+  }
+
+  addImage(src: string) {
+    this.ckeditor.editorInstance.execute('imageInsert',
+      {source: src}
+    );
   }
 
   get categoriesForm() {
@@ -79,23 +113,13 @@ export class PostFormComponent implements OnInit {
     }
   }
 
-  imageCropped(event: ImageCroppedEvent) {
-    this.src = event.base64;
 
-    this.form.get('thumbnail').setValue({
-      base64: this.src.split(',')[1],
-      name: this.fileName
+  addImageToPost() {
+    this.dialog.open(SelectMediaDialogComponent).afterClosed()
+      .pipe(filter(Boolean)).subscribe(media => {
+      console.log(media);
+      this.addImage(media.url);
     });
   }
 
-  loadImageFailed() {
-    this.notify.show('Tipo de archivo inválido');
-    this.src = null;
-    this.form.get('image_base64').setValue(null);
-  }
-
-  changed($event) {
-    this.imageChangedEvent = $event;
-    this.fileName = $event.target.files[0].name;
-  }
 }

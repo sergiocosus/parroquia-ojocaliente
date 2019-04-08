@@ -6,6 +6,7 @@ import { ResetPasswordRequestDialogComponent } from '../reset-password-request-d
 import { MatDialog } from '@angular/material';
 import { User } from '@app/api/models/user.model';
 import { Notify } from '@app/shared/service/notify.service';
+import { RouteConstants } from '@app/api/classes/route-constants';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +14,10 @@ import { Notify } from '@app/shared/service/notify.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  readonly registerRoute = `/${RouteConstants.register}`
   @Output() logged = new EventEmitter();
 
   form: FormGroup;
-
   loading = false;
 
   constructor(private dialog: MatDialog,

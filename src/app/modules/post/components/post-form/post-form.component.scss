@@ -1,6 +1,9 @@
 @import "~src/variables";
 
 :host {
+  width: 100%;
+  max-width: $xlWidth;
+
   h2 {
     margin-bottom: .25em;
     padding: 0 1em;
@@ -8,32 +11,23 @@
 }
 
 form {
-  max-width: $smWidth;
-}
-
-image-cropper, .picture {
-  max-height: 20em;
-
-  object-fit: cover;
-}
-
-
-.file {
-  flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-top: .5em;
 
-  .input {
-    flex: 0 0 2.9em;
-    margin-bottom: 1.7em;
+  .column {
+    flex: 1 1 20em;
+    padding: .5em;
 
-    &.error {
-      border-bottom: 1px solid $warning;
+    &.text {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 30em;
+
+      button {
+        margin-top: .25em;
+      }
     }
-  }
-
-  input[type="file"] {
-    display: none;
   }
 }

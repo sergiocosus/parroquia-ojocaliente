@@ -28,6 +28,7 @@
     "withTrashed": "Eliminados"
   },
   "form": {
+    "submit": "Enviar",
     "success": "¡Éxito!"
   },
   "forms": {
@@ -41,16 +42,21 @@
     "invitationFound": "¡Encontramos tu invitación para el equipo {{team}}!",
     "invitationNotFound": "Whoops! Este código de invitación es inválido."
   },
+  "media": {
+    "media": "Medios",
+    "uploadPicture": "Subir foto"
+  },
   "nav": {
-    "administrator": "Administrador",
     "articles": "Artículos",
     "categories": "Categorias",
     "contact": "Contacto",
     "externalLinks": "Enlaces",
     "main": "Principal",
-    "newArticle": "Nuevo Articulo"
+    "newArticle": "Nuevo Articulo",
+    "profile": "Perfil"
   },
   "post": {
+    "addImage": "Agregar imagen",
     "author": "Autor",
     "edit": "Editar post",
     "new": "Nuevo post",
@@ -63,15 +69,14 @@
       }
     }
   },
-  "team": {
-    "configuration": "Configuración"
-  },
   "user": {
     "company": "Empresa",
     "email": "E-mail",
+    "last_name": "Apellido",
     "name": "Nombre",
     "password": "Contraseña",
     "passwordConfirmation": "Confirmación de la contraseña",
-    "passwordReset": "Restablecer contraseña"
+    "passwordReset": "Restablecer contraseña",
+    "profile": "Perfil"
   }
 }

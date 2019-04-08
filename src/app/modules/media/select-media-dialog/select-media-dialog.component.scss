@@ -1,0 +1,13 @@
+@import "~src/variables";
+
+mat-dialog-content {
+  max-width: $smWidth;
+  overflow-x: hidden;
+}
+
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  padding: .5em;
+}

@@ -4,10 +4,12 @@ import { SharedModule } from '../shared/shared.module';
 import { AuthElementsModule } from '@app/auth-elements/auth-elements.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { MatExpansionModule } from '@angular/material';
+import { NavPagesComponent } from './components/nav-pages/nav-pages.component';
 
 @NgModule({
   declarations: [
     NavigationComponent,
+    NavPagesComponent,
   ],
   imports: [
     SharedModule,

@@ -22,5 +22,18 @@ export class UserService {
       }));
   }
 
+  putMe(data: {
+    name: string,
+    last_name: string,
+    profile: {
+      name: string,
+      base64: string,
+    },
+  }) {
+    return this.http.put(`user/me`, data).pipe(this.mapUser());
+  }
 
+  private mapUser() {
+    return map(response => new User().parse(response['user']));
+  }
 }

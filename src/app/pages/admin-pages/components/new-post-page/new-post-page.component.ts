@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PostService } from '@app/api/services/post.service';
 import { map } from 'rxjs/operators';
 import { Post } from '@app/api/models/post.model';
+import { RouteConstants } from '@app/api/classes/route-constants';
 
 @Component({
   selector: 'app-new-post-page',
@@ -24,9 +25,11 @@ export class NewPostPageComponent implements OnInit {
   checkRoutes() {
     this.route.params.pipe(map(value => value['postSlug']))
       .subscribe(postSlug => {
-        this.createMode = postSlug === 'new';
+        this.createMode = postSlug === RouteConstants.new;
 
-        if (!this.createMode) {
+        if (this.createMode) {
+          this.post = null;
+        } else {
           this.postService.getOne(postSlug).subscribe(post => {
             this.post = post;
           });

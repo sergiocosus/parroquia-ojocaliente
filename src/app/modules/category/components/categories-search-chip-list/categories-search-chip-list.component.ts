@@ -25,18 +25,14 @@ export class CategoriesSearchChipListComponent implements OnInit {
     );
   }
 
-  get categoriesForm() {
-    return this.control;
-  }
-
   removeCategory(category: Category) {
-    const categories = this.categoriesForm.value as Category[];
+    const categories = this.control.value as Category[];
     categories.splice(categories.indexOf(category), 1);
   }
 
   addCategory(event: MatAutocompleteSelectedEvent) {
     const category: Category = event.option.value;
-    this.categoriesForm.value.push(category);
+    this.control.value.push(category);
     this.categorySearchControl.setValue('');
   }
 

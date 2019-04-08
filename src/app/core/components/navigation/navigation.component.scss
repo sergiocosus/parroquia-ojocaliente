@@ -6,8 +6,8 @@
 
 .sidenav {
   width: 200px;
-  background-color: darken($secondary, 20%);
   color: white;
+  background: $primary;
 
   mat-toolbar {
     display: flex;
@@ -19,14 +19,6 @@
     width: 3em;
   }
 
-  a {
-    color: white;
-    font-weight: bolder;
-  }
-
-  mat-icon {
-    margin-right: .25em;
-  }
   img {
     width: 1em;
   }
@@ -64,6 +56,32 @@ mat-expansion-panel {
   ::ng-deep {
     .mat-expansion-panel-body {
       padding: 0;
+    }
+  }
+}
+
+
+app-nav-pages ::ng-deep a {
+  mat-icon {
+    margin-right: .25em;
+  }
+}
+
+.top-bar {
+  app-nav-pages {
+    display: flex;
+
+    ::ng-deep a {
+      margin-right: 1em;
+
+      .mat-list-item-content {
+        display: flex;
+        align-items: center;
+
+        mat-icon {
+          margin-right: .1em;
+        }
+      }
     }
   }
 }

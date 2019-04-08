@@ -1,0 +1,58 @@
+<h1 matDialogTitle>{{'media.media' | translate}}</h1>
+
+<mat-dialog-content>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      {{'media.uploadPicture' | translate}}
+    </mat-expansion-panel-header>
+    <form [formGroup]="uploadForm" (ngSubmit)="uploadMedia()">
+      <div class="file" (click)="file.click()">
+        <div class="input"
+             [class.error]="uploadForm.get('base64').invalid && uploadForm.get('base64').touched">
+          <button mat-raised-button type="button">
+            <mat-icon>
+              add_photo_alternate
+            </mat-icon>
+            {{'common.selectPicture' | translate}}
+          </button>
+          <span class="file-name">
+        {{fileName}}
+      </span>
+          <input type="file" #file
+                 (change)="changed($event)"/>
+        </div>
+      </div>
+
+      <image-cropper
+        *ngIf="imageChangedEvent"
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="false"
+        (imageCropped)="imageCropped($event)"
+        (loadImageFailed)="loadImageFailed()"
+      ></image-cropper>
+
+      <button mat-raised-button>
+        {{'common.submit' | translate}}
+      </button>
+    </form>
+  </mat-expansion-panel>
+
+  <form [formGroup]="filterForm">
+    <mat-form-field>
+      <input matInput formControlName="search"/>
+    </mat-form-field>
+  </form>
+
+  <div class="images">
+    <app-media-thumb *ngFor="let medi of media" [media]="medi"
+                     (click)="selectMedia(medi)">
+    </app-media-thumb>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button matDialogClose>Close dialog</button>
+  <button mat-button>Action</button>
+</mat-dialog-actions>

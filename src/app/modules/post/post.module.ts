@@ -7,6 +7,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { MatAutocompleteModule, MatChipsModule } from '@angular/material';
 import { CategoryModule } from '@app/category/category.module';
+import { MediaModule } from '@app/media/media.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CategoryModule } from '@app/category/category.module';
     MatChipsModule,
     MatAutocompleteModule,
     CategoryModule,
+    MediaModule,
   ],
   exports: [
     PostThumbComponent,

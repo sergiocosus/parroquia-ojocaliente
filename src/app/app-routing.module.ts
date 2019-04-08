@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NavigationComponent } from './core/components/navigation/navigation.component';
+import { RouteConstants } from '@app/api/classes/route-constants';
 
 const routes: Routes = [
   {
@@ -12,23 +13,23 @@ const routes: Routes = [
         loadChildren: './pages/main-page/main-page.module#MainPageModule'
       },
       {
-        path: 'post',
+        path: RouteConstants.post,
         loadChildren: './pages/post-page/post-page.module#PostPageModule'
       },
       {
-        path: 'category',
+        path: RouteConstants.category,
         loadChildren: './pages/category-page/category-page.module#CategoryPageModule'
       },
       {
-        path: 'links',
+        path: RouteConstants.link,
         loadChildren: './pages/links-page/links-page.module#LinksPageModule'
       },
       {
-        path: 'contact',
+        path: RouteConstants.contact,
         loadChildren: './pages/contact-page/contact-page.module#ContactPageModule'
       },
       {
-        path: 'admin',
+        path: RouteConstants.admin,
         loadChildren: './pages/admin-pages/admin-pages.module#AdminPagesModule'
       },
       {

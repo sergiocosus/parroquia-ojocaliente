@@ -1,0 +1,11 @@
+@import "~src/variables";
+
+a {
+  color: white;
+  text-decoration: none;
+  @include animate();
+  &:hover, &.active {
+    border-bottom: 1px solid white;
+  }
+}
+
