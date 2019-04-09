@@ -56,3 +56,18 @@ form {
     color: $gray;
   }
 }
+
+.facebook {
+  margin-top: .25em;
+  background-color: $fb-color;
+  mat-icon {
+    margin-right: .5em;
+  }
+}
+.google {
+  margin-top: .25em;
+  background-color: $google-plus-color;
+  mat-icon {
+    margin-right: .5em;
+  }
+}

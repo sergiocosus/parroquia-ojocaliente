@@ -4,7 +4,7 @@ import { isPlatformServer } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { mergeMap } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { BLOG_API_CONFIG, BlogApiConfig } from '../types/api-config';
 import { SessionService } from './session.service';
 import { UserService } from '@app/api/services/user.service';
@@ -120,5 +120,33 @@ export class AuthService {
 
   requestPasswordReset(email) {
     return this.http.post('auth/password/email', {email: email});
+  }
+
+
+  /**
+   * Social auth
+   */
+  private socialAuthParams(driver, access_token, redirect_url) {
+    const urlSearchParams = new HttpParams()
+      .append('network', driver)
+      .append('access_token', access_token)
+      .append('grant_type', 'social')
+      .append('client_id', this.config.apiClientID)
+      .append('client_secret', this.config.apiClientSecret)
+      .append('redirect_url', redirect_url);
+    const body = urlSearchParams.toString();
+    return body;
+  }
+
+  loginWithSocialCode(driver, access_token, redirect_url) {
+    const body = this.socialAuthParams(driver, access_token, redirect_url);
+
+    return this.loginOAuth(body);
+  }
+
+  getSocialRedirectUrl(driver, redirect_url?: string) {
+    return this.http.get('auth/social',
+      {params: {driver, redirect_url}}
+    ).pipe(map(data => data['redirect_url']));
   }
 }

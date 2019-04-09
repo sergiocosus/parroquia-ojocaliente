@@ -24,9 +24,25 @@
     </mat-error>
   </mat-form-field>
 
-  <button class="login-button" mat-raised-button color="primary" [disabled]="!form.valid || loading">
+  <button class="login-button" mat-raised-button color="primary"
+          [disabled]="!form.valid || loading">
     <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
     {{'auth.login' | translate}}
+  </button>
+
+
+  <button mat-raised-button color="primary" type="button"
+          class="facebook"
+          (click)="socialLogin('facebook')">
+    <mat-icon class="fab fa-facebook"></mat-icon>
+    <span>Sign in with Facebook</span>
+  </button>
+
+  <button mat-raised-button color="primary" type="button"
+          class="google"
+          (click)="socialLogin('google')">
+    <mat-icon class="fab fa-google"></mat-icon>
+    <span>Sign in with Google</span>
   </button>
 </form>
 

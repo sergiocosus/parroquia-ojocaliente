@@ -7,6 +7,8 @@ import { MatDialog } from '@angular/material';
 import { User } from '@app/api/models/user.model';
 import { Notify } from '@app/shared/service/notify.service';
 import { RouteConstants } from '@app/api/classes/route-constants';
+import { finalize } from 'rxjs/operators';
+import { AuthPopupService } from '@app/social/services/auth-popup.service';
 
 @Component({
   selector: 'app-login',
@@ -19,12 +21,14 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
   loading = false;
+  private loadingSocialLogin: boolean;
 
   constructor(private dialog: MatDialog,
               private authService: AuthService,
               private fb: FormBuilder,
               private router: Router,
-              private notify: Notify) {
+              private notify: Notify,
+              private authPopupService: AuthPopupService) {
     this.createForm();
   }
 
@@ -67,5 +71,23 @@ export class LoginComponent implements OnInit {
     if (error.error === 'invalid_credentials') {
      // this.notify.showTranslated(extract('auth.invalidCredentials'));
     }
+  }
+
+  /**
+   * Make login with facebook
+   */
+  socialLogin(driver) {
+    this.authPopupService.preOpen();
+    this.loadingSocialLogin = true;
+
+    this.authPopupService.loginFromSocialPopup(driver)
+      .pipe(finalize(() => this.loadingSocialLogin = false))
+      .subscribe(
+        (user) => {
+          console.log(user);
+          this.logged.emit(user);
+        },
+        error => this.errorLogin(error)
+      );
   }
 }

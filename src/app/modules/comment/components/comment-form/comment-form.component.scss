@@ -18,6 +18,8 @@ form {
     flex: 0 0 auto;
     font-size: 2em;
     margin: .25em;
+    background-color: $gray;
+    border-radius: 50%;
   }
 
   mat-form-field {

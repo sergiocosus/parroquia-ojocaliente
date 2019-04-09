@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { PostCommentService } from '@app/api/services/post-comment.service';
 import { extract } from '@app/shared/service/i18n.service';
 import { Notify } from '@app/shared/service/notify.service';
@@ -17,6 +17,8 @@ import { User } from '@app/api/models/user.model';
 export class CommentFormComponent implements OnInit {
   @Input() post: Post;
   @Output() created = new EventEmitter();
+  @ViewChild(FormGroupDirective) myForm: FormGroupDirective;
+
 
   form: FormGroup;
   user: User;
@@ -52,6 +54,7 @@ export class CommentFormComponent implements OnInit {
         console.log(comment);
         this.created.emit(comment);
         this.form.reset();
+        this.myForm.resetForm();
         this.notify.showTranslated(extract('comment.success'));
       },
       error => this.notify.error(error)
