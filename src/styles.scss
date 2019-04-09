@@ -28,12 +28,10 @@ $angular-blog-theme: mat-light-theme($angular-blog-primary, $angular-blog-accent
 
 /* You can add global styles to this file, and also import other style files */
 @import "~src/variables";
+@import '~@ngx-share/button/themes/outline/outline-theme';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
-
 
 
 form.form-style {
@@ -48,11 +46,9 @@ form.form-style {
   flex: 1;
 }
 
-
 h1, h2, h3, h4, h5, h6 {
   color: $gray;
 }
-
 
 .box {
   @include mat-elevation(10, gray, 1);

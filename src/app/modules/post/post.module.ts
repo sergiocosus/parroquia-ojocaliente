@@ -9,6 +9,7 @@ import { MatAutocompleteModule, MatChipsModule } from '@angular/material';
 import { CategoryModule } from '@app/category/category.module';
 import { MediaModule } from '@app/media/media.module';
 import { CommentModule } from '@app/comment/comment.module';
+import { ShareButtonsModule } from '@ngx-share/buttons';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CommentModule } from '@app/comment/comment.module';
     CategoryModule,
     MediaModule,
     CommentModule,
+    ShareButtonsModule,
   ],
   exports: [
     PostThumbComponent,
