@@ -1,5 +1,5 @@
 import { Model } from './model';
-import { Moment } from 'moment';
+import { User } from '@app/api/models/user.model';
 
 export class PostComment extends Model {
   id: number;
@@ -11,6 +11,15 @@ export class PostComment extends Model {
   updated_at: string;
   deleted_at: string;
 
+  author: User;
+
+  parse(obj) {
+    super.parse(obj);
+
+    this.author = this.author ? new User().parse(this.author) : null;
+
+    return this;
+  }
 
   static parseArray(objs: any[]): PostComment[] {
     return objs.map(obj => new PostComment().parse(obj));

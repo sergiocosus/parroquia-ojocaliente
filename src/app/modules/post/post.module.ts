@@ -8,6 +8,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { MatAutocompleteModule, MatChipsModule } from '@angular/material';
 import { CategoryModule } from '@app/category/category.module';
 import { MediaModule } from '@app/media/media.module';
+import { CommentModule } from '@app/comment/comment.module';
 
 @NgModule({
   declarations: [
@@ -23,10 +24,12 @@ import { MediaModule } from '@app/media/media.module';
     MatAutocompleteModule,
     CategoryModule,
     MediaModule,
+    CommentModule,
   ],
   exports: [
     PostThumbComponent,
     PostFormComponent,
+    PostDetailComponent,
   ]
 })
 export class PostModule {

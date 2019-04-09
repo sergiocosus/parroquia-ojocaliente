@@ -1,0 +1,9 @@
+<app-user-image [user]="comment.author"></app-user-image>
+<div class="data">
+    <span class="date">
+      {{comment.created_at | amTimeAgo}}
+    </span>
+  <span class="content">
+      {{comment.content}}
+    </span>
+</div>

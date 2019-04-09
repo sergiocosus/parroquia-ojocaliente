@@ -1,0 +1,70 @@
+@import "~src/variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.top-image {
+  height: 15em;
+  object-fit: cover;
+  align-self: stretch;
+  z-index: 1;
+
+  @include mat-elevation(10, gray, 1);
+}
+
+.content.box {
+  width: $smWidth;
+  display: flex;
+  flex-direction: column;
+  padding: .5em;
+
+
+  .post-body {
+    display: flex;
+    padding: 1em;
+    width: $smWidth;
+    align-self: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    max-width: 100%;
+
+    h2 {
+      text-align: center;
+      color: gray;
+    }
+
+    .date {
+      color: gray;
+      text-align: right;
+    }
+
+    .content {
+      ::ng-deep {
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .post-footer {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    width: $smWidth;
+    max-width: 100%;
+    margin-bottom: 2em;
+    text-align: right;
+    color: $gray;
+  }
+
+  .comments {
+    margin-top: 2em;
+  }
+
+}

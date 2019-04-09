@@ -1,0 +1,17 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="content">
+    <app-user-image [user]="user"></app-user-image>
+    <mat-form-field appearance="outline">
+      <textarea matInput formControlName="content"
+                [placeholder]="'comment.placeholder' | translate"></textarea>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary">
+    <mat-icon>send</mat-icon>
+    {{'comment.review' | translate}}
+  </button>
+  <div class="login-locker" (click)="openLogin()" *appIfLogged="false">
+    {{'comment.loginMessage' | translate}}
+  </div>
+</form>

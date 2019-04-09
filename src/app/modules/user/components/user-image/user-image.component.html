@@ -1,2 +1,5 @@
-<img *ngIf="user.profile_srcset" class="avatar" [srcset]="user.profile_srcset" alt="">
-<mat-icon class="avatar"  *ngIf="!user.profile_srcset">account_circle</mat-icon>
+<img *ngIf="user?.profile_srcset"
+     class="avatar"
+     [srcset]="user.profile_srcset" alt="">
+<mat-icon class="avatar"
+          *ngIf="!user?.profile_srcset">account_circle</mat-icon>

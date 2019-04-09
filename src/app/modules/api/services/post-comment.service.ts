@@ -11,10 +11,10 @@ export class PostCommentService {
   constructor(private httpClient: HttpClient) {
   }
 
-  store(comment_id: number, body: {
+  store(post_slug: string, body: {
     content
   }) {
-    return this.httpClient.post(`post/comment/${comment_id}`, body).pipe(
+    return this.httpClient.post(`post/${post_slug}/comment`, body).pipe(
       map(response => new PostComment().parse(response['comment']))
     );
   }

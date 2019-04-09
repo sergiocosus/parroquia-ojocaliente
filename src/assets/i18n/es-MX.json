@@ -19,6 +19,12 @@
     "createCategory": "Crear categoría",
     "title": "Título"
   },
+  "comment": {
+    "loginMessage": "Inicie sesión para comentar",
+    "placeholder": "Aquí va tu opinión",
+    "review": "Opinar",
+    "success": "Comentario exitoso"
+  },
   "common": {
     "confirmMessage": "¿Desea eliminar el elemento?",
     "noResults": "No hay resultados",

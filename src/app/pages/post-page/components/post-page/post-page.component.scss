@@ -3,49 +3,6 @@
 :host {
   display: flex;
   flex-direction: column;
-  max-width: 100%;
+  align-items: stretch;
 }
 
-.top-image {
-  height: 15em;
-  object-fit: cover;
-
-  @include mat-elevation(10, gray, 1);
-
-}
-
-.post-body {
-  display: flex;
-  padding: 1em;
-  width: $smWidth;
-  align-self: center;
-  flex-direction: column;
-  box-sizing: border-box;
-  max-width: 100%;
-
-  h2 {
-    text-align: center;
-    color: gray;
-  }
-
-  .date {
-    color: gray;
-    text-align: right;
-  }
-
-  .content {
-    ::ng-deep {
-      img {
-        max-width: 100%;
-      }
-    }
-  }
-}
-
-.post-footer {
-  display: flex;
-  align-self: center;
-  flex-direction: column;
-  width: $smWidth;
-  max-width: 100%;
-}

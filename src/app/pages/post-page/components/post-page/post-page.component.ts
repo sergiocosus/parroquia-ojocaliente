@@ -18,7 +18,6 @@ export class PostPageComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.postSlug = params.get('postSlug');
       this.postService.getOne(this.postSlug).subscribe(post => {
-        console.log(post);
         this.post = post;
       });
     });

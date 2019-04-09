@@ -1,0 +1,28 @@
+@import "~src/variables";
+
+:host {
+  display: flex;
+  padding: .5em;
+  margin: .5em;
+}
+
+app-user-image {
+  flex: 0 0 auto;
+  font-size: 2em;
+}
+
+.data {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: .5em;
+
+  .date {
+    align-self: flex-end;
+    color: rgba($gray, .8);
+  }
+
+  .content {
+    align-self: stretch;
+  }
+}
