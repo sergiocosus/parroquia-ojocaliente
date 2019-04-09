@@ -10,8 +10,9 @@
     "login": "Iniciar sesión",
     "passwordMismatch": "Las contraseñas no coinciden",
     "registerMe": "Registrarme",
+    "successfulCredentials": "Bienvendido!",
     "termsAndConditions": "términos y condiciones",
-    "welcome": "Bienvenido a Traky",
+    "welcome": "Bienvenido a EstoEsPersonal",
     "welcomeAgain": "Bienvenido de nuevo"
   },
   "category": {
@@ -44,10 +45,6 @@
     "passwordMismatch": "Las contraseñas no coinciden",
     "submit": "Enviar"
   },
-  "invitation": {
-    "invitationFound": "¡Encontramos tu invitación para el equipo {{team}}!",
-    "invitationNotFound": "Whoops! Este código de invitación es inválido."
-  },
   "media": {
     "media": "Medios",
     "uploadPicture": "Subir foto"
@@ -68,6 +65,10 @@
     "new": "Nuevo post",
     "title": "Título"
   },
+  "social": {
+    "signInWithFacebook": "Ingresar con facebook",
+    "signInWithGoogle": "Ingresar con google"
+  },
   "spark": {
     "kiosk": {
       "users": {
@@ -76,9 +77,8 @@
     }
   },
   "user": {
-    "company": "Empresa",
     "email": "E-mail",
-    "last_name": "Apellido",
+    "lastName": "Apellidos",
     "name": "Nombre",
     "password": "Contraseña",
     "passwordConfirmation": "Confirmación de la contraseña",

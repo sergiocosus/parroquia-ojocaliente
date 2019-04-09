@@ -8,6 +8,7 @@ import { AuthService } from '@app/api/services/auth.service';
 import { Notify } from '@app/shared/service/notify.service';
 import { AppValidators } from '@app/shared/validators/app-validators';
 import { User } from '@app/api/models/user.model';
+import { extract } from '@app/shared/service/i18n.service';
 
 
 @Component({
@@ -19,7 +20,6 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
 
   loading = false;
-  invalidInvitation: boolean;
 
   constructor(private dialog: MatDialog,
               private authService: AuthService,
@@ -51,11 +51,10 @@ export class RegisterComponent implements OnInit {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', [Validators.required,  /*Validators.minLength(6), AppValidators.password*/]],
+      last_name: ['', [Validators.required,  /*Validators.minLength(6), AppValidators.password*/]],
       password: ['', [Validators.required,  /*Validators.minLength(6), AppValidators.password*/]],
       password_confirmation: ['', [Validators.required,  /*Validators.minLength(6), AppValidators.password*/]],
-      team: ['', [Validators.required]],
-      //team_slug: ['', [Validators.required]],
-      terms: [false, [AppValidators.value(true)]],
+     // terms: [false, [AppValidators.value(true)]],
       invitation: null,
     }, {
       validator: AppValidators.passwordConfirm
@@ -65,7 +64,7 @@ export class RegisterComponent implements OnInit {
   private successLogin(user: User) {
     this.loading = false;
     this.authService.redirectRouteAfterLogin();
-    //this.notify.showTranslated(extract('auth.successfulCredentials'));
+    this.notify.showTranslated(extract('auth.successfulCredentials'));
   }
 
 }

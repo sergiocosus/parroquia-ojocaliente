@@ -35,19 +35,19 @@
           class="facebook"
           (click)="socialLogin('facebook')">
     <mat-icon class="fab fa-facebook"></mat-icon>
-    <span>Sign in with Facebook</span>
+    <span>{{'social.signInWithFacebook' | translate}}</span>
   </button>
 
   <button mat-raised-button color="primary" type="button"
           class="google"
           (click)="socialLogin('google')">
     <mat-icon class="fab fa-google"></mat-icon>
-    <span>Sign in with Google</span>
+    <span>{{'social.signInWithGoogle' | translate}}</span>
   </button>
 </form>
 
 <div class="footer">
-  <a class="reset" [routerLink]="registerRoute">
+  <a class="reset" [routerLink]="registerRoute" (click)="routeChanged.emit()">
     {{'auth.registerMe' | translate}}
   </a>
   -

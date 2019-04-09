@@ -1,18 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="submit()" class="form-style">
-  <img src="assets/images/logo/logo-avatar.png"/>
   <p>
     {{'auth.welcome' | translate}}
   </p>
-
-  <div class="invitation-message">
-    <div class="success" *ngIf="invitation">
-      {{'invitation.invitationFound' | translate:{team:invitation.team.name} }}
-    </div>
-
-    <div class="danger" *ngIf="invalidInvitation">
-      {{'invitation.invitationNotFound' | translate}}
-    </div>
-  </div>
 
   <mat-form-field>
     <span matSuffix>
@@ -33,12 +22,12 @@
            placeholder="{{'user.name' | translate}}"/>
   </mat-form-field>
 
-  <mat-form-field *ngIf="!invitation">
+  <mat-form-field>
     <span matSuffix>
-      <mat-icon class="fa fa-building"></mat-icon>
+      <mat-icon class="fa fa-user"></mat-icon>
     </span>
-    <input matInput formControlName="team" name="team"
-           placeholder="{{'user.company' | translate}}"/>
+    <input matInput formControlName="last_name" required name="last_name"
+           placeholder="{{'user.lastName' | translate}}"/>
   </mat-form-field>
 
   <mat-form-field>
@@ -69,14 +58,15 @@
     </mat-error>
   </mat-form-field>
 
-  <mat-checkbox formControlName="terms" color="primary">
-    {{'auth.acceptTerms' | translate}}
+  <!--
+<mat-checkbox formControlName="terms" color="primary">
+  {{'auth.acceptTerms' | translate}}
 
-    <a href="/assets/docs/terms.pdf" target="_blank">
-      {{'auth.termsAndConditions' | translate}}
-    </a>
-  </mat-checkbox>
-
+  <a href="/assets/docs/terms.pdf" target="_blank">
+    {{'auth.termsAndConditions' | translate}}
+  </a>
+</mat-checkbox>
+-->
   <button class="login-button" mat-raised-button color="primary"
           [disabled]="!form.valid || loading">
     <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>

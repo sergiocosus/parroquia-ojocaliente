@@ -19,14 +19,33 @@
   </div>
 
   <div class="post-footer">
-    {{'post.author' | translate}}:
-    {{post.author.full_name}}
+    <div class="categories">
+      <h5>
+        {{'category.categories' | translate}}
+      </h5>
+      <ul class="categories">
+        <li *ngFor="let category of post.categories; last as isLast">
+          <a [routerLink]="category.viewUrl">
+            {{category.title}}
+          </a>
+          <span *ngIf="!isLast">, </span>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      {{'post.author' | translate}}:
+      {{post.author.full_name}}
+    </div>
+
+
   </div>
 
   <mat-divider></mat-divider>
 
   <div class="comments">
-    <app-comment-form [post]="post" (created)="newComment($event)"></app-comment-form>
+    <app-comment-form [post]="post"
+                      (created)="newComment($event)"></app-comment-form>
 
     <div class="comment-list">
       <ng-container *ngFor="let comment of post.comments">
@@ -36,5 +55,4 @@
       </ng-container>
     </div>
   </div>
-
 </div>

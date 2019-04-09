@@ -1,0 +1,12 @@
+@import "~src/variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+app-register {
+  width: $smWidth / 2;
+  max-width: 100%;
+}

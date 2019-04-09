@@ -16,8 +16,9 @@ import { AuthPopupService } from '@app/social/services/auth-popup.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  readonly registerRoute = `/${RouteConstants.register}`
+  readonly registerRoute = `/${RouteConstants.register}`;
   @Output() logged = new EventEmitter();
+  @Output() routeChanged = new EventEmitter();
 
   form: FormGroup;
   loading = false;

@@ -6,7 +6,7 @@ export class RouteConstants {
   static readonly link = 'enlace';
   static readonly contact = 'contacto';
   static readonly new = 'nuevo';
-  static readonly register = 'registar';
+  static readonly register = 'registrar';
   static readonly login = 'login';
 }
 

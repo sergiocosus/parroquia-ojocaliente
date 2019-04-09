@@ -7,12 +7,19 @@ img{
 form {
   padding: 0;
 
+  h2 {
+    text-align: center;
+    margin-top: 0;
+  }
+
   p {
     text-align: center;
   }
 
   .login-button {
     display: flex;
+    margin-bottom: 1em;
+
     ::ng-deep {
       .mat-button-wrapper {
         width: 100%;
@@ -57,17 +64,27 @@ form {
   }
 }
 
-.facebook {
-  margin-top: .25em;
-  background-color: $fb-color;
-  mat-icon {
-    margin-right: .5em;
+.facebook, .google {
+  margin-bottom: .25em;
+
+  ::ng-deep .mat-button-wrapper{
+    display: flex;
+    align-items: center;
+
+    mat-icon {
+      margin-right: .5em;
+    }
+
+    span {
+      flex: 1;
+    }
   }
 }
+
+.facebook {
+  background-color: $fb-color;
+}
+
 .google {
-  margin-top: .25em;
   background-color: $google-plus-color;
-  mat-icon {
-    margin-right: .5em;
-  }
 }

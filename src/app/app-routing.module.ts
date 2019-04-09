@@ -33,6 +33,10 @@ const routes: Routes = [
         loadChildren: './pages/admin-pages/admin-pages.module#AdminPagesModule'
       },
       {
+        path: RouteConstants.register,
+        loadChildren: './pages/register-page/register-page.module#RegisterPageModule'
+      },
+      {
         path: '**',
         redirectTo: '',
       }
