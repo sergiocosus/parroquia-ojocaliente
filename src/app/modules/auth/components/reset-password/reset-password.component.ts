@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { AuthService } from '@app/api/services/auth.service';
-import { Notify } from '@app/shared/service/notify.service';
-import { extract } from '@app/shared/service/i18n.service';
+import { Notify } from '@app/shared/services/notify.service';
+import { extract } from '@app/shared/services/i18n.service';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',

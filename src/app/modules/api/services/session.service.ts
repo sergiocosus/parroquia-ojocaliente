@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
-import { Notify } from '@app/shared/service/notify.service';
+import { Notify } from '@app/shared/services/notify.service';
 import { LocalStorageService } from './local-storage.service';
 
 @Injectable({

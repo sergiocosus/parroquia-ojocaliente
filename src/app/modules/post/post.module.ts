@@ -10,12 +10,14 @@ import { CategoryModule } from '@app/category/category.module';
 import { MediaModule } from '@app/media/media.module';
 import { CommentModule } from '@app/comment/comment.module';
 import { ShareButtonsModule } from '@ngx-share/buttons';
+import { PostCkeditorComponent } from './components/post-ckeditor/post-ckeditor.component';
 
 @NgModule({
   declarations: [
     PostThumbComponent,
     PostDetailComponent,
     PostFormComponent,
+    PostCkeditorComponent,
   ],
   imports: [
     SharedModule,

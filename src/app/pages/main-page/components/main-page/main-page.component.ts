@@ -3,6 +3,7 @@ import { PostService } from '@app/api/services/post.service';
 import { Post } from '@app/api/models/post.model';
 import { CategoryService } from '@app/api/services/category.service';
 import { Category } from '@app/api/models/category.model';
+import { AppMetaService } from '@app/shared/services/app-meta.service';
 
 @Component({
   selector: 'app-main-page',
@@ -13,22 +14,13 @@ export class MainPageComponent implements OnInit {
   posts: Post[];
   categories: Category[];
 
-  /*
-  links = [
-    {
-      title: 'Conviértete, nadie está seguro cómo ni cuándo terminará su vida',
-      url: 'http://es.catholic.net/op/articulos/72443/conviertete-porque-nadie-esta-seguro-ni-como-ni-cuando-terminara-su-vida.html'
-    },
-    {
-      title: 'Ayuno y Abstinencia en la Iglesia Católica',
-      url: 'https://www.aciprensa.com/recursos/ayuno-y-abstinencia-1923'
-    }
-  ];
-  */
   constructor(private postService: PostService,
-              private categoryService: CategoryService) { }
+              private categoryService: CategoryService,
+              private metaService: AppMetaService) { }
 
   ngOnInit() {
+    this.metaService.update();
+
     this.postService.get().subscribe(paginatedPosts => {
       this.posts = paginatedPosts.data;
     });

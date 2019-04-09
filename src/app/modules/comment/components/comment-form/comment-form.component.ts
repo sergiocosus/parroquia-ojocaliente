@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { PostCommentService } from '@app/api/services/post-comment.service';
-import { extract } from '@app/shared/service/i18n.service';
-import { Notify } from '@app/shared/service/notify.service';
+import { extract } from '@app/shared/services/i18n.service';
+import { Notify } from '@app/shared/services/notify.service';
 import { Post } from '@app/api/models/post.model';
 import { MatDialog } from '@angular/material';
 import { LoginDialogComponent } from '@app/auth/components/login-dialog/login-dialog.component';

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { includes } from 'lodash';
-
 //import enUS from '../../../assets/i18n/en-US.json';
 import esMX from '../../../assets/i18n/es-MX.json';
+import { LocalStorageService } from '@app/api/services/local-storage.service';
 
 const languageKey = 'language';
 
@@ -25,7 +25,8 @@ export class I18nService {
   defaultLanguage: string;
   supportedLanguages: string[];
 
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService,
+              private localStorageService: LocalStorageService) {
     // Embed languages to avoid extra HTTP requests
     // translateService.setTranslation('en-US', enUS);
     translateService.setTranslation('es-MX', esMX);
@@ -46,7 +47,7 @@ export class I18nService {
    * @param {string} language The IETF language code to set.
    */
   set language(language: string) {
-    language = language || localStorage.getItem(languageKey);
+    language = language || this.localStorageService.get(languageKey);
     const isSupportedLanguage = includes(this.supportedLanguages, language);
 
     // Fallback if language is not supported
@@ -72,7 +73,7 @@ export class I18nService {
     this.translateService.onLangChange
       .subscribe((event: LangChangeEvent) => {
         console.error(event);
-        localStorage.setItem(languageKey, event.lang);
+        this.localStorageService.set(languageKey, event.lang);
       });
   }
 

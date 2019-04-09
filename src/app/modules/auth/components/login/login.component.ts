@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { ResetPasswordRequestDialogComponent } from '../reset-password-request-dialog/reset-password-request-dialog.component';
 import { MatDialog } from '@angular/material';
 import { User } from '@app/api/models/user.model';
-import { Notify } from '@app/shared/service/notify.service';
+import { Notify } from '@app/shared/services/notify.service';
 import { RouteConstants } from '@app/api/classes/route-constants';
 import { finalize } from 'rxjs/operators';
 import { AuthPopupService } from '@app/social/services/auth-popup.service';

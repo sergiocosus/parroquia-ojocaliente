@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
-import { Notify } from '@app/shared/service/notify.service';
+import { Notify } from '@app/shared/services/notify.service';
 
 @Component({
   selector: 'app-upload-picture',

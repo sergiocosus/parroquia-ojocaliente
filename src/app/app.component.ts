@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '@app/api/services/auth.service';
 import { environment } from '../environments/environment';
-import { I18nService } from '@app/shared/service/i18n.service';
+import { I18nService } from '@app/shared/services/i18n.service';
 import { PermissionService } from '@app/api/services/permission.service';
 
 @Component({

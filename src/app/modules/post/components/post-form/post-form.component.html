@@ -22,9 +22,8 @@
     </button>
   </div>
   <div class="column text">
-    <ckeditor #ck [editor]="Editor"
-              [config]="editorConfig"
-              formControlName="content"></ckeditor>
+    <app-post-ckeditor [control]="form.get('content')">
+    </app-post-ckeditor>
     <button mat-raised-button type="button"
             color="primary"
             (click)="addImageToPost()">

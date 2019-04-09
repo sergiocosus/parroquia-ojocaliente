@@ -1,9 +1,9 @@
 export const environment = {
   production: true,
-  defaultLanguage: '',
+  defaultLanguage: 'es-MX',
   api: {
-    url: '',
-    clientID: '',
-    clientSecret: '',
+    url: 'http://localhost:8000/api/v1/',
+    clientID: '2',
+    clientSecret: 'C2swjyxquBCvPJmyN3zUSmZWwXYi6xQA2qeWHxXR',
   },
 };

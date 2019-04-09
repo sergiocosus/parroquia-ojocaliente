@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { extract } from '@app/shared/service/i18n.service';
+import { extract } from '@app/shared/services/i18n.service';
 import { finalize } from 'rxjs/operators';
 import { UserService } from '@app/api/services/user.service';
-import { Notify } from '@app/shared/service/notify.service';
+import { Notify } from '@app/shared/services/notify.service';
 import { SessionService } from '@app/api/services/session.service';
 import { User } from '@app/api/models/user.model';
 import { AuthService } from '@app/api/services/auth.service';

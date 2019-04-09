@@ -5,10 +5,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { finalize } from 'rxjs/operators';
 import { AuthService } from '@app/api/services/auth.service';
-import { Notify } from '@app/shared/service/notify.service';
+import { Notify } from '@app/shared/services/notify.service';
 import { AppValidators } from '@app/shared/validators/app-validators';
 import { User } from '@app/api/models/user.model';
-import { extract } from '@app/shared/service/i18n.service';
+import { extract } from '@app/shared/services/i18n.service';
 
 
 @Component({

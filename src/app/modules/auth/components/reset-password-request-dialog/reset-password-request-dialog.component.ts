@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../api/services/auth.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Notify } from '@app/shared/service/notify.service';
+import { Notify } from '@app/shared/services/notify.service';
 
 @Component({
   selector: 'app-reset-password-request-dialog',
