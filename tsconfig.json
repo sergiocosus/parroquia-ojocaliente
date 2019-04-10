@@ -15,6 +15,9 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "types": [
+      "google.analytics"
+    ],
     "lib": [
       "es2018",
       "dom"

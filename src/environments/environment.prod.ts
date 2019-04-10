@@ -6,4 +6,12 @@ export const environment = {
     clientID: '2',
     clientSecret: 'C2swjyxquBCvPJmyN3zUSmZWwXYi6xQA2qeWHxXR',
   },
+  googleAnalytics: {
+    trakingId: ''
+  },
+  googleAdSense: {
+    enabled: true,
+    adClient: '',
+    adSlot: '',
+  }
 };

@@ -58,6 +58,9 @@
     "newArticle": "Nuevo Articulo",
     "profile": "Perfil"
   },
+  "page": {
+    "title": "EstoEsPersonal"
+  },
   "post": {
     "addImage": "Agregar imagen",
     "author": "Autor",

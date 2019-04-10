@@ -3,6 +3,8 @@ import { AuthService } from '@app/api/services/auth.service';
 import { environment } from '../environments/environment';
 import { I18nService } from '@app/shared/services/i18n.service';
 import { PermissionService } from '@app/api/services/permission.service';
+import { GoogleAnalyticsService } from '@app/shared/services/google-analytics.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +15,22 @@ export class AppComponent {
 
   constructor(private authService: AuthService,
               private i18nService: I18nService,
-              private permissionService: PermissionService) {
+              private permissionService: PermissionService,
+              private googleAnalytics: GoogleAnalyticsService,
+              private router: Router) {
+    this.emitPageViews();
+
     this.i18nService.init(environment.defaultLanguage, [
-      'en-US',
       'es-MX'
     ]);
   }
 
-  title = 'angular-blog';
+
+  emitPageViews() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.googleAnalytics.pageView(event.urlAfterRedirects);
+      }
+    });
+  }
 }

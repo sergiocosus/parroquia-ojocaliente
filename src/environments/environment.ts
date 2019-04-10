@@ -10,6 +10,14 @@ export const environment = {
     clientID: '',
     clientSecret: '',
   },
+  googleAnalytics: {
+    trakingId: ''
+  },
+  googleAdSense: {
+    enabled: true,
+    adClient: '',
+    adSlot: '',
+  }
 };
 
 /*
