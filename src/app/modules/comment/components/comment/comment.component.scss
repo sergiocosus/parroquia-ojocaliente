@@ -11,6 +11,7 @@ app-user-image {
   font-size: 2em;
   background-color: $gray;
   border-radius: 50%;
+  height: 2em;
 }
 
 .data {
@@ -19,10 +20,21 @@ app-user-image {
   flex-direction: column;
   margin: .5em;
 
-  .date {
-    align-self: flex-end;
-    color: rgba($gray, .8);
+  .top-comment {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: .5em;
+
+    .name {
+      flex: 1;
+      color: $gray;
+    }
+    .date {
+      align-self: flex-start;
+      color: rgba($gray, .8);
+    }
   }
+
 
   .content {
     align-self: stretch;

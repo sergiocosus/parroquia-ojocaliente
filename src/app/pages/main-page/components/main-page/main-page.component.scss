@@ -20,6 +20,7 @@
   padding: .5em;
   display: flex;
   flex-wrap: wrap-reverse;
+  justify-content: center;
 
   app-post-thumb {
     flex: 0 1 15em;
@@ -37,11 +38,11 @@
 
   .categories, .latest-links {
     flex: 0 1 15em;
-
     display: flex;
     flex-direction: column;
     padding: .5em;
     margin: .5em;
+    align-self: flex-end;
 
     h3 {
       color: gray

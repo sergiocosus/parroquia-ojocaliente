@@ -1,7 +1,7 @@
 @import "~src/variables";
 
 a {
-  color: white;
+  color: white !important;
   text-decoration: none;
   @include animate();
   &:hover, &.active {

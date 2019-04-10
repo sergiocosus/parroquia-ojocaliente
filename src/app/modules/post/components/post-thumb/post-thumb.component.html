@@ -11,7 +11,7 @@
   -->
   <mat-card-actions align="start">
     <button mat-icon-button
-            *appIfLogged="true"
+            *ngxPermissionsOnly="'update-post'"
             color="accent"
             [routerLink]="post.editUrl">
       <mat-icon>edit</mat-icon>
