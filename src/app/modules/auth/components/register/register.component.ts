@@ -50,10 +50,10 @@ export class RegisterComponent implements OnInit {
   private createForm() {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      name: ['', [Validators.required,  /*Validators.minLength(6), AppValidators.password*/]],
-      last_name: ['', [Validators.required,  /*Validators.minLength(6), AppValidators.password*/]],
-      password: ['', [Validators.required,  /*Validators.minLength(6), AppValidators.password*/]],
-      password_confirmation: ['', [Validators.required,  /*Validators.minLength(6), AppValidators.password*/]],
+      name: ['', [Validators.required,  ]],
+      last_name: ['', [Validators.required, ]],
+      password: ['', [Validators.required, Validators.minLength(6), AppValidators.password]],
+      password_confirmation: ['', [Validators.required, Validators.minLength(6), AppValidators.password]],
      // terms: [false, [AppValidators.value(true)]],
       invitation: null,
     }, {

@@ -51,6 +51,8 @@ export class AuthService {
   }
 
   logout() {
+    this.http.get('auth/logout').subscribe();
+
     this.sessionService.removeAccessToken();
     this.updateLoggedUserObservable({logout: true}).subscribe();
   }

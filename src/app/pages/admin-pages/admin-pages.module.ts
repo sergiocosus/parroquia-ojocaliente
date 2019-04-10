@@ -11,6 +11,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { CategoryModule } from '@app/category/category.module';
 import { UserProfilePageComponent } from './components/user-profile-page/user-profile-page.component';
 import { UserModule } from '@app/user/user.module';
+import { AuthModule } from '@app/auth/auth.module';
 
 @NgModule({
   declarations: [NewPostPageComponent, CategoriesPageComponent, UserProfilePageComponent],
@@ -23,6 +24,7 @@ import { UserModule } from '@app/user/user.module';
     NgxPermissionsModule,
     CategoryModule,
     UserModule,
+    AuthModule,
   ]
 })
 export class AdminPagesModule { }

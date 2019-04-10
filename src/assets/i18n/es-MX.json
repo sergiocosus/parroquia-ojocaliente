@@ -1,7 +1,8 @@
 {
   "actions": {
     "accept": "Aceptar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "update": "Actualizar"
   },
   "auth": {
     "acceptTerms": "He leído y acepto los",
@@ -81,12 +82,15 @@
     }
   },
   "user": {
+    "currentPassword": "Contraseña actual",
     "email": "E-mail",
     "lastName": "Apellidos",
     "name": "Nombre",
     "password": "Contraseña",
+    "passwordChangedSuccessfully": "Contraseña cambiada exitosamente",
     "passwordConfirmation": "Confirmación de la contraseña",
     "passwordReset": "Restablecer contraseña",
-    "profile": "Perfil"
+    "profile": "Perfil",
+    "updatePassword": "Actualizar contraseña"
   }
 }

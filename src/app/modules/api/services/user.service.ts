@@ -33,7 +33,15 @@ export class UserService {
     return this.http.put(`user/me`, data).pipe(this.mapUser());
   }
 
-  private mapUser() {
+  changePassword(data: {
+    current_password: string,
+    password: string,
+    password_confirmation: string
+  }) {
+    return this.http.put('auth/password', data);
+  }
+
+  mapUser() {
     return map(response => new User().parse(response['user']));
   }
 }
