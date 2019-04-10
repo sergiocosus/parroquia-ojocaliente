@@ -11,7 +11,7 @@ export const environment = {
     clientSecret: 'C2swjyxquBCvPJmyN3zUSmZWwXYi6xQA2qeWHxXR',
   },
   googleAnalytics: {
-    trakingId: 'UA-38009408-6'
+    trakingId: ''
   },
   googleAdSense: {
     enabled: true,

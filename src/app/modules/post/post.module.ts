@@ -11,6 +11,7 @@ import { MediaModule } from '@app/media/media.module';
 import { CommentModule } from '@app/comment/comment.module';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import { PostCkeditorComponent } from './components/post-ckeditor/post-ckeditor.component';
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { PostCkeditorComponent } from './components/post-ckeditor/post-ckeditor.
     MediaModule,
     CommentModule,
     ShareButtonsModule,
+    AdsenseModule,
   ],
   exports: [
     PostThumbComponent,

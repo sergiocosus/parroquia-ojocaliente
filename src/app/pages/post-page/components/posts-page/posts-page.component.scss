@@ -1,7 +1,18 @@
 :host {
   padding: .5em;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.posts {
+  padding: .5em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 app-post-thumb {

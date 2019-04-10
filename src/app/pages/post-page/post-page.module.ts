@@ -6,6 +6,7 @@ import { PostPageComponent } from './components/post-page/post-page.component';
 import { PostsPageComponent } from './components/posts-page/posts-page.component';
 import { PostModule } from '@app/post/post.module';
 import { SharedModule } from '@app/shared/shared.module';
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   declarations: [PostPageComponent, PostsPageComponent],
@@ -13,7 +14,8 @@ import { SharedModule } from '@app/shared/shared.module';
     CommonModule,
     PostPageRoutingModule,
     PostModule,
-    SharedModule
+    SharedModule,
+    AdsenseModule
   ]
 })
 export class PostPageModule { }

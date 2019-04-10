@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { ApiModule } from '@app/api/api.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { AdsenseModule } from 'ng2-adsense';
 
 moment.locale('es');
 registerLocaleData(localeMX, 'es-MX');
@@ -35,6 +36,10 @@ registerLocaleData(localeMX, 'es-MX');
       apiUrl: environment.api.url,
       apiClientID: environment.api.clientID,
       apiClientSecret: environment.api.clientSecret,
+    }),
+    AdsenseModule.forRoot({
+      adClient: environment.googleAdSense.adClient,
+      adSlot: environment.googleAdSense.adSlot,
     }),
   ],
   providers: [],
