@@ -5,7 +5,7 @@ import {
   MatCardModule, MatCheckboxModule, MatDialogModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatProgressSpinnerModule,
+  MatListModule, MatMenuModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSidenavModule, MatSnackBarModule,
   MatToolbarModule, MatTooltipModule
 } from '@angular/material';
@@ -20,6 +20,7 @@ import { ApiModule } from '@app/api/api.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { UploadPictureComponent } from './components/upload-picture/upload-picture.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { LaravelPaginatorComponent } from '@app/shared/components/laravel-paginator/laravel-paginator.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     LoadingButtonComponent,
     LoadingFormButtonComponent,
     FormButtonDirective,
-    UploadPictureComponent
+    UploadPictureComponent,
+    LaravelPaginatorComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +40,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     MatIconModule,
     ImageCropperModule,
     MatTooltipModule,
+    MatPaginatorModule,
   ],
   exports: [
     CommonModule,
@@ -57,6 +60,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     MatCheckboxModule,
     MatMenuModule,
     MatSnackBarModule,
+    MatTooltipModule,
 
     NgxPermissionsModule,
 
@@ -67,6 +71,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     LoadingFormButtonComponent,
     FormButtonDirective,
     UploadPictureComponent,
+    LaravelPaginatorComponent,
   ],
   entryComponents: [
     ConfirmDialogComponent,

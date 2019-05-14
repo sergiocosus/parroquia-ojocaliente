@@ -12,6 +12,7 @@ export class Post extends Model {
   content: string;
   image_url: string;
   image_srcset: string;
+  is_published: boolean;
   created_at: Moment;
 
   comments: PostComment[];

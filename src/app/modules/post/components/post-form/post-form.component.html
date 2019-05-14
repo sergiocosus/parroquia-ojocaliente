@@ -1,5 +1,10 @@
 <h2>
   {{post ? ('post.edit' | translate) : ('post.new' | translate) }}
+
+  <a mat-icon-button *ngIf="post" [routerLink]="post.viewUrl"
+     [matTooltip]="'common.view' | translate" color="primary">
+    <mat-icon class="fas fa-eye"></mat-icon>
+  </a>
 </h2>
 
 <form [formGroup]="form" class="form-style" (ngSubmit)="submit()">
@@ -17,9 +22,18 @@
                         [image_srcset]="post?.image_srcset">
     </app-upload-picture>
 
-    <button mat-raised-button color="primary">
+    <mat-checkbox formControlName="is_published">
+      Publicado
+    </mat-checkbox>
+
+    <button mat-raised-button color="primary" [disabled]="loading">
+      <span *ngIf="loading">
+        <mat-spinner diameter="20"></mat-spinner>
+      </span>
+      <mat-icon class="fa fa-paper-plane"></mat-icon>
       {{'forms.submit' | translate}}
     </button>
+
   </div>
   <div class="column text">
     <app-post-ckeditor [control]="form.get('content')">

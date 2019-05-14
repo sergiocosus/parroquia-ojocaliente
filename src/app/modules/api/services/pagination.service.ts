@@ -14,18 +14,24 @@ export class PaginationService {
 
   createHttpParams(pagination?: { page: number, per_page: number },
                    order?: { field: string, direction: string },
+                   filters?: any,
                    params?: HttpParams) {
     if (!params) {
       params = new HttpParams();
     }
     if (pagination) {
-      params = params.set('page', String(pagination.page))
+      params = params.append('page', String(pagination.page))
         .set('per_page', String(pagination.per_page));
       if (order) {
         params = params.set('order_field', order.field)
           .set('order_direction', order.direction);
       }
     }
+
+    if (filters) {
+      params = this.addFilterParams(filters, params);
+    }
+
     return params;
   }
 

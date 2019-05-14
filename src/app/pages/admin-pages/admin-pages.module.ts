@@ -5,16 +5,17 @@ import { AdminPagesRoutingModule } from './admin-pages-routing.module';
 import { NewPostPageComponent } from './components/new-post-page/new-post-page.component';
 import { PostModule } from '@app/post/post.module';
 import { CategoriesPageComponent } from './components/categories-page/categories-page.component';
-import { MatListModule } from '@angular/material';
+import { MatListModule, MatTabsModule } from '@angular/material';
 import { SharedModule } from '@app/shared/shared.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { CategoryModule } from '@app/category/category.module';
 import { UserProfilePageComponent } from './components/user-profile-page/user-profile-page.component';
 import { UserModule } from '@app/user/user.module';
 import { AuthModule } from '@app/auth/auth.module';
+import { AdminPostsPageComponent } from './components/admin-posts-page/admin-posts-page.component';
 
 @NgModule({
-  declarations: [NewPostPageComponent, CategoriesPageComponent, UserProfilePageComponent],
+  declarations: [NewPostPageComponent, CategoriesPageComponent, UserProfilePageComponent, AdminPostsPageComponent],
   imports: [
     CommonModule,
     AdminPagesRoutingModule,
@@ -25,6 +26,7 @@ import { AuthModule } from '@app/auth/auth.module';
     CategoryModule,
     UserModule,
     AuthModule,
+    MatTabsModule,
   ]
 })
 export class AdminPagesModule { }

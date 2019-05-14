@@ -30,6 +30,13 @@
       {{'nav.newArticle' | translate}}
     </a>
 
+    <a mat-menu-item [routerLink]="adminPostsRoute"
+       *ngxPermissionsOnly="['read-post']"
+       routerLinkActive="active">
+      <mat-icon>book</mat-icon>
+      {{'nav.articles' | translate}}
+    </a>
+
 
     <button mat-menu-item *ngIf="$impersonatorUser | async"
             (click)="stopImpersonate()">

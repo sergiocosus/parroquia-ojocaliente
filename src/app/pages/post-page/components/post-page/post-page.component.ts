@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '@app/api/models/post.model';
 import { PostService } from '@app/api/services/post.service';
 import { AppMetaService } from '@app/shared/services/app-meta.service';
+import { map, mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-post-page',
@@ -14,19 +15,21 @@ export class PostPageComponent implements OnInit {
   post: Post;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private postService: PostService,
               private metaService: AppMetaService) {
-    this.route.paramMap.subscribe(params => {
-      this.postSlug = params.get('postSlug');
-      this.postService.getOne(this.postSlug).subscribe(post => {
+    this.route.paramMap.pipe(
+      map(params => this.postSlug = params.get('postSlug')),
+      mergeMap(postSlug => this.postService.getOne(postSlug))
+    ).subscribe(post => {
         this.post = post;
         this.metaService.update(
           this.post.title,
           this.post.content.replace(/<(?:.|\n)*?>/gm, ''),
           this.post.image_url
         );
-      });
-    });
+      },
+      error => this.router.navigateByUrl('/'));
   }
 
   ngOnInit() {

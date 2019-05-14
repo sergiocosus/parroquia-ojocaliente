@@ -1,0 +1,34 @@
+@import "~src/variables";
+
+.full-width-table {
+  width: 100%;
+}
+
+table {
+  img {
+    width: 8em;
+    height: 4em;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: $smWidth) {
+  tr {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .5em;
+    height: auto !important;
+    align-items: center;
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+
+  td, th {
+    display: flex;
+    align-items: center;
+    flex: 1 0 1em;
+    padding: .25em !important;
+    border: none !important;
+  }
+}

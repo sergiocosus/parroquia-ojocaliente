@@ -28,16 +28,21 @@
     "success": "Comentario exitoso"
   },
   "common": {
+    "actions": "Acciones",
     "confirmMessage": "¿Desea eliminar el elemento?",
+    "edit": "Editar",
     "noResults": "No hay resultados",
     "see": "Ver",
     "selectPicture": "Seleccionar imágen",
     "submit": "Enviar",
+    "view": "Ver",
     "withTrashed": "Eliminados"
   },
   "form": {
+    "createdSuccess": "¡Creado exitosamente!",
     "submit": "Enviar",
-    "success": "¡Éxito!"
+    "success": "¡Éxito!",
+    "updatedSuccess": "¡Actualizar exitosamente!"
   },
   "forms": {
     "emailInvalidFormat": "E-mail inválido",
@@ -66,6 +71,8 @@
     "addImage": "Agregar imagen",
     "author": "Autor",
     "edit": "Editar post",
+    "id": "ID",
+    "isPublished": "Publicado",
     "new": "Nuevo post",
     "postsTitlePage": "Lista de Posts",
     "title": "Título"

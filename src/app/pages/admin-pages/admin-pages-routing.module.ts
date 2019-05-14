@@ -4,8 +4,13 @@ import { NewPostPageComponent } from './components/new-post-page/new-post-page.c
 import { CategoriesPageComponent } from './components/categories-page/categories-page.component';
 import { RouteConstants } from '@app/api/classes/route-constants';
 import { UserProfilePageComponent } from './components/user-profile-page/user-profile-page.component';
+import { AdminPostsPageComponent } from './components/admin-posts-page/admin-posts-page.component';
 
 const routes: Routes = [
+  {
+    path: `${RouteConstants.post}`,
+    component: AdminPostsPageComponent
+  },
   {
     path: `${RouteConstants.post}/:postSlug`,
     component: NewPostPageComponent

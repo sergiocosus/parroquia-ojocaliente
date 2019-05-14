@@ -1,0 +1,8 @@
+<ul class="categories">
+  <li *ngFor="let category of post.categories; last as isLast">
+    <a [routerLink]="category.viewUrl">
+      {{category.title}}
+    </a>
+    <span *ngIf="!isLast">, </span>
+  </li>
+</ul>

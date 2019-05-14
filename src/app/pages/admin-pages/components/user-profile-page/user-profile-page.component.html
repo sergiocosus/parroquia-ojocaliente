@@ -1,11 +1,10 @@
-<div class="box">
-  <h2>
-    {{'user.profile' | translate}}
-  </h2>
-
-  <app-user-form>
-  </app-user-form>
-</div>
-
-<app-user-password></app-user-password>
+<mat-tab-group>
+  <mat-tab [label]="'user.profile' | translate">
+    <app-user-form>
+    </app-user-form>
+  </mat-tab>
+  <mat-tab [label]="'user.updatePassword' | translate">
+    <app-user-password></app-user-password>
+  </mat-tab>
+</mat-tab-group>
 

@@ -17,6 +17,7 @@ import { RouteConstants } from '@app/api/classes/route-constants';
 @AutoUnsubscribe()
 export class CurrentUserMenuComponent implements OnInit {
   readonly adminRoute = `/${RouteConstants.admin}/${RouteConstants.category}`;
+  readonly adminPostsRoute = `/${RouteConstants.admin}/${RouteConstants.post}`;
   readonly newPostRoute = `/${RouteConstants.admin}/${RouteConstants.post}/${RouteConstants.new}`;
   readonly userRoute = `/${RouteConstants.admin}/${RouteConstants.user}`;
 

@@ -1,6 +1,4 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '@app/api/services/post.service';
 import { extract } from '@app/shared/services/i18n.service';
@@ -9,7 +7,7 @@ import { Router } from '@angular/router';
 import { Post } from '@app/api/models/post.model';
 import { MatDialog } from '@angular/material';
 import { SelectMediaDialogComponent } from '@app/media/select-media-dialog/select-media-dialog.component';
-import { filter } from 'rxjs/operators';
+import { filter, finalize } from 'rxjs/operators';
 import { PostCkeditorComponent } from '@app/post/components/post-ckeditor/post-ckeditor.component';
 
 
@@ -24,6 +22,7 @@ export class PostFormComponent implements OnInit, OnChanges {
 
   form: FormGroup;
   isBrowser: boolean;
+  loading = false;
 
   constructor(private fb: FormBuilder,
               private postService: PostService,
@@ -36,6 +35,7 @@ export class PostFormComponent implements OnInit, OnChanges {
       image_base64: [],
       thumbnail: [],
       categories: [[]],
+      is_published: [false],
     });
   }
 
@@ -48,10 +48,12 @@ export class PostFormComponent implements OnInit, OnChanges {
         title: this.post.title,
         content: this.post.content,
         categories: this.post.categories,
+        is_published: this.post.is_published,
       });
     } else {
       this.form.reset({
-        categories: []
+        categories: [],
+        is_published: false
       });
     }
   }
@@ -76,17 +78,25 @@ export class PostFormComponent implements OnInit, OnChanges {
     data.category_ids = data.categories.map(category => category.id);
     data.categories = undefined;
 
+    this.loading = true;
     if (this.post) {
-      this.postService.edit(this.post.slug, data).subscribe(post => {
-        this.router.navigateByUrl(post.viewUrl);
-      });
+      this.postService.edit(this.post.slug, data)
+        .pipe(finalize(() => this.loading = false))
+        .subscribe(post => {
+            this.post = post;
+            this.notify.showTranslated(extract('form.updatedSuccess'));
+          },
+          error => this.notify.error(error)
+        );
     } else {
-      this.postService.post(data).subscribe(
-        post => {
-          this.router.navigateByUrl(post.viewUrl);
-        },
-        error => this.notify.error(error)
-      );
+      this.postService.post(data)
+        .pipe(finalize(() => this.loading = false))
+        .subscribe(post => {
+            this.post = post;
+            this.notify.showTranslated(extract('form.createdSuccess'));
+          },
+          error => this.notify.error(error)
+        );
     }
   }
 
@@ -94,7 +104,6 @@ export class PostFormComponent implements OnInit, OnChanges {
   addImageToPost() {
     this.dialog.open(SelectMediaDialogComponent).afterClosed()
       .pipe(filter(Boolean)).subscribe(media => {
-      console.log(media);
       this.postCkEditor.addImage(media.url);
     });
   }

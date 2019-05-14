@@ -6,11 +6,7 @@
   align-items: center;
 }
 
-.box {
+mat-tab-group {
   max-width: $smWidth;
-  width: 100%;
-}
-
-h2 {
-  padding-left: 1em;
+  width: $smWidth;
 }

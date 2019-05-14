@@ -1,0 +1,73 @@
+<div class="mat-elevation-z8">
+  <mat-progress-bar *ngIf="paginationManager.loading" mode="indeterminate"></mat-progress-bar>
+
+  <app-laravel-paginator [pagination]="paginationManager.pagination"
+                         (page)="paginationManager.onPage($event)"></app-laravel-paginator>
+
+  <table mat-table class="full-width-table" [dataSource]="paginationManager.dataSource" matSort aria-label="Elements">
+
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <img [srcset]="row.image_srcset"/>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{'post.id' | translate}}
+      </th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{'post.title' | translate}}
+      </th>
+      <td mat-cell *matCellDef="let row">{{row.title}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="is_published">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{'post.isPublished' | translate}}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox [checked]="row.is_published" disabled></mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="categories">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{'category.categories' | translate}}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <app-post-categories [post]="row"></app-post-categories>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{'common.actions' | translate}}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <a mat-icon-button [routerLink]="row.editUrl"
+           [matTooltip]="'common.edit' | translate" color="primary">
+          <mat-icon class="fas fa-edit"></mat-icon>
+        </a>
+        <a mat-icon-button [routerLink]="row.viewUrl"
+           [matTooltip]="'common.view' | translate" color="accent">
+          <mat-icon class="fas fa-eye"></mat-icon>
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+  <app-laravel-paginator [pagination]="paginationManager.pagination"
+                         (page)="paginationManager.onPage($event)"></app-laravel-paginator>
+</div>
+
