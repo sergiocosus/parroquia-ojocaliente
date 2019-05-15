@@ -35,6 +35,7 @@
     "see": "Ver",
     "selectPicture": "Seleccionar imágen",
     "submit": "Enviar",
+    "update": "Actualizar",
     "view": "Ver",
     "withTrashed": "Eliminados"
   },
@@ -62,7 +63,8 @@
     "externalLinks": "Enlaces",
     "main": "Principal",
     "newArticle": "Nuevo Articulo",
-    "profile": "Perfil"
+    "profile": "Perfil",
+    "settings": "Ajustes"
   },
   "page": {
     "title": "EstoEsPersonal"
@@ -76,6 +78,10 @@
     "new": "Nuevo post",
     "postsTitlePage": "Lista de Posts",
     "title": "Título"
+  },
+  "settings": {
+    "settings": "Ajustes",
+    "title": "Título de la página"
   },
   "social": {
     "signInWithFacebook": "Ingresar con facebook",

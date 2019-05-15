@@ -20,6 +20,7 @@ export class CurrentUserMenuComponent implements OnInit {
   readonly adminPostsRoute = `/${RouteConstants.admin}/${RouteConstants.post}`;
   readonly newPostRoute = `/${RouteConstants.admin}/${RouteConstants.post}/${RouteConstants.new}`;
   readonly userRoute = `/${RouteConstants.admin}/${RouteConstants.user}`;
+  readonly settingsRoute = `/${RouteConstants.admin}/${RouteConstants.settings}`;
 
   sub = new SubscriptionManager();
   user: User;

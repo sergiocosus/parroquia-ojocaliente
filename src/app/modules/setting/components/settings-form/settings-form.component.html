@@ -1,0 +1,23 @@
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div *ngFor="let setting of form.controls; let i = index">
+    <ng-container [formGroupName]="i">
+      <ng-container [ngSwitch]=" setting.get('type').value">
+        <mat-form-field *ngSwitchCase="'text'">
+          <input matInput [placeholder]="'settings.' + setting.get('name').value  | translate"
+                 formControlName="content"/>
+        </mat-form-field>
+
+        <mat-checkbox *ngSwitchCase="'boolean'" formControlName="content">
+          {{setting.get('name').value}}
+        </mat-checkbox>
+      </ng-container>
+
+    </ng-container>
+
+  </div>
+
+  <button mat-raised-button color="primary">
+    {{'common.update' | translate}}
+  </button>
+</form>

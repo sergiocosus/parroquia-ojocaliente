@@ -16,6 +16,12 @@
       {{'nav.profile' | translate}}
     </a>
 
+    <a mat-menu-item [routerLink]="settingsRoute"
+       routerLinkActive="active">
+      <mat-icon>settings</mat-icon>
+      {{'nav.settings' | translate}}
+    </a>
+
     <a mat-menu-item [routerLink]="adminRoute"
        *ngxPermissionsOnly="['create-category', 'update-category']"
        routerLinkActive="active">

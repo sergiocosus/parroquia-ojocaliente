@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,8 @@ import { ApiModule } from '@app/api/api.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { AdsenseModule } from 'ng2-adsense';
+// import { CacheModule, CACHE } from '@ngx-cache/core';
+// import { BrowserCacheModule, MemoryCacheService } from '@ngx-cache/platform-browser';
 
 moment.locale('es');
 registerLocaleData(localeMX, 'es-MX');
@@ -32,6 +34,16 @@ registerLocaleData(localeMX, 'es-MX');
     SharedModule,
     TranslateModule.forRoot(),
     NgxPermissionsModule.forRoot(),
+    /*
+    CacheModule.forRoot(),
+    BrowserCacheModule.forRoot([
+      {
+        provide: CACHE,
+        useClass: MemoryCacheService // or, LocalStorageCacheService
+      }
+    ]),
+    BrowserTransferStateModule,
+     */
     ApiModule.forRoot({
       apiUrl: environment.api.url,
       apiClientID: environment.api.clientID,

@@ -18,7 +18,6 @@ export class PostService {
 
   get(pagination?: PaginationInfo, order?: OrderInfo, filters?: any) {
     const params = this.paginationService.createHttpParams(pagination, order, filters);
-    console.log(filters);
     return this.httpClient.get('post', {params})
       .pipe(this.mapPostPaginated());
   }

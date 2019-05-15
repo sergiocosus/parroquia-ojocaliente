@@ -5,11 +5,16 @@ import { CategoriesPageComponent } from './components/categories-page/categories
 import { RouteConstants } from '@app/api/classes/route-constants';
 import { UserProfilePageComponent } from './components/user-profile-page/user-profile-page.component';
 import { AdminPostsPageComponent } from './components/admin-posts-page/admin-posts-page.component';
+import { SettingsPageComponent } from './components/settings-page/settings-page.component';
 
 const routes: Routes = [
   {
     path: `${RouteConstants.post}`,
     component: AdminPostsPageComponent
+  },
+  {
+    path: `${RouteConstants.settings}`,
+    component: SettingsPageComponent
   },
   {
     path: `${RouteConstants.post}/:postSlug`,

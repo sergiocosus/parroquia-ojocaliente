@@ -8,5 +8,6 @@ export class RouteConstants {
   static readonly new = 'nuevo';
   static readonly register = 'registrar';
   static readonly login = 'login';
+  static readonly settings = 'configuracion';
 }
 

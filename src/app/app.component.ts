@@ -6,14 +6,15 @@ import { PermissionService } from '@app/api/services/permission.service';
 import { GoogleAnalyticsService } from '@app/shared/services/google-analytics.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { ScriptService } from 'ngx-script-loader';
+import { AutoUnsubscribe } from '@app/shared/decorators/auto-unsubscribe';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+@AutoUnsubscribe()
 export class AppComponent {
-
   constructor(private authService: AuthService,
               private i18nService: I18nService,
               private permissionService: PermissionService,
@@ -25,6 +26,7 @@ export class AppComponent {
     this.i18nService.init(environment.defaultLanguage, [
       'es-MX'
     ]);
+
 
     this.scriptService.loadScript('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
       .subscribe(() => {

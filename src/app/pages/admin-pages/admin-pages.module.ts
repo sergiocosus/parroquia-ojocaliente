@@ -13,9 +13,17 @@ import { UserProfilePageComponent } from './components/user-profile-page/user-pr
 import { UserModule } from '@app/user/user.module';
 import { AuthModule } from '@app/auth/auth.module';
 import { AdminPostsPageComponent } from './components/admin-posts-page/admin-posts-page.component';
+import { SettingsPageComponent } from './components/settings-page/settings-page.component';
+import { SettingModule } from '@app/setting/setting.module';
 
 @NgModule({
-  declarations: [NewPostPageComponent, CategoriesPageComponent, UserProfilePageComponent, AdminPostsPageComponent],
+  declarations: [
+    NewPostPageComponent,
+    CategoriesPageComponent,
+    UserProfilePageComponent,
+    AdminPostsPageComponent,
+    SettingsPageComponent,
+  ],
   imports: [
     CommonModule,
     AdminPagesRoutingModule,
@@ -27,6 +35,8 @@ import { AdminPostsPageComponent } from './components/admin-posts-page/admin-pos
     UserModule,
     AuthModule,
     MatTabsModule,
+    SettingModule,
   ]
 })
-export class AdminPagesModule { }
+export class AdminPagesModule {
+}

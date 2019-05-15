@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
+import * as _ from 'lodash';
+import { ValidSetting } from '@app/api/models/setting.model';
+import { SettingService } from '@app/api/services/setting.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppMetaService {
-  readonly mainTitle: string | any;
+  mainTitle: string | any;
 
   constructor(private title: Title,
               private meta: Meta,
-              private translate: TranslateService) {
-    this.mainTitle = this.translate.instant('page.title');
+              private translate: TranslateService,
+              private settingsService: SettingService) {
+    this.settingsService.getCachedSettings().subscribe(settings => {
+      this.mainTitle = _.find(settings, ['name', ValidSetting.title]).content;
+    });
   }
 
   update(title?: string, description?: string, image?) {
