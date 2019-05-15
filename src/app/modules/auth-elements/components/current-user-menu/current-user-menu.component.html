@@ -17,6 +17,7 @@
     </a>
 
     <a mat-menu-item [routerLink]="settingsRoute"
+       *ngxPermissionsOnly="['update-setting']"
        routerLinkActive="active">
       <mat-icon>settings</mat-icon>
       {{'nav.settings' | translate}}
