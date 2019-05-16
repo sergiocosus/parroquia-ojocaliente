@@ -52,7 +52,6 @@ export class CategoriesListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.categoryService.get(this.filterForm.getRawValue());
   }
 
   submit() {

@@ -25,7 +25,9 @@ export class SettingsFormComponent implements OnInit {
   }
 
   private fillForm(settings) {
-    this.form.reset();
+    while (this.form.length !== 0) {
+      this.form.removeAt(0);
+    }
     settings.forEach(setting => {
       this.form.push(this.fb.group({
         name: setting.name,

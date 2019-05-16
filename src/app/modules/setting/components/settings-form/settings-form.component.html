@@ -8,13 +8,11 @@
                  formControlName="content"/>
         </mat-form-field>
 
-        <mat-checkbox *ngSwitchCase="'boolean'" formControlName="content">
-          {{setting.get('name').value}}
+        <mat-checkbox *ngSwitchCase="'boolean'" value="true" formControlName="content">
+          {{'settings.' + setting.get('name').value  | translate}}
         </mat-checkbox>
       </ng-container>
-
     </ng-container>
-
   </div>
 
   <button mat-raised-button color="primary">

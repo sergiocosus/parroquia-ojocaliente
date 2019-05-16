@@ -4,7 +4,7 @@ import { extract } from '@app/shared/services/i18n.service';
 export class Setting extends Model {
   id: number;
   name: string;
-  content: string;
+  content: string | boolean;
   type: string;
 
   static parseArray(objs: any[]): Setting[] {
@@ -14,12 +14,18 @@ export class Setting extends Model {
   parse(obj): any {
     super.parse(obj);
 
+    if (this.type === 'boolean') {
+      this.content = this.content === '1';
+    }
+
     return this;
   }
 }
 
 export enum ValidSetting {
   title = 'title',
+  showLinks = 'showLinks',
 }
 
 extract('settings.title');
+extract('settings.showLinks');

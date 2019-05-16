@@ -15,6 +15,8 @@ import { AuthModule } from '@app/auth/auth.module';
 import { AdminPostsPageComponent } from './components/admin-posts-page/admin-posts-page.component';
 import { SettingsPageComponent } from './components/settings-page/settings-page.component';
 import { SettingModule } from '@app/setting/setting.module';
+import { AdminLinksPageComponent } from './components/admin-links-page/admin-links-page.component';
+import { LinkModule } from '@app/link/link.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { SettingModule } from '@app/setting/setting.module';
     UserProfilePageComponent,
     AdminPostsPageComponent,
     SettingsPageComponent,
+    AdminLinksPageComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +39,7 @@ import { SettingModule } from '@app/setting/setting.module';
     AuthModule,
     MatTabsModule,
     SettingModule,
+    LinkModule,
   ]
 })
 export class AdminPagesModule {

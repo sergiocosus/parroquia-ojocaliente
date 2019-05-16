@@ -6,6 +6,7 @@ import { RouteConstants } from '@app/api/classes/route-constants';
 import { UserProfilePageComponent } from './components/user-profile-page/user-profile-page.component';
 import { AdminPostsPageComponent } from './components/admin-posts-page/admin-posts-page.component';
 import { SettingsPageComponent } from './components/settings-page/settings-page.component';
+import { AdminLinksPageComponent } from './components/admin-links-page/admin-links-page.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: `${RouteConstants.user}`,
     component: UserProfilePageComponent,
+  },
+  {
+    path: `${RouteConstants.link}`,
+    component: AdminLinksPageComponent,
   }
 ];
 
