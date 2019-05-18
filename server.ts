@@ -1,3 +1,21 @@
+const domino = require('domino');
+const fs = require('fs');
+const path = require('path');
+const template = fs.readFileSync('dist/browser/index.html').toString();
+const win = domino.createWindow(template);
+
+global['window'] = win;
+global['document'] = win.document;
+global['DOMTokenList'] = win.DOMTokenList;
+global['Node'] = win.Node;
+global['Text'] = win.Text;
+global['HTMLElement'] = win.HTMLElement;
+global['navigator'] = win.navigator;
+global['Event'] = null;
+global['KeyboardEvent'] = null;
+
+
+
 import 'zone.js/dist/zone-node';
 import {enableProdMode} from '@angular/core';
 // Express Engine
