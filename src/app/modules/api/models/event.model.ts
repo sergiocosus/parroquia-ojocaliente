@@ -8,6 +8,7 @@ export class Event extends Model {
   title: string;
   slug: string;
   description: string;
+  description_untagged: string;
   address: string;
   begin_at: Date;
   end_at: Date;
@@ -31,6 +32,7 @@ export class Event extends Model {
     super.parse(obj);
 
     this.author = this.author ? new User().parse(this.author) : null;
+    this.description_untagged = this.description.replace(/<(?:.|\n)*?>/gm, '');
 
     return this;
   }

@@ -1,23 +1,66 @@
-<app-calendar-header
-  [(view)]="view"
-  [(viewDate)]="viewDate">
-
+<mat-toolbar *ngxPermissionsOnly="'create-event'">
   <button mat-raised-button color="primary"
-          *ngxPermissionsOnly="'create-event'"
           (click)="create()">
-    <mat-icon class="fa fa-plus-circle"></mat-icon>
+    <mat-icon>add</mat-icon>
     {{'event.createEvent' | translate}}
   </button>
-</app-calendar-header>
 
-<ng-template #loading>
-  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-</ng-template>
+  <div class="spacer"></div>
 
-<div *ngIf="events; else loading; let events">
-  <mat-card [ngSwitch]="view">
+  <form [formGroup]="filterForm">
+    <mat-checkbox formControlName="with_trashed">
+      <mat-icon>delete</mat-icon>
+      {{'common.withTrashed' | translate}}
+    </mat-checkbox>
+  </form>
+</mat-toolbar>
+
+<mat-toolbar *ngIf="view">
+  <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
+
+  <div class="spacer"></div>
+
+  <button mat-icon-button
+          mwlCalendarPreviousView
+          [view]="view"
+          [(viewDate)]="viewDate">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+  </button>
+  <button mat-button
+          mwlCalendarToday
+          [(viewDate)]="viewDate">
+    {{'event.today' | translate}}
+  </button>
+  <button mat-icon-button
+          mwlCalendarNextView
+          [view]="view"
+          [(viewDate)]="viewDate">
+    <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+  </button>
+</mat-toolbar>
+
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+<mat-tab-group (selectedTabChange)="tabSelected($event)">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>view_list</mat-icon>
+      {{'event.calendarViews.list' | translate}}
+    </ng-template>
+    <app-event-list [events]="events"
+                    (editClick)="edit($event)"
+                    (deleteClick)="deleteEvent($event)"
+                    (restoreClick)="restoreEvent($event)"
+    ></app-event-list>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>calendar_today</mat-icon>
+      {{'event.calendarViews.month' | translate}}
+    </ng-template>
+
     <mwl-calendar-month-view
-      *ngSwitchCase="'month'"
       [viewDate]="viewDate"
       [events]="calendarEvents"
       [locale]="locale"
@@ -25,48 +68,33 @@
       (dayClicked)="dayClicked($event.day)"
       (eventClicked)="eventClicked($event.event)">
     </mwl-calendar-month-view>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>view_week</mat-icon>
+      {{'event.calendarViews.week' | translate}}
+    </ng-template>
+
     <mwl-calendar-week-view
-      *ngSwitchCase="'week'"
       [viewDate]="viewDate"
       [events]="calendarEvents"
       [locale]="locale"
       (eventClicked)="eventClicked($event.event)">
     </mwl-calendar-week-view>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>today</mat-icon>
+      {{'event.calendarViews.day' | translate}}
+    </ng-template>
+
     <mwl-calendar-day-view
-      *ngSwitchCase="'day'"
       [viewDate]="viewDate"
       [events]="calendarEvents"
       [locale]="locale"
       (eventClicked)="eventClicked($event.event)">
     </mwl-calendar-day-view>
+  </mat-tab>
 
-    <mat-nav-list *ngSwitchCase="'list'">
-      <a mat-list-item *ngFor="let event of calendarEvents"
-         [routerLink]="event.meta.viewUrl" role="listitem">
-        <img *ngIf="event.meta.image_srcset; else noImage"
-             mat-list-icon [srcset]="event.meta.image_srcset"/>
-        <ng-template #noImage>
-          <mat-icon mat-list-icon>event</mat-icon>
-        </ng-template>
+</mat-tab-group>
 
-        <h4 mat-line>
-          {{event.meta.title}}
-        </h4>
-        <p mat-line>
-          {{event.meta.description}}
-        </p>
-        <p mat-line>
-          {{event.meta.begin_at | date : 'medium'}} /
-          {{event.meta.end_at | date : 'medium'}}
-        </p>
-
-        <mat-icon mat-icon-button
-                  *ngxPermissionsOnly="'update-event'"
-                  (click)="edit(event.meta); $event.stopPropagation(); $event.preventDefault()"
-                  color="primary">
-          edit
-        </mat-icon>
-      </a>
-    </mat-nav-list>
-  </mat-card>
-</div>

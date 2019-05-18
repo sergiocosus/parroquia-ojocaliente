@@ -20,13 +20,15 @@ export class AppMetaService {
     });
   }
 
-  update(title?: string, description?: string, image?) {
+  update(title?: string, description = '', image?) {
     let composedTitle;
     if (title) {
       composedTitle = `${title} - ${this.mainTitle}`;
     } else {
       composedTitle = this.mainTitle;
     }
+
+    description = description.replace(/<(?:.|\n)*?>/gm, '');
 
     this.title.setTitle(composedTitle);
 

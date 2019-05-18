@@ -1,0 +1,44 @@
+<mat-nav-list>
+  <a mat-list-item *ngFor="let event of events"
+     [routerLink]="event.viewUrl" role="listitem">
+    <img *ngIf="event.image_srcset; else noImage"
+         mat-list-icon [srcset]="event.image_srcset"/>
+    <ng-template #noImage>
+      <mat-icon mat-list-icon>event</mat-icon>
+    </ng-template>
+
+    <h4 mat-line>
+      {{event.title}}
+    </h4>
+    <p mat-line>
+      {{event.description_untagged}}
+    </p>
+    <p mat-line>
+      {{event.begin_at | date : 'medium'}} ~
+      {{event.end_at | date : 'medium'}}
+    </p>
+
+    <button mat-icon-button>
+      <mat-icon *ngxPermissionsOnly="'update-event'"
+                (click)="edit(event); $event.stopPropagation(); $event.preventDefault()"
+                color="primary">
+        edit
+      </mat-icon>
+    </button>
+
+    <ng-container *ngxPermissionsOnly="'delete-category'">
+      <button mat-icon-button color="warn"
+              *ngIf="!event.deleted_at; else deleted"
+              (click)="delete(event); $event.stopPropagation(); $event.preventDefault()">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+      <ng-template #deleted>
+        <button mat-icon-button color="accent"
+                (click)="restore(event); $event.stopPropagation(); $event.preventDefault()">
+          <mat-icon>restore</mat-icon>
+        </button>
+      </ng-template>
+    </ng-container>
+  </a>
+</mat-nav-list>

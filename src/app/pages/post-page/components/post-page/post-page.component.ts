@@ -25,7 +25,7 @@ export class PostPageComponent implements OnInit {
         this.post = post;
         this.metaService.update(
           this.post.title,
-          this.post.content.replace(/<(?:.|\n)*?>/gm, ''),
+          this.post.content,
           this.post.image_url
         );
       },

@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Event } from '../models/event.model';
 import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { Pagination } from '@app/api/models/pagination';
-import { Media } from '@app/api/models/media.model';
 
 @Injectable({
   providedIn: 'root'

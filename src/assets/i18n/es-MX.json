@@ -41,8 +41,15 @@
     "withTrashed": "Eliminados"
   },
   "event": {
+    "calendarViews": {
+      "day": "Día",
+      "list": "Lista",
+      "month": "Mes",
+      "week": "Semana"
+    },
     "createEvent": "Crear evento",
-    "events": "Eventos"
+    "events": "Eventos",
+    "today": "Hoy"
   },
   "form": {
     "createdSuccess": "¡Creado exitosamente!",

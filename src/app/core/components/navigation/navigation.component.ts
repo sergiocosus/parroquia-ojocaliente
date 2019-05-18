@@ -24,7 +24,7 @@ export class NavigationComponent {
   constructor(private breakpointObserver: BreakpointObserver,
               private settingService: SettingService) {
     this.settingService.getCachedSettings().subscribe(settings => {
-      this.title = _.find(settings, ['name', ValidSetting.title]).content;
+      this.title = _.find(settings, {name: ValidSetting.title}).content as string;
     });
   }
 

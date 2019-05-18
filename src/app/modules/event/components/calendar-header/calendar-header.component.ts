@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { extract } from '@app/shared/services/i18n.service';
 
 @Component({
   selector: 'app-calendar-header',

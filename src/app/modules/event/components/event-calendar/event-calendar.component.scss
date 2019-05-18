@@ -4,24 +4,27 @@
   color: white;
 }
 
-picture {
-  width: 1em;
-  height: 1em;
-  background-position: center;
-  background-size: cover;
-  transition: all .5s;
-}
+mat-toolbar {
+  button {
+    mat-icon {
+      margin-right: .25em;
+    }
+  }
 
-mat-card {
-  font-size: .75em;
-
-  @media (min-width: $smWidth) {
-    font-size: 1em;
+  mat-checkbox {
+    ::ng-deep .mat-checkbox-label{
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
-button {
-  mat-icon {
-    margin-right: .5em;
+
+mat-tab-group {
+  ::ng-deep .mat-tab-label-content {
+    mat-icon {
+      margin-right: .25em;
+    }
   }
 }
+

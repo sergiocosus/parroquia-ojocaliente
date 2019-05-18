@@ -1,0 +1,9 @@
+@import '~src/variables';
+
+picture {
+  width: 1em;
+  height: 1em;
+  background-position: center;
+  background-size: cover;
+  transition: all .5s;
+}

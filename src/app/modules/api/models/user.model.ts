@@ -1,6 +1,7 @@
 import { Model } from './model';
 import { Permission } from '@app/api/models/permission.model';
 import { Role } from '@app/api/models/role.model';
+import * as _ from 'lodash';
 
 export class User extends Model {
   id: number;
@@ -17,6 +18,10 @@ export class User extends Model {
 
   static parseArray(objs: any[]): User[] {
     return objs.map(obj => new User().parse(obj));
+  }
+
+  can(name) {
+    return _.find(this.all_permissions, {name});
   }
 
   parse(obj): any {
