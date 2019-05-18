@@ -34,7 +34,7 @@
 
       <ng-container *ngIf="!link.deleted_at; else deleted">
         <button mat-icon-button color="warn"
-                1
+                *ngxPermissionsOnly="'delete-link'"
                 (click)="deleteLink(link); $event.stopPropagation()">
           <mat-icon>delete</mat-icon>
         </button>
