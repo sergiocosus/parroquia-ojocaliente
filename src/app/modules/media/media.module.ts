@@ -3,7 +3,7 @@ import { SelectMediaDialogComponent } from './select-media-dialog/select-media-d
 import { MediaThumbComponent } from './media-thumb/media-thumb.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { ImageCropperModule } from 'ngx-image-cropper';
-import { MatExpansionModule } from '@angular/material';
+import { MatExpansionModule, MatProgressBarModule } from '@angular/material';
 
 @NgModule({
   declarations: [SelectMediaDialogComponent, MediaThumbComponent],
@@ -11,6 +11,7 @@ import { MatExpansionModule } from '@angular/material';
     SharedModule,
     ImageCropperModule,
     MatExpansionModule,
+    MatProgressBarModule,
   ],
   entryComponents: [
     SelectMediaDialogComponent,

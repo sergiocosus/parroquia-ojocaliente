@@ -1,0 +1,67 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-data{
+  cursor: pointer;
+  text-align: center;
+
+  picture {
+    height: 200px;
+    width: 100%;
+    display: inline-block;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .fa{
+    text-align: center;
+    width: 100%;
+    font-size: 3em;
+  }
+
+  .no-image{
+    text-align: center;
+  }
+}
+
+
+
+.group{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  mat-form-field{
+    flex: 1 0 10em;
+    &:not(:last-child) {
+      margin-right: 1em;
+    }
+  }
+}
+
+.coordinates{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  i{
+    font-size: 2em;
+    margin-right: .25em;
+  }
+
+  div{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+app-loading-button {
+  display: flex;
+  ::ng-deep button {
+    flex: 1;
+  }
+}

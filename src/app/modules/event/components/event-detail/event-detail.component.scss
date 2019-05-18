@@ -1,0 +1,81 @@
+@import "~src/variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.top-image {
+  height: 15em;
+  object-fit: cover;
+  align-self: stretch;
+  z-index: 1;
+
+  @include mat-elevation(10, gray, 1);
+}
+
+.content.box {
+  width: $smWidth;
+  display: flex;
+  flex-direction: column;
+  padding: .5em;
+  max-width: 100%;
+
+  .post-body {
+    display: flex;
+    padding: 1em;
+    width: $smWidth;
+    align-self: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    max-width: 100%;
+
+    h2 {
+      color: gray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .date {
+      color: gray;
+      text-align: right;
+    }
+
+    .place {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .content {
+      ::ng-deep {
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .post-footer {
+    display: flex;
+    align-self: stretch;
+    flex-direction: row;
+    max-width: 100%;
+    margin-bottom: 2em;
+    text-align: right;
+    color: $gray;
+    padding: 1em;
+    flex-wrap: wrap;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+  }
+
+}

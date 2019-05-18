@@ -4,10 +4,12 @@ import { BLOG_API_CONFIG, BlogApiConfig } from './types/api-config';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor.service';
 import { IfLoggedDirective } from '@app/api/directives/if-logged.directive';
+import { IfSettingDirective } from '@app/api/directives/if-setting.directive';
 
 @NgModule({
   declarations: [
     IfLoggedDirective,
+    IfSettingDirective,
   ],
   imports: [
     CommonModule,
@@ -15,6 +17,7 @@ import { IfLoggedDirective } from '@app/api/directives/if-logged.directive';
   ],
   exports: [
     IfLoggedDirective,
+    IfSettingDirective,
   ]
 })
 export class ApiModule {

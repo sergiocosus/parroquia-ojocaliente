@@ -6,6 +6,10 @@ import './icons';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+import localeESMX from '@angular/common/locales/es-MX';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeESMX);
+
 if (environment.production) {
   enableProdMode();
 }

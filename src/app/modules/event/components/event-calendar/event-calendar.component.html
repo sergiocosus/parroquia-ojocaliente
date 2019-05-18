@@ -1,0 +1,72 @@
+<app-calendar-header
+  [(view)]="view"
+  [(viewDate)]="viewDate">
+
+  <button mat-raised-button color="primary"
+          *ngxPermissionsOnly="'create-event'"
+          (click)="create()">
+    <mat-icon class="fa fa-plus-circle"></mat-icon>
+    {{'event.createEvent' | translate}}
+  </button>
+</app-calendar-header>
+
+<ng-template #loading>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>
+
+<div *ngIf="events; else loading; let events">
+  <mat-card [ngSwitch]="view">
+    <mwl-calendar-month-view
+      *ngSwitchCase="'month'"
+      [viewDate]="viewDate"
+      [events]="calendarEvents"
+      [locale]="locale"
+      [activeDayIsOpen]="activeDayIsOpen"
+      (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="eventClicked($event.event)">
+    </mwl-calendar-month-view>
+    <mwl-calendar-week-view
+      *ngSwitchCase="'week'"
+      [viewDate]="viewDate"
+      [events]="calendarEvents"
+      [locale]="locale"
+      (eventClicked)="eventClicked($event.event)">
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view
+      *ngSwitchCase="'day'"
+      [viewDate]="viewDate"
+      [events]="calendarEvents"
+      [locale]="locale"
+      (eventClicked)="eventClicked($event.event)">
+    </mwl-calendar-day-view>
+
+    <mat-nav-list *ngSwitchCase="'list'">
+      <a mat-list-item *ngFor="let event of calendarEvents"
+         [routerLink]="event.meta.viewUrl" role="listitem">
+        <img *ngIf="event.meta.image_srcset; else noImage"
+             mat-list-icon [srcset]="event.meta.image_srcset"/>
+        <ng-template #noImage>
+          <mat-icon mat-list-icon>event</mat-icon>
+        </ng-template>
+
+        <h4 mat-line>
+          {{event.meta.title}}
+        </h4>
+        <p mat-line>
+          {{event.meta.description}}
+        </p>
+        <p mat-line>
+          {{event.meta.begin_at | date : 'medium'}} /
+          {{event.meta.end_at | date : 'medium'}}
+        </p>
+
+        <mat-icon mat-icon-button
+                  *ngxPermissionsOnly="'update-event'"
+                  (click)="edit(event.meta); $event.stopPropagation(); $event.preventDefault()"
+                  color="primary">
+          edit
+        </mat-icon>
+      </a>
+    </mat-nav-list>
+  </mat-card>
+</div>

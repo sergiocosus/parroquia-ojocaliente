@@ -1,0 +1,86 @@
+<form [formGroup]="form" id="event-form" autocomplete="off"
+      (ngSubmit)="submit()">
+
+  <div class="group">
+    <mat-form-field>
+      <input matInput formControlName="title"
+             placeholder="Título">
+    </mat-form-field>
+  </div>
+
+
+  <div class="group">
+    <mat-form-field>
+      <input matInput [owlDateTime]="dt1"
+             selectMode="range"
+             [owlDateTimeTrigger]="dt1"
+             formControlName="range_at"
+             placeholder="Fechas del evento">
+      <owl-date-time #dt1></owl-date-time>
+      <span matSuffix class="trigger" [owlDateTimeTrigger]="dt1">
+        <i class="fa fa-calendar"></i>
+    </span>
+    </mat-form-field>
+
+    <!--
+    <mat-form-field>
+      <input matInput
+             [owlDateTime]="dt2"
+             [owlDateTimeTrigger]="dt2"
+             formControlName="notify_at"
+             placeholder="Fecha de notificación">
+      <owl-date-time #dt2></owl-date-time>
+      <span matSuffix class="trigger" [owlDateTimeTrigger]="dt2">
+        <i class="fa fa-calendar"></i>
+    </span>
+    </mat-form-field>
+    -->
+  </div>
+
+  <div class="group">
+    <mat-form-field>
+      <input matInput formControlName="address"
+             placeholder="Dirección">
+      <mat-error *ngIf="form.get('address').hasError('required')">
+        Este campo es obligatorio
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <app-upload-picture [control]="form.get('picture')"
+                      [image_srcset]="event?.image_srcset">
+  </app-upload-picture>
+
+  <div class="column text">
+    <button mat-icon-button type="button"
+            color="primary" [matTooltip]="'post.addImage' | translate"
+            (click)="addImageToPost()">
+      <mat-icon>add_photo_alternate</mat-icon>
+    </button>
+    <app-post-ckeditor [control]="form.get('description')">
+    </app-post-ckeditor>
+  </div>
+
+  <div class="group">
+    <!--
+    <section class="coordinates" (click)="openMapModal()">
+      <a class="map">
+        <i class="fa fa-map-marker"></i>
+      </a>
+      <div>
+        <span>
+          Lat: {{form.get('latitude').value}}
+        </span>
+        <span>
+          Lon: {{form.get('longitude').value}}
+        </span>
+      </div>
+    </section>
+    -->
+  </div>
+
+  <app-loading-button [loading]="loading">
+    <mat-icon class="fa fa-paper-plane"></mat-icon>
+    {{'common.submit' | translate}}
+  </app-loading-button>
+</form>

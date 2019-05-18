@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Post } from '../models/post.model';
 import { Pagination } from '@app/api/models/pagination';
@@ -38,8 +38,9 @@ export class PostService {
       base64: string,
     }
   }) {
-    return this.httpClient.post('post', params).pipe(
-      this.mapPost()
+    return this.httpClient.post('post', params,
+      {reportProgress: true, observe: 'events'}).pipe(
+      this.mapPostEvent()
     );
   }
 
@@ -53,8 +54,9 @@ export class PostService {
       base64: string,
     }
   }) {
-    return this.httpClient.put(`post/${slug}`, params).pipe(
-      this.mapPost()
+    return this.httpClient.put(`post/${slug}`, params,
+      {reportProgress: true, observe: 'events'}).pipe(
+      this.mapPostEvent()
     );
   }
 
@@ -65,6 +67,15 @@ export class PostService {
   private mapPostPaginated() {
     return map(response => new Pagination().parse(response['paginated_posts'])
       .parseData(Post) as Pagination<Post>);
+  }
+
+  private mapPostEvent() {
+    return map((response: HttpEvent<any>) => {
+      if (response['type'] === HttpEventType.Response) {
+        return new Post().parse(response.body['post']);
+      }
+      return response;
+    });
   }
 
   private mapPost() {

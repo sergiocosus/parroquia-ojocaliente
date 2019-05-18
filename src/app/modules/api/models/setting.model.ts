@@ -25,7 +25,9 @@ export class Setting extends Model {
 export enum ValidSetting {
   title = 'title',
   showLinks = 'showLinks',
+  showEvents = 'showEvents',
 }
 
 extract('settings.title');
 extract('settings.showLinks');
+extract('settings.showEvents');

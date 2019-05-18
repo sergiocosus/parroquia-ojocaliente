@@ -44,12 +44,15 @@
       {{'nav.articles' | translate}}
     </a>
 
-    <a mat-menu-item [routerLink]="linksRoute"
-       *ngxPermissionsOnly="['read-link']"
-       routerLinkActive="active">
-      <mat-icon>link</mat-icon>
-      {{'nav.links' | translate}}
-    </a>
+    <ng-container *appIfSetting="'showLinks'">
+      <a mat-menu-item [routerLink]="linksRoute"
+         *ngxPermissionsOnly="['read-link']"
+         routerLinkActive="active">
+        <mat-icon>link</mat-icon>
+        {{'nav.links' | translate}}
+      </a>
+    </ng-container>
+
 
 
     <button mat-menu-item *ngIf="$impersonatorUser | async"

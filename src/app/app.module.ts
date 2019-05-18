@@ -1,5 +1,5 @@
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,10 @@ import { ApiModule } from '@app/api/api.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { AdsenseModule } from 'ng2-adsense';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { MAT_DATE_LOCALE } from '@angular/material';
 // import { CacheModule, CACHE } from '@ngx-cache/core';
 // import { BrowserCacheModule, MemoryCacheService } from '@ngx-cache/platform-browser';
 
@@ -26,7 +30,7 @@ registerLocaleData(localeMX, 'es-MX');
     AppComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -42,8 +46,12 @@ registerLocaleData(localeMX, 'es-MX');
         useClass: MemoryCacheService // or, LocalStorageCacheService
       }
     ]),
+    */
     BrowserTransferStateModule,
-     */
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
     ApiModule.forRoot({
       apiUrl: environment.api.url,
       apiClientID: environment.api.clientID,
@@ -54,7 +62,11 @@ registerLocaleData(localeMX, 'es-MX');
       adSlot: environment.googleAdSense.adSlot,
     }),
   ],
-  providers: [],
+  providers: [
+    {provide: OWL_DATE_TIME_LOCALE, useValue: 'es-MX'},
+    {provide: MAT_DATE_LOCALE, useValue: 'es-MX'},
+    {provide: LOCALE_ID, useValue: 'es-MX'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

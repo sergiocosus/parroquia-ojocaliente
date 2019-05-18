@@ -1,0 +1,12 @@
+<h4 mat-dialog-title>
+  {{event ? 'Actualizar' : 'Crear'}} evento
+  <button class="button-close" mat-dialog-close>
+    <mat-icon class="fa fa-times"></mat-icon>
+  </button>
+</h4>
+<mat-dialog-content>
+  <app-event-edit [event]="event"
+                  (created)="close($event)"
+                  (updated)="close($event)"></app-event-edit>
+</mat-dialog-content>
+

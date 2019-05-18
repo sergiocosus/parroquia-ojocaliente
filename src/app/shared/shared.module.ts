@@ -21,6 +21,8 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { UploadPictureComponent } from './components/upload-picture/upload-picture.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { LaravelPaginatorComponent } from '@app/shared/components/laravel-paginator/laravel-paginator.component';
+import { OwlDateTimeModule } from 'ng-pick-datetime';
+import { OwlMomentDateTimeModule } from 'ng-pick-datetime-moment';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import { LaravelPaginatorComponent } from '@app/shared/components/laravel-pagina
     MatTooltipModule,
 
     NgxPermissionsModule,
-
+    OwlDateTimeModule,
+    OwlMomentDateTimeModule,
     ApiModule,
 
     ConfirmDialogComponent,

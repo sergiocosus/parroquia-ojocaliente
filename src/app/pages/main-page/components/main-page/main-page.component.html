@@ -8,6 +8,35 @@
 
   <div class="side">
 
+    <mat-card class="events" *appIfSetting="'showEvents'">
+      <mat-card-header>
+        <mat-card-title>
+          {{'event.events' | translate}}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <a mat-list-item dense
+             *ngFor="let event of events"
+             [routerLink]="event.viewUrl">
+            <img *ngIf="event.image_srcset; else noImage"
+                 mat-list-icon [srcset]="event.image_srcset"/>
+            <ng-template #noImage>
+              <mat-icon mat-list-icon>event</mat-icon>
+            </ng-template>
+
+            <div class="text">
+              <span class="title">{{event.title}}</span>
+              <span class="description">
+                {{event.begin_at | date:'medium'}}
+              </span>
+            </div>
+
+          </a>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
     <mat-card class="categories">
       <mat-card-header>
         <mat-card-title>
@@ -26,7 +55,7 @@
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="latest-links" *ngIf="showLinks">
+    <mat-card class="latest-links" *appIfSetting="'showLinks'">
       <mat-card-header>
         <mat-card-title>
           {{'link.links' | translate}}

@@ -32,12 +32,17 @@
     "confirmMessage": "¿Desea eliminar el elemento?",
     "edit": "Editar",
     "noResults": "No hay resultados",
+    "search": "Buscar",
     "see": "Ver",
     "selectPicture": "Seleccionar imágen",
     "submit": "Enviar",
     "update": "Actualizar",
     "view": "Ver",
     "withTrashed": "Eliminados"
+  },
+  "event": {
+    "createEvent": "Crear evento",
+    "events": "Eventos"
   },
   "form": {
     "createdSuccess": "¡Creado exitosamente!",
@@ -48,6 +53,7 @@
   "forms": {
     "emailInvalidFormat": "E-mail inválido",
     "error": "Error",
+    "invalidFile": "Tipo de archivo inválido",
     "passwordFormat": "Requiere de al menos 8 carácteres, 1 letra y un número",
     "passwordMismatch": "Las contraseñas no coinciden",
     "submit": "Enviar"
@@ -67,6 +73,7 @@
     "articles": "Artículos",
     "categories": "Categorias",
     "contact": "Contacto",
+    "events": "Eventos",
     "externalLinks": "Enlaces",
     "links": "Enlaces",
     "main": "Principal",
@@ -82,10 +89,12 @@
     "isPublished": "Publicado",
     "new": "Nuevo post",
     "postsTitlePage": "Lista de Posts",
+    "published": "Publicado",
     "title": "Título"
   },
   "settings": {
     "settings": "Ajustes",
+    "showEvents": "Mostrar eventos",
     "showLinks": "Mostrar enlaces",
     "title": "Título de la página"
   },

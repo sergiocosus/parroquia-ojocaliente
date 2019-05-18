@@ -23,6 +23,8 @@
   flex-direction: column;
   padding: .5em;
   max-width: 100%;
+  box-sizing: border-box;
+
 
   .post-body {
     display: flex;

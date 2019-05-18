@@ -50,7 +50,7 @@ export class LinkListComponent implements OnInit {
     return this.fb.group({
       title: '',
       url: '',
-      description: '',
+      description: ' ',
     });
   }
 
@@ -59,7 +59,6 @@ export class LinkListComponent implements OnInit {
   }
 
   submit() {
-    console.log('holi');
     if (this.form.invalid) {
       this.notify.showTranslated(extract('forms.error'));
       return;
@@ -97,7 +96,6 @@ export class LinkListComponent implements OnInit {
   restoreLink(link: Link) {
     this.linkService.restore(link.id).subscribe(
       restoredLink => {
-        console.log(restoredLink);
         link.replaceProperties(restoredLink);
         this.notify.showTranslated(extract('form.updatedSuccess'));
       },

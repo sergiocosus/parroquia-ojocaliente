@@ -1,0 +1,55 @@
+<mat-toolbar>
+  <ng-content></ng-content>
+
+  <div class="range">
+    <mat-button-toggle-group [(ngModel)]="view">
+      <mat-button-toggle
+              (click)="viewChange.emit('list')"
+              value="list">
+        Lista
+      </mat-button-toggle>
+      <mat-button-toggle
+              (click)="viewChange.emit('month')"
+              value="month">
+        Mes
+      </mat-button-toggle>
+      <mat-button-toggle
+              (click)="viewChange.emit('week')"
+              value="week">
+        Semana
+      </mat-button-toggle>
+      <mat-button-toggle
+              (click)="viewChange.emit('day')"
+              value="day">
+        Dia
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
+
+  <div class="controls" *ngIf="view !== 'list'">
+    <button mat-icon-button
+            mwlCalendarPreviousView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="viewDateChange.next(viewDate)">
+      <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+    </button>
+    <button mat-button
+            mwlCalendarToday
+            [(viewDate)]="viewDate"
+            (viewDateChange)="viewDateChange.next(viewDate)">
+      Hoy
+    </button>
+    <button mat-icon-button
+            mwlCalendarNextView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="viewDateChange.next(viewDate)">
+      <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+    </button>
+  </div>
+
+</mat-toolbar>
+

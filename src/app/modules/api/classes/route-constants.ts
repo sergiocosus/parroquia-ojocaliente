@@ -9,5 +9,6 @@ export class RouteConstants {
   static readonly register = 'registrar';
   static readonly login = 'login';
   static readonly settings = 'configuracion';
+  static readonly events = 'eventos';
 }
 

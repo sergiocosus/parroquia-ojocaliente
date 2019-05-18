@@ -6,9 +6,8 @@ import { Category } from '@app/api/models/category.model';
 import { AppMetaService } from '@app/shared/services/app-meta.service';
 import { Link } from '@app/api/models/link.model';
 import { LinkService } from '@app/api/services/link.service';
-import { SettingService } from '@app/api/services/setting.service';
-import { ValidSetting } from '@app/api/models/setting.model';
-import * as _ from 'lodash';
+import { EventService } from '@app/api/services/event.service';
+import { Event } from '@app/api/models/event.model';
 
 @Component({
   selector: 'app-main-page',
@@ -20,18 +19,16 @@ export class MainPageComponent implements OnInit {
   categories: Category[];
   links: Link[];
   showLinks: boolean;
+  events: Event[];
 
   constructor(private postService: PostService,
               private categoryService: CategoryService,
               private linkService: LinkService,
-              private metaService: AppMetaService,
-              private settingService: SettingService) { }
+              private eventService: EventService,
+              private metaService: AppMetaService) { }
 
   ngOnInit() {
     this.metaService.update();
-    this.settingService.getCachedSettings().subscribe(settings => {
-      this.showLinks = _.find(settings, ['name', ValidSetting.showLinks]).content
-    })
 
     this.postService.get().subscribe(paginatedPosts => {
       this.posts = paginatedPosts.data;
@@ -43,6 +40,10 @@ export class MainPageComponent implements OnInit {
 
     this.linkService.get().subscribe(
       paginatedLinks => this.links = paginatedLinks.data
+    );
+
+    this.eventService.get({not_expired: 'true'}).subscribe(
+      events => this.events = events
     );
   }
 

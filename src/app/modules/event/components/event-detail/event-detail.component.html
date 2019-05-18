@@ -1,0 +1,41 @@
+<img *ngIf="event.image_srcset"
+     class="top-image"
+     [srcset]="event.image_srcset"/>
+
+<div class="content box">
+  <div class="post-body">
+    <h2>
+      <mat-icon>event</mat-icon>
+      {{event.title}}
+
+      <!--
+      <a mat-icon-button [routerLink]="event.editUrl"
+         *ngxPermissionsOnly="'update-event'">
+        <mat-icon>edit</mat-icon>
+      </a>
+      -->
+    </h2>
+
+    <div class="date">
+      {{event.begin_at | date:'medium'}} ~
+      {{event.end_at | date:'medium'}}
+    </div>
+
+    <div class="place">
+      {{event.address}}
+      <mat-icon>place</mat-icon>
+    </div>
+
+    <div [innerHTML]="event.description" class="content"></div>
+  </div>
+
+  <div class="post-footer">
+    <div class="column">
+      <share-buttons [theme]="'outline'"
+                     [include]="['facebook','twitter','linkedin','google','pinterest','reddit','tumblr','mix','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']"
+                     [show]="3"
+                     [showCount]="true"
+      ></share-buttons>
+    </div>
+  </div>
+</div>

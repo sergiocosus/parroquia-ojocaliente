@@ -23,26 +23,21 @@
     </app-upload-picture>
 
     <mat-checkbox formControlName="is_published">
-      Publicado
+      {{'post.published' | translate}}
     </mat-checkbox>
 
-    <button mat-raised-button color="primary" [disabled]="loading">
-      <span *ngIf="loading">
-        <mat-spinner diameter="20"></mat-spinner>
-      </span>
+    <app-loading-button [loading]="loading">
       <mat-icon class="fa fa-paper-plane"></mat-icon>
       {{'forms.submit' | translate}}
-    </button>
-
+    </app-loading-button>
   </div>
   <div class="column text">
-    <app-post-ckeditor [control]="form.get('content')">
-    </app-post-ckeditor>
-    <button mat-raised-button type="button"
-            color="primary"
+    <button mat-icon-button type="button"
+            color="primary" [matTooltip]="'post.addImage' | translate"
             (click)="addImageToPost()">
       <mat-icon>add_photo_alternate</mat-icon>
-      {{'post.addImage' | translate}}
     </button>
+    <app-post-ckeditor [control]="form.get('content')">
+    </app-post-ckeditor>
   </div>
 </form>

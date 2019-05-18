@@ -29,6 +29,9 @@ $angular-blog-theme: mat-light-theme($angular-blog-primary, $angular-blog-accent
 /* You can add global styles to this file, and also import other style files */
 @import "~src/variables";
 @import '~@ngx-share/button/themes/outline/outline-theme';
+@import "~angular-calendar/css/angular-calendar.css";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -65,4 +68,29 @@ h1, h2, h3, h4, h5, h6 {
   mat-spinner {
     margin-right: .5em;
   }
+}
+
+
+[mat-dialog-title] {
+  position: relative;
+
+  .button-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: .25em;
+    background: none;
+    border: 0;
+    font-size: 1em;
+    color: gray;
+  }
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 10em;
 }

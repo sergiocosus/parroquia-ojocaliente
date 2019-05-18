@@ -7,8 +7,9 @@ import { Router } from '@angular/router';
 import { Post } from '@app/api/models/post.model';
 import { MatDialog } from '@angular/material';
 import { SelectMediaDialogComponent } from '@app/media/select-media-dialog/select-media-dialog.component';
-import { filter, finalize } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 import { PostCkeditorComponent } from '@app/post/components/post-ckeditor/post-ckeditor.component';
+import { uploadProgressOperator } from '@app/shared/functions/uploadProgressOperator';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class PostFormComponent implements OnInit, OnChanges {
 
   form: FormGroup;
   isBrowser: boolean;
-  loading = false;
+  loading = 0;
 
   constructor(private fb: FormBuilder,
               private postService: PostService,
@@ -78,21 +79,22 @@ export class PostFormComponent implements OnInit, OnChanges {
     data.category_ids = data.categories.map(category => category.id);
     data.categories = undefined;
 
-    this.loading = true;
     if (this.post) {
       this.postService.edit(this.post.slug, data)
-        .pipe(finalize(() => this.loading = false))
+        .pipe(uploadProgressOperator(progress => this.loading = progress))
         .subscribe(post => {
             this.post = post;
+            this.initForm();
             this.notify.showTranslated(extract('form.updatedSuccess'));
           },
           error => this.notify.error(error)
         );
     } else {
       this.postService.post(data)
-        .pipe(finalize(() => this.loading = false))
+        .pipe(uploadProgressOperator(progress => this.loading = progress))
         .subscribe(post => {
             this.post = post;
+            this.initForm();
             this.notify.showTranslated(extract('form.createdSuccess'));
           },
           error => this.notify.error(error)

@@ -44,11 +44,11 @@
     flex: 0 1 15em;
   }
 
-  .categories, .latest-links {
+  .categories, .latest-links, .events {
     flex: 0 1 15em;
     padding: .5em;
     margin: .5em;
-    align-self: flex-end;
+    align-self: stretch;
 
     mat-card-title {
       margin-top: .25em;
@@ -61,16 +61,10 @@
 
     a {
       line-height: 1em;
-      height: 2em;
       color: gray;
       text-decoration: none;
-    }
-  }
-
-  .latest-links {
-    a {
-      height: auto;
       margin: .25em 0;
+      height: auto;
     }
 
     .text {
@@ -86,6 +80,11 @@
         font-size: .8em;
       }
     }
+
+  }
+
+  .latest-links {
+
   }
 }
 

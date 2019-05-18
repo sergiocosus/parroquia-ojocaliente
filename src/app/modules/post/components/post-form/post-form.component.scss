@@ -48,5 +48,12 @@ form {
       }
     }
   }
+
+  app-loading-button {
+    display: flex;
+    ::ng-deep button {
+      flex: 1;
+    }
+  }
 }
 

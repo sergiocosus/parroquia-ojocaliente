@@ -10,6 +10,7 @@ export class NavPagesComponent implements OnInit {
   @Output() selected = new EventEmitter();
 
   readonly postRoute = `/${RouteConstants.post}`;
+  readonly eventRoute = `/${RouteConstants.events}`;
 
   constructor() {
   }

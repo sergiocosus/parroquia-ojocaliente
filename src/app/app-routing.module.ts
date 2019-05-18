@@ -17,6 +17,10 @@ const routes: Routes = [
         loadChildren: './pages/post-page/post-page.module#PostPageModule'
       },
       {
+        path: RouteConstants.events,
+        loadChildren: './pages/events-page/events-page.module#EventsPageModule'
+      },
+      {
         path: RouteConstants.category,
         loadChildren: './pages/category-page/category-page.module#CategoryPageModule'
       },

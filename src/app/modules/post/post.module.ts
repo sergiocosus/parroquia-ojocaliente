@@ -52,6 +52,7 @@ import { PostCategoriesComponent } from './components/post-categories/post-categ
     PostFormComponent,
     PostDetailComponent,
     PostsTableComponent,
+    PostCkeditorComponent,
   ]
 })
 export class PostModule {
