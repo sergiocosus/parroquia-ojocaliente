@@ -8,6 +8,8 @@ import { Link } from '@app/api/models/link.model';
 import { LinkService } from '@app/api/services/link.service';
 import { EventService } from '@app/api/services/event.service';
 import { Event } from '@app/api/models/event.model';
+import { SettingService } from '@app/api/services/setting.service';
+import { Setting, ValidSetting } from '@app/api/models/setting.model';
 
 @Component({
   selector: 'app-main-page',
@@ -20,15 +22,22 @@ export class MainPageComponent implements OnInit {
   links: Link[];
   showLinks: boolean;
   events: Event[];
+  mainPagePicture: Setting;
 
   constructor(private postService: PostService,
               private categoryService: CategoryService,
               private linkService: LinkService,
               private eventService: EventService,
-              private metaService: AppMetaService) { }
+              private metaService: AppMetaService,
+              private settingsService: SettingService) {
+  }
 
   ngOnInit() {
     this.metaService.update();
+
+    this.settingsService.getCachedSetting(ValidSetting.mainPagePicture).subscribe(
+      mainPagePicture => this.mainPagePicture = mainPagePicture
+    );
 
     this.postService.get().subscribe(paginatedPosts => {
       this.posts = paginatedPosts.data;

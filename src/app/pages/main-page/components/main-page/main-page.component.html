@@ -1,4 +1,7 @@
-<div class="top-image"></div>
+<img class="top-image"
+     [src]="mainPagePicture?.image_url || '/assets/images/night-sky.jpg'"
+     [srcset]="mainPagePicture?.image_srcset"/>
+
 
 <div class="content">
   <div class="latest-posts">

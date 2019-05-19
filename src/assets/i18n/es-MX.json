@@ -103,6 +103,7 @@
   },
   "settings": {
     "contact": "Contacto",
+    "mainPagePicture": "Imágen de la página principal",
     "settings": "Ajustes",
     "showContact": "Mostrar contacto",
     "showEvents": "Mostrar eventos",

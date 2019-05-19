@@ -3,10 +3,11 @@ import { SettingService } from '@app/api/services/setting.service';
 import { FormArray, FormBuilder } from '@angular/forms';
 import { Notify } from '@app/shared/services/notify.service';
 import { extract } from '@app/shared/services/i18n.service';
-import { SelectMediaDialogComponent } from '@app/media/select-media-dialog/select-media-dialog.component';
-import { filter } from 'rxjs/operators';
 import { MatDialog } from '@angular/material';
 import { PostCkeditorComponent } from '@app/post/components/post-ckeditor/post-ckeditor.component';
+import { Setting } from '@app/api/models/setting.model';
+import * as _ from 'lodash';
+import { uploadProgressOperator } from '@app/shared/functions/uploadProgressOperator';
 
 @Component({
   selector: 'app-settings-form',
@@ -16,6 +17,8 @@ import { PostCkeditorComponent } from '@app/post/components/post-ckeditor/post-c
 export class SettingsFormComponent implements OnInit {
   @ViewChild(PostCkeditorComponent) postCkEditor: PostCkeditorComponent;
   form: FormArray;
+  private settings: Setting[];
+  loading: number;
 
   constructor(private settingService: SettingService,
               private fb: FormBuilder,
@@ -26,6 +29,7 @@ export class SettingsFormComponent implements OnInit {
 
   ngOnInit() {
     this.settingService.getCachedSettings().subscribe(settings => {
+      this.settings = settings;
       this.fillForm(settings);
     });
   }
@@ -39,15 +43,23 @@ export class SettingsFormComponent implements OnInit {
         name: setting.name,
         content: setting.content,
         type: setting.type,
+        picture: null,
       }));
     });
   }
 
+  getSettingSrset(name: string) {
+    return _.find(this.settings, {name}).image_srcset;
+  }
+
+
   submit() {
-    this.settingService.set(this.form.getRawValue()).subscribe(settings => {
-      this.fillForm(settings);
-      this.settingService.setCachedSettings(settings);
-      this.notify.showTranslated(extract('form.updatedSuccess'));
-    });
+    this.settingService.set(this.form.getRawValue())
+      .pipe(uploadProgressOperator(p => this.loading = p))
+      .subscribe(settings => {
+        this.fillForm(settings);
+        this.settingService.setCachedSettings(settings);
+        this.notify.showTranslated(extract('form.updatedSuccess'));
+      });
   }
 }

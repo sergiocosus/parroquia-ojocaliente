@@ -6,6 +6,8 @@ export class Setting extends Model {
   name: string;
   content: string | boolean;
   type: string;
+  image_url?: string;
+  image_srcset?: string;
 
   static parseArray(objs: any[]): Setting[] {
     return objs.map(obj => new Setting().parse(obj));
@@ -28,6 +30,7 @@ export enum ValidSetting {
   showEvents = 'showEvents',
   showContact = 'showContact',
   contact = 'contact',
+  mainPagePicture = 'mainPagePicture',
 }
 
 extract('settings.title');
@@ -35,3 +38,4 @@ extract('settings.showLinks');
 extract('settings.showEvents');
 extract('settings.showContact');
 extract('settings.contact');
+extract('settings.mainPagePicture');

@@ -14,6 +14,6 @@ export function uploadProgressOperator(
         fn((event.loaded / event.total) * 100);
       }
     }),
-    filter(event => event instanceof model)
+    filter(event => event instanceof model || Array.isArray(event))
   );
 }
