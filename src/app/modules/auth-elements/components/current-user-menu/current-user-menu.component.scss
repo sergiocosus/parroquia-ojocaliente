@@ -1,5 +1,9 @@
 @import "~src/variables";
 
+:host {
+  display: flex;
+}
+
 .user-session {
   display: flex;
   align-items: center;
@@ -30,3 +34,11 @@
   }
 }
 
+.no-session {
+  span {
+    display: none;
+    @media (min-width: $smWidth) {
+      display: inline-flex;
+    }
+  }
+}

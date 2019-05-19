@@ -1,18 +1,38 @@
 @import "~src/variables";
 
+form {
+  display: flex;
+  flex-direction: column;
+}
 
-
-button {
+app-loading-button {
   align-self: flex-end;
   margin-top: .5em;
 }
 
 .long-text {
   border-top: 1px solid #CCC;
-  margin-top: 1em;
+  padding-top: 1em;
+  margin: 1em 0;
 
   h3 {
     margin: 0;
     display: inline-block;
   }
+}
+
+.general {
+  display: flex;
+  flex-direction: column;
+}
+
+.general {
+  ::ng-deep .mat-tab-body-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+app-upload-picture {
+  background-color: #EEE;
 }

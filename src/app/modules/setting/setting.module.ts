@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { SettingsFormComponent } from './components/settings-form/settings-form.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { PostModule } from '@app/post/post.module';
+import { MatTabsModule } from '@angular/material';
 
 @NgModule({
   declarations: [SettingsFormComponent],
@@ -10,7 +11,8 @@ import { PostModule } from '@app/post/post.module';
   ],
   imports: [
     SharedModule,
-    PostModule
+    PostModule,
+    MatTabsModule
   ]
 })
 export class SettingModule {

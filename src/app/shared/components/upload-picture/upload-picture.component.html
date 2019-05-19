@@ -35,6 +35,7 @@
     *ngIf="imageChangedEvent"
     [imageChangedEvent]="imageChangedEvent"
     [maintainAspectRatio]="false"
+    format="png"
     (imageCropped)="imageCropped($event)"
     (loadImageFailed)="loadImageFailed()"
     (click)="$event.stopPropagation()"

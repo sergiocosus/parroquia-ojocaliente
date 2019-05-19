@@ -15,6 +15,10 @@
     margin-top: .5em;
   }
 
+  mat-toolbar {
+    background-color: transparent;
+  }
+
   .page-icon {
     width: 3em;
   }
@@ -52,6 +56,7 @@ mat-expansion-panel {
   mat-expansion-panel-header {
     padding: 0 16px;
   }
+
   ::ng-deep {
     .mat-expansion-panel-body {
       padding: 0;
@@ -67,6 +72,11 @@ app-nav-pages ::ng-deep a {
 }
 
 .top-bar {
+  padding: 0 8px;
+  @media (min-width: $smWidth) {
+    padding: 0 16px
+  }
+
   app-nav-pages {
     display: flex;
 
@@ -89,9 +99,12 @@ app-nav-pages ::ng-deep a {
   white-space: pre-wrap;
   line-height: 1em;
   text-align: center;
-  font-size: .9em;
 
-  @media (min-width: $smWidth) {
-    font-size: 1em;
+  &.long-text {
+    font-size: .75em;
+
+    @media (min-width: $smWidth) {
+      font-size: 1em;
+    }
   }
 }

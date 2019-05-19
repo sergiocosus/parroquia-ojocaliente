@@ -1,34 +1,51 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
-  <div *ngFor="let setting of form.controls; let i = index">
-    <ng-container [formGroupName]="i" [ngSwitch]="setting.get('type').value">
-      <mat-form-field *ngSwitchCase="'text'">
-        <input matInput
-               [placeholder]="'settings.' + setting.get('name').value  | translate"
-               formControlName="content"/>
-      </mat-form-field>
 
-      <mat-checkbox *ngSwitchCase="'boolean'" value="true"
-                    formControlName="content">
-        {{'settings.' + setting.get('name').value  | translate}}
-      </mat-checkbox>
+  <mat-tab-group>
+    <mat-tab [label]="'settings.general' | translate">
+      <div class="general">
+        <ng-container *ngFor="let setting of form.controls; let i = index"
+                      [formGroupName]="i" [ngSwitch]="setting.get('type').value">
+            <mat-form-field *ngSwitchCase="'text'">
+              <input matInput
+                     [placeholder]="'settings.' + setting.get('name').value  | translate"
+                     formControlName="content"/>
+            </mat-form-field>
 
-      <div class="long-text" *ngSwitchCase="'longText'">
-        <app-post-ckeditor [control]="setting.get('content')">
+            <mat-checkbox *ngSwitchCase="'boolean'" value="true"
+                          formControlName="content">
+              {{'settings.' + setting.get('name').value  | translate}}
+            </mat-checkbox>
+        </ng-container>
+      </div>
+    </mat-tab>
+
+    <mat-tab [label]="'settings.mainPage' | translate">
+      <ng-container *ngFor="let setting of form.controls; let i = index">
+        <ng-container [formGroupName]="i"
+                      *ngIf="setting.get('type').value === 'picture'">
           <h3>{{'settings.' + setting.get('name').value | translate}}</h3>
-        </app-post-ckeditor>
-      </div>
+          <app-upload-picture
+            [format]=""
+            [image_srcset]="getSettingSrset(setting.get('name').value)"
+            [control]="setting.get('picture')"></app-upload-picture>
+        </ng-container>
+      </ng-container>
+    </mat-tab>
 
-      <div class="long-text" *ngSwitchCase="'picture'">
-        <h3>{{'settings.' + setting.get('name').value | translate}}</h3>
-        <app-upload-picture [image_srcset]="getSettingSrset(setting.get('name').value)"
-                            [control]="setting.get('picture')"></app-upload-picture>
-      </div>
+    <mat-tab [label]="'settings.contact' | translate">
+      <ng-container *ngFor="let setting of form.controls; let i = index">
+        <ng-container [formGroupName]="i"
+                      *ngIf="setting.get('type').value === 'longText'">
+          <app-post-ckeditor [control]="setting.get('content')">
+            <h3>{{'settings.' + setting.get('name').value | translate}}</h3>
+          </app-post-ckeditor>
+        </ng-container>
+      </ng-container>
+    </mat-tab>
+  </mat-tab-group>
 
-    </ng-container>
-  </div>
 
   <app-loading-button [loading]="loading">
     {{'common.update' | translate}}
   </app-loading-button>
-
 </form>

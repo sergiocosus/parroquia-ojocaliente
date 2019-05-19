@@ -54,7 +54,6 @@
     </ng-container>
 
 
-
     <button mat-menu-item *ngIf="$impersonatorUser | async"
             (click)="stopImpersonate()">
       {{'spark.kiosk.users.stopImpersonate' | translate}}
@@ -63,8 +62,10 @@
 </ng-container>
 
 <ng-container *ngIf="!user">
-  <button mat-button (click)="openLoginModal()">
+  <button class="no-session" mat-button
+          [matTooltip]="'auth.login' | translate"
+          (click)="openLoginModal()">
     <mat-icon>account_circle</mat-icon>
-    {{'auth.login' | translate}}
+    <span>{{'auth.login' | translate}}</span>
   </button>
 </ng-container>

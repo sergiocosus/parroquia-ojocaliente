@@ -12,6 +12,7 @@ export class UploadPictureComponent implements OnInit {
   @ViewChild('file') file: ElementRef;
   @Input() control: FormControl;
   @Input() image_srcset: string;
+  @Input() format: string;
 
   src: string;
   fileName: string;
