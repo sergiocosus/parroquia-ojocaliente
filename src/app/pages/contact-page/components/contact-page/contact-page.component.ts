@@ -11,7 +11,7 @@ import { extract } from '@app/shared/services/i18n.service';
   styleUrls: ['./contact-page.component.scss']
 })
 export class ContactPageComponent implements OnInit {
-  private contactText: string;
+  contactText: string;
 
   constructor(private settingService: SettingService,
               private appMetaService: AppMetaService) {
