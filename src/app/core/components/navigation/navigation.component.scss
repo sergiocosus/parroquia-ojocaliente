@@ -84,3 +84,14 @@ app-nav-pages ::ng-deep a {
     }
   }
 }
+
+.title {
+  white-space: pre-wrap;
+  line-height: 1em;
+  text-align: center;
+  font-size: .9em;
+
+  @media (min-width: $smWidth) {
+    font-size: 1em;
+  }
+}
