@@ -36,7 +36,7 @@ export class MainPageComponent implements OnInit {
     this.metaService.update();
 
     this.settingsService.getCachedSetting(ValidSetting.mainPagePicture).subscribe(
-      mainPagePicture => this.mainPagePicture = mainPagePicture
+      mainPagePicture => this.mainPagePicture = mainPagePicture as Setting
     );
 
     this.postService.get().subscribe(paginatedPosts => {
