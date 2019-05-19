@@ -1,3 +1,11 @@
+<div class="header">
+  <ng-content></ng-content>
+  <button mat-icon-button type="button"
+          color="primary" [matTooltip]="'post.addImage' | translate"
+          (click)="addImageToPost()">
+    <mat-icon>add_photo_alternate</mat-icon>
+  </button>
+</div>
 <ckeditor *ngIf="ckEditorLoaded"
           #ck [editor]="editor"
           [config]="editorConfig"

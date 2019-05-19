@@ -1,17 +1,23 @@
-
 <form [formGroup]="form" (ngSubmit)="submit()">
   <div *ngFor="let setting of form.controls; let i = index">
-    <ng-container [formGroupName]="i">
-      <ng-container [ngSwitch]=" setting.get('type').value">
-        <mat-form-field *ngSwitchCase="'text'">
-          <input matInput [placeholder]="'settings.' + setting.get('name').value  | translate"
-                 formControlName="content"/>
-        </mat-form-field>
+    <ng-container [formGroupName]="i" [ngSwitch]="setting.get('type').value">
+      <mat-form-field *ngSwitchCase="'text'">
+        <input matInput
+               [placeholder]="'settings.' + setting.get('name').value  | translate"
+               formControlName="content"/>
+      </mat-form-field>
 
-        <mat-checkbox *ngSwitchCase="'boolean'" value="true" formControlName="content">
-          {{'settings.' + setting.get('name').value  | translate}}
-        </mat-checkbox>
-      </ng-container>
+      <mat-checkbox *ngSwitchCase="'boolean'" value="true"
+                    formControlName="content">
+        {{'settings.' + setting.get('name').value  | translate}}
+      </mat-checkbox>
+
+      <div class="long-text" *ngSwitchCase="'longText'">
+        <app-post-ckeditor [control]="setting.get('content')">
+          <h3>{{'settings.' + setting.get('name').value | translate}}</h3>
+        </app-post-ckeditor>
+      </div>
+
     </ng-container>
   </div>
 

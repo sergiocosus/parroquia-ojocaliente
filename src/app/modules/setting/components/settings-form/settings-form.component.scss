@@ -1,3 +1,18 @@
+@import "~src/variables";
+
+
+
 button {
+  align-self: flex-end;
   margin-top: .5em;
+}
+
+.long-text {
+  border-top: 1px solid #CCC;
+  margin-top: 1em;
+
+  h3 {
+    margin: 0;
+    display: inline-block;
+  }
 }

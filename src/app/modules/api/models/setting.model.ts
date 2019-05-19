@@ -26,8 +26,12 @@ export enum ValidSetting {
   title = 'title',
   showLinks = 'showLinks',
   showEvents = 'showEvents',
+  showContact = 'showContact',
+  contact = 'contact',
 }
 
 extract('settings.title');
 extract('settings.showLinks');
 extract('settings.showEvents');
+extract('settings.showContact');
+extract('settings.contact');

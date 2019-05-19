@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Film {
-  id: number;
-  title: string;
-  release_date: string;
-}
+import { AppMetaService } from '@app/shared/services/app-meta.service';
+import { extract } from '@app/shared/services/i18n.service';
 
 @Component({
   selector: 'app-events-page',
@@ -12,7 +8,12 @@ interface Film {
   styleUrls: ['./events-page.component.scss']
 })
 export class EventsPageComponent implements OnInit {
+
+  constructor(private appMetaService: AppMetaService) {
+  }
+
   ngOnInit(): void {
+    this.appMetaService.update(extract('contact.contact'));
   }
 
 }

@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SettingService } from '@app/api/services/setting.service';
 import { FormArray, FormBuilder } from '@angular/forms';
 import { Notify } from '@app/shared/services/notify.service';
 import { extract } from '@app/shared/services/i18n.service';
+import { SelectMediaDialogComponent } from '@app/media/select-media-dialog/select-media-dialog.component';
+import { filter } from 'rxjs/operators';
+import { MatDialog } from '@angular/material';
+import { PostCkeditorComponent } from '@app/post/components/post-ckeditor/post-ckeditor.component';
 
 @Component({
   selector: 'app-settings-form',
@@ -10,11 +14,13 @@ import { extract } from '@app/shared/services/i18n.service';
   styleUrls: ['./settings-form.component.scss']
 })
 export class SettingsFormComponent implements OnInit {
+  @ViewChild(PostCkeditorComponent) postCkEditor: PostCkeditorComponent;
   form: FormArray;
 
   constructor(private settingService: SettingService,
               private fb: FormBuilder,
-              private notify: Notify) {
+              private notify: Notify,
+              private dialog: MatDialog) {
     this.form = this.fb.array([]);
   }
 

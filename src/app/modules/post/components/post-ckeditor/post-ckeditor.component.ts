@@ -6,6 +6,9 @@ import { isPlatformBrowser } from '@angular/common';
 // import '@ckeditor/ckeditor5-build-classic/build/translations/es';
 import { ScriptService } from 'ngx-script-loader';
 import { forkJoin } from 'rxjs';
+import { SelectMediaDialogComponent } from '@app/media/select-media-dialog/select-media-dialog.component';
+import { filter } from 'rxjs/operators';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-post-ckeditor',
@@ -43,7 +46,8 @@ export class PostCkeditorComponent implements OnInit {
   }
 
   constructor(@Inject(PLATFORM_ID) private platformId: string,
-              private scriptService: ScriptService) {
+              private scriptService: ScriptService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -59,6 +63,13 @@ export class PostCkeditorComponent implements OnInit {
   ).subscribe(() => {
       this.editor = (window as any).ClassicEditor;
       this.ckEditorLoaded = true;
+    });
+  }
+
+  addImageToPost() {
+    this.dialog.open(SelectMediaDialogComponent, {minWidth: '90%', minHeight: '90%'}).afterClosed()
+      .pipe(filter(Boolean)).subscribe(media => {
+      this.addImage(media.url);
     });
   }
 }

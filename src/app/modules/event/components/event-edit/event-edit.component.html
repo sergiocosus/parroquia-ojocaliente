@@ -52,11 +52,6 @@
   </app-upload-picture>
 
   <div class="column text">
-    <button mat-icon-button type="button"
-            color="primary" [matTooltip]="'post.addImage' | translate"
-            (click)="addImageToPost()">
-      <mat-icon>add_photo_alternate</mat-icon>
-    </button>
     <app-post-ckeditor [control]="form.get('description')">
     </app-post-ckeditor>
   </div>

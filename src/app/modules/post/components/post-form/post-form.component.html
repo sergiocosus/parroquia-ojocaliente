@@ -32,11 +32,6 @@
     </app-loading-button>
   </div>
   <div class="column text">
-    <button mat-icon-button type="button"
-            color="primary" [matTooltip]="'post.addImage' | translate"
-            (click)="addImageToPost()">
-      <mat-icon>add_photo_alternate</mat-icon>
-    </button>
     <app-post-ckeditor [control]="form.get('content')">
     </app-post-ckeditor>
   </div>

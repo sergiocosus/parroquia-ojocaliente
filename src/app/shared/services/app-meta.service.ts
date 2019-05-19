@@ -15,12 +15,20 @@ export class AppMetaService {
               private meta: Meta,
               private translate: TranslateService,
               private settingsService: SettingService) {
-    this.settingsService.getCachedSettings().subscribe(settings => {
-      this.mainTitle = _.find(settings, ['name', ValidSetting.title]).content;
-    });
   }
 
   update(title?: string, description = '', image?) {
+    this.settingsService.getCachedSettings().subscribe(settings => {
+      this.mainTitle = _.find(settings, {name: ValidSetting.title}).content;
+      this.doUpdate(title, description, image);
+    });
+  }
+
+  private doUpdate(title: string, description, image) {
+    if (title) {
+      title = this.translate.instant(title);
+    }
+
     let composedTitle;
     if (title) {
       composedTitle = `${title} - ${this.mainTitle}`;

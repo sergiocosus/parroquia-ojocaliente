@@ -40,6 +40,9 @@
     "view": "Ver",
     "withTrashed": "Eliminados"
   },
+  "contact": {
+    "contact": "Contacto"
+  },
   "event": {
     "calendarViews": {
       "day": "Día",
@@ -81,7 +84,6 @@
     "categories": "Categorias",
     "contact": "Contacto",
     "events": "Eventos",
-    "externalLinks": "Enlaces",
     "links": "Enlaces",
     "main": "Principal",
     "newArticle": "Nuevo Articulo",
@@ -100,7 +102,9 @@
     "title": "Título"
   },
   "settings": {
+    "contact": "Contacto",
     "settings": "Ajustes",
+    "showContact": "Mostrar contacto",
     "showEvents": "Mostrar eventos",
     "showLinks": "Mostrar enlaces",
     "title": "Título de la página"

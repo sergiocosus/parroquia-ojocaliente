@@ -110,6 +110,7 @@ export class EventCalendarComponent implements OnInit {
       .pipe(filter(Boolean)).subscribe(
       event => {
         this.calendarEvents.push(this.createCalendarEvent(event));
+        this.events.push(event);
       }
     );
   }

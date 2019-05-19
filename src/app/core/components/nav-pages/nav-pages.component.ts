@@ -11,6 +11,7 @@ export class NavPagesComponent implements OnInit {
 
   readonly postRoute = `/${RouteConstants.post}`;
   readonly eventRoute = `/${RouteConstants.events}`;
+  readonly contactRoute = `/${RouteConstants.contact}`;
 
   constructor() {
   }

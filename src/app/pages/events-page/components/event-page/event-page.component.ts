@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EventService } from '@app/api/services/event.service';
 import { finalize, map, mergeMap, tap } from 'rxjs/operators';
 import { Event } from '@app/api/models/event.model';
+import { AppMetaService } from '@app/shared/services/app-meta.service';
 
 @Component({
   selector: 'app-event-page',
@@ -14,7 +15,8 @@ export class EventPageComponent implements OnInit {
   loading: boolean;
 
   constructor(private route: ActivatedRoute,
-              private eventService: EventService) {
+              private eventService: EventService,
+              private appMetaService: AppMetaService) {
     this.loadEvent();
   }
 
@@ -25,7 +27,10 @@ export class EventPageComponent implements OnInit {
       mergeMap(eventSlug => this.eventService.getOne(eventSlug).pipe(
         finalize(() => this.loading = false)
       ))
-    ).subscribe(event => this.event = event);
+    ).subscribe(event => {
+      this.event = event;
+      this.appMetaService.update(event.title, event.description, event.image_url);
+    });
   }
 
   ngOnInit() {

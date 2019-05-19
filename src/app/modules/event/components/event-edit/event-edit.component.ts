@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EventFormService } from '../../services/event-form.service';
 import { MatDialog } from '@angular/material';
@@ -7,9 +7,6 @@ import { Notify } from '@app/shared/services/notify.service';
 import { EventService } from '@app/api/services/event.service';
 import { Category } from '@app/api/models/category.model';
 import { Event } from '@app/api/models/event.model';
-import { SelectMediaDialogComponent } from '@app/media/select-media-dialog/select-media-dialog.component';
-import { filter } from 'rxjs/operators';
-import { PostCkeditorComponent } from '@app/post/components/post-ckeditor/post-ckeditor.component';
 import { uploadProgressOperator } from '@app/shared/functions/uploadProgressOperator';
 import { extract } from '@app/shared/services/i18n.service';
 
@@ -21,7 +18,6 @@ import { extract } from '@app/shared/services/i18n.service';
 @AutoUnsubscribe()
 export class EventEditComponent implements OnInit {
   @Input() event: Event;
-  @ViewChild(PostCkeditorComponent) postCkEditor: PostCkeditorComponent;
 
   @Output() created = new EventEmitter;
   @Output() updated = new EventEmitter;
@@ -73,12 +69,12 @@ export class EventEditComponent implements OnInit {
     this.eventService.put(this.event.slug, eventData)
       .pipe(uploadProgressOperator(p => this.loading = p))
       .subscribe(
-      event => {
-        this.updated.emit(event);
-        this.notify.showTranslated(extract('form.updatedSuccess'));
-      },
-      error => this.notify.error(error)
-    );
+        event => {
+          this.updated.emit(event);
+          this.notify.showTranslated(extract('form.updatedSuccess'));
+        },
+        error => this.notify.error(error)
+      );
   }
 
   /*
@@ -92,11 +88,4 @@ export class EventEditComponent implements OnInit {
     );
   }
   */
-
-  addImageToPost() {
-    this.dialog.open(SelectMediaDialogComponent, {minWidth: '90%', minHeight: '90%'}).afterClosed()
-      .pipe(filter(Boolean)).subscribe(media => {
-      this.postCkEditor.addImage(media.url);
-    });
-  }
 }

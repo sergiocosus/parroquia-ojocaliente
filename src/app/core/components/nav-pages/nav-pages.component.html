@@ -16,3 +16,10 @@
   <mat-icon>event</mat-icon>
   {{'nav.events' | translate}}
 </a>
+<a mat-list-item [routerLink]="contactRoute"
+   *appIfSetting="'showContact'"
+   (click)="selected.emit()"
+   routerLinkActive="active">
+  <mat-icon>contacts</mat-icon>
+  {{'nav.contact' | translate}}
+</a>
