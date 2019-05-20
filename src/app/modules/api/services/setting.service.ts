@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { Setting, ValidSetting } from '@app/api/models/setting.model';
 import { ReplaySubject } from 'rxjs';
 import * as _ from 'lodash';
@@ -20,8 +20,9 @@ export class SettingService {
   }
 
   getCachedSetting(name) {
-    return this.getCachedSettings().pipe(map(
-      settings => _.find(settings, {name}))
+    return this.getCachedSettings().pipe(
+      map(settings => _.find(settings, {name})),
+      filter(Boolean)
     );
   }
 

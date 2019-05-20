@@ -22,7 +22,6 @@ export class UploadPictureComponent extends BaseFormControlWrapperValueAccessor 
   src: string;
   fileName: string;
   imageChangedEvent = null;
-
   crop = false;
 
   @HostListener('click') click() {
@@ -32,11 +31,11 @@ export class UploadPictureComponent extends BaseFormControlWrapperValueAccessor 
   constructor(private notify: Notify) {
     super();
     this.formControl.valueChanges.subscribe(picture => {
-      console.log(picture, 'sdf');
       if (!picture) {
         this.imageChangedEvent = null;
         this.src = null;
         this.fileName = null;
+        this.crop = null;
       }
     });
   }

@@ -31,6 +31,7 @@ export enum ValidSetting {
   showContact = 'showContact',
   contact = 'contact',
   mainPagePicture = 'mainPagePicture',
+  pageIcon = 'pageIcon',
 }
 
 extract('settings.title');
@@ -39,3 +40,4 @@ extract('settings.showEvents');
 extract('settings.showContact');
 extract('settings.contact');
 extract('settings.mainPagePicture');
+extract('settings.pageIcon');

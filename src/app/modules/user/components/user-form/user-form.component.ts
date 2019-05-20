@@ -16,6 +16,7 @@ import { AuthService } from '@app/api/services/auth.service';
 export class UserFormComponent implements OnInit {
   form: FormGroup;
   user: User;
+  loading: boolean;
 
   constructor(private fb: FormBuilder,
               private userService: UserService,
@@ -47,8 +48,9 @@ export class UserFormComponent implements OnInit {
 
     const data = this.form.getRawValue();
     this.form.disable();
+    this.loading = true;
     this.userService.putMe(data).pipe(
-      finalize(() => this.form.enable())
+      finalize(() => this.loading = false),
     ).subscribe(
       user => {
         this.authService.updateLoggedUserObservable().subscribe();

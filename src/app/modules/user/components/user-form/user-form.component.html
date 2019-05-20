@@ -8,12 +8,13 @@
       <input matInput formControlName="last_name"
              [placeholder]="'user.lastName' | translate" />
     </mat-form-field>
-    <button mat-raised-button color="primary">
+    <app-loading-button [loading]="loading">
       {{'form.submit' | translate}}
-    </button>
+    </app-loading-button>
   </div>
   <div class="column">
     <app-upload-picture formControlName="profile"
-                        [image_srcset]="user?.profile_srcset"></app-upload-picture>
+                        [image_srcset]="user?.profile_srcset">
+    </app-upload-picture>
   </div>
 </form>

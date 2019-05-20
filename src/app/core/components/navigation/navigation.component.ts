@@ -5,7 +5,6 @@ import { map } from 'rxjs/operators';
 import { MatSidenav } from '@angular/material';
 import { SettingService } from '@app/api/services/setting.service';
 import { ValidSetting } from '@app/api/models/setting.model';
-import * as _ from 'lodash';
 
 @Component({
   selector: 'app-navigation',
@@ -20,12 +19,16 @@ export class NavigationComponent {
       map(result => result.matches)
     );
   title: string;
+  pageIconSrcSet: string;
 
   constructor(private breakpointObserver: BreakpointObserver,
               private settingService: SettingService) {
-    this.settingService.getCachedSettings().subscribe(settings => {
-      this.title = _.find(settings, {name: ValidSetting.title}).content as string;
-    });
+    this.settingService.getCachedSetting(ValidSetting.title).subscribe(
+      setting => this.title = setting.content as string
+    );
+    this.settingService.getCachedSetting(ValidSetting.pageIcon).subscribe(
+      setting => this.pageIconSrcSet = setting.image_srcset
+    );
   }
 
 
