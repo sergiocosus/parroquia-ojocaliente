@@ -56,8 +56,12 @@ h1, h2, h3, h4, h5, h6 {
 .box {
   @include mat-elevation(10, gray, 1);
   background: white;
-  padding: .5em;
+  padding: .25em;
   border-radius: .5em;
+
+  @media (min-width: $smWidth) {
+    padding: .5em;
+  }
 }
 
 .mat-button-wrapper {

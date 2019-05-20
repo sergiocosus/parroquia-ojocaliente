@@ -13,7 +13,7 @@
     </button>
   </div>
   <div class="column">
-    <app-upload-picture [control]="form.get('profile')"
+    <app-upload-picture formControlName="profile"
                         [image_srcset]="user?.profile_srcset"></app-upload-picture>
   </div>
 </form>

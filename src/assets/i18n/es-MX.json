@@ -29,8 +29,11 @@
   },
   "common": {
     "actions": "Acciones",
+    "changePicture": "Cambiar Imágen",
     "confirmMessage": "¿Desea eliminar el elemento?",
+    "crop": "Recortar",
     "edit": "Editar",
+    "invalidFileType": "Archivo con formato inválido",
     "noResults": "No hay resultados",
     "search": "Buscar",
     "see": "Ver",

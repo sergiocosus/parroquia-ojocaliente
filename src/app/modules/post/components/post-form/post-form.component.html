@@ -18,7 +18,7 @@
       [control]="categoriesForm">
     </app-categories-search-chip-list>
 
-    <app-upload-picture [control]="form.get('thumbnail')"
+    <app-upload-picture formControlName="thumbnail"
                         [image_srcset]="post?.image_srcset">
     </app-upload-picture>
 

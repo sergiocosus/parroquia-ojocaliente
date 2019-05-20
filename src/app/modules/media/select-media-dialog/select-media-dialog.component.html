@@ -8,34 +8,12 @@
 
 <mat-dialog-content>
   <form [formGroup]="uploadForm" (ngSubmit)="uploadMedia()">
-    <div class="file-input" (click)="file.click()"
-         [class.error]="uploadForm.get('base64').invalid && uploadForm.get('base64').touched">
-
-      <button mat-raised-button color="primary" type="button">
-        <mat-icon>
-          add_photo_alternate
-        </mat-icon>
-        {{'media.uploadPicture' | translate}}
-      </button>
-
-      <span class="file-name">
-        {{fileName}}
-      </span>
-      <input type="file" #file (change)="changed($event)"/>
-    </div>
-
-    <image-cropper
-      *ngIf="imageChangedEvent"
-      [imageChangedEvent]="imageChangedEvent"
-      [maintainAspectRatio]="false"
-      (imageCropped)="imageCropped($event)"
-      (loadImageFailed)="loadImageFailed()"
-    ></image-cropper>
+    <app-upload-picture formControlName="picture"></app-upload-picture>
 
     <mat-progress-bar *ngIf="loadingProgress" mode="determinate"
                       [value]="loadingProgress"></mat-progress-bar>
 
-    <app-loading-button *ngIf="imageChangedEvent"
+    <app-loading-button *ngIf="uploadForm.get('picture').value"
                         [loading]="loadingProgress">
       {{'common.submit' | translate}}
     </app-loading-button>

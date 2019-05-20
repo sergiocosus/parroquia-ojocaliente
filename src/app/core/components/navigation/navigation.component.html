@@ -24,7 +24,7 @@
       <app-nav-pages *ngIf="!(isHandset$ | async)"></app-nav-pages>
       <div class="spacer"></div>
 
-      <span class="title" [class.long-text]="title.length > 20">
+      <span class="title" [class.long-text]="title?.length > 20">
         {{title}}
       </span>
 

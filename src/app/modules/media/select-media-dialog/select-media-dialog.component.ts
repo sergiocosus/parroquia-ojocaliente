@@ -3,14 +3,13 @@ import { MediaService } from '@app/api/services/media.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AutoUnsubscribe } from '@app/shared/decorators/auto-unsubscribe';
 import { SubscriptionManager } from '@app/shared/classes/subscription-manager';
-import { filter, finalize, startWith, tap } from 'rxjs/operators';
+import { finalize, startWith } from 'rxjs/operators';
 import { Pagination } from '@app/api/models/pagination';
 import { Media } from '@app/api/models/media.model';
 import { MatDialogRef } from '@angular/material';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { Notify } from '@app/shared/services/notify.service';
 import { extract } from '@app/shared/services/i18n.service';
-import { HttpEventType } from '@angular/common/http';
 import { uploadProgressOperator } from '@app/shared/functions/uploadProgressOperator';
 
 @Component({
@@ -44,8 +43,7 @@ export class SelectMediaDialogComponent implements OnInit {
     });
 
     this.uploadForm = this.fb.group({
-      base64: [],
-      name: [],
+      picture: [],
     });
   }
 
@@ -77,27 +75,6 @@ export class SelectMediaDialogComponent implements OnInit {
 
   selectMedia(media: Media) {
     this.dialogRef.close(media);
-  }
-
-
-  imageCropped(event: ImageCroppedEvent) {
-    this.src = event.base64;
-
-    this.uploadForm.setValue({
-      base64: this.src.split(',')[1],
-      name: this.fileName
-    });
-  }
-
-  loadImageFailed() {
-    this.notify.show(extract('forms.invalidFile'));
-    this.src = null;
-    this.uploadForm.get('image_base64').setValue(null);
-  }
-
-  changed($event) {
-    this.imageChangedEvent = $event;
-    this.fileName = $event.target.files[0].name;
   }
 
   uploadMedia() {
