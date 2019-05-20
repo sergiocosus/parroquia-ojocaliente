@@ -4,7 +4,6 @@ import { EventEditDialogComponent } from './components/event-edit-dialog/event-e
 import { SharedModule } from '@app/shared/shared.module';
 import { EventCalendarComponent } from './components/event-calendar/event-calendar.component';
 import { CalendarModule } from 'angular-calendar';
-import { CalendarHeaderComponent } from '@app/event/components/calendar-header/calendar-header.component';
 import { MatButtonToggleModule, MatProgressBarModule, MatTabsModule } from '@angular/material';
 import { EventDetailComponent } from './components/event-detail/event-detail.component';
 import { ShareButtonsModule } from '@ngx-share/buttons';
@@ -26,7 +25,6 @@ import { EventListComponent } from './components/event-list/event-list.component
     EventEditComponent,
     EventEditDialogComponent,
     EventCalendarComponent,
-    CalendarHeaderComponent,
     EventDetailComponent,
     EventListComponent
   ],

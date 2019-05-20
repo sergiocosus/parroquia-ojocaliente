@@ -15,7 +15,7 @@
   </form>
 </mat-toolbar>
 
-<mat-toolbar *ngIf="view">
+<mat-toolbar class="calendar-controls" *ngIf="view">
   <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
 
   <div class="spacer"></div>

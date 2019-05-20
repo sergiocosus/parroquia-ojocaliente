@@ -1,4 +1,4 @@
-import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MAT_DATE_LOCALE } from '@angular/material';
+import { MyHammerConfig } from '@app/shared/services/my-hammer-config';
 // import { CacheModule, CACHE } from '@ngx-cache/core';
 // import { BrowserCacheModule, MemoryCacheService } from '@ngx-cache/platform-browser';
 
@@ -65,7 +66,9 @@ registerLocaleData(localeMX, 'es-MX');
   providers: [
     {provide: OWL_DATE_TIME_LOCALE, useValue: 'es-MX'},
     {provide: MAT_DATE_LOCALE, useValue: 'es-MX'},
-    {provide: LOCALE_ID, useValue: 'es-MX'}
+    {provide: LOCALE_ID, useValue: 'es-MX'},
+    {provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig}
+
   ],
   bootstrap: [AppComponent]
 })

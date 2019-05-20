@@ -72,11 +72,6 @@ app-nav-pages ::ng-deep a {
 }
 
 .top-bar {
-  padding: 0 8px;
-  @media (min-width: $smWidth) {
-    padding: 0 16px
-  }
-
   app-nav-pages {
     display: flex;
 
