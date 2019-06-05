@@ -5,6 +5,7 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { PostModule } from '@app/post/post.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { AdsenseModule } from 'ng2-adsense';
+import { GalleryModule } from '@app/gallery/gallery.module';
 
 @NgModule({
   declarations: [MainPageComponent],
@@ -12,7 +13,8 @@ import { AdsenseModule } from 'ng2-adsense';
     SharedModule,
     MainPageRoutingModule,
     PostModule,
-    AdsenseModule
+    AdsenseModule,
+    GalleryModule
   ]
 })
 export class MainPageModule { }

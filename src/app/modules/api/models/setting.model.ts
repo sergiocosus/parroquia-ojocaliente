@@ -29,6 +29,7 @@ export enum ValidSetting {
   showLinks = 'showLinks',
   showEvents = 'showEvents',
   showContact = 'showContact',
+  showGalleries = 'showGalleries',
   contact = 'contact',
   mainPagePicture = 'mainPagePicture',
   pageIcon = 'pageIcon',
@@ -38,6 +39,7 @@ extract('settings.title');
 extract('settings.showLinks');
 extract('settings.showEvents');
 extract('settings.showContact');
+extract('settings.showGalleries');
 extract('settings.contact');
 extract('settings.mainPagePicture');
 extract('settings.pageIcon');

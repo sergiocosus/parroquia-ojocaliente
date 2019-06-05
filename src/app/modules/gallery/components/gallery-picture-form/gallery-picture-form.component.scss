@@ -1,0 +1,28 @@
+@import "~src/variables";
+
+form {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    padding: .5em;
+  }
+}
+
+app-upload-picture {
+  margin-bottom: .25em;
+  padding: .25em;
+}
+
+app-loading-button {
+  margin: .25em;
+  align-self: stretch;
+}
+
+.actions {
+  display: flex;
+  padding: .25em;
+}

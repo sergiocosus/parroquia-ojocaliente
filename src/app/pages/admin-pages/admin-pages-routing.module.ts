@@ -7,6 +7,8 @@ import { UserProfilePageComponent } from './components/user-profile-page/user-pr
 import { AdminPostsPageComponent } from './components/admin-posts-page/admin-posts-page.component';
 import { SettingsPageComponent } from './components/settings-page/settings-page.component';
 import { AdminLinksPageComponent } from './components/admin-links-page/admin-links-page.component';
+import { AdminGalleryPageComponent } from './components/admin-gallery-page/admin-gallery-page.component';
+import { AdminGalleriesPageComponent } from './components/admin-galleries-page/admin-galleries-page.component';
 
 const routes: Routes = [
   {
@@ -20,6 +22,14 @@ const routes: Routes = [
   {
     path: `${RouteConstants.post}/:postSlug`,
     component: NewPostPageComponent
+  },
+  {
+    path: `${RouteConstants.gallery}`,
+    component: AdminGalleriesPageComponent
+  },
+  {
+    path: `${RouteConstants.gallery}/:gallerySlug`,
+    component: AdminGalleryPageComponent
   },
   {
     path: RouteConstants.category,

@@ -18,10 +18,10 @@ import { RouteConstants } from '@app/api/classes/route-constants';
 export class CurrentUserMenuComponent implements OnInit {
   readonly adminRoute = `/${RouteConstants.admin}/${RouteConstants.category}`;
   readonly adminPostsRoute = `/${RouteConstants.admin}/${RouteConstants.post}`;
-  readonly newPostRoute = `/${RouteConstants.admin}/${RouteConstants.post}/${RouteConstants.new}`;
   readonly userRoute = `/${RouteConstants.admin}/${RouteConstants.user}`;
   readonly settingsRoute = `/${RouteConstants.admin}/${RouteConstants.settings}`;
   readonly linksRoute = `/${RouteConstants.admin}/${RouteConstants.link}`;
+  readonly galleriesRoute = `/${RouteConstants.admin}/${RouteConstants.gallery}`;
 
   sub = new SubscriptionManager();
   user: User;

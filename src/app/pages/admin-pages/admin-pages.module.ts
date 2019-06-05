@@ -17,6 +17,9 @@ import { SettingsPageComponent } from './components/settings-page/settings-page.
 import { SettingModule } from '@app/setting/setting.module';
 import { AdminLinksPageComponent } from './components/admin-links-page/admin-links-page.component';
 import { LinkModule } from '@app/link/link.module';
+import { AdminGalleryPageComponent } from './components/admin-gallery-page/admin-gallery-page.component';
+import { GalleryModule } from '@app/gallery/gallery.module';
+import { AdminGalleriesPageComponent } from './components/admin-galleries-page/admin-galleries-page.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,8 @@ import { LinkModule } from '@app/link/link.module';
     AdminPostsPageComponent,
     SettingsPageComponent,
     AdminLinksPageComponent,
+    AdminGalleryPageComponent,
+    AdminGalleriesPageComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +45,7 @@ import { LinkModule } from '@app/link/link.module';
     MatTabsModule,
     SettingModule,
     LinkModule,
+    GalleryModule,
   ]
 })
 export class AdminPagesModule {

@@ -8,7 +8,6 @@ import { Pagination } from '@app/api/models/pagination';
   providedIn: 'root'
 })
 export class EventService {
-  basePath = 'event/';
 
   constructor(private http: HttpClient) {
   }

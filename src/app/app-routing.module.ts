@@ -33,6 +33,10 @@ const routes: Routes = [
         loadChildren: './pages/contact-page/contact-page.module#ContactPageModule'
       },
       {
+        path: RouteConstants.gallery,
+        loadChildren: './pages/gallery-page/gallery-page.module#GalleryPageModule'
+      },
+      {
         path: RouteConstants.admin,
         loadChildren: './pages/admin-pages/admin-pages.module#AdminPagesModule'
       },

@@ -39,6 +39,4 @@ export class PostsTableComponent implements OnInit {
     );
     this.paginationManager.init();
   }
-
-
 }

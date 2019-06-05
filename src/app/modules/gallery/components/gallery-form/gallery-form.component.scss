@@ -1,0 +1,107 @@
+@import "../../../../../variables";
+
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  padding: .5em;
+}
+
+h2 {
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 2 1 10em;
+  padding: .5em;
+
+  h2, mat-form-field, app-upload-picture,
+  app-loading-button, app-post-ckeditor {
+    margin: .5em;
+  }
+}
+
+.column {
+  display: flex;
+  flex: 5 1 10em;
+  flex-direction: column;
+  padding: .5em;
+
+  td-file-input {
+    align-self: stretch;
+
+    ::ng-deep > div {
+      flex: 1;
+      display: flex;
+
+      button {
+        flex: 1;
+        min-height: 4em;
+
+        &.drop-zone {
+          background-color: $cyan;
+          min-height: 6em;
+          font-size: 1.25em;
+          @include animate();
+        }
+      }
+    }
+  }
+}
+
+.pictures {
+  display: flex;
+
+  .gallery-pictures {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: .25em;
+
+    app-gallery-picture-form {
+      flex: 0 1 20em;
+      margin: .5em;
+    }
+  }
+
+  .no-gallery {
+    align-self: stretch;
+    text-align: center;
+    background-color: rgba($gray, .25);
+    color: white;
+    padding: .5em;
+    margin: .5em;
+    border-radius: .5em;
+  }
+}
+
+mat-expansion-panel {
+  mat-progress-spinner {
+    marign-rigth: .25em;
+  }
+
+  mat-expansion-panel-header {
+    img {
+      object-fit: fill;
+      width: 1.5em;
+      height: 1.5em;
+      margin-right: .5em;
+    }
+  }
+
+  ::ng-deep {
+    .mat-content {
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: visible;
+
+      mat-progress-bar {
+        position: absolute;
+        bottom: -.2em;
+      }
+    }
+  }
+}

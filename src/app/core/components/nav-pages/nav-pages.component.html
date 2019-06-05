@@ -16,6 +16,15 @@
   <mat-icon>event</mat-icon>
   {{'nav.events' | translate}}
 </a>
+<ng-container *appIfSetting="'showGalleries'">
+  <a mat-list-item [routerLink]="galleryRoute"
+     *appIfSetting="'showContact'"
+     (click)="selected.emit()"
+     routerLinkActive="active">
+    <mat-icon>photo_library</mat-icon>
+    {{'nav.galleries' | translate}}
+  </a>
+</ng-container>
 <a mat-list-item [routerLink]="contactRoute"
    *appIfSetting="'showContact'"
    (click)="selected.emit()"

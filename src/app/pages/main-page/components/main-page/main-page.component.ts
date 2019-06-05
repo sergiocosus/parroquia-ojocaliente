@@ -10,6 +10,8 @@ import { EventService } from '@app/api/services/event.service';
 import { Event } from '@app/api/models/event.model';
 import { SettingService } from '@app/api/services/setting.service';
 import { Setting, ValidSetting } from '@app/api/models/setting.model';
+import { Gallery } from '@app/api/models/gallery.model';
+import { GalleryService } from '@app/api/services/gallery.service';
 
 @Component({
   selector: 'app-main-page',
@@ -18,6 +20,7 @@ import { Setting, ValidSetting } from '@app/api/models/setting.model';
 })
 export class MainPageComponent implements OnInit {
   posts: Post[];
+  galleries: Gallery[];
   categories: Category[];
   links: Link[];
   showLinks: boolean;
@@ -29,7 +32,8 @@ export class MainPageComponent implements OnInit {
               private linkService: LinkService,
               private eventService: EventService,
               private metaService: AppMetaService,
-              private settingsService: SettingService) {
+              private settingsService: SettingService,
+              private galleryService: GalleryService) {
   }
 
   ngOnInit() {
@@ -39,13 +43,17 @@ export class MainPageComponent implements OnInit {
       mainPagePicture => {
         this.mainPagePicture = mainPagePicture as Setting;
         if (this.mainPagePicture) {
-          this.metaService.update(null, this.mainPagePicture.image_url);
+          this.metaService.update(null, '', this.mainPagePicture.image_url);
         }
       }
     );
 
     this.postService.get().subscribe(paginatedPosts => {
       this.posts = paginatedPosts.data;
+    });
+
+    this.galleryService.get().subscribe(paginatedGalleries => {
+      this.galleries = paginatedGalleries.data;
     });
 
     this.categoryService.get().subscribe(

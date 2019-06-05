@@ -1,0 +1,79 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <h2>
+    {{gallery ? ('gallery.edit' | translate) : ('gallery.new' | translate) }}
+    {{gallery?.title}}
+
+    <div class="spacer"></div>
+
+    <a mat-icon-button *ngIf="gallery" [routerLink]="gallery.viewUrl"
+       [matTooltip]="'common.edit' | translate" color="primary">
+      <mat-icon class="fas fa-eye"></mat-icon>
+    </a>
+  </h2>
+
+  <mat-form-field>
+    <input matInput [placeholder]="'gallery.title' | translate"
+           formControlName="title"/>
+  </mat-form-field>
+
+  <app-upload-picture formControlName="picture"
+                      [image_srcset]="gallery?.image_srcset">
+  </app-upload-picture>
+
+  <app-post-ckeditor [control]="form.get('content')"
+                     [showImageSelector]="false">
+  </app-post-ckeditor>
+
+  <app-loading-button [loading]="loading">
+    <mat-icon class="fa fa-paper-plane"></mat-icon>
+    {{'forms.submit' | translate}}
+  </app-loading-button>
+</form>
+
+<div class="column">
+  <h2>{{'gallery.galleryPhotos' | translate}}</h2>
+
+  <td-file-input color="primary" multiple *ngIf="gallery"
+                 [formControl]="addPictureControl">
+    <mat-icon>photo_library</mat-icon>
+    {{'gallery.addImages' | translate}}
+  </td-file-input>
+
+  <mat-accordion *ngIf="gallery; else noGallery">
+    <mat-expansion-panel *ngFor="let galleryPicture of galleryPictures">
+      <mat-expansion-panel-header>
+        <img [srcset]="galleryPicture.image_srcset">
+
+        <mat-progress-spinner diameter="15"
+                              *ngIf="pictureForm.loading"
+                              [value]="pictureForm.loading"></mat-progress-spinner>
+        {{galleryPicture.title}}
+      </mat-expansion-panel-header>
+      <app-gallery-picture-form #pictureForm
+                                [galleryPicture]="galleryPicture"
+                                [gallery_slug]="gallery?.slug">
+      </app-gallery-picture-form>
+
+      <mat-action-row>
+        <app-loading-button [loading]="pictureForm.loading">
+          <mat-icon>check</mat-icon>
+          {{'common.update' | translate}}
+        </app-loading-button>
+
+        <div class="spacer"></div>
+
+        <button mat-icon-button mat-raised-button color="warn"
+                type="button" (click)="delete(galleryPicture)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <ng-template #noGallery>
+    <div class="no-gallery">
+      {{'gallery.noGalleryMessage' | translate}}
+    </div>
+  </ng-template>
+</div>

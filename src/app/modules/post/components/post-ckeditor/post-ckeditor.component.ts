@@ -18,6 +18,7 @@ import { MatDialog } from '@angular/material';
 export class PostCkeditorComponent implements OnInit {
   @ViewChild('ck') ckeditor;
   @Input() control: FormControl;
+  @Input() showImageSelector = true;
 
   editor; // ClassicEditor;
   editorConfig = {

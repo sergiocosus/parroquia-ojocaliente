@@ -3,9 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '@app/api/services/post.service';
 import { extract } from '@app/shared/services/i18n.service';
 import { Notify } from '@app/shared/services/notify.service';
-import { Router } from '@angular/router';
 import { Post } from '@app/api/models/post.model';
-import { MatDialog } from '@angular/material';
 import { uploadProgressOperator } from '@app/shared/functions/uploadProgressOperator';
 
 
@@ -18,14 +16,11 @@ export class PostFormComponent implements OnInit, OnChanges {
   @Input() post: Post;
 
   form: FormGroup;
-  isBrowser: boolean;
   loading = 0;
 
   constructor(private fb: FormBuilder,
               private postService: PostService,
-              private notify: Notify,
-              private router: Router,
-              private dialog: MatDialog) {
+              private notify: Notify) {
     this.form = this.fb.group({
       title: ['', Validators.required],
       content: ['', Validators.required],

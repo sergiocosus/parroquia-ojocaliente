@@ -53,17 +53,6 @@ h1, h2, h3, h4, h5, h6 {
   color: $gray;
 }
 
-.box {
-  @include mat-elevation(10, gray, 1);
-  background: white;
-  padding: .25em;
-  border-radius: .5em;
-
-  @media (min-width: $smWidth) {
-    padding: .5em;
-  }
-}
-
 .mat-button-wrapper {
   display: flex;
   justify-content: center;
@@ -104,4 +93,23 @@ h1, h2, h3, h4, h5, h6 {
   @media (min-width: $smWidth) {
     padding: 0 16px
   }
+}
+
+gallery {
+  .g-btn-close {
+    display: none;
+  }
+
+  gallery-slider, gallery-item, .g-box {
+    overflow: visible !important;
+  }
+
+  .g-box {
+    z-index: 2;
+  }
+
+}
+
+.g-thumb-loading {
+  display: none;
 }

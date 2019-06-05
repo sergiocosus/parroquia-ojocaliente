@@ -12,8 +12,8 @@ export class Model {
   }
 
   replaceProperties(obj) {
-    for (const prop in this) {
-      if (Object.getOwnPropertyDescriptor(this, prop) && typeof this[prop] !== 'function') {
+    for (const prop in obj) {
+      if (Object.getOwnPropertyDescriptor(obj, prop) && typeof obj[prop] !== 'function') {
         this[prop] = obj[prop];
       }
     }

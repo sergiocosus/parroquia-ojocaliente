@@ -32,6 +32,7 @@
     "changePicture": "Cambiar Imágen",
     "confirmMessage": "¿Desea eliminar el elemento?",
     "crop": "Recortar",
+    "deleteConfirm": "¿Desea eliminarlo?",
     "edit": "Editar",
     "invalidFileType": "Archivo con formato inválido",
     "noResults": "No hay resultados",
@@ -65,11 +66,20 @@
   },
   "forms": {
     "emailInvalidFormat": "E-mail inválido",
-    "error": "Error",
-    "invalidFile": "Tipo de archivo inválido",
+    "error": "Hay errores en el formulario o está incompleto",
     "passwordFormat": "Requiere de al menos 8 carácteres, 1 letra y un número",
     "passwordMismatch": "Las contraseñas no coinciden",
     "submit": "Enviar"
+  },
+  "gallery": {
+    "addImages": "Agregar imágenes",
+    "createGallery": "Crear galería",
+    "edit": "Editar",
+    "galleries": "Galerias fotográficas",
+    "galleryPhotos": "Fotos de la galería",
+    "new": "Nuevo Gallery",
+    "noGalleryMessage": "Guarde la galería para subir las imágenes",
+    "title": "Título"
   },
   "link": {
     "createLink": "Crear enlace",
@@ -79,27 +89,28 @@
     "url": "Url"
   },
   "media": {
-    "media": "Medios",
-    "uploadPicture": "Subir foto"
+    "media": "Medios"
   },
   "nav": {
     "articles": "Artículos",
     "categories": "Categorias",
     "contact": "Contacto",
     "events": "Eventos",
+    "galleries": "Galerías",
     "links": "Enlaces",
     "main": "Principal",
-    "newArticle": "Nuevo Articulo",
     "profile": "Perfil",
     "settings": "Ajustes"
   },
   "post": {
     "addImage": "Agregar imagen",
     "author": "Autor",
+    "description": "Descripción",
     "edit": "Editar post",
     "id": "ID",
     "isPublished": "Publicado",
-    "new": "Nuevo post",
+    "new": "Nuevo artículo",
+    "posts": "Artículos",
     "postsTitlePage": "Lista de Posts",
     "published": "Publicado",
     "title": "Título"
@@ -109,9 +120,11 @@
     "general": "General",
     "mainPage": "Página Principal",
     "mainPagePicture": "Imágen de la página principal",
+    "pageIcon": "Ícono de la página",
     "settings": "Ajustes",
     "showContact": "Mostrar contacto",
     "showEvents": "Mostrar eventos",
+    "showGalleries": "Mostrar galerías",
     "showLinks": "Mostrar enlaces",
     "title": "Título de la página"
   },

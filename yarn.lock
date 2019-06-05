@@ -459,6 +459,12 @@
     "@ckeditor/ckeditor5-ui" "^12.0.0"
     "@ckeditor/ckeditor5-utils" "^12.0.0"
 
+"@covalent/core@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@covalent/core/-/core-2.0.1.tgz#1ab727711d136dbc37be5a7cc6ca905d82c3629e"
+  dependencies:
+    tslib "^1.9.0"
+
 "@fortawesome/angular-fontawesome@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@fortawesome/angular-fontawesome/-/angular-fontawesome-0.3.0.tgz#380492f186469ce03d6fdbb3ec719810f771bf62"
@@ -520,6 +526,24 @@
   resolved "https://registry.yarnpkg.com/@ngx-cache/platform-browser/-/platform-browser-7.0.0.tgz#7644a6b61c9d1fe076281e209a7b918ada543e31"
   dependencies:
     tslib "~1.9.0"
+
+"@ngx-gallery/core@^4.0.2-beta.0":
+  version "4.0.2-beta.0"
+  resolved "https://registry.yarnpkg.com/@ngx-gallery/core/-/core-4.0.2-beta.0.tgz#778e30bbf356839c9e192eb6900f16b7455f6b34"
+  dependencies:
+    tslib "^1.9.0"
+
+"@ngx-gallery/gallerize@^4.0.2-beta.0":
+  version "4.0.2-beta.0"
+  resolved "https://registry.yarnpkg.com/@ngx-gallery/gallerize/-/gallerize-4.0.2-beta.0.tgz#ff9d93f94238d323346c5f4296f0a0da4d72a569"
+  dependencies:
+    tslib "^1.9.0"
+
+"@ngx-gallery/lightbox@^4.0.2-beta.0":
+  version "4.0.2-beta.0"
+  resolved "https://registry.yarnpkg.com/@ngx-gallery/lightbox/-/lightbox-4.0.2-beta.0.tgz#ed80143abfbb5a1c8ab67d6eeb47804e50a97842"
+  dependencies:
+    tslib "^1.9.0"
 
 "@ngx-share/button@^7.1.2":
   version "7.1.2"
@@ -4532,6 +4556,12 @@ ngx-moment@^3.3.0:
 ngx-permissions@^6.0.5:
   version "6.0.5"
   resolved "https://registry.yarnpkg.com/ngx-permissions/-/ngx-permissions-6.0.5.tgz#a5ff0cff365604e0894dfc9925795b19d2381558"
+
+ngx-pinch-zoom@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/ngx-pinch-zoom/-/ngx-pinch-zoom-1.2.3.tgz#0bb082a3fada2b10d5d99e6e98817ff3ab6b7c6e"
+  dependencies:
+    tslib "^1.9.0"
 
 ngx-script-loader@^1.1.0:
   version "1.1.0"

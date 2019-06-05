@@ -21,18 +21,29 @@
   flex-wrap: wrap-reverse;
   justify-content: center;
 
-  .latest-posts {
-    flex: 4 1 15em;
+  .side-left {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: .5em;
-    margin: .5em;
-    align-items: flex-start;
+    flex-direction: column;
+    flex: 4 1 15em;
 
-    app-post-thumb {
-      flex: 0 1 15em;
+    .posts, .galleries {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: .5em;
       margin: .5em;
+      align-items: flex-start;
+
+      app-post-thumb {
+        flex: 0 1 15em;
+        margin: .5em;
+      }
+
+      app-gallery-thumb {
+        width: 14em;
+        height: 14em;
+        margin: .5em;
+      }
     }
   }
 
@@ -79,11 +90,6 @@
         font-size: .8em;
       }
     }
-
-  }
-
-  .latest-links {
-
   }
 }
 

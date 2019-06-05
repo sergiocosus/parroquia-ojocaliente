@@ -1,6 +1,7 @@
 <div class="header">
   <ng-content></ng-content>
   <button mat-icon-button type="button"
+          *ngIf="showImageSelector"
           color="primary" [matTooltip]="'post.addImage' | translate"
           (click)="addImageToPost()">
     <mat-icon>add_photo_alternate</mat-icon>

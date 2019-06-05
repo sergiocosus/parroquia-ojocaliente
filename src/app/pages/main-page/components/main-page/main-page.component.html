@@ -1,17 +1,31 @@
 <img class="top-image"
      [src]="mainPagePicture?.image_url || '/assets/images/night-sky.jpg'"
      [srcset]="mainPagePicture?.image_srcset|| '/assets/images/night-sky.jpg'"
-     />
+/>
 
 
 <div class="content">
-  <div class="latest-posts">
-    <app-post-thumb *ngFor="let post of posts" [post]="post">
-    </app-post-thumb>
+  <div class="side-left">
+    <h2>{{'post.posts' | translate}}</h2>
+    <div class="posts">
+      <app-post-thumb
+        *ngFor="let post of posts"
+        [post]="post">
+      </app-post-thumb>
+    </div>
+
+    <ng-container *appIfSetting="'showGalleries'">
+      <h2>{{'gallery.galleries' | translate}}</h2>
+      <div class="galleries">
+        <app-gallery-thumb
+          [routerLink]="gallery.viewUrl"
+          *ngFor="let gallery of galleries"
+          [gallery]="gallery"></app-gallery-thumb>
+      </div>
+    </ng-container>
   </div>
 
   <div class="side">
-
     <mat-card class="events" *appIfSetting="'showEvents'">
       <mat-card-header>
         <mat-card-title>

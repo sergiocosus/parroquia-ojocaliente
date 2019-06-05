@@ -30,12 +30,14 @@
       <span>{{'nav.categories' | translate}}</span>
     </a>
 
-    <a mat-menu-item [routerLink]="newPostRoute"
-       *ngxPermissionsOnly="['create-post', 'update-post']"
-       routerLinkActive="active">
-      <mat-icon>book</mat-icon>
-      {{'nav.newArticle' | translate}}
-    </a>
+    <ng-container *appIfSetting="'showGalleries'">
+      <a mat-menu-item [routerLink]="galleriesRoute"
+         *ngxPermissionsOnly="['create-gallery', 'update-gallery']"
+         routerLinkActive="active">
+        <mat-icon>photo_library</mat-icon>
+        {{'nav.galleries' | translate}}
+      </a>
+    </ng-container>
 
     <a mat-menu-item [routerLink]="adminPostsRoute"
        *ngxPermissionsOnly="['read-post']"
