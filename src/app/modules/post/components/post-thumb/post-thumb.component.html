@@ -3,7 +3,8 @@
     <mat-card-title>{{post.title}}</mat-card-title>
     <mat-card-subtitle>{{post.created_at | date}}</mat-card-subtitle>
   </mat-card-header>
-  <img matCardImage [srcset]="post.image_srcset">
+  <img matCardImage  *ngIf="post.image_srcset"
+       [srcset]="post.image_srcset">
   <!--
   <mat-card-content>
     Text content
