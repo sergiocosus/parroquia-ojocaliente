@@ -1,42 +1,55 @@
-<input type="file" #file (change)="changed($event)"/>
+<div class="file-drop" tdFileDrop (fileDrop)="changed($event)"
+     (click)="tdFileInput.inputElement.click()">
 
-<ng-container *ngIf="!crop">
-  <img class="picture" *ngIf="src; else noSrc"
-       [src]="src"
-       [matTooltip]="'common.selectPicture' | translate"/>
-  <ng-template #noSrc>
-    <img class="picture" *ngIf="image_srcset"
-         [srcset]="image_srcset"
+  <ng-container *ngIf="!crop">
+    <img class="picture" *ngIf="src; else noSrc"
+         [src]="src"
          [matTooltip]="'common.selectPicture' | translate"/>
-  </ng-template>
-</ng-container>
+    <ng-template #noSrc>
+      <img class="picture" *ngIf="image_srcset"
+           [srcset]="image_srcset"
+           [matTooltip]="'common.selectPicture' | translate"/>
+    </ng-template>
+  </ng-container>
 
-<image-cropper
-  *ngIf="imageChangedEvent && crop"
-  [imageChangedEvent]="imageChangedEvent"
-  [maintainAspectRatio]="false"
-  (imageCropped)="imageCropped($event)"
-  (loadImageFailed)="loadImageFailed()"
-  (click)="$event.stopPropagation()"
-></image-cropper>
-
-<div class="actions">
-  <button mat-button class="picture-placeholder" type="button"
-          [class.selected]="src || imageChangedEvent"
-          [matTooltip]="'common.selectPicture' | translate">
+  <div *ngIf="!imageChangedEvent"
+       class="picture-placeholder" type="button"
+       [matTooltip]="'common.selectPicture' | translate">
     <mat-icon>add_photo_alternate</mat-icon>
 
+    {{'common.selectPicture' | translate}}
+  </div>
+
+  <image-cropper
+    *ngIf="imageChangedEvent && crop"
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="false"
+    (imageCropped)="imageCropped($event)"
+    (loadImageFailed)="loadImageFailed()"
+    (click)="$event.stopPropagation()"
+  ></image-cropper>
+</div>
+
+
+
+<div class="actions">
+  <td-file-input (select)="changed($event)"
+                 [matTooltip]="'common.selectPicture' | translate">
+    <mat-icon>add_photo_alternate</mat-icon>
     {{imageChangedEvent ?
     ('common.changePicture' | translate)
     : ('common.selectPicture' | translate)}}
-  </button>
+  </td-file-input>
+
+
   <div class="spacer">
     {{fileName}}
   </div>
+
   <button *ngIf="imageChangedEvent" mat-icon-button type="button"
           [class.active]="crop"
           [matTooltip]="'common.crop' | translate"
-          (click)="toogleGroup(); $event.stopPropagation(); $event.preventDefault()">
+          (click)="toogleGroup()">
     <mat-icon>crop</mat-icon>
   </button>
 </div>

@@ -1,9 +1,10 @@
-import { Component, ElementRef, forwardRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, forwardRef, Input, OnInit, ViewChild } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { Notify } from '@app/shared/services/notify.service';
 import { BaseFormControlWrapperValueAccessor } from '@app/shared/classes/base-form-control-wrapper-value-accessor';
 import { extract } from '@app/shared/services/i18n.service';
+import { TdFileInputComponent } from '@covalent/core';
 
 @Component({
   selector: 'app-upload-picture',
@@ -16,17 +17,13 @@ import { extract } from '@app/shared/services/i18n.service';
   }]
 })
 export class UploadPictureComponent extends BaseFormControlWrapperValueAccessor implements OnInit {
-  @ViewChild('file') file: ElementRef;
+  @ViewChild(TdFileInputComponent) tdFileInput: TdFileInputComponent;
   @Input() image_srcset: string;
 
   src: string;
   fileName: string;
   imageChangedEvent = null;
   crop = false;
-
-  @HostListener('click') click() {
-    this.file.nativeElement.click();
-  }
 
   constructor(private notify: Notify) {
     super();
@@ -58,14 +55,16 @@ export class UploadPictureComponent extends BaseFormControlWrapperValueAccessor 
     this.formControl.setValue(null);
   }
 
-  changed($event) {
-    this.imageChangedEvent = $event;
-    const file = $event.target.files[0];
-    this.fileName = file.name;
-
+  changed(file: File) {
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = () => this.setImage(reader.result, this.fileName);
+    reader.onload = () => {
+      this.imageChangedEvent = {
+        target: {files: [file]}
+      };
+      this.fileName = file.name;
+      this.setImage(reader.result, this.fileName);
+    };
   }
 
   setImage(base64, name) {

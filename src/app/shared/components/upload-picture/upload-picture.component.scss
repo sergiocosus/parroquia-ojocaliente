@@ -39,6 +39,14 @@ image-cropper, .picture {
   background-color: rgba($gray, .5);
 }
 
+.file-drop {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  width: 100%;
+  position: relative;
+}
+
 .picture-placeholder {
   position: absolute;
   display: flex;
@@ -58,25 +66,6 @@ image-cropper, .picture {
     width: 1em;
     height: 1em;
   }
-
-  &.selected {
-    position: static;
-    flex-direction: row;
-    color: $gray;
-    width: auto;
-    height: auto;
-    align-items: center;
-    background: white;
-    border-radius: .25em;
-    padding: .25em;
-    opacity: 1;
-    margin: .25em;
-
-    mat-icon {
-      margin-bottom: 0;
-      font-size: 1.5em;
-    }
-  }
 }
 
 button.active {
@@ -85,7 +74,16 @@ button.active {
 }
 
 .spacer {
-  padding: 0 .2em;
+  padding: 0 .25em;
   font-size: .9em;
-  white-space: wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-width: 10em;
+  line-height: 1em;
+}
+
+td-file-input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }

@@ -1,5 +1,17 @@
+:host {
+  display: flex;
+
+  ::ng-deep {
+    mat-icon {
+      margin-right: .25em;
+    }
+  }
+}
+
+
 button {
   display: flex;
+  flex: 1;
   ::ng-deep {
     .mat-button-wrapper {
       width: 100%;
@@ -8,6 +20,7 @@ button {
       align-items: center;
     }
   }
+
   mat-spinner {
     margin-right: 1em;
   }

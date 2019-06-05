@@ -10,6 +10,7 @@ export function uploadProgressOperator(
   return pipe(
     finalize(() => fn(0)),
     tap((event: any) => {
+      console.log(event.type);
       if (event.type === HttpEventType.UploadProgress) {
         fn((event.loaded / event.total) * 100);
       }

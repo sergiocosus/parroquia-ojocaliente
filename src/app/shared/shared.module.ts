@@ -23,6 +23,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { LaravelPaginatorComponent } from '@app/shared/components/laravel-paginator/laravel-paginator.component';
 import { OwlDateTimeModule } from 'ng-pick-datetime';
 import { OwlMomentDateTimeModule } from 'ng-pick-datetime-moment';
+import { CovalentFileModule } from '@covalent/core';
+import { ImgSrcsetPlaceholderDirective } from './directives/img-srcset-placeholder.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { OwlMomentDateTimeModule } from 'ng-pick-datetime-moment';
     LoadingFormButtonComponent,
     FormButtonDirective,
     UploadPictureComponent,
-    LaravelPaginatorComponent
+    LaravelPaginatorComponent,
+    ImgSrcsetPlaceholderDirective
   ],
   imports: [
     CommonModule,
@@ -43,6 +46,7 @@ import { OwlMomentDateTimeModule } from 'ng-pick-datetime-moment';
     ImageCropperModule,
     MatTooltipModule,
     MatPaginatorModule,
+    CovalentFileModule,
   ],
   exports: [
     CommonModule,
@@ -75,6 +79,7 @@ import { OwlMomentDateTimeModule } from 'ng-pick-datetime-moment';
     FormButtonDirective,
     UploadPictureComponent,
     LaravelPaginatorComponent,
+    ImgSrcsetPlaceholderDirective,
   ],
   entryComponents: [
     ConfirmDialogComponent,
