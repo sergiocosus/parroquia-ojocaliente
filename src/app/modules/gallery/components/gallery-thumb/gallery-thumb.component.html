@@ -26,16 +26,16 @@
              let-type="type"
              let-data="data"
              let-currIndex="currIndex">
+  <pinch-zoom *ngIf="type === 'imageViewer'">
+    <img [srcset]="data.srcset"/>
+  </pinch-zoom>
+
   <span class="item-title">
     {{data.title}}
   </span>
   <p class="item-content">
     {{data.content}}
   </p>
-
-  <pinch-zoom *ngIf="type === 'imageViewer'">
-    <img [srcset]="data.srcset"/>
-  </pinch-zoom>
 
   <mat-icon class="close-button" (click)="close()">close</mat-icon>
 </ng-template>

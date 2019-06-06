@@ -55,7 +55,8 @@
       </app-gallery-picture-form>
 
       <mat-action-row>
-        <app-loading-button [loading]="pictureForm.loading">
+        <app-loading-button [loading]="pictureForm.loading"
+                            (click)="pictureForm.submit()">
           <mat-icon>check</mat-icon>
           {{'common.update' | translate}}
         </app-loading-button>
