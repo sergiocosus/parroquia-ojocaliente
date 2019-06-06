@@ -1,0 +1,43 @@
+<ng-template #itemTemplate
+             let-index="index"
+             let-type="type"
+             let-picture="data"
+             let-currIndex="currIndex">
+  <pinch-zoom *ngIf="type === 'imageViewer'">
+    <img [srcset]="picture.image_srcset"/>
+  </pinch-zoom>
+
+  <span class="item-title">
+    {{picture.title}}
+  </span>
+
+  <div class="item-content"
+       *ngIf="picture.content?.length"
+       [class.expanded]="expanded">
+    <div class="expand-wrapper" (click)="expanded = !expanded">
+      <mat-icon>expand_less</mat-icon>
+    </div>
+
+    <ng-container *ngIf="expanded">
+      <share-buttons [theme]="'outline'"
+                     [include]="['facebook','twitter','linkedin','google','pinterest','reddit','tumblr','mix','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']"
+                     [show]="3"
+                     [showCount]="true"
+      ></share-buttons>
+      <p [innerHtml]="picture.content">
+      </p>
+    </ng-container>
+
+
+  </div>
+
+  <mat-icon class="close-button" (click)="close()">close</mat-icon>
+</ng-template>
+
+<ng-template #thumbTemplate
+             let-index="index"
+             let-type="type"
+             let-picture="data"
+             let-currIndex="currIndex">
+  <img class="gallery-thumb" [srcset]="picture.image_srcset"/>
+</ng-template>

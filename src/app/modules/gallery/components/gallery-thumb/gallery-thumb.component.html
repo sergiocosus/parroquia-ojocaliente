@@ -5,45 +5,17 @@
 
   <div class="spacer"></div>
 
-  <a mat-icon-button [routerLink]="gallery.editUrl" (click)="$event.stopPropagation()"
+  <a mat-icon-button [routerLink]="gallery.editUrl"
+     (click)="$event.stopPropagation()"
      *ngxPermissionsOnly="'update-gallery'"
      [matTooltip]="'common.edit' | translate" color="primary">
     <mat-icon class="fas fa-edit"></mat-icon>
   </a>
 </h3>
 
-<img class="thumb" *ngIf="gallery?.gallery_pictures.length"
-     [srcset]="gallery?.image_srcset">
+<img class="thumb" [srcset]="gallery?.image_srcset">
 
-<div class="images">
+<div class="images" *ngIf="gallery?.gallery_pictures?.length">
   <img *ngFor="let galleryPicture of gallery.gallery_pictures"
        [srcset]="galleryPicture.image_srcset"/>
 </div>
-
-
-<ng-template #itemTemplate
-             let-index="index"
-             let-type="type"
-             let-data="data"
-             let-currIndex="currIndex">
-  <pinch-zoom *ngIf="type === 'imageViewer'">
-    <img [srcset]="data.srcset"/>
-  </pinch-zoom>
-
-  <span class="item-title">
-    {{data.title}}
-  </span>
-  <p class="item-content">
-    {{data.content}}
-  </p>
-
-  <mat-icon class="close-button" (click)="close()">close</mat-icon>
-</ng-template>
-
-<ng-template #thumbTemplate
-             let-index="index"
-             let-type="type"
-             let-data="data"
-             let-currIndex="currIndex">
-  <img class="gallery-thumb" [srcset]="data.srcset"/>
-</ng-template>

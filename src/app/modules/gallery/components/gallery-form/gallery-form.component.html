@@ -20,7 +20,7 @@
                       [image_srcset]="gallery?.image_srcset">
   </app-upload-picture>
 
-  <app-post-ckeditor [control]="form.get('content')"
+  <app-post-ckeditor formControlName="content"
                      [showImageSelector]="false">
   </app-post-ckeditor>
 

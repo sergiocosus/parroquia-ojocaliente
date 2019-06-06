@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { GalleriesPageComponent } from './components/galleries-page/galleries-page.component';
 import { GalleryPageComponent } from './components/gallery-page/gallery-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: GalleryPageComponent,
-    children: [
-      {
-        path: ':galleryPageSlug',
-      }
-    ]
+    component: GalleriesPageComponent,
+  },
+  {
+    path: ':gallerySlug',
+    component: GalleryPageComponent
   }
 ];
 
@@ -18,4 +18,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class GalleryPageRoutingModule { }
+export class GalleryPageRoutingModule {
+}

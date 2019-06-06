@@ -21,7 +21,6 @@ export class GalleryPicture extends Model {
 
   parse(obj): any {
     super.parse(obj);
-
     this.author = this.author ? new User().parse(this.author) : null;
 
     return this;

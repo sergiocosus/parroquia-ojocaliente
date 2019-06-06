@@ -2,12 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   MatButtonModule,
-  MatCardModule, MatCheckboxModule, MatDialogModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDialogModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatPaginatorModule, MatProgressSpinnerModule,
-  MatSidenavModule, MatSnackBarModule,
-  MatToolbarModule, MatTooltipModule
+  MatListModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatSidenavModule,
+  MatSnackBarModule,
+  MatToolbarModule,
+  MatTooltipModule
 } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -34,7 +41,7 @@ import { ImgSrcsetPlaceholderDirective } from './directives/img-srcset-placehold
     FormButtonDirective,
     UploadPictureComponent,
     LaravelPaginatorComponent,
-    ImgSrcsetPlaceholderDirective
+    ImgSrcsetPlaceholderDirective,
   ],
   imports: [
     CommonModule,
@@ -85,4 +92,5 @@ import { ImgSrcsetPlaceholderDirective } from './directives/img-srcset-placehold
     ConfirmDialogComponent,
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

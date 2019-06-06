@@ -12,14 +12,8 @@
              formControlName="title"/>
     </mat-form-field>
 
-    <mat-form-field>
-      <textarea matInput
-                formControlName="content"
-                [placeholder]="'post.description' | translate"></textarea>
-    </mat-form-field>
-
     <app-post-ckeditor [showImageSelector]="false"
-                       [control]="form.get('content')">
+                       formControlName="content">
     </app-post-ckeditor>
   </div>
 </form>

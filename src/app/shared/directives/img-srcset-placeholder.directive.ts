@@ -23,9 +23,10 @@ export class ImgSrcsetPlaceholderDirective {
 
     if (!this.loaded) {
       this.loaded = true;
-      this.sizes = Math.ceil(
-        this.el.nativeElement.getBoundingClientRect().width /
-        window.innerWidth * 100
+      this.sizes = Math.max(
+        Math.ceil(this.el.nativeElement.getBoundingClientRect().width /
+          window.innerWidth * 100),
+        10
       ) + 'vw';
     }
   }

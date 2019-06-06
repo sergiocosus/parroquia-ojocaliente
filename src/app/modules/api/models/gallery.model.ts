@@ -33,7 +33,7 @@ export class Gallery extends Model {
   }
 
   get viewUrl() {
-    return [`/${RouteConstants.gallery}`, {g: this.slug}];
+    return `/${RouteConstants.gallery}/${this.slug}`;
   }
 
   get editUrl() {

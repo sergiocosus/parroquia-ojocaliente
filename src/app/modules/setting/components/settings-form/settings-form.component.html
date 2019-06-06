@@ -35,7 +35,7 @@
       <ng-container *ngFor="let setting of form.controls; let i = index">
         <ng-container [formGroupName]="i"
                       *ngIf="setting.get('type').value === 'longText'">
-          <app-post-ckeditor [control]="setting.get('content')">
+          <app-post-ckeditor formControlName="content">
             <h3>{{'settings.' + setting.get('name').value | translate}}</h3>
           </app-post-ckeditor>
         </ng-container>
