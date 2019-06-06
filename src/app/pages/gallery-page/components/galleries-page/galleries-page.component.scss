@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+app-gallery-thumb {
+  width: 14em;
+  margin: .5em;
+}
+
+.galleries {
+  display: flex;
+  flex-wrap: wrap;
+  padding: .25em;
+  justify-content: center;
+}

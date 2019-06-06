@@ -1,0 +1,15 @@
+<mat-toolbar *ngxPermissionsOnly="'create-gallery'">
+  <button mat-raised-button color="primary"
+          [routerLink]="newGalleryRoute">
+    <mat-icon>add</mat-icon>
+    {{'gallery.createGallery' | translate}}
+  </button>
+</mat-toolbar>
+
+<div class="galleries">
+  <mat-spinner *ngIf="!galleryPagination"></mat-spinner>
+
+  <app-gallery-thumb *ngFor="let gallery of galleryPagination?.data"
+    [routerLink]="gallery.viewUrl"
+    [gallery]="gallery"></app-gallery-thumb>
+</div>
