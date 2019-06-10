@@ -44,14 +44,6 @@
       color: gray;
       text-align: right;
     }
-
-    .content {
-      ::ng-deep {
-        img {
-          max-width: 100%;
-        }
-      }
-    }
   }
 
   .post-footer {
