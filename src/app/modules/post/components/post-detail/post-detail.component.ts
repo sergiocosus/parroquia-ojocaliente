@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '@app/api/models/post.model';
 import { PostComment } from '@app/api/models/post-comment.model';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post-detail',
@@ -10,9 +11,13 @@ import { PostComment } from '@app/api/models/post-comment.model';
 export class PostDetailComponent implements OnInit {
   @Input() post: Post;
 
-  constructor() { }
+  fixedContent: SafeHtml;
+
+  constructor(private dom: DomSanitizer) {
+  }
 
   ngOnInit() {
+    this.fixedContent = this.dom.bypassSecurityTrustHtml(this.post.content);
   }
 
   newComment(comment: PostComment) {

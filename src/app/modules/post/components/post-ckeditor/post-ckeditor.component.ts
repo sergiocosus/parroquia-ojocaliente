@@ -40,6 +40,9 @@ export class PostCkeditorComponent extends BaseFormControlWrapperValueAccessor i
         'alignRight',
         'side',
       ]
+    },
+    mediaEmbed: {
+      previewsInData: true
     }
   };
   ckEditorLoaded: boolean;

@@ -15,7 +15,7 @@
       {{post.created_at | date:'medium'}}
     </div>
 
-    <div [innerHTML]="post.content" class="content-editor"></div>
+    <div [innerHTML]="fixedContent" class="content-editor"></div>
   </div>
 
   <div class="post-footer">
