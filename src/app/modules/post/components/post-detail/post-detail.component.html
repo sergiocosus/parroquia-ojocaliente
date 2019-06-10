@@ -1,4 +1,4 @@
-<img class="top-image" [srcset]="post.image_srcset"/>
+<img *ngIf="post.image_srcset" class="top-image" [srcset]="post.image_srcset"/>
 
 <div class="content box">
   <div class="post-body">

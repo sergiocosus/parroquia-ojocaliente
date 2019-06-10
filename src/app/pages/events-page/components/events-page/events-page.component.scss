@@ -1,2 +1,11 @@
-@import '../../../../../variables';
+@import '~src/variables';
 
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+app-event-calendar {
+ @extend .limited-width;
+}

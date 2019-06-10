@@ -5,6 +5,7 @@ import { extract } from '@app/shared/services/i18n.service';
 import { Notify } from '@app/shared/services/notify.service';
 import { Post } from '@app/api/models/post.model';
 import { uploadProgressOperator } from '@app/shared/functions/uploadProgressOperator';
+import { AppValidators } from '@app/shared/validators/app-validators';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class PostFormComponent implements OnInit, OnChanges {
       content: ['', Validators.required],
       image_base64: [],
       thumbnail: [],
-      categories: [[]],
+      categories: [[], AppValidators.minLengthArray(1)],
       is_published: [false],
     });
   }
@@ -61,6 +62,8 @@ export class PostFormComponent implements OnInit, OnChanges {
   }
 
   submit() {
+    console.log(this.form);
+    this.form.get('content').markAsTouched();
     if (this.form.invalid) {
       this.notify.showTranslated(extract('forms.error'));
       return;

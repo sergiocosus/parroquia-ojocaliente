@@ -10,7 +10,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
       </th>
       <td mat-cell *matCellDef="let row">
-        <img [srcset]="row.image_srcset"/>
+        <img *ngIf="row.image_srcset" [srcset]="row.image_srcset"/>
       </td>
     </ng-container>
 

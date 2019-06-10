@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Category } from '@app/api/models/category.model';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-categories-search-chip-list',
@@ -27,12 +28,17 @@ export class CategoriesSearchChipListComponent implements OnInit {
 
   removeCategory(category: Category) {
     const categories = this.control.value as Category[];
-    categories.splice(categories.indexOf(category), 1);
+    _.remove(categories, category);
+    this.control.setValue(categories);
   }
 
   addCategory(event: MatAutocompleteSelectedEvent) {
     const category: Category = event.option.value;
-    this.control.value.push(category);
+    if (!_.find(this.control.value, category)) {
+      this.control.value.push(category);
+      this.control.setValue(this.control.value);
+    }
+
     this.categorySearchControl.setValue('');
   }
 

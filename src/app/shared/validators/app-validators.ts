@@ -106,10 +106,11 @@ export class AppValidators {
 
   static minLengthArray(min: number) {
     return (c: AbstractControl): { [key: string]: any } => {
-      if (c.value.length >= min)
+      if (c.value.length >= min) {
         return null;
+      }
 
-      return {'minLengthArray': {valid: false}};
+      return {'minLengthArray': {valid: c.value.length}};
     };
   }
 

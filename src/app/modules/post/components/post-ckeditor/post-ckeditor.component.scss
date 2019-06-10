@@ -1,6 +1,12 @@
+@import "~src/variables";
+
 :host {
   display: flex;
   flex-direction: column;
+}
+
+:host(.ng-touched.ng-invalid) {
+  border: red solid thin;
 }
 
 .header {
