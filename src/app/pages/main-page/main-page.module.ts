@@ -6,6 +6,7 @@ import { PostModule } from '@app/post/post.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { AdsenseModule } from 'ng2-adsense';
 import { GalleryModule } from '@app/gallery/gallery.module';
+import { ShareButtonsModule } from '@ngx-share/buttons';
 
 @NgModule({
   declarations: [MainPageComponent],
@@ -14,7 +15,8 @@ import { GalleryModule } from '@app/gallery/gallery.module';
     MainPageRoutingModule,
     PostModule,
     AdsenseModule,
-    GalleryModule
+    GalleryModule,
+    ShareButtonsModule
   ]
 })
 export class MainPageModule { }

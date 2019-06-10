@@ -1,5 +1,16 @@
+@import "~src/variables";
+
 :host {
   padding: .5em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+  @extend .limited-width;
 }
 
 .content {
@@ -7,6 +18,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  @extend .limited-width;
 
   app-post-thumb {
     flex: 0 1 15em;

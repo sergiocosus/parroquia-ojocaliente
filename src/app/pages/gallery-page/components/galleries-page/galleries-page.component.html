@@ -1,3 +1,14 @@
+<header>
+  <h2>
+    <mat-icon>photo_library</mat-icon>
+    {{'gallery.galleries' | translate}}
+  </h2>
+
+  <div class="spacer"></div>
+
+  <share-buttons [show]="3" [showCount]="true"></share-buttons>
+</header>
+
 <mat-toolbar *ngxPermissionsOnly="'create-gallery'">
   <button mat-raised-button color="primary"
           [routerLink]="newGalleryRoute">

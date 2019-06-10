@@ -18,17 +18,15 @@ export class NavigationComponent {
     .pipe(
       map(result => result.matches)
     );
-  title: string;
-  pageIconSrcSet: string;
+  $pageIconSrcSet: Observable<string>;
+  $title: Observable<string>;
 
   constructor(private breakpointObserver: BreakpointObserver,
               private settingService: SettingService) {
-    this.settingService.getCachedSetting(ValidSetting.title).subscribe(
-      setting => this.title = setting.content as string
-    );
-    this.settingService.getCachedSetting(ValidSetting.pageIcon).subscribe(
-      setting => this.pageIconSrcSet = setting.image_srcset
-    );
+    this.$title = this.settingService.getCachedSetting(ValidSetting.title)
+      .pipe(map(setting => setting.content));
+    this.$pageIconSrcSet = this.settingService.getCachedSetting(ValidSetting.pageIcon)
+      .pipe(map(setting => setting.content));
   }
 
 

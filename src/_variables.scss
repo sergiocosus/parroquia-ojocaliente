@@ -46,3 +46,8 @@ $google-plus-color:  #d34836;
     padding: .5em;
   }
 }
+
+.limited-width {
+  width: $smWidth;
+  max-width: 100%;
+}

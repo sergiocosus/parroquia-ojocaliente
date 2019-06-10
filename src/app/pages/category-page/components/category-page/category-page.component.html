@@ -1,4 +1,13 @@
-<h3>{{category.title}}</h3>
+<header>
+  <h3>
+    <mat-icon>category</mat-icon>
+    {{category.title}}
+  </h3>
+
+  <div class="spacer"></div>
+
+  <share-buttons [show]="3" [showCount]="true"></share-buttons>
+</header>
 
 <div class="content">
   <app-post-thumb *ngFor="let post of category.posts"

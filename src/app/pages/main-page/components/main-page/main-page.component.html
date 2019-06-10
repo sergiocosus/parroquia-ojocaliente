@@ -3,7 +3,6 @@
      [srcset]="mainPagePicture?.image_srcset|| '/assets/images/night-sky.jpg'"
 />
 
-
 <div class="content">
   <div class="side-left">
     <h2>{{'post.posts' | translate}}</h2>
@@ -26,6 +25,10 @@
   </div>
 
   <div class="side">
+    <mat-card>
+      <share-buttons [show]="3" [showCount]="true"></share-buttons>
+    </mat-card>
+
     <mat-card class="events" *appIfSetting="'showEvents'">
       <mat-card-header>
         <mat-card-title>

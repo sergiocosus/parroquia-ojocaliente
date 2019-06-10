@@ -19,13 +19,8 @@
     </div>
 
     <ng-container *ngIf="expanded">
-      <share-buttons [theme]="'outline'"
-                     [include]="['facebook','twitter','linkedin','google','pinterest','reddit','tumblr','mix','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']"
-                     [show]="3"
-                     [showCount]="true"
-      ></share-buttons>
-      <p [innerHtml]="picture.content">
-      </p>
+      <share-buttons [show]="3" [showCount]="true"></share-buttons>
+      <p [innerHtml]="picture.content"></p>
     </ng-container>
 
 

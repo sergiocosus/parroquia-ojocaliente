@@ -1,6 +1,9 @@
+@import "~src/variables";
+
 :host {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 app-gallery-thumb {
@@ -8,9 +11,14 @@ app-gallery-thumb {
   margin: .5em;
 }
 
+mat-toolbar {
+  @extend .limited-width;
+}
+
 .galleries {
   display: flex;
   flex-wrap: wrap;
   padding: .25em;
   justify-content: center;
+  @extend .limited-width;
 }

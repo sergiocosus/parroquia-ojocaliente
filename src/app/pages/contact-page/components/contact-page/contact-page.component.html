@@ -1,7 +1,14 @@
 <div class="content box" >
-  <h2>
-    <mat-icon>contacts</mat-icon>
-    {{'contact.contact' | translate}}
-  </h2>
+  <header>
+    <h2>
+      <mat-icon>contacts</mat-icon>
+      {{'contact.contact' | translate}}
+    </h2>
+
+    <div class="spacer"></div>
+
+    <share-buttons [show]="3" [showCount]="true"></share-buttons>
+  </header>
+
   <div [innerHTML]="contactText"></div>
 </div>

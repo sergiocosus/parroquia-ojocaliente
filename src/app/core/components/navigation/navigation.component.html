@@ -4,10 +4,12 @@
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="false">
     <mat-toolbar>
-      <img class="page-icon" *ngIf="pageIconSrcSet"
-           [srcset]="pageIconSrcSet"/>
-      <img class="page-icon" *ngIf="!pageIconSrcSet"
-           src="assets/icons/icon-shape.png"/>
+      <img class="page-icon" *ngIf="$pageIconSrcSet | async; let srcset; else defaultIcon"
+           [srcset]="srcset"/>
+      <ng-template #defaultIcon>
+        <img class="page-icon" src="assets/icons/icon-shape.png"/>
+      </ng-template>
+
     </mat-toolbar>
     <mat-nav-list>
       <app-nav-pages *ngIf="isHandset$ | async" (selected)="close()"></app-nav-pages>
@@ -27,7 +29,8 @@
       <app-nav-pages *ngIf="!(isHandset$ | async)"></app-nav-pages>
       <div class="spacer"></div>
 
-      <span class="title" [class.long-text]="title?.length > 20">
+      <span *ngIf="$title | async; let title"
+            class="title" [class.long-text]="title?.length > 20">
         {{title}}
       </span>
 
