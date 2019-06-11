@@ -5,7 +5,7 @@ import { AdminPagesRoutingModule } from './admin-pages-routing.module';
 import { NewPostPageComponent } from './components/new-post-page/new-post-page.component';
 import { PostModule } from '@app/post/post.module';
 import { CategoriesPageComponent } from './components/categories-page/categories-page.component';
-import { MatListModule, MatTabsModule } from '@angular/material';
+import { MatListModule, MatTabsModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule } from '@angular/material';
 import { SharedModule } from '@app/shared/shared.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { CategoryModule } from '@app/category/category.module';
@@ -20,6 +20,8 @@ import { LinkModule } from '@app/link/link.module';
 import { AdminGalleryPageComponent } from './components/admin-gallery-page/admin-gallery-page.component';
 import { GalleryModule } from '@app/gallery/gallery.module';
 import { AdminGalleriesPageComponent } from './components/admin-galleries-page/admin-galleries-page.component';
+import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { AdminGalleriesPageComponent } from './components/admin-galleries-page/a
     AdminLinksPageComponent,
     AdminGalleryPageComponent,
     AdminGalleriesPageComponent,
+    AdminNavComponent,
   ],
   imports: [
     CommonModule,
@@ -46,6 +49,11 @@ import { AdminGalleriesPageComponent } from './components/admin-galleries-page/a
     SettingModule,
     LinkModule,
     GalleryModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
   ]
 })
 export class AdminPagesModule {

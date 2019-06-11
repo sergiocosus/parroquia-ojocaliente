@@ -9,39 +9,46 @@ import { SettingsPageComponent } from './components/settings-page/settings-page.
 import { AdminLinksPageComponent } from './components/admin-links-page/admin-links-page.component';
 import { AdminGalleryPageComponent } from './components/admin-gallery-page/admin-gallery-page.component';
 import { AdminGalleriesPageComponent } from './components/admin-galleries-page/admin-galleries-page.component';
+import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
 
 const routes: Routes = [
   {
-    path: `${RouteConstants.post}`,
-    component: AdminPostsPageComponent
-  },
-  {
-    path: `${RouteConstants.settings}`,
-    component: SettingsPageComponent
-  },
-  {
-    path: `${RouteConstants.post}/:postSlug`,
-    component: NewPostPageComponent
-  },
-  {
-    path: `${RouteConstants.gallery}`,
-    component: AdminGalleriesPageComponent
-  },
-  {
-    path: `${RouteConstants.gallery}/:gallerySlug`,
-    component: AdminGalleryPageComponent
-  },
-  {
-    path: RouteConstants.category,
-    component: CategoriesPageComponent
-  },
-  {
-    path: `${RouteConstants.user}`,
-    component: UserProfilePageComponent,
-  },
-  {
-    path: `${RouteConstants.link}`,
-    component: AdminLinksPageComponent,
+    path: '',
+    component: AdminNavComponent,
+    children: [
+      {
+        path: `${RouteConstants.post}`,
+        component: AdminPostsPageComponent
+      },
+      {
+        path: `${RouteConstants.settings}`,
+        component: SettingsPageComponent
+      },
+      {
+        path: `${RouteConstants.post}/:postSlug`,
+        component: NewPostPageComponent
+      },
+      {
+        path: `${RouteConstants.gallery}`,
+        component: AdminGalleriesPageComponent
+      },
+      {
+        path: `${RouteConstants.gallery}/:gallerySlug`,
+        component: AdminGalleryPageComponent
+      },
+      {
+        path: RouteConstants.category,
+        component: CategoriesPageComponent
+      },
+      {
+        path: `${RouteConstants.user}`,
+        component: UserProfilePageComponent,
+      },
+      {
+        path: `${RouteConstants.link}`,
+        component: AdminLinksPageComponent,
+      }
+    ]
   }
 ];
 

@@ -4,6 +4,9 @@
     "cancel": "Cancelar",
     "update": "Actualizar"
   },
+  "admin": {
+    "administration": "Administración"
+  },
   "auth": {
     "acceptTerms": "He leído y acepto los",
     "forgotPassword": "Olvidé mi Contraseña",
@@ -105,7 +108,6 @@
   "post": {
     "addImage": "Agregar imagen",
     "author": "Autor",
-    "description": "Descripción",
     "edit": "Editar post",
     "id": "ID",
     "isPublished": "Publicado",

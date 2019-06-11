@@ -1,5 +1,9 @@
 @import "~src/variables";
 
+mat-toolbar.mat-toolbar {
+  background-color: transparent;
+}
+
 .full-width-table {
   width: 100%;
 }

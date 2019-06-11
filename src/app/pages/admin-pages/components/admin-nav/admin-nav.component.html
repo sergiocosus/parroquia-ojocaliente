@@ -1,0 +1,72 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>{{'admin.administration' | translate}}</mat-toolbar>
+
+    <mat-nav-list>
+      <a mat-menu-item [routerLink]="adminPages.user" (click)="close()"
+         routerLinkActive="active">
+        <mat-icon>account_circle</mat-icon>
+        {{'nav.profile' | translate}}
+      </a>
+
+      <a mat-menu-item [routerLink]="adminPages.settings" (click)="close()"
+         *ngxPermissionsOnly="['update-setting']"
+         routerLinkActive="active">
+        <mat-icon>settings</mat-icon>
+        {{'nav.settings' | translate}}
+      </a>
+
+      <a mat-menu-item [routerLink]="adminPages.category" (click)="close()"
+         *ngxPermissionsOnly="['create-category', 'update-category']"
+         routerLinkActive="active">
+        <mat-icon>category</mat-icon>
+        <span>{{'nav.categories' | translate}}</span>
+      </a>
+
+      <ng-container *appIfSetting="'showGalleries'">
+        <a mat-menu-item [routerLink]="adminPages.galleries" (click)="close()"
+           *ngxPermissionsOnly="['create-gallery', 'update-gallery']"
+           routerLinkActive="active">
+          <mat-icon>photo_library</mat-icon>
+          {{'nav.galleries' | translate}}
+        </a>
+      </ng-container>
+
+      <a mat-menu-item [routerLink]="adminPages.posts" (click)="close()"
+         *ngxPermissionsOnly="['read-post']"
+         routerLinkActive="active">
+        <mat-icon>book</mat-icon>
+        {{'nav.articles' | translate}}
+      </a>
+
+      <ng-container *appIfSetting="'showLinks'">
+        <a mat-menu-item [routerLink]="adminPages.links" (click)="close()"
+           *ngxPermissionsOnly="['read-link']"
+           routerLinkActive="active">
+          <mat-icon>link</mat-icon>
+          {{'nav.links' | translate}}
+        </a>
+      </ng-container>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar *ngIf="isHandset$ | async">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>{{'admin.administration' | translate}}</span>
+    </mat-toolbar>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

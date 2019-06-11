@@ -11,5 +11,14 @@ export class RouteConstants {
   static readonly settings = 'configuracion';
   static readonly events = 'eventos';
   static readonly gallery = 'galeria';
+
+  static readonly adminPages = {
+    category: `/${RouteConstants.admin}/${RouteConstants.category}`,
+    posts: `/${RouteConstants.admin}/${RouteConstants.post}`,
+    user: `/${RouteConstants.admin}/${RouteConstants.user}`,
+    settings: `/${RouteConstants.admin}/${RouteConstants.settings}`,
+    links: `/${RouteConstants.admin}/${RouteConstants.link}`,
+    galleries: `/${RouteConstants.admin}/${RouteConstants.gallery}`,
+  };
 }
 

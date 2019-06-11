@@ -10,20 +10,20 @@
   </div>
 
   <mat-menu #appMenu="matMenu">
-    <a mat-menu-item [routerLink]="userRoute"
+    <a mat-menu-item [routerLink]="adminPages.user"
        routerLinkActive="active">
       <mat-icon>account_circle</mat-icon>
       {{'nav.profile' | translate}}
     </a>
 
-    <a mat-menu-item [routerLink]="settingsRoute"
+    <a mat-menu-item [routerLink]="adminPages.settings"
        *ngxPermissionsOnly="['update-setting']"
        routerLinkActive="active">
       <mat-icon>settings</mat-icon>
       {{'nav.settings' | translate}}
     </a>
 
-    <a mat-menu-item [routerLink]="adminRoute"
+    <a mat-menu-item [routerLink]="adminPages.category"
        *ngxPermissionsOnly="['create-category', 'update-category']"
        routerLinkActive="active">
       <mat-icon>category</mat-icon>
@@ -31,7 +31,7 @@
     </a>
 
     <ng-container *appIfSetting="'showGalleries'">
-      <a mat-menu-item [routerLink]="galleriesRoute"
+      <a mat-menu-item [routerLink]="adminPages.galleries"
          *ngxPermissionsOnly="['create-gallery', 'update-gallery']"
          routerLinkActive="active">
         <mat-icon>photo_library</mat-icon>
@@ -39,7 +39,7 @@
       </a>
     </ng-container>
 
-    <a mat-menu-item [routerLink]="adminPostsRoute"
+    <a mat-menu-item [routerLink]="adminPages.posts"
        *ngxPermissionsOnly="['read-post']"
        routerLinkActive="active">
       <mat-icon>book</mat-icon>
@@ -47,7 +47,7 @@
     </a>
 
     <ng-container *appIfSetting="'showLinks'">
-      <a mat-menu-item [routerLink]="linksRoute"
+      <a mat-menu-item [routerLink]="adminPages.links"
          *ngxPermissionsOnly="['read-link']"
          routerLinkActive="active">
         <mat-icon>link</mat-icon>

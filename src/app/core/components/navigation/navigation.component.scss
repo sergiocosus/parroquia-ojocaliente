@@ -28,9 +28,6 @@
   }
 }
 
-.sidenav .mat-toolbar {
-}
-
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
@@ -40,30 +37,17 @@
 .content {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .active {
   background-color: darken($secondary, 30%) !important;
 }
 
-mat-expansion-panel {
-  background-color: transparent;
-
-  mat-panel-title {
-    color: white;
-  }
-
-  mat-expansion-panel-header {
-    padding: 0 16px;
-  }
-
-  ::ng-deep {
-    .mat-expansion-panel-body {
-      padding: 0;
-    }
-  }
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
 }
-
 
 app-nav-pages ::ng-deep a {
   mat-icon {
