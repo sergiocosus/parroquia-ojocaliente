@@ -3,7 +3,6 @@
 :host {
   display: flex;
   flex-direction: column;
-  @include mat-elevation(10, gray, 1);
   background: white;
   padding: .5em;
   border-radius: .5em;

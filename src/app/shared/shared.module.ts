@@ -32,6 +32,7 @@ import { OwlDateTimeModule } from 'ng-pick-datetime';
 import { OwlMomentDateTimeModule } from 'ng-pick-datetime-moment';
 import { CovalentFileModule } from '@covalent/core';
 import { ImgSrcsetPlaceholderDirective } from './directives/img-srcset-placeholder.directive';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { ImgSrcsetPlaceholderDirective } from './directives/img-srcset-placehold
     MatMenuModule,
     MatSnackBarModule,
     MatTooltipModule,
+    MatSelectModule,
 
     NgxPermissionsModule,
     OwlDateTimeModule,

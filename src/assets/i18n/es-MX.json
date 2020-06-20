@@ -103,7 +103,8 @@
     "links": "Enlaces",
     "main": "Principal",
     "profile": "Perfil",
-    "settings": "Ajustes"
+    "settings": "Ajustes",
+    "users": "Usuarios"
   },
   "post": {
     "addImage": "Agregar imagen",
@@ -116,6 +117,9 @@
     "postsTitlePage": "Lista de Posts",
     "published": "Publicado",
     "title": "Título"
+  },
+  "role": {
+    "roles": "Roles"
   },
   "settings": {
     "contact": "Contacto",
@@ -144,6 +148,7 @@
   "user": {
     "currentPassword": "Contraseña actual",
     "email": "E-mail",
+    "id": "",
     "lastName": "Apellidos",
     "name": "Nombre",
     "password": "Contraseña",
@@ -151,6 +156,7 @@
     "passwordConfirmation": "Confirmación de la contraseña",
     "passwordReset": "Restablecer contraseña",
     "profile": "Perfil",
-    "updatePassword": "Actualizar contraseña"
+    "updatePassword": "Actualizar contraseña",
+    "users": ""
   }
 }

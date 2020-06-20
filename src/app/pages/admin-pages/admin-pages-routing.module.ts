@@ -10,6 +10,7 @@ import { AdminLinksPageComponent } from './components/admin-links-page/admin-lin
 import { AdminGalleryPageComponent } from './components/admin-gallery-page/admin-gallery-page.component';
 import { AdminGalleriesPageComponent } from './components/admin-galleries-page/admin-galleries-page.component';
 import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
+import { UsersPageComponent } from './components/users-page/users-page.component';
 
 const routes: Routes = [
   {
@@ -41,12 +42,16 @@ const routes: Routes = [
         component: CategoriesPageComponent
       },
       {
-        path: `${RouteConstants.user}`,
+        path: `${RouteConstants.profile}`,
         component: UserProfilePageComponent,
       },
       {
         path: `${RouteConstants.link}`,
         component: AdminLinksPageComponent,
+      },
+      {
+        path: `${RouteConstants.user}`,
+        component: UsersPageComponent,
       }
     ]
   }

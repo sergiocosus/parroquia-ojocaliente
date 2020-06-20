@@ -1,0 +1,9 @@
+<mat-form-field>
+  <mat-label>{{'role.roles' | translate}}</mat-label>
+  <mat-select multiple [formControl]="formControl">
+    <mat-option *ngFor="let role of roles" [value]="role.name">
+      {{role.display_name}}
+    </mat-option>
+  </mat-select>
+
+</mat-form-field>

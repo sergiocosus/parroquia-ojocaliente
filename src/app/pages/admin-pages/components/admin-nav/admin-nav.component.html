@@ -6,10 +6,16 @@
     <mat-toolbar>{{'admin.administration' | translate}}</mat-toolbar>
 
     <mat-nav-list>
-      <a mat-menu-item [routerLink]="adminPages.user" (click)="close()"
+      <a mat-menu-item [routerLink]="adminPages.profile" (click)="close()"
          routerLinkActive="active">
         <mat-icon>account_circle</mat-icon>
         {{'nav.profile' | translate}}
+      </a>
+
+      <a mat-menu-item [routerLink]="adminPages.user" (click)="close()"
+         routerLinkActive="active">
+        <mat-icon>group</mat-icon>
+        {{'nav.users' | translate}}
       </a>
 
       <a mat-menu-item [routerLink]="adminPages.settings" (click)="close()"
@@ -65,7 +71,7 @@
       <span>{{'admin.administration' | translate}}</span>
     </mat-toolbar>
 
-    <div class="content">
+    <div class="content box">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

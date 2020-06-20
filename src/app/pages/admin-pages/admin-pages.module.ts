@@ -22,6 +22,7 @@ import { GalleryModule } from '@app/gallery/gallery.module';
 import { AdminGalleriesPageComponent } from './components/admin-galleries-page/admin-galleries-page.component';
 import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { UsersPageComponent } from './components/users-page/users-page.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     AdminGalleryPageComponent,
     AdminGalleriesPageComponent,
     AdminNavComponent,
+    UsersPageComponent,
   ],
   imports: [
     CommonModule,

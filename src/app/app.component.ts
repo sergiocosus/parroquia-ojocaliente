@@ -27,7 +27,6 @@ export class AppComponent {
       'es-MX'
     ]);
 
-
     this.scriptService.loadScript('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
       .subscribe(() => {
         console.log('adsense loaded');
