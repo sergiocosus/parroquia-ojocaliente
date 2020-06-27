@@ -57,8 +57,9 @@ app-nav-pages ::ng-deep a {
 }
 
 .top-bar {
-  padding-bottom: 1em;
+  padding-bottom: .5em;
   justify-content: center;
+  margin-top: -1em;
   app-nav-pages {
     display: flex;
 
