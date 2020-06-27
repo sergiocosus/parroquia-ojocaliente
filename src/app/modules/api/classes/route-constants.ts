@@ -25,6 +25,7 @@ export class RouteConstants {
     links: `/${RouteConstants.admin}/${RouteConstants.link}`,
     galleries: `/${RouteConstants.admin}/${RouteConstants.gallery}`,
     member: `/${RouteConstants.admin}/${RouteConstants.member}`,
+    argument: `/${RouteConstants.admin}/${RouteConstants.argument}`,
   };
 }
 

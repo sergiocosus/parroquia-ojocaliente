@@ -66,6 +66,15 @@
         </a>
       </ng-container>
 
+      <ng-container *appIfSetting="'showArguments'">
+        <a mat-menu-item [routerLink]="adminPages.argument" (click)="close()"
+           *ngxPermissionsOnly="['read-argument']"
+           routerLinkActive="active">
+          <mat-icon class="fas fa-scroll"></mat-icon>
+          {{'nav.arguments' | translate}}
+        </a>
+      </ng-container>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

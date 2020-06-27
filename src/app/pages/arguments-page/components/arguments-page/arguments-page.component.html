@@ -11,13 +11,11 @@
 <div class="argument-list">
   <div *ngFor="let argument of arguments; let i = index" class="argument">
     <div class="question">
-      <h3>{{i+1}}.</h3>
-      <div>
-        {{argument.question}}
+      <h3>{{argument.order}}.</h3>
+      <div [innerHTML]="argument.question">
       </div>
     </div>
-    <div class="answer">
-      {{argument.answer}}
+    <div class="answer" [innerHTML]="argument.answer">
     </div>
   </div>
 </div>

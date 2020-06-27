@@ -25,8 +25,8 @@ export class MembersPageComponent implements OnInit {
   filterForm: FormGroup;
 
   sub = new SubscriptionManager();
-  loading: number;
-  loadingUpdate: number;
+  loading: number | boolean;
+  loadingUpdate: number | boolean;
 
   constructor(private memberService: MemberService,
               private fb: FormBuilder,

@@ -12,6 +12,8 @@ import { AdminGalleriesPageComponent } from './components/admin-galleries-page/a
 import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
 import { UsersPageComponent } from './components/users-page/users-page.component';
 import { MembersPageComponent } from './components/members-page/members-page.component';
+import { ArgumentsPageComponent } from '../arguments-page/components/arguments-page/arguments-page.component';
+import { AdminArgumentPageComponent } from './components/admin-argument-page/admin-argument-page.component';
 
 const routes: Routes = [
   {
@@ -57,6 +59,10 @@ const routes: Routes = [
       {
         path: `${RouteConstants.member}`,
         component: MembersPageComponent,
+      },
+      {
+        path: `${RouteConstants.argument}`,
+        component: AdminArgumentPageComponent,
       }
     ]
   }

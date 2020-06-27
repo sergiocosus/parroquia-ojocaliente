@@ -1,11 +1,12 @@
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { EventEmitter } from '@angular/core';
-import { PaginationInfo } from '../interfaces/pagination-info';
 import { PageEvent } from '@angular/material/paginator';
 import { Model } from '@app/api/models/model';
-import { OrderInfo } from '@app/shared/interfaces/order-info';
 import { Pagination } from '@app/api/models/pagination';
+import { PaginationInfo } from '@app/shared/interfaces/pagination-info';
+import { OrderInfo } from '@app/shared/interfaces/order-info';
+import { LaravelPaginatorComponent } from '@app/shared/components/laravel-paginator/laravel-paginator.component';
 
 export class PaginationManager<T extends Model> {
   /**
@@ -16,8 +17,12 @@ export class PaginationManager<T extends Model> {
   defaultPerPage = 25;
   loading = false;
 
-  constructor(private matSort: MatSort) {
+  constructor(private matSort: MatSort,
+              private paginator?: LaravelPaginatorComponent) {
     this.matSort.sortChange.subscribe(this.sortChange.bind(this));
+    if (this.paginator) {
+      this.paginator.page.subscribe(event => this.onPage(event));
+    }
     this._dataSource.data = [];
   }
 
@@ -42,7 +47,6 @@ export class PaginationManager<T extends Model> {
 
   /**
    * Listen paginator events
-   * @param {PageEvent} e
    */
   onPage(e: PageEvent) {
     this.emmitChanges({
@@ -95,13 +99,33 @@ export class PaginationManager<T extends Model> {
   removeElement(element: T) {
     const data = this.dataSource.data;
     data.splice(data.indexOf(element), 1);
-    this.updateData(data);
+    if (this.isEmpty) {
+      this.filterChange();
+    } else {
+      this.updateData(data);
+    }
+  }
+
+  /**
+   * Append an element for the paginated data
+   */
+  appendElement(element: T) {
+    this.dataSource.data.push(element);
+    this.updateData(this.dataSource.data);
+  }
+
+  /**
+   * Append an element for the paginated data
+   */
+  prependElement(element: T) {
+    this.dataSource.data.unshift(element);
+    this.updateData(this.dataSource.data);
   }
 
   /**
    * Gets order data
    */
-  protected getOrder() {
+  public getOrder() {
     let order: OrderInfo;
     if (this.matSort.direction.length) {
       order = {
@@ -119,5 +143,11 @@ export class PaginationManager<T extends Model> {
       pagination,
       order: this.getOrder()
     });
+  }
+
+  get isEmpty() {
+    if (this.pagination) {
+      return !this.pagination.data.length && !this.loading;
+    }
   }
 }

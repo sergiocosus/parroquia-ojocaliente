@@ -1,0 +1,28 @@
+<h2>
+  {{argument ? ('argument.edit' | translate) : ('argument.new' | translate) }}
+</h2>
+
+<form [formGroup]="form" class="form-style" (ngSubmit)="submit()">
+  <div class="column">
+    <mat-label>{{'argument.question' | translate}}</mat-label>
+    <app-post-ckeditor formControlName="question" [showImageSelector]="false">
+    </app-post-ckeditor>
+
+    <mat-label>{{'argument.answer' | translate}}</mat-label>
+    <app-post-ckeditor formControlName="answer" [showImageSelector]="false">
+    </app-post-ckeditor>
+
+    <mat-form-field>
+      <mat-label>{{'argument.order' | translate}}</mat-label>
+      <input matInput formControlName="order" type="number">
+    </mat-form-field>
+
+    <app-loading-button [loading]="loading">
+      <mat-icon class="fa fa-paper-plane"></mat-icon>
+      {{'forms.submit' | translate}}
+    </app-loading-button>
+  </div>
+  <div class="column text">
+
+  </div>
+</form>

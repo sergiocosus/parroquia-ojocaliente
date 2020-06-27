@@ -5,7 +5,7 @@ import { AdminPagesRoutingModule } from './admin-pages-routing.module';
 import { NewPostPageComponent } from './components/new-post-page/new-post-page.component';
 import { PostModule } from '@app/post/post.module';
 import { CategoriesPageComponent } from './components/categories-page/categories-page.component';
-import { MatListModule, MatTabsModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatTabsModule, MatToolbarModule } from '@angular/material';
 import { SharedModule } from '@app/shared/shared.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { CategoryModule } from '@app/category/category.module';
@@ -26,6 +26,8 @@ import { UsersPageComponent } from './components/users-page/users-page.component
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MemberModule } from '@app/member/member.module';
+import { AdminArgumentPageComponent } from './components/admin-argument-page/admin-argument-page.component';
+import { ArgumentModule } from '@app/argument/argument.module';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { MemberModule } from '@app/member/member.module';
     AdminNavComponent,
     UsersPageComponent,
     MembersPageComponent,
+    AdminArgumentPageComponent,
   ],
   imports: [
     CommonModule,
@@ -55,13 +58,14 @@ import { MemberModule } from '@app/member/member.module';
     SettingModule,
     LinkModule,
     GalleryModule,
+    MemberModule,
+    ArgumentModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatExpansionModule,
-    MemberModule,
   ]
 })
 export class AdminPagesModule {

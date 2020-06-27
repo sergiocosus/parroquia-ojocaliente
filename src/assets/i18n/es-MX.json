@@ -7,6 +7,14 @@
   "admin": {
     "administration": "Administración"
   },
+  "argument": {
+    "answer": "Respuesta",
+    "edit": "Editar",
+    "id": "Id",
+    "new": "Nuevo Argumento",
+    "order": "Orden",
+    "question": "Pregunta"
+  },
   "auth": {
     "acceptTerms": "He leído y acepto los",
     "forgotPassword": "Olvidé mi Contraseña",
@@ -137,6 +145,7 @@
     "mainPagePicture": "Imágen de la página principal",
     "pageIcon": "Ícono de la página",
     "settings": "Ajustes",
+    "showArguments": "Mostrar argumentos",
     "showContact": "Mostrar contacto",
     "showEvents": "Mostrar eventos",
     "showGalleries": "Mostrar galerías",
