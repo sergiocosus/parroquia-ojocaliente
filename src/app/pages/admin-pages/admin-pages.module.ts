@@ -23,6 +23,9 @@ import { AdminGalleriesPageComponent } from './components/admin-galleries-page/a
 import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UsersPageComponent } from './components/users-page/users-page.component';
+import { MembersPageComponent } from './components/members-page/members-page.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MemberModule } from '@app/member/member.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { UsersPageComponent } from './components/users-page/users-page.component
     AdminGalleriesPageComponent,
     AdminNavComponent,
     UsersPageComponent,
+    MembersPageComponent,
   ],
   imports: [
     CommonModule,
@@ -56,6 +60,8 @@ import { UsersPageComponent } from './components/users-page/users-page.component
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
+    MatExpansionModule,
+    MemberModule,
   ]
 })
 export class AdminPagesModule {

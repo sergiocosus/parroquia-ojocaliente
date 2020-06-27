@@ -43,3 +43,4 @@ extract('settings.showGalleries');
 extract('settings.contact');
 extract('settings.mainPagePicture');
 extract('settings.pageIcon');
+extract('settings.showMembers');

@@ -57,6 +57,15 @@
         </a>
       </ng-container>
 
+      <ng-container *appIfSetting="'showMembers'">
+        <a mat-menu-item [routerLink]="adminPages.member" (click)="close()"
+           *ngxPermissionsOnly="['read-member']"
+           routerLinkActive="active">
+          <mat-icon class="fas fa-user-friends"></mat-icon>
+          {{'nav.members' | translate}}
+        </a>
+      </ng-container>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

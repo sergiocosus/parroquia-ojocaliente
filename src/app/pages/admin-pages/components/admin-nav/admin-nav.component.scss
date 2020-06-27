@@ -1,7 +1,9 @@
 @import "~src/variables";
 
 :host {
+  position: relative;
   flex: 1;
+  z-index: 20;
 }
 
 .sidenav-container {

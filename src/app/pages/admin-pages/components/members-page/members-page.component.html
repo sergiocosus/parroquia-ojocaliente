@@ -1,0 +1,69 @@
+<h3>
+  {{'member.createMember' | translate}}
+</h3>
+
+<app-member-form class="create-form"
+                 [theForm]="form" (ngSubmit)="submit()">
+  <app-loading-button [loading]="loading">
+    <mat-icon>add</mat-icon>
+    {{'common.add' | translate}}
+  </app-loading-button>
+</app-member-form>
+
+<mat-divider></mat-divider>
+
+<header>
+  <h3>
+    {{'member.members' | translate}}
+  </h3>
+
+  <div class="spacer"></div>
+
+  <form [formGroup]="filterForm">
+    <mat-checkbox formControlName="with_trashed">
+      <mat-icon>delete</mat-icon>
+      {{'common.withTrashed' | translate}}
+    </mat-checkbox>
+  </form>
+</header>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let member of members"
+                       (click)="selectToEditMember(member)">
+    <mat-expansion-panel-header>
+      <img class="expansion-image" [srcset]="member.image_srcset">
+      {{member.name}}
+
+      <div class="spacer"></div>
+
+      <ng-container *ngIf="!member.deleted_at; else deleted">
+        <button mat-icon-button color="warn"
+                *ngxPermissionsOnly="'delete-member'"
+                (click)="deleteMember(member); $event.stopPropagation()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </ng-container>
+
+      <ng-template #deleted>
+        <button mat-icon-button color="accent"
+                *ngxPermissionsOnly="'delete-member'"
+                (click)="restoreMember(member); $event.stopPropagation()">
+          <mat-icon>restore</mat-icon>
+        </button>
+      </ng-template>
+    </mat-expansion-panel-header>
+
+    <app-member-form [theForm]="editForm"
+                     [member]="member"
+                     *ngIf="selectedMember === member">
+    </app-member-form>
+
+    <mat-action-row>
+      <app-loading-button *ngIf="selectedMember === member"
+                          (click)="editMember($event)" [loading]="loadingUpdate">
+        <mat-icon>check</mat-icon>
+        {{'common.update' | translate}}
+      </app-loading-button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

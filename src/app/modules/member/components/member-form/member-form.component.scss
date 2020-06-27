@@ -1,0 +1,30 @@
+@import "~src/variables";
+
+:host {
+  width: 100%;
+  max-width: $xlWidth;
+
+  h2 {
+    margin-bottom: .25em;
+    padding: 0 1em;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-top: .5em;
+
+  mat-icon {
+    font-size: 1.5em;
+    margin-right: .25em;
+  }
+
+  app-loading-button {
+    display: flex;
+    ::ng-deep button {
+      flex: 1;
+    }
+  }
+}
+

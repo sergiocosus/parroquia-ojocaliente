@@ -1,6 +1,6 @@
 
-<div class="person" *ngFor="let person of people">
-  <img [src]="person.picture">
-  <span>{{person.name}}</span>
+<div class="person" *ngFor="let member of members">
+  <img [srcset]="member.image_srcset">
+  <span>{{member.name}}</span>
 </div>
 

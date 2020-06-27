@@ -1,0 +1,12 @@
+.mat-expansion-panel-header ::ng-deep {
+  .mat-content {
+    align-items: center;
+  }
+}
+
+.expansion-image {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  margin-right: .5em;
+}

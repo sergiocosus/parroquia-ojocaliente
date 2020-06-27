@@ -1,0 +1,14 @@
+<form [formGroup]="theForm"
+      id="linkEditForm"
+      (ngSubmit)="ngSubmit.emit()">
+  <mat-form-field>
+    <input matInput formControlName="name"
+           [placeholder]="'member.name' | translate">
+  </mat-form-field>
+
+  <app-upload-picture formControlName="picture"
+                      [image_srcset]="member?.image_srcset">
+  </app-upload-picture>
+
+  <ng-content></ng-content>
+</form>
