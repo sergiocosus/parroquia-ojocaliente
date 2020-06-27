@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  color: white;
+  width: auto;
+  background-color: gray;
+
+  h1 {
+    color: white;
+  }
+}
+
+.content {
+  background-color: black;
+  color: white;
+  padding: 1em 20%;
+}

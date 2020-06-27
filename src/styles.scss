@@ -27,6 +27,7 @@ $angular-blog-theme: mat-light-theme($angular-blog-primary, $angular-blog-accent
 
 /* You can add global styles to this file, and also import other style files */
 @import "~src/variables";
+@import "~src/fonts";
 @import '~@ngx-share/button/themes/outline/outline-theme';
 @import "~angular-calendar/css/angular-calendar.css";
 @import "~ng-pick-datetime/assets/style/picker.min.css";
@@ -38,7 +39,7 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: DidactGothic-Regular, Roboto, "Helvetica Neue", sans-serif;
 }
 
 
@@ -144,5 +145,37 @@ header {
   iframe {
     width: 100%;
     height: 23em;
+  }
+}
+
+
+.line-with-point {
+  flex: 1;
+  border-bottom: 2px solid white;
+  position: relative;
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    top: -.25em;
+    height: .5em;
+    width: .5em;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  &:first-child {
+    margin-right: .5em;
+    &:after {
+      right: 0;
+    }
+  }
+
+  &:last-child {
+    margin-left: .5em;
+    &:after {
+      left: 0;
+    }
   }
 }

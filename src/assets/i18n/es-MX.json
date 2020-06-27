@@ -95,15 +95,17 @@
     "media": "Medios"
   },
   "nav": {
+    "arguments": "Argumentos",
     "articles": "Artículos",
     "categories": "Categorias",
     "contact": "Contacto",
     "events": "Eventos",
     "galleries": "Galerías",
     "links": "Enlaces",
-    "main": "Principal",
+    "main": "Inicio",
     "profile": "Perfil",
     "settings": "Ajustes",
+    "us": "Nosotros",
     "users": "Usuarios"
   },
   "post": {

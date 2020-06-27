@@ -1,11 +1,26 @@
 @import "~src/variables";
 
 a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white !important;
   text-decoration: none;
+  background-color: black;
+  width: 12em;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: .75em;
   @include animate();
+
+  mat-icon {
+    display: none;
+  }
+
   &:hover, &.active {
     border-bottom: 1px solid white;
+    background-color: white;
+    color: black !important;
   }
 }
 

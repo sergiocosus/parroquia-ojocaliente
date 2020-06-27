@@ -4,11 +4,21 @@
   <mat-icon>home</mat-icon>
   {{'nav.main' | translate}}
 </a>
+<a mat-list-item [routerLink]="usRoute" (click)="selected.emit()"
+   routerLinkActive="active">
+  {{'nav.us' | translate}}
+</a>
+<a mat-list-item [routerLink]="argumentsRoute" (click)="selected.emit()"
+   routerLinkActive="active">
+  {{'nav.arguments' | translate}}
+</a>
+<!--
 <a mat-list-item [routerLink]="postRoute" (click)="selected.emit()"
    routerLinkActive="active">
   <mat-icon>book</mat-icon>
   {{'nav.articles' | translate}}
 </a>
+-->
 <a mat-list-item [routerLink]="eventRoute"
    *appIfSetting="'showEvents'"
    (click)="selected.emit()"

@@ -2,6 +2,8 @@ export class RouteConstants {
   static readonly admin = 'admin';
   static readonly category = 'categoria';
   static readonly post = 'post';
+  static readonly us = 'nosotros';
+  static readonly argument = 'argumentos';
   static readonly user = 'usuario';
   static readonly profile = 'perfil';
   static readonly link = 'enlace';

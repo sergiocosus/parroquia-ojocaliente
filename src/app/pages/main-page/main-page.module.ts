@@ -7,9 +7,10 @@ import { SharedModule } from '@app/shared/shared.module';
 import { AdsenseModule } from 'ng2-adsense';
 import { GalleryModule } from '@app/gallery/gallery.module';
 import { ShareButtonsModule } from '@ngx-share/buttons';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
-  declarations: [MainPageComponent],
+  declarations: [MainPageComponent, LandingPageComponent],
   imports: [
     SharedModule,
     MainPageRoutingModule,

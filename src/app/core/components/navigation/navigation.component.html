@@ -16,6 +16,24 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
+    <div class="top-header">
+      <div class="line"></div>
+      <img src="assets/images/white-logo.png">
+      <div class="line">
+        <button mat-icon-button>
+          <mat-icon class="fab fa-facebook-f"></mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon class="fab fa-youtube"></mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon class="fab fa-twitter"></mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon class="fab fa-instagram"></mat-icon>
+        </button>
+      </div>
+    </div>
     <mat-toolbar class="top-bar" color="primary">
       <button
         type="button"
@@ -27,6 +45,7 @@
       </button>
 
       <app-nav-pages *ngIf="!(isHandset$ | async)"></app-nav-pages>
+      <!--
       <div class="spacer"></div>
 
       <span *ngIf="$title | async; let title"
@@ -37,6 +56,7 @@
       <div class="spacer"></div>
 
       <app-current-user-menu></app-current-user-menu>
+      -->
     </mat-toolbar>
     <div class="content">
       <router-outlet></router-outlet>

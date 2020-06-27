@@ -13,6 +13,14 @@ const routes: Routes = [
         loadChildren: './pages/main-page/main-page.module#MainPageModule'
       },
       {
+        path: RouteConstants.us,
+        loadChildren: './pages/us-page/us-page.module#UsPageModule'
+      },
+      {
+        path: RouteConstants.argument,
+        loadChildren: './pages/arguments-page/arguments-page.module#ArgumentsPageModule'
+      },
+      {
         path: RouteConstants.post,
         loadChildren: './pages/post-page/post-page.module#PostPageModule'
       },

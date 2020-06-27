@@ -1,0 +1,23 @@
+<header>
+  <div class="line-with-point"></div>
+  <h2>Conoce los argumentos</h2>
+  <div class="spacer"></div>
+  <a>
+    ¡Checa más fuentes de consulta!
+  </a>
+</header>
+
+
+<div class="argument-list">
+  <div *ngFor="let argument of arguments; let i = index" class="argument">
+    <div class="question">
+      <h3>{{i+1}}.</h3>
+      <div>
+        {{argument.question}}
+      </div>
+    </div>
+    <div class="answer">
+      {{argument.answer}}
+    </div>
+  </div>
+</div>
