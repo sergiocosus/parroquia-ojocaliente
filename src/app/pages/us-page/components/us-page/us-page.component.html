@@ -1,6 +1,10 @@
+<div class="transparent"></div>
 
-<div class="person" *ngFor="let member of members">
-  <img [srcset]="member.image_srcset">
-  <span>{{member.name}}</span>
+<div class="people">
+  <div class="person" *ngFor="let member of members">
+    <img [srcset]="member.image_srcset">
+    <span>{{member.name}}</span>
+  </div>
 </div>
 
+<app-footer></app-footer>

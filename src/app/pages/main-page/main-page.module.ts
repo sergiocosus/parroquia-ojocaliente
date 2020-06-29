@@ -8,16 +8,18 @@ import { AdsenseModule } from 'ng2-adsense';
 import { GalleryModule } from '@app/gallery/gallery.module';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { ElementsModule } from '@app/elements/elements.module';
 
 @NgModule({
   declarations: [MainPageComponent, LandingPageComponent],
-  imports: [
-    SharedModule,
-    MainPageRoutingModule,
-    PostModule,
-    AdsenseModule,
-    GalleryModule,
-    ShareButtonsModule
-  ]
+    imports: [
+        SharedModule,
+        MainPageRoutingModule,
+        PostModule,
+        AdsenseModule,
+        GalleryModule,
+        ShareButtonsModule,
+        ElementsModule
+    ]
 })
 export class MainPageModule { }

@@ -39,6 +39,8 @@ header {
     border: 1px solid black;
     font-size: 2em;
     padding: .25em .5em;
+    color: black;
+    text-decoration: none;
   }
 }
 
@@ -80,5 +82,36 @@ header {
     padding: 1em;
     padding-right: 5%;
     font-size: 2em;
+  }
+}
+
+
+.sources {
+  display: flex;
+  flex-direction: row;
+  padding: 0 5%;
+  flex-wrap: wrap;
+
+  .source {
+    flex: 1 0 15em;
+    border: black 1px solid;
+    padding: .5em;
+    font-size: 2em;
+    margin: 1em;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    .mat-icon {
+      font-size: 2em;
+      width: 1em;
+      height: 1em;
+      margin-right: .25em;
+    }
+
+    > div {
+      flex: 1;
+    }
   }
 }

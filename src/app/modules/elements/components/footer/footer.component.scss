@@ -1,0 +1,16 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  z-index: 1;
+  font-size: 1em;
+  margin-bottom: 1em;
+
+  p {
+    margin: 0 .25em;
+    text-align: center;
+  }
+}

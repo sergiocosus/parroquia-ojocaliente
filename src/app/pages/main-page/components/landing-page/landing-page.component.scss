@@ -6,6 +6,8 @@
   flex-direction: column;
   position: relative;
   background-image: url("/assets/images/landing/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100%;
 }
 
@@ -45,19 +47,3 @@ header {
   margin-bottom: 2em;
 }
 
-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  color: white;
-  z-index: 1;
-  font-size: 1em;
-  margin-bottom: 1em;
-
-  p {
-    margin: 0 .25em;
-    text-align: center;
-  }
-}
