@@ -13,6 +13,184 @@ import { extract } from '@app/shared/services/i18n.service';
 export class ContactPageComponent implements OnInit {
   contactText: string;
 
+  groups = [
+    {
+      title: 'JUVI Nacional',
+      contacts: [
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'instagram',
+          name: 'juvi_ac',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'twitter',
+          name: 'juvioficial',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'facebook',
+          name: 'Juvi.ac',
+        }
+      ],
+    },
+    {
+      title: 'JUVI Culiacán',
+      contacts: [
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'instagram',
+          name: 'juvi_sinaloa',
+        },
+      ],
+    },
+    {
+      title: 'JUVI Mérida',
+      contacts: [
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'instagram',
+          name: 'juvimid',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'twitter',
+          name: 'JuviMid',
+        },
+      ],
+    },
+    {
+      title: 'JUVI Mérida',
+      contacts: [
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'instagram',
+          name: 'juvimid',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'twitter',
+          name: 'JuviMid',
+        }
+      ],
+    },
+    {
+      title: 'JUVI Puebla',
+      contacts: [
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'instagram',
+          name: 'juvi.puebla',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'twitter',
+          name: 'JuviPuebla',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'facebook',
+          name: 'Juvi Puebla',
+        }
+      ],
+    },
+    {
+      title: 'JUVI Querétaro',
+      contacts: [
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'instagram',
+          name: 'juvi.queretaro',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'twitter',
+          name: 'JuviQueretaro',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'facebook',
+          name: 'Juvi Queretaro',
+        }
+      ],
+    },
+    {
+      title: 'JUVI Monterrey',
+      contacts: [
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'instagram',
+          name: 'juvi.mty',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'twitter',
+          name: 'JuviMty',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'facebook',
+          name: 'Juvi Mty',
+        }
+      ],
+    },
+    {
+      title: 'JUVI Chihuahua',
+      contacts: [
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'instagram',
+          name: 'juvichihuahua',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'twitter',
+          name: 'chihuahuajuvi',
+        },
+      ],
+    },
+    {
+      title: 'JUVI Guadalajara',
+      contacts: [
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'instagram',
+          name: 'juvi.gdl',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'twitter',
+          name: 'guadaljarajuvi',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'facebook',
+          name: 'Juvi Guadalajara',
+        }
+      ],
+    },
+    {
+      title: 'JUVI Aguascalientes',
+      contacts: [
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'instagram',
+          name: 'juviaguas',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'twitter',
+          name: 'JuviAguas',
+        },
+        {
+          link: 'https://www.facebook.com/JUVI.AC',
+          type: 'facebook',
+          name: 'Juvi Aguascalientes',
+        }
+      ],
+    },
+  ]
+
   constructor(private settingService: SettingService,
               private appMetaService: AppMetaService) {
   }

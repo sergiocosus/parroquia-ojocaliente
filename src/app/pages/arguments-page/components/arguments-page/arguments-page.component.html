@@ -1,12 +1,10 @@
-<header>
-  <div class="line-with-point"></div>
-  <h2>Conoce los argumentos</h2>
-  <div class="spacer"></div>
-  <a href="./argumentos#sources">
+<app-header-dot-line>
+  Conoce los argumentos
+
+  <a slot="extra" href="./argumentos#sources">
     ¡Checa más fuentes de consulta!
   </a>
-</header>
-
+</app-header-dot-line>
 
 <div class="argument-list">
   <div *ngFor="let argument of arguments; let i = index" class="argument">
@@ -20,13 +18,10 @@
   </div>
 </div>
 
-
-<header>
-  <div class="line-with-point"></div>
-  <h2>Conoce las fuentes</h2>
-  <div class="spacer"></div>
-  <div class="spacer"></div>
-</header>
+<app-header-dot-line>
+  Conoce las fuentes
+  <div class="spacer" slot="extra"></div>
+</app-header-dot-line>
 
 <div id="sources" class="sources">
   <a class="source" href="http://google.com.mx" target="_blank">

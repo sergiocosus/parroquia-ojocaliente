@@ -3,7 +3,7 @@
 :host {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
 .content.box {
@@ -14,3 +14,93 @@
   max-width: 100%;
   box-sizing: border-box;
 }
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @media (max-width: $smWidth) {
+    .contact {
+      order: -1;
+    }
+  }
+
+  .groups, .contact {
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+  }
+
+  .groups {
+    flex: 0 0 40em;
+  }
+
+  .group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    h3 {
+      background-color: $gray;
+      color: black;
+      font-size: 1.5em;
+      font-weight: bold;
+      padding-left: 10%;
+      padding-top: .25em;
+      padding-bottom: .25em;
+    }
+
+    .link {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: $gray;
+      padding-left: 10%;
+      text-decoration: none;
+      margin: .25em 0;
+
+      span {
+        font-size: 1.5em;
+        padding: .25em;
+        color: black;
+        margin-right: .5em;
+        line-height: 1em;
+      }
+    }
+  }
+}
+
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-form {
+  flex: 0 1 35em;
+  border: 1px solid black;
+  padding: 1em;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.25em;
+
+  button {
+    width: 100%;
+    color: white;
+    background-color: black;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    mat-form-field {
+      flex: 1;
+      margin: 0 .25em;
+      padding: .25em;
+    }
+  }
+}
+

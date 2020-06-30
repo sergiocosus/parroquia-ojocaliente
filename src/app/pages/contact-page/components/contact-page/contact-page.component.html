@@ -1,3 +1,77 @@
+<app-header-dot-line>
+  Contáctanos
+  <div class="spacer" slot="extra"></div>
+</app-header-dot-line>
+
+<div class="columns">
+  <div class="groups">
+    <div class="group" *ngFor="let group of groups">
+      <h3>
+        {{group.title}}
+      </h3>
+      <a *ngFor="let contact of group.contacts"
+         [href]="contact.link" class="link" target="_blank">
+
+        <div [ngSwitch]="contact.type">
+          <mat-icon *ngSwitchCase="'instagram'" class="fab fa-instagram"></mat-icon>
+          <mat-icon *ngSwitchCase="'facebook'" class="fab fa-facebook-f"></mat-icon>
+          <mat-icon *ngSwitchCase="'twitter'" class="fab fa-twitter"></mat-icon>
+          <mat-icon *ngSwitchDefault></mat-icon>
+        </div>
+
+        <span>{{contact.name}}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="contact">
+    <div class="contact-form">
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Nombre</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Teléfono</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+
+        <mat-form-field>
+          <mat-label>Asunto</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Escribe tu mensaje aquí...</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button>
+        Enviar
+      </button>
+
+      <span>
+      Gracias por tu mensaje, ¡nos comunicaremos en breve!
+    </span>
+    </div>
+  </div>
+</div>
+
+
+<!--
 <div class="content box" >
   <header>
     <h2>
@@ -12,3 +86,4 @@
 
   <div [innerHTML]="contactText" class="content-editor"></div>
 </div>
+-->

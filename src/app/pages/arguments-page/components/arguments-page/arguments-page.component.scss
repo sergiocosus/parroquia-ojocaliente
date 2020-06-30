@@ -11,30 +11,7 @@
   }
 }
 
-header {
-  display: flex;
-  color: black;
-  width: auto !important;
-  padding-right: 10%;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  flex-wrap: wrap;
-
-  h2 {
-    color: black;
-    font-size: 2em;
-  }
-
-  .line-with-point {
-    width: 20%;
-    border-color: black;
-    border-width: 3px;
-
-    &:after {
-      background-color: black;
-    }
-  }
-
+app-header-dot-line {
   a {
     border: 1px solid black;
     font-size: 2em;
@@ -43,6 +20,8 @@ header {
     text-decoration: none;
   }
 }
+
+
 
 .argument-list {
   display: flex;
