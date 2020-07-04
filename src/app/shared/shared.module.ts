@@ -27,10 +27,9 @@ import { UploadPictureComponent } from './components/upload-picture/upload-pictu
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { LaravelPaginatorComponent } from '@app/shared/components/laravel-paginator/laravel-paginator.component';
 import { OwlDateTimeModule } from 'ng-pick-datetime';
-import { OwlMomentDateTimeModule } from 'ng-pick-datetime-moment';
-import { CovalentFileModule } from '@covalent/core';
 import { ImgSrcsetPlaceholderDirective } from './directives/img-srcset-placeholder.directive';
 import { MatSelectModule } from '@angular/material/select';
+import { CovalentFileModule } from '@covalent/core/file';
 
 @NgModule({
   declarations: [
@@ -77,7 +76,6 @@ import { MatSelectModule } from '@angular/material/select';
 
     NgxPermissionsModule,
     OwlDateTimeModule,
-    OwlMomentDateTimeModule,
     ApiModule,
 
     ConfirmDialogComponent,

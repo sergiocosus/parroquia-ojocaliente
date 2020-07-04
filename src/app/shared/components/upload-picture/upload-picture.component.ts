@@ -4,7 +4,7 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { Notify } from '@app/shared/services/notify.service';
 import { BaseFormControlWrapperValueAccessor } from '@app/shared/classes/base-form-control-wrapper-value-accessor';
 import { extract } from '@app/shared/services/i18n.service';
-import { TdFileInputComponent } from '@covalent/core';
+import { TdFileInputComponent } from '@covalent/core/file';
 
 @Component({
   selector: 'app-upload-picture',
