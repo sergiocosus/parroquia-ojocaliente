@@ -21,7 +21,7 @@ import { IfSettingDirective } from '@app/api/directives/if-setting.directive';
   ]
 })
 export class ApiModule {
-  static forRoot(config: BlogApiConfig): ModuleWithProviders {
+  static forRoot(config: BlogApiConfig): ModuleWithProviders<ApiModule> {
     return {
       ngModule: ApiModule,
       providers: [
