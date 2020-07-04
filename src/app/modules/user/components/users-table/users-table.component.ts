@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AutoUnsubscribe } from '@app/shared/decorators/auto-unsubscribe';
-import { MatDialog, MatPaginator, MatSort } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { PaginationManager } from '@app/shared/classes/pagination-manager';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SubscriptionManager } from '@app/shared/classes/subscription-manager';
@@ -18,8 +20,8 @@ import { Role } from '@app/api/models/role.model';
 })
 @AutoUnsubscribe()
 export class UsersTableComponent implements OnInit {
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   displayedColumns = [
     'image', 'id', 'full_name', 'actions'

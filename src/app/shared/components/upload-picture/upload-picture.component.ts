@@ -17,7 +17,7 @@ import { TdFileInputComponent } from '@covalent/core';
   }]
 })
 export class UploadPictureComponent extends BaseFormControlWrapperValueAccessor implements OnInit {
-  @ViewChild(TdFileInputComponent, {static: false}) tdFileInput: TdFileInputComponent;
+  @ViewChild(TdFileInputComponent, {static: true}) tdFileInput: TdFileInputComponent;
   @Input() image_srcset: string;
 
   src: string;

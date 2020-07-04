@@ -3,7 +3,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { SharedModule } from '../shared/shared.module';
 import { AuthElementsModule } from '@app/auth-elements/auth-elements.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { MatExpansionModule } from '@angular/material';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { NavPagesComponent } from './components/nav-pages/nav-pages.component';
 
 @NgModule({

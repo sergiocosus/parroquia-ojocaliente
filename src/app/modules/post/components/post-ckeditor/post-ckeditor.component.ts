@@ -7,7 +7,7 @@ import { ScriptService } from 'ngx-script-loader';
 import { forkJoin } from 'rxjs';
 import { SelectMediaDialogComponent } from '@app/media/select-media-dialog/select-media-dialog.component';
 import { filter } from 'rxjs/operators';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { BaseFormControlWrapperValueAccessor } from '@app/shared/classes/base-form-control-wrapper-value-accessor';
 
 @Component({
@@ -21,7 +21,7 @@ import { BaseFormControlWrapperValueAccessor } from '@app/shared/classes/base-fo
   }]
 })
 export class PostCkeditorComponent extends BaseFormControlWrapperValueAccessor implements OnInit {
-  @ViewChild('ck', {static: false}) ckeditor;
+  @ViewChild('ck', {static: true}) ckeditor;
   @Input() showImageSelector = true;
 
   editor; // ClassicEditor;

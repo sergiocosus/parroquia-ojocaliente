@@ -7,7 +7,7 @@ import { Notify } from '@app/shared/services/notify.service';
 import { uploadProgressOperator } from '@app/shared/functions/uploadProgressOperator';
 import { UploadPictureComponent } from '@app/shared/components/upload-picture/upload-picture.component';
 import { filter } from 'rxjs/operators';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-gallery-picture-form',
@@ -15,7 +15,7 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./gallery-picture-form.component.scss']
 })
 export class GalleryPictureFormComponent implements OnInit {
-  @ViewChild(UploadPictureComponent, {static: false}) uploadPicture: UploadPictureComponent;
+  @ViewChild(UploadPictureComponent, {static: true}) uploadPicture: UploadPictureComponent;
   @Input() galleryPicture: GalleryPicture;
   @Input() gallery_slug: string;
   @Output() deleted = new EventEmitter();

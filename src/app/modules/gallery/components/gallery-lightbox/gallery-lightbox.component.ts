@@ -9,8 +9,8 @@ import { Lightbox } from '@ngx-gallery/lightbox';
   styleUrls: ['./gallery-lightbox.component.scss']
 })
 export class GalleryLightboxComponent implements OnInit {
-  @ViewChild('itemTemplate', {static: false}) itemTemplate;
-  @ViewChild('thumbTemplate', {static: false}) thumbTemplate;
+  @ViewChild('itemTemplate', {static: true}) itemTemplate;
+  @ViewChild('thumbTemplate', {static: true}) thumbTemplate;
   @Input() gallery: Gallery;
   @Output() closed = new EventEmitter();
 

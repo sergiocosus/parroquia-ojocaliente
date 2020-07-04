@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { PostService } from '@app/api/services/post.service';
 import { Post } from '@app/api/models/post.model';
 import { PaginationManager } from '@app/shared/classes/pagination-manager';
@@ -12,8 +13,8 @@ import { mergeMap } from 'rxjs/operators';
   styleUrls: ['./posts-table.component.scss']
 })
 export class PostsTableComponent implements OnInit {
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   displayedColumns = [
     'image', 'id', 'title', 'is_published', 'categories', 'actions'

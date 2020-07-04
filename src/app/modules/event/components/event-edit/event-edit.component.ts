@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EventFormService } from '../../services/event-form.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { AutoUnsubscribe } from '@app/shared/decorators/auto-unsubscribe';
 import { Notify } from '@app/shared/services/notify.service';
 import { EventService } from '@app/api/services/event.service';

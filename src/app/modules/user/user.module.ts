@@ -3,7 +3,9 @@ import { UserImageComponent } from '@app/user/components/user-image/user-image.c
 import { SharedModule } from '@app/shared/shared.module';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { UsersTableComponent } from './components/users-table/users-table.component';
-import { MatProgressBarModule, MatSortModule, MatTableModule } from '@angular/material';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 import { UserRolesComponent } from './components/user-roles/user-roles.component';
 
 @NgModule({

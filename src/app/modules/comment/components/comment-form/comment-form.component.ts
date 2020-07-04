@@ -4,7 +4,7 @@ import { PostCommentService } from '@app/api/services/post-comment.service';
 import { extract } from '@app/shared/services/i18n.service';
 import { Notify } from '@app/shared/services/notify.service';
 import { Post } from '@app/api/models/post.model';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '@app/auth/components/login-dialog/login-dialog.component';
 import { SessionService } from '@app/api/services/session.service';
 import { User } from '@app/api/models/user.model';
@@ -17,7 +17,7 @@ import { User } from '@app/api/models/user.model';
 export class CommentFormComponent implements OnInit {
   @Input() post: Post;
   @Output() created = new EventEmitter();
-  @ViewChild(FormGroupDirective, {static: false}) myForm: FormGroupDirective;
+  @ViewChild(FormGroupDirective, {static: true}) myForm: FormGroupDirective;
 
 
   form: FormGroup;

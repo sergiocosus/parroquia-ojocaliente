@@ -4,7 +4,7 @@ import { mergeMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Category } from '@app/api/models/category.model';
 import { FormControl } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import * as _ from 'lodash';
 
 @Component({

@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RouteConstants } from '@app/api/classes/route-constants';
-import { MatSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-admin-nav',
@@ -11,7 +11,7 @@ import { MatSidenav } from '@angular/material';
   styleUrls: ['./admin-nav.component.scss']
 })
 export class AdminNavComponent {
-  @ViewChild(MatSidenav, {static: false}) sidenav: MatSidenav;
+  @ViewChild(MatSidenav, {static: true}) sidenav: MatSidenav;
   readonly adminPages = RouteConstants.adminPages;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

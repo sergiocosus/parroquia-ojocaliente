@@ -3,7 +3,7 @@ import { SettingService } from '@app/api/services/setting.service';
 import { FormArray, FormBuilder } from '@angular/forms';
 import { Notify } from '@app/shared/services/notify.service';
 import { extract } from '@app/shared/services/i18n.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { PostCkeditorComponent } from '@app/post/components/post-ckeditor/post-ckeditor.component';
 import { Setting } from '@app/api/models/setting.model';
 import * as _ from 'lodash';
@@ -15,7 +15,7 @@ import { uploadProgressOperator } from '@app/shared/functions/uploadProgressOper
   styleUrls: ['./settings-form.component.scss']
 })
 export class SettingsFormComponent implements OnInit {
-  @ViewChild(PostCkeditorComponent, {static: false}) postCkEditor: PostCkeditorComponent;
+  @ViewChild(PostCkeditorComponent, {static: true}) postCkEditor: PostCkeditorComponent;
   form: FormArray;
   private settings: Setting[];
   loading: number;

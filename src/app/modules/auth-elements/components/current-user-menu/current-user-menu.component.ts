@@ -3,7 +3,7 @@ import { User } from '@app/api/models/user.model';
 import { SessionService } from '@app/api/services/session.service';
 import { AutoUnsubscribe } from '@app/shared/decorators/auto-unsubscribe';
 import { SubscriptionManager } from '@app/shared/classes/subscription-manager';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '@app/auth/components/login-dialog/login-dialog.component';
 import { Observable } from 'rxjs';
 import { ImpersonateUserService } from '@app/api/services/impersonate-user.service';

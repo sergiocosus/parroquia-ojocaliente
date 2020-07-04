@@ -6,7 +6,7 @@ import { SubscriptionManager } from '@app/shared/classes/subscription-manager';
 import { finalize, startWith } from 'rxjs/operators';
 import { Pagination } from '@app/api/models/pagination';
 import { Media } from '@app/api/models/media.model';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { Notify } from '@app/shared/services/notify.service';
 import { extract } from '@app/shared/services/i18n.service';

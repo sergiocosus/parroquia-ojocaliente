@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { ConfirmDialogComponent, ConfirmDialogData } from '@app/shared/components/confirm-dialog/confirm-dialog.component';
 import { filter, mergeMap } from 'rxjs/operators';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-gallery-form',

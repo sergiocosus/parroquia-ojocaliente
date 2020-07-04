@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../api/services/auth.service';
 import { Router } from '@angular/router';
 import { ResetPasswordRequestDialogComponent } from '../reset-password-request-dialog/reset-password-request-dialog.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { User } from '@app/api/models/user.model';
 import { Notify } from '@app/shared/services/notify.service';
 import { RouteConstants } from '@app/api/classes/route-constants';

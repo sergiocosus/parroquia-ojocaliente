@@ -4,7 +4,9 @@ import { EventEditDialogComponent } from './components/event-edit-dialog/event-e
 import { SharedModule } from '@app/shared/shared.module';
 import { EventCalendarComponent } from './components/event-calendar/event-calendar.component';
 import { CalendarModule } from 'angular-calendar';
-import { MatButtonToggleModule, MatProgressBarModule, MatTabsModule } from '@angular/material';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTabsModule } from '@angular/material/tabs';
 import { EventDetailComponent } from './components/event-detail/event-detail.component';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import { PostModule } from '@app/post/post.module';

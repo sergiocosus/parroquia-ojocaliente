@@ -16,7 +16,7 @@ import { GalleryLightboxComponent } from '@app/gallery/components/gallery-lightb
   styleUrls: ['./galleries-page.component.scss']
 })
 export class GalleriesPageComponent implements OnInit {
-  @ViewChild(GalleryLightboxComponent, {static: false}) galleryLightbox: GalleryLightboxComponent;
+  @ViewChild(GalleryLightboxComponent, {static: true}) galleryLightbox: GalleryLightboxComponent;
   galleryPagination: Pagination<Gallery>;
   readonly newGalleryRoute = `/${RouteConstants.admin}/${RouteConstants.gallery}/${RouteConstants.new}`;
 

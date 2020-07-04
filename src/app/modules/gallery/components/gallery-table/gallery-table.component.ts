@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MatPaginator, MatSort } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { PaginationManager } from '@app/shared/classes/pagination-manager';
 import { Notify } from '@app/shared/services/notify.service';
 import { filter, mergeMap } from 'rxjs/operators';
@@ -17,8 +19,8 @@ import { ConfirmDialogComponent, ConfirmDialogData } from '@app/shared/component
 })
 @AutoUnsubscribe()
 export class GalleryTableComponent implements OnInit {
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   displayedColumns = [
     'image', 'id', 'title', 'actions'

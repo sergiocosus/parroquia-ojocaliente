@@ -5,7 +5,7 @@ import { CategoryService } from '@app/api/services/category.service';
 import { Notify } from '@app/shared/services/notify.service';
 import { extract } from '@app/shared/services/i18n.service';
 import { filter, finalize, mergeMap, startWith } from 'rxjs/operators';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent, ConfirmDialogData } from '@app/shared/components/confirm-dialog/confirm-dialog.component';
 import { AutoUnsubscribe } from '@app/shared/decorators/auto-unsubscribe';
 import { SubscriptionManager } from '@app/shared/classes/subscription-manager';

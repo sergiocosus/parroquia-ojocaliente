@@ -15,8 +15,8 @@ import { ArgumentFormDialogComponent } from '@app/argument/components/argument-f
   styleUrls: ['./arguments-table.component.scss']
 })
 export class ArgumentsTableComponent implements OnInit {
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   displayedColumns = [
     'image', 'id', 'order', 'question', 'actions'
