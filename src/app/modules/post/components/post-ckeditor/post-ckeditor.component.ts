@@ -21,7 +21,7 @@ import { BaseFormControlWrapperValueAccessor } from '@app/shared/classes/base-fo
   }]
 })
 export class PostCkeditorComponent extends BaseFormControlWrapperValueAccessor implements OnInit {
-  @ViewChild('ck') ckeditor;
+  @ViewChild('ck', {static: false}) ckeditor;
   @Input() showImageSelector = true;
 
   editor; // ClassicEditor;
@@ -77,7 +77,7 @@ export class PostCkeditorComponent extends BaseFormControlWrapperValueAccessor i
 
   addImageToPost() {
     this.dialog.open(SelectMediaDialogComponent, {minWidth: '90%', minHeight: '90%'}).afterClosed()
-      .pipe(filter(Boolean)).subscribe(media => {
+      .pipe(filter(a => !!a)).subscribe(media => {
       this.addImage(media.url);
     });
   }

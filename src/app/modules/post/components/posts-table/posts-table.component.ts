@@ -12,8 +12,8 @@ import { mergeMap } from 'rxjs/operators';
   styleUrls: ['./posts-table.component.scss']
 })
 export class PostsTableComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
 
   displayedColumns = [
     'image', 'id', 'title', 'is_published', 'categories', 'actions'

@@ -81,7 +81,7 @@ export class LinkListComponent implements OnInit {
     this.dialog.open(ConfirmDialogComponent, {
       data: {message: link.title} as ConfirmDialogData
     }).afterClosed().pipe(
-      filter(Boolean),
+      filter(a => !!a),
       mergeMap(() => this.linkService.delete(link.id))
     ).subscribe(() => {
         if (this.filterForm.get('with_trashed').value) {

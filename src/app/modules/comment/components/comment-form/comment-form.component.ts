@@ -17,7 +17,7 @@ import { User } from '@app/api/models/user.model';
 export class CommentFormComponent implements OnInit {
   @Input() post: Post;
   @Output() created = new EventEmitter();
-  @ViewChild(FormGroupDirective) myForm: FormGroupDirective;
+  @ViewChild(FormGroupDirective, {static: false}) myForm: FormGroupDirective;
 
 
   form: FormGroup;

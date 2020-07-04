@@ -15,7 +15,7 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./gallery-picture-form.component.scss']
 })
 export class GalleryPictureFormComponent implements OnInit {
-  @ViewChild(UploadPictureComponent) uploadPicture: UploadPictureComponent;
+  @ViewChild(UploadPictureComponent, {static: false}) uploadPicture: UploadPictureComponent;
   @Input() galleryPicture: GalleryPicture;
   @Input() gallery_slug: string;
   @Output() deleted = new EventEmitter();
@@ -34,7 +34,7 @@ export class GalleryPictureFormComponent implements OnInit {
     });
 
     this.form.get('picture').valueChanges.pipe(
-      filter(Boolean),
+      filter(a => !!a),
     ).subscribe((picture) => {
       if (!this.galleryPicture.id) {
         this.submit();

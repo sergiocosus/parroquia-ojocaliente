@@ -15,7 +15,7 @@ import { uploadProgressOperator } from '@app/shared/functions/uploadProgressOper
   styleUrls: ['./settings-form.component.scss']
 })
 export class SettingsFormComponent implements OnInit {
-  @ViewChild(PostCkeditorComponent) postCkEditor: PostCkeditorComponent;
+  @ViewChild(PostCkeditorComponent, {static: false}) postCkEditor: PostCkeditorComponent;
   form: FormArray;
   private settings: Setting[];
   loading: number;

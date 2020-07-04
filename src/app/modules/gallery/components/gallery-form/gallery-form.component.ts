@@ -117,7 +117,7 @@ export class GalleryFormComponent implements OnInit, OnChanges {
         message: extract('common.deleteConfirm'),
       } as ConfirmDialogData
     }).afterClosed().pipe(
-      filter(Boolean),
+      filter(a => !!a),
       mergeMap(() => this.galleryService.pictureDelete(galleryPicture.slug))
     ).subscribe(
       () => _.remove(this.gallery.gallery_pictures, galleryPicture),

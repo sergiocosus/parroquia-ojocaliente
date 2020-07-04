@@ -82,7 +82,7 @@ export class MembersPageComponent implements OnInit {
     this.dialog.open(ConfirmDialogComponent, {
       data: {message: member.name} as ConfirmDialogData
     }).afterClosed().pipe(
-      filter(Boolean),
+      filter(a => !!a),
       mergeMap(() => this.memberService.delete(member.id))
     ).subscribe(() => {
         if (this.filterForm.get('with_trashed').value) {

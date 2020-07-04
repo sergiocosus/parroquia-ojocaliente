@@ -10,47 +10,47 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: './pages/main-page/main-page.module#MainPageModule'
+        loadChildren: () => import('./pages/main-page/main-page.module').then(m => m.MainPageModule)
       },
       {
         path: RouteConstants.us,
-        loadChildren: './pages/us-page/us-page.module#UsPageModule'
+        loadChildren: () => import('./pages/us-page/us-page.module').then(m => m.UsPageModule)
       },
       {
         path: RouteConstants.argument,
-        loadChildren: './pages/arguments-page/arguments-page.module#ArgumentsPageModule'
+        loadChildren: () => import('./pages/arguments-page/arguments-page.module').then(m => m.ArgumentsPageModule)
       },
       {
         path: RouteConstants.post,
-        loadChildren: './pages/post-page/post-page.module#PostPageModule'
+        loadChildren: () => import('./pages/post-page/post-page.module').then(m => m.PostPageModule)
       },
       {
         path: RouteConstants.events,
-        loadChildren: './pages/events-page/events-page.module#EventsPageModule'
+        loadChildren: () => import('./pages/events-page/events-page.module').then(m => m.EventsPageModule)
       },
       {
         path: RouteConstants.category,
-        loadChildren: './pages/category-page/category-page.module#CategoryPageModule'
+        loadChildren: () => import('./pages/category-page/category-page.module').then(m => m.CategoryPageModule)
       },
       {
         path: RouteConstants.link,
-        loadChildren: './pages/links-page/links-page.module#LinksPageModule'
+        loadChildren: () => import('./pages/links-page/links-page.module').then(m => m.LinksPageModule)
       },
       {
         path: RouteConstants.contact,
-        loadChildren: './pages/contact-page/contact-page.module#ContactPageModule'
+        loadChildren: () => import('./pages/contact-page/contact-page.module').then(m => m.ContactPageModule)
       },
       {
         path: RouteConstants.gallery,
-        loadChildren: './pages/gallery-page/gallery-page.module#GalleryPageModule'
+        loadChildren: () => import('./pages/gallery-page/gallery-page.module').then(m => m.GalleryPageModule)
       },
       {
         path: RouteConstants.admin,
-        loadChildren: './pages/admin-pages/admin-pages.module#AdminPagesModule'
+        loadChildren: () => import('./pages/admin-pages/admin-pages.module').then(m => m.AdminPagesModule)
       },
       {
         path: RouteConstants.register,
-        loadChildren: './pages/register-page/register-page.module#RegisterPageModule'
+        loadChildren: () => import('./pages/register-page/register-page.module').then(m => m.RegisterPageModule)
       },
       {
         path: '**',

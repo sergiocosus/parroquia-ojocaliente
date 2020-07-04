@@ -22,7 +22,7 @@ export class SettingService {
   getCachedSetting(name) {
     return this.getCachedSettings().pipe(
       map(settings => _.find(settings, {name})),
-      filter(Boolean)
+      filter(a => !!a)
     );
   }
 

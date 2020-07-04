@@ -17,8 +17,8 @@ import { ConfirmDialogComponent, ConfirmDialogData } from '@app/shared/component
 })
 @AutoUnsubscribe()
 export class GalleryTableComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
 
   displayedColumns = [
     'image', 'id', 'title', 'actions'
@@ -61,7 +61,7 @@ export class GalleryTableComponent implements OnInit {
     this.dialog.open(ConfirmDialogComponent, {
       data: {message: gallery.title} as ConfirmDialogData
     }).afterClosed().pipe(
-      filter(Boolean),
+      filter(a => !!a),
       mergeMap(() => this.galleryService.delete(gallery.slug))
     ).subscribe(() => {
         if (this.filterForm.get('with_trashed').value) {

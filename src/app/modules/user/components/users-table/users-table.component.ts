@@ -18,8 +18,8 @@ import { Role } from '@app/api/models/role.model';
 })
 @AutoUnsubscribe()
 export class UsersTableComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
 
   displayedColumns = [
     'image', 'id', 'full_name', 'actions'
@@ -67,7 +67,7 @@ export class UsersTableComponent implements OnInit {
     this.dialog.open(ConfirmDialogComponent, {
       data: {message: gallery.title} as ConfirmDialogData
     }).afterClosed().pipe(
-      filter(Boolean),
+      filter(a => !!a),
       mergeMap(() => this.userService.delete(gallery.slug))
     ).subscribe(() => {
         if (this.filterForm.get('with_trashed').value) {

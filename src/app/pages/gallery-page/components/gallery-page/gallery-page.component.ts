@@ -14,7 +14,7 @@ import { RouteConstants } from '@app/api/classes/route-constants';
   styleUrls: ['./gallery-page.component.scss']
 })
 export class GalleryPageComponent implements OnInit {
-  @ViewChild(GalleryLightboxComponent) galleryLightbox: GalleryLightboxComponent;
+  @ViewChild(GalleryLightboxComponent, {static: false}) galleryLightbox: GalleryLightboxComponent;
 
   gallery: Gallery;
 

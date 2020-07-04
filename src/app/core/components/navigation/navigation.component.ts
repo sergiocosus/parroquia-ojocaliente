@@ -12,14 +12,14 @@ import { ValidSetting } from '@app/api/models/setting.model';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
-  @ViewChild(MatSidenav) sidenav: MatSidenav;
+  @ViewChild(MatSidenav, {static: false}) sidenav: MatSidenav;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
-  $pageIconSrcSet: Observable<string>;
-  $title: Observable<string>;
+  $pageIconSrcSet: Observable<string | boolean>;
+  $title: Observable<string | boolean>;
 
   constructor(private breakpointObserver: BreakpointObserver,
               private settingService: SettingService) {

@@ -77,7 +77,7 @@ export class CategoriesListComponent implements OnInit {
     this.dialog.open(ConfirmDialogComponent, {
       data: {message: category.title} as ConfirmDialogData
     }).afterClosed().pipe(
-      filter(Boolean),
+      filter(a => !!a),
       mergeMap(() => this.categoryService.delete(category.slug))
     ).subscribe(() => {
         if (this.filterForm.get('with_trashed').value) {

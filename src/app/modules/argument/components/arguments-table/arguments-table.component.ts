@@ -15,8 +15,8 @@ import { ArgumentFormDialogComponent } from '@app/argument/components/argument-f
   styleUrls: ['./arguments-table.component.scss']
 })
 export class ArgumentsTableComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
 
   displayedColumns = [
     'image', 'id', 'order', 'question', 'actions'
@@ -50,7 +50,7 @@ export class ArgumentsTableComponent implements OnInit {
 
   create() {
     this.dialog.open(ArgumentFormDialogComponent).afterClosed()
-      .pipe(filter(Boolean))
+      .pipe(filter(a => !!a))
       .subscribe(argument => {
         this.paginationManager.appendElement(argument);
       });
@@ -58,7 +58,7 @@ export class ArgumentsTableComponent implements OnInit {
 
   update(argument: Argument) {
     this.dialog.open(ArgumentFormDialogComponent, {data: argument}).afterClosed()
-      .pipe(filter(Boolean))
+      .pipe(filter(a => !!a))
       .subscribe(updatedArgument => {
         argument.replaceProperties(updatedArgument);
       });

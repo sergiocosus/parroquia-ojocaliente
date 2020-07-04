@@ -7,6 +7,7 @@ export class Member extends Model {
   name: string;
   image_url: string;
   image_srcset: string;
+  order: number;
   created_at: Moment;
   updated_at: Moment;
   deleted_at: Moment | string;

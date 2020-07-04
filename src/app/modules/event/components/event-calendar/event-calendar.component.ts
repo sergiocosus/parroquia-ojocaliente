@@ -107,7 +107,7 @@ export class EventCalendarComponent implements OnInit {
 
   create() {
     this.dialog.open(EventEditDialogComponent).afterClosed()
-      .pipe(filter(Boolean)).subscribe(
+      .pipe(filter(a => !!a)).subscribe(
       event => {
         this.calendarEvents.push(this.createCalendarEvent(event));
         this.events.push(event);
@@ -117,7 +117,7 @@ export class EventCalendarComponent implements OnInit {
 
   edit(event: Event) {
     this.dialog.open(EventEditDialogComponent, {data: event}).afterClosed()
-      .pipe(filter(Boolean)).subscribe(
+      .pipe(filter(a => !!a)).subscribe(
       eventUpdated => {
         event.replaceProperties(eventUpdated);
         this.calendarEvents = this.events.map(this.createCalendarEvent.bind(this));
@@ -149,7 +149,7 @@ export class EventCalendarComponent implements OnInit {
     this.dialog.open(ConfirmDialogComponent, {
       data: {message: event.title} as ConfirmDialogData
     }).afterClosed().pipe(
-      filter(Boolean),
+      filter(a => !!a),
       mergeMap(() => this.eventService.delete(event.slug))
     ).subscribe(
       () => {

@@ -11,7 +11,7 @@ import { MatSidenav } from '@angular/material';
   styleUrls: ['./admin-nav.component.scss']
 })
 export class AdminNavComponent {
-  @ViewChild(MatSidenav) sidenav: MatSidenav;
+  @ViewChild(MatSidenav, {static: false}) sidenav: MatSidenav;
   readonly adminPages = RouteConstants.adminPages;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
