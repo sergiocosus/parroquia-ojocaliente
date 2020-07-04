@@ -1,14 +1,12 @@
 @import "~src/variables";
 
 :host {
-  display: flex;
+  @extend .common-main-container;
   flex-direction: column;
   background-color: rgba(23, 38, 56, 0.55);
   background-image: url("/assets/images/us/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
-  position: relative;
   padding: 0 10%;
 }
 
@@ -36,10 +34,12 @@
   margin: 1em;
   padding: 1em;
   width: 20em;
-
   position: relative;
   z-index: 1;
 
+  @media (max-width: $xlWidth) {
+    font-size: .8em;
+  }
 
   > img {
     width: 100%;

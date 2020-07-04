@@ -27,7 +27,7 @@
           mat-icon-button
           (click)="drawer.toggle()"
           *ngIf="isHandset$ | async">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          <mat-icon class="fas fa-bars"></mat-icon>
         </button>
       </div>
       <img src="assets/images/white-logo.png">
@@ -46,8 +46,9 @@
         </button>
       </div>
     </div>
-    <mat-toolbar class="top-bar" color="primary">
-      <app-nav-pages *ngIf="!(isHandset$ | async)"></app-nav-pages>
+    <mat-toolbar *ngIf="!(isHandset$ | async)"
+                 class="top-bar" color="primary">
+      <app-nav-pages></app-nav-pages>
 
 
       <!--

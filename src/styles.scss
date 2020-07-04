@@ -179,3 +179,7 @@ header {
     }
   }
 }
+
+* {
+  flex-shrink: 0;
+}
