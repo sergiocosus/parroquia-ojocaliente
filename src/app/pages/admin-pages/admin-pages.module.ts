@@ -33,6 +33,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MemberModule } from '@app/member/member.module';
 import { AdminArgumentPageComponent } from './components/admin-argument-page/admin-argument-page.component';
 import { ArgumentModule } from '@app/argument/argument.module';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -49,29 +50,30 @@ import { ArgumentModule } from '@app/argument/argument.module';
     MembersPageComponent,
     AdminArgumentPageComponent,
   ],
-  imports: [
-    CommonModule,
-    AdminPagesRoutingModule,
-    PostModule,
-    MatListModule,
-    SharedModule,
-    NgxPermissionsModule,
-    CategoryModule,
-    UserModule,
-    AuthModule,
-    MatTabsModule,
-    SettingModule,
-    LinkModule,
-    GalleryModule,
-    MemberModule,
-    ArgumentModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatExpansionModule,
-  ]
+    imports: [
+        CommonModule,
+        AdminPagesRoutingModule,
+        PostModule,
+        MatListModule,
+        SharedModule,
+        NgxPermissionsModule,
+        CategoryModule,
+        UserModule,
+        AuthModule,
+        MatTabsModule,
+        SettingModule,
+        LinkModule,
+        GalleryModule,
+        MemberModule,
+        ArgumentModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatExpansionModule,
+        DragDropModule,
+    ]
 })
 export class AdminPagesModule {
 }

@@ -42,8 +42,9 @@ export class MemberService {
   }
 
   edit(id: number, params: {
-    name: string,
-    picture: {
+    name?: string,
+    order?: number,
+    picture?: {
       name: string,
       base64: string,
     }

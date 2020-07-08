@@ -9,6 +9,7 @@ import { extract } from '@app/shared/services/i18n.service';
 import { ConfirmDialogComponent, ConfirmDialogData } from '@app/shared/components/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { uploadProgressOperator } from '@app/shared/functions/uploadProgressOperator';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-members-page',
@@ -71,7 +72,7 @@ export class MembersPageComponent implements OnInit {
       finalize(() => this.form.enable())
     ).subscribe(
       member => {
-        this.members.unshift(member);
+        this.members.push(member);
         this.form.reset();
       },
       error => this.notify.error(error)
@@ -127,5 +128,11 @@ export class MembersPageComponent implements OnInit {
       },
       error => this.notify.error(error)
     );
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    this.memberService.edit(event.item.data.id, {order: event.currentIndex}).subscribe();
+    this.memberService.edit(this.members[event.currentIndex].id, {order: event.previousIndex}).subscribe();
+    moveItemInArray(this.members, event.previousIndex, event.currentIndex);
   }
 }
