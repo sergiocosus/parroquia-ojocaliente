@@ -42,6 +42,7 @@
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
 <mat-tab-group (selectedTabChange)="tabSelected($event)">
+  <!--
   <mat-tab>
     <ng-template mat-tab-label>
       <mat-icon>view_list</mat-icon>
@@ -53,7 +54,7 @@
                     (restoreClick)="restoreEvent($event)"
     ></app-event-list>
   </mat-tab>
-
+  -->
   <mat-tab>
     <ng-template mat-tab-label>
       <mat-icon>calendar_today</mat-icon>

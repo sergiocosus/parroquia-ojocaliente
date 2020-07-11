@@ -1,9 +1,25 @@
 @import '~src/variables';
 
+:host {
+  display: flex;
+  flex-direction: column;
+
+  ::ng-deep {
+    .mat-list-text {
+      flex: 1;
+    }
+  }
+}
+
 picture {
   width: 1em;
   height: 1em;
   background-position: center;
   background-size: cover;
   transition: all .5s;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
 }

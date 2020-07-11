@@ -12,7 +12,7 @@ export class EventService {
   constructor(private http: HttpClient) {
   }
 
-  get(params?: {not_expired}) {
+  get(params?: {not_expired?, expired?}) {
     return this.http.get(`event`, {params}).pipe(this.mapEvents());
   }
 

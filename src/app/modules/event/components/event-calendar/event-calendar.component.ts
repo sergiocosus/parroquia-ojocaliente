@@ -77,13 +77,13 @@ export class EventCalendarComponent implements OnInit {
 
   tabSelected(event: MatTabChangeEvent) {
     switch (event.index) {
-      case 1:
+      case 0:
         this.view = CalendarView.Month;
         break;
-      case 2:
+      case 1:
         this.view = CalendarView.Week;
         break;
-      case 3:
+      case 2:
         this.view = CalendarView.Day;
         break;
       default:
@@ -112,6 +112,8 @@ export class EventCalendarComponent implements OnInit {
       event => {
         this.calendarEvents.push(this.createCalendarEvent(event));
         this.events.push(event);
+        console.log(this.calendarEvents);
+        console.log(this.events);
       }
     );
   }

@@ -4,8 +4,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+}
+
+header {
+  width: $lgWidth;
+}
+
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  @extend .limited-width;
+  width: $lgWidth;
+}
+
+app-main-event-list {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 10em;
+  max-width: 15em;
 }
 
 app-event-calendar {
- @extend .limited-width;
+  flex: 1;
 }

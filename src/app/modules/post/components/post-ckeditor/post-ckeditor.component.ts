@@ -21,7 +21,7 @@ import { BaseFormControlWrapperValueAccessor } from '@app/shared/classes/base-fo
   }]
 })
 export class PostCkeditorComponent extends BaseFormControlWrapperValueAccessor implements OnInit {
-  @ViewChild('ck', {static: true}) ckeditor;
+  @ViewChild('ck', {static: false}) ckeditor;
   @Input() showImageSelector = true;
 
   editor; // ClassicEditor;
@@ -66,10 +66,10 @@ export class PostCkeditorComponent extends BaseFormControlWrapperValueAccessor i
   }
 
   loadCkEditor() {
-    forkJoin(
+    forkJoin([
       this.scriptService.loadScript('https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js'),
       this.scriptService.loadScript('https://cdn.ckeditor.com/ckeditor5/11.2.0/classic//translations/es.js')
-    ).subscribe(() => {
+    ]).subscribe(() => {
       this.editor = (window as any).ClassicEditor;
       this.ckEditorLoaded = true;
     });

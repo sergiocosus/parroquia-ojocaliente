@@ -11,6 +11,7 @@ import { EventDetailComponent } from './components/event-detail/event-detail.com
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import { PostModule } from '@app/post/post.module';
 import { EventListComponent } from './components/event-list/event-list.component';
+import { MainEventListComponent } from './components/main-event-list/main-event-list.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { EventListComponent } from './components/event-list/event-list.component
     EventEditDialogComponent,
     EventCalendarComponent,
     EventDetailComponent,
-    EventListComponent
+    EventListComponent,
+    MainEventListComponent
   ],
   entryComponents: [
     EventEditDialogComponent
@@ -37,7 +39,9 @@ import { EventListComponent } from './components/event-list/event-list.component
     EventEditComponent,
     EventEditDialogComponent,
     EventCalendarComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    EventListComponent,
+    MainEventListComponent
   ]
 })
 export class EventModule {

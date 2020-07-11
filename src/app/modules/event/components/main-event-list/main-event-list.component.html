@@ -1,0 +1,10 @@
+<mat-select [formControl]="formControl">
+  <mat-option value="not_expired">
+    Próximos
+  </mat-option>
+  <mat-option value="expired">
+    Anteriores
+  </mat-option>
+</mat-select>
+<app-event-list [events]="events"
+></app-event-list>

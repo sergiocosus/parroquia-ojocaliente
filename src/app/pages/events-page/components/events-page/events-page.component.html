@@ -1,3 +1,4 @@
+<!--
 <header>
   <h2>
     <mat-icon>event</mat-icon>
@@ -5,8 +6,12 @@
   </h2>
 
   <div class="spacer"></div>
-<!--
+
   <share-buttons [show]="3" [showCount]="true"></share-buttons>
-  -->
 </header>
-<app-event-calendar></app-event-calendar>
+ -->
+<div class="columns">
+  <app-main-event-list class="left"></app-main-event-list>
+
+  <app-event-calendar class="right"></app-event-calendar>
+</div>

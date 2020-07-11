@@ -18,27 +18,30 @@
       {{event.end_at | date : 'medium'}}
     </p>
 
-    <button mat-icon-button>
-      <mat-icon *ngxPermissionsOnly="'update-event'"
-                (click)="edit(event); $event.stopPropagation(); $event.preventDefault()"
-                color="primary">
-        edit
-      </mat-icon>
-    </button>
-
-    <ng-container *ngxPermissionsOnly="'delete-category'">
-      <button mat-icon-button color="warn"
-              *ngIf="!event.deleted_at; else deleted"
-              (click)="delete(event); $event.stopPropagation(); $event.preventDefault()">
-        <mat-icon>delete</mat-icon>
+    <div class="actions">
+      <button mat-icon-button>
+        <mat-icon *ngxPermissionsOnly="'update-event'"
+                  (click)="edit(event); $event.stopPropagation(); $event.preventDefault()"
+                  color="primary">
+          edit
+        </mat-icon>
       </button>
 
-      <ng-template #deleted>
-        <button mat-icon-button color="accent"
-                (click)="restore(event); $event.stopPropagation(); $event.preventDefault()">
-          <mat-icon>restore</mat-icon>
+      <ng-container *ngxPermissionsOnly="'delete-category'">
+        <button mat-icon-button color="warn"
+                *ngIf="!event.deleted_at; else deleted"
+                (click)="delete(event); $event.stopPropagation(); $event.preventDefault()">
+          <mat-icon>delete</mat-icon>
         </button>
-      </ng-template>
-    </ng-container>
+
+        <ng-template #deleted>
+          <button mat-icon-button color="accent"
+                  (click)="restore(event); $event.stopPropagation(); $event.preventDefault()">
+            <mat-icon>restore</mat-icon>
+          </button>
+        </ng-template>
+      </ng-container>
+    </div>
+
   </a>
 </mat-nav-list>
