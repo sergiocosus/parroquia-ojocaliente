@@ -14,7 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { CategoryModule } from '@app/category/category.module';
 import { MediaModule } from '@app/media/media.module';
 import { CommentModule } from '@app/comment/comment.module';
-import { ShareButtonsModule } from '@ngx-share/buttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { PostCkeditorComponent } from './components/post-ckeditor/post-ckeditor.component';
 import { AdsenseModule } from 'ng2-adsense';
 import { PostsTableComponent } from './components/posts-table/posts-table.component';

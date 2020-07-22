@@ -8,7 +8,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { EventDetailComponent } from './components/event-detail/event-detail.component';
-import { ShareButtonsModule } from '@ngx-share/buttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { PostModule } from '@app/post/post.module';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { MainEventListComponent } from './components/main-event-list/main-event-list.component';

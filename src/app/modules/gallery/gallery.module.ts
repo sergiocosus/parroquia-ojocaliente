@@ -13,7 +13,7 @@ import { GalleryModule as NgxGalleryModule } from '@ngx-gallery/core';
 import { PinchZoomModule } from 'ngx-pinch-zoom';
 import { GalleryTableComponent } from './components/gallery-table/gallery-table.component';
 import { GalleryLightboxComponent } from './components/gallery-lightbox/gallery-lightbox.component';
-import { ShareButtonsModule } from '@ngx-share/buttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { CovalentFileModule } from '@covalent/core/file';
 
 @NgModule({

@@ -6,7 +6,7 @@ import { PostModule } from '@app/post/post.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { AdsenseModule } from 'ng2-adsense';
 import { GalleryModule } from '@app/gallery/gallery.module';
-import { ShareButtonsModule } from '@ngx-share/buttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ElementsModule } from '@app/elements/elements.module';
 

@@ -25,10 +25,17 @@ header {
 app-main-event-list {
   display: flex;
   flex-direction: column;
-  flex: 0 1 10em;
-  max-width: 15em;
+  flex: 1 1 10em;
+  max-width: 20em;
+  @media (max-width: $smWidth) {
+    max-width: 100%;
+  }
 }
 
 app-event-calendar {
-  flex: 1;
+  flex: 4;
+  padding: .5em;
+  @media (max-width: $smWidth) {
+    display: none;
+  }
 }

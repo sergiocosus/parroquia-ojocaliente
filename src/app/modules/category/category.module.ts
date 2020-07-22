@@ -4,7 +4,7 @@ import { SharedModule } from '@app/shared/shared.module';
 import { CategoriesSearchChipListComponent } from './components/categories-search-chip-list/categories-search-chip-list.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
-import { ShareButtonsModule } from '@ngx-share/buttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 
 @NgModule({
   declarations: [CategoriesListComponent, CategoriesSearchChipListComponent],

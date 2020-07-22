@@ -20,8 +20,9 @@ import { OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MyHammerConfig } from '@app/shared/services/my-hammer-config';
-import { ShareButtonsModule } from '@ngx-share/buttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { shareButtonsConfig } from './core/config/share-button-config';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 // import { CacheModule, CACHE } from '@ngx-cache/core';
 // import { BrowserCacheModule, MemoryCacheService } from '@ngx-cache/platform-browser';
 
@@ -64,7 +65,8 @@ registerLocaleData(localeMX, 'es-MX');
       adClient: environment.googleAdSense.adClient,
       adSlot: environment.googleAdSense.adSlot,
     }),
-    ShareButtonsModule.withConfig(shareButtonsConfig)
+    ShareButtonsModule.withConfig(shareButtonsConfig),
+    ShareIconsModule
   ],
   providers: [
     {provide: OWL_DATE_TIME_LOCALE, useValue: 'es-MX'},

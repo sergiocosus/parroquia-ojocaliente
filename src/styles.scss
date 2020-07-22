@@ -28,7 +28,7 @@ $angular-blog-theme: mat-light-theme($angular-blog-primary, $angular-blog-accent
 /* You can add global styles to this file, and also import other style files */
 @import "~src/variables";
 @import "~src/fonts";
-@import '~@ngx-share/button/themes/outline/outline-theme';
+@import '~ngx-sharebuttons/themes/outline/outline-theme';
 @import "~angular-calendar/css/angular-calendar.css";
 @import "~ng-pick-datetime/assets/style/picker.min.css";
 

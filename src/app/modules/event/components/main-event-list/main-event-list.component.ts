@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from '@app/api/services/event.service';
 import { Event } from '@app/api/models/event.model';
 import { FormControl } from '@angular/forms';
-import { startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main-event-list',

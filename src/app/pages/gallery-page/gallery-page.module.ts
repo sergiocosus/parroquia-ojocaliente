@@ -6,7 +6,7 @@ import { GalleriesPageComponent } from './components/galleries-page/galleries-pa
 import { GalleryModule } from '@app/gallery/gallery.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { GalleryPageComponent } from './components/gallery-page/gallery-page.component';
-import { ShareButtonsModule } from '@ngx-share/buttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 
 @NgModule({
   declarations: [GalleriesPageComponent, GalleryPageComponent],

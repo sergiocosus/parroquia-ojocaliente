@@ -1,7 +1,7 @@
-import { ShareButtonsConfig } from '@ngx-share/core';
+import { ShareButtonsConfig } from 'ngx-sharebuttons';
 
 export const shareButtonsConfig: ShareButtonsConfig = {
-  include: ['facebook', 'twitter', 'linkedin', 'google', 'pinterest',
+  include: ['facebook', 'twitter', 'linkedin', 'pinterest',
     'reddit', 'tumblr', 'mix', 'vk', 'telegram', 'messenger', 'whatsapp',
     'xing', 'line', 'sms', 'email', 'print', 'copy'],
   exclude: [],

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ShareButtonsModule } from '@ngx-share/buttons';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SharedModule } from '@app/shared/shared.module';
 

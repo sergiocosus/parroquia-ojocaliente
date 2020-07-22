@@ -19,9 +19,8 @@
     </p>
 
     <div class="actions">
-      <button mat-icon-button>
-        <mat-icon *ngxPermissionsOnly="'update-event'"
-                  (click)="edit(event); $event.stopPropagation(); $event.preventDefault()"
+      <button mat-icon-button *ngxPermissionsOnly="'update-event'">
+        <mat-icon (click)="edit(event); $event.stopPropagation(); $event.preventDefault()"
                   color="primary">
           edit
         </mat-icon>
