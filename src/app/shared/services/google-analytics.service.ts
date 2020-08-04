@@ -1,6 +1,7 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+declare let ga;
 
 @Injectable({
   providedIn: 'root'

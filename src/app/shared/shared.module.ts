@@ -26,7 +26,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { UploadPictureComponent } from './components/upload-picture/upload-picture.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { LaravelPaginatorComponent } from '@app/shared/components/laravel-paginator/laravel-paginator.component';
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime-ex';
 import { ImgSrcsetPlaceholderDirective } from './directives/img-srcset-placeholder.directive';
 import { MatSelectModule } from '@angular/material/select';
 import { CovalentFileModule } from '@covalent/core/file';

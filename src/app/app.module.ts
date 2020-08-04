@@ -16,7 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { AdsenseModule } from 'ng2-adsense';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
+import { OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime-ex';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MyHammerConfig } from '@app/shared/services/my-hammer-config';

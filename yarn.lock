@@ -6595,9 +6595,10 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-ng-pick-datetime@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/ng-pick-datetime/-/ng-pick-datetime-7.0.0.tgz#c78d1cfaee183691a4a44cd4f39c98f9c1d1595f"
+ng-pick-datetime-ex@^9.0.8:
+  version "9.0.8"
+  resolved "https://registry.yarnpkg.com/ng-pick-datetime-ex/-/ng-pick-datetime-ex-9.0.8.tgz#f54a0881cc2e38a34851c88b3cfd5b2f3b49e270"
+  integrity sha512-s5ENaRBi6oiHLPQwFySd3mPPe80kpkJ0Gf2r+uoyiLrijVm+isG+8sQgjqCWjb+Hi3iBFNgZPP38xL8YEb50lA==
 
 ng2-adsense@^8.0.1:
   version "8.0.1"
