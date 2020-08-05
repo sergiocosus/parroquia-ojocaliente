@@ -94,9 +94,12 @@
       font-size: 1em;
       margin-right: 1em;
       transition: all .25s;
+      padding: .2em;
 
       &:hover {
         color: white;
+        background-color: black;
+        border-radius: .25em;
       }
     }
   }

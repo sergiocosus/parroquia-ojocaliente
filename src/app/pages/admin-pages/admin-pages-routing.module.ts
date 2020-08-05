@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NewPostPageComponent } from './components/new-post-page/new-post-page.component';
 import { CategoriesPageComponent } from './components/categories-page/categories-page.component';
 import { RouteConstants } from '@app/api/classes/route-constants';
@@ -12,9 +12,9 @@ import { AdminGalleriesPageComponent } from './components/admin-galleries-page/a
 import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
 import { UsersPageComponent } from './components/users-page/users-page.component';
 import { MembersPageComponent } from './components/members-page/members-page.component';
-import { ArgumentsPageComponent } from '../arguments-page/components/arguments-page/arguments-page.component';
 import { AdminArgumentPageComponent } from './components/admin-argument-page/admin-argument-page.component';
 import { AdminOrganizationsPageComponent } from './components/admin-organizations-page/admin-organizations-page.component';
+import { AdminContactPageComponent } from './components/admin-contact-page/admin-contact-page.component';
 
 const routes: Routes = [
   {
@@ -68,6 +68,10 @@ const routes: Routes = [
       {
         path: `${RouteConstants.organization}`,
         component: AdminOrganizationsPageComponent,
+      },
+      {
+        path: `${RouteConstants.contact}`,
+        component: AdminContactPageComponent,
       }
     ]
   }
@@ -77,4 +81,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminPagesRoutingModule { }
+export class AdminPagesRoutingModule {
+}

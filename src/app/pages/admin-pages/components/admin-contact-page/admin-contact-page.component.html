@@ -1,0 +1,67 @@
+<header>
+  <h3>
+    {{'contactResponse.contact_responses' | translate}}
+  </h3>
+
+  <div class="spacer"></div>
+
+  <form [formGroup]="filterForm">
+    <mat-checkbox formControlName="with_trashed">
+      <mat-icon>delete</mat-icon>
+      {{'common.withTrashed' | translate}}
+    </mat-checkbox>
+  </form>
+</header>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let contactResponse of contactResponses">
+    <mat-expansion-panel-header>
+      {{contactResponse.name}}
+
+      <div class="spacer"></div>
+
+      {{contactResponse.email}}
+
+      <ng-container *ngIf="!contactResponse.deleted_at; else deleted">
+        <button mat-icon-button color="warn"
+                *ngxPermissionsOnly="'delete-contact-response'"
+                (click)="deleteContactResponse(contactResponse); $event.stopPropagation()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </ng-container>
+
+      <ng-template #deleted>
+        <button mat-icon-button color="accent"
+                *ngxPermissionsOnly="'delete-contact-response'"
+                (click)="restoreContactResponse(contactResponse); $event.stopPropagation()">
+          <mat-icon>restore</mat-icon>
+        </button>
+      </ng-template>
+    </mat-expansion-panel-header>
+
+    <div class="contact-response">
+      <div>
+        <label>{{'contactResponse.name' | translate}}:</label>
+        <span>{{contactResponse.name}}</span>
+      </div>
+      <div>
+        <label>{{'contactResponse.phone' | translate}}:</label>
+        <span>{{contactResponse.phone}}</span>
+      </div>
+      <div>
+        <label>{{'contactResponse.email' | translate}}:</label>
+        <a [href]="'mailto:' + contactResponse.email">
+          {{contactResponse.email}}
+        </a>
+      </div>
+      <div>
+        <label>{{'contactResponse.subject' | translate}}:</label>
+        <span>{{contactResponse.subject}}</span>
+      </div>
+      <div>
+        <label>{{'contactResponse.message' | translate}}:</label>
+        <div>{{contactResponse.message}}</div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -28,6 +28,7 @@ export class RouteConstants {
     member: `/${RouteConstants.admin}/${RouteConstants.member}`,
     argument: `/${RouteConstants.admin}/${RouteConstants.argument}`,
     organization: `/${RouteConstants.admin}/${RouteConstants.organization}`,
+    contact: `/${RouteConstants.admin}/${RouteConstants.contact}`,
   };
 }
 

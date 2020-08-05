@@ -59,6 +59,18 @@
   "contact": {
     "contact": "Contacto"
   },
+  "contactResponse": {
+    "bodyPlaceholder": "Escribe tu mensaje aquí...",
+    "contactResponses": "Respuestas de contacto",
+    "contact_responses": "Respuestas de contacto",
+    "createContactResponse": "",
+    "email": "Email",
+    "message": "Mensaje",
+    "name": "Nombre",
+    "phone": "Teléfono",
+    "subject": "Asunto",
+    "success": "Gracias por tu mensaje, ¡nos comunicaremos en breve!"
+  },
   "event": {
     "calendarViews": {
       "day": "Día",

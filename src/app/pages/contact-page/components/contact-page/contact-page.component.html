@@ -11,28 +11,37 @@
 
         <div class="spacer"></div>
 
-        <a *ngIf="organization.instagram?.length" [href]="'http://www.instagram.com/' + organization.instagram" class="social" target="_blank">
+        <a *ngIf="organization.instagram?.length"
+           [href]="'http://www.instagram.com/' + organization.instagram"
+           class="social" target="_blank">
           <mat-icon class="fab fa-instagram"></mat-icon>
         </a>
-        <a *ngIf="organization.facebook?.length" [href]="'http://www.facebook.com/' + organization.facebook" class="social" target="_blank">
+        <a *ngIf="organization.facebook?.length"
+           [href]="'http://www.facebook.com/' + organization.facebook"
+           class="social" target="_blank">
           <mat-icon class="fab fa-facebook-f"></mat-icon>
         </a>
-        <a *ngIf="organization.twitter?.length" [href]="'http://www.twitter.com/' + organization.twitter" class="social" target="_blank">
+        <a *ngIf="organization.twitter?.length"
+           [href]="'http://www.twitter.com/' + organization.twitter"
+           class="social" target="_blank">
           <mat-icon class="fab fa-twitter"></mat-icon>
         </a>
-        <a *ngIf="organization.youtube?.length" [href]="'http://www.youtube.com/' + organization.youtube" class="social" target="_blank">
+        <a *ngIf="organization.youtube?.length"
+           [href]="'http://www.youtube.com/' + organization.youtube"
+           class="social" target="_blank">
           <mat-icon class="fab fa-youtube"></mat-icon>
         </a>
       </h3>
-      <div class="data" *ngIf="organization.address?.length" >
+      <div class="data" *ngIf="organization.address?.length">
         <label>{{'organization.address' | translate}}:</label>
         <span>{{organization.address}}</span>
       </div>
-      <div class="data"  *ngIf="organization.phone?.length" >
+      <div class="data" *ngIf="organization.phone?.length">
         <label>{{'organization.phone' | translate}}:</label>
         <span>{{organization.phone}}</span>
       </div>
-      <a class="data"  *ngIf="organization.email?.length" [href]="'mailto:' + organization.email" >
+      <a class="data" *ngIf="organization.email?.length"
+         [href]="'mailto:' + organization.email">
         <label>{{'organization.email' | translate}}:</label>
         <span>{{organization.email}}</span>
       </a>
@@ -40,48 +49,49 @@
   </div>
 
   <div class="contact">
-    <div class="contact-form">
+    <form class="contact-form" #ngForm="ngForm"
+          [formGroup]="form" (ngSubmit)="submit()">
       <div class="row">
         <mat-form-field>
-          <mat-label>Nombre</mat-label>
-          <input matInput>
+          <mat-label>{{'contactResponse.name' | translate}}</mat-label>
+          <input matInput formControlName="name">
         </mat-form-field>
-        <mat-form-field>
-          <mat-label>Teléfono</mat-label>
-          <input matInput>
-        </mat-form-field>
-      </div>
-
-      <div class="row">
-        <mat-form-field>
-          <mat-label>Email</mat-label>
-          <input matInput>
-        </mat-form-field>
-      </div>
-
-      <div class="row">
 
         <mat-form-field>
-          <mat-label>Asunto</mat-label>
-          <input matInput>
+          <mat-label>{{'contactResponse.phone' | translate}}</mat-label>
+          <input matInput formControlName="phone">
         </mat-form-field>
       </div>
 
       <div class="row">
         <mat-form-field>
-          <mat-label>Escribe tu mensaje aquí...</mat-label>
-          <textarea matInput></textarea>
+          <mat-label>{{'contactResponse.email' | translate}}</mat-label>
+          <input matInput formControlName="email" type="email">
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <mat-label>{{'contactResponse.subject' | translate}}</mat-label>
+          <input matInput formControlName="subject">
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <mat-label>{{'contactResponse.bodyPlaceholder' | translate}}</mat-label>
+          <textarea matInput formControlName="message"></textarea>
         </mat-form-field>
       </div>
 
       <button mat-raised-button>
-        Enviar
+        <mat-label>{{'form.submit' | translate}}</mat-label>
       </button>
 
-      <span>
-      Gracias por tu mensaje, ¡nos comunicaremos en breve!
-    </span>
-    </div>
+      <span *ngIf="submitSuccess">
+        {{'contactResponse.success' | translate}}
+      </span>
+    </form>
   </div>
 </div>
 

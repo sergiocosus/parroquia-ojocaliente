@@ -82,6 +82,13 @@
         {{'nav.organizations' | translate}}
       </a>
 
+      <a mat-menu-item [routerLink]="adminPages.contact" (click)="close()"
+         *ngxPermissionsOnly="['read-contact-response']"
+         routerLinkActive="active">
+        <mat-icon class="fas fa-id-card"></mat-icon>
+        {{'contactResponse.contactResponses' | translate}}
+      </a>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

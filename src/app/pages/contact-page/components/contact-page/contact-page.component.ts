@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SettingService } from '@app/api/services/setting.service';
 import { ValidSetting } from '@app/api/models/setting.model';
 import * as _ from 'lodash';
@@ -6,6 +6,10 @@ import { AppMetaService } from '@app/shared/services/app-meta.service';
 import { extract } from '@app/shared/services/i18n.service';
 import { OrganizationService } from '@app/api/services/organization.service';
 import { Organization } from '@app/api/models/organization.model';
+import { ContactResponseService } from '@app/api/services/contact-response.service';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Notify } from '@app/shared/services/notify.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contact-page',
@@ -13,190 +17,26 @@ import { Organization } from '@app/api/models/organization.model';
   styleUrls: ['./contact-page.component.scss']
 })
 export class ContactPageComponent implements OnInit {
-  contactText: string;
+  @ViewChild('ngForm') ngForm: NgForm;
 
-  groups = [
-    {
-      title: 'JUVI Nacional',
-      contacts: [
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'instagram',
-          name: 'juvi_ac',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'twitter',
-          name: 'juvioficial',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'facebook',
-          name: 'Juvi.ac',
-        }
-      ],
-    },
-    {
-      title: 'JUVI Culiacán',
-      contacts: [
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'instagram',
-          name: 'juvi_sinaloa',
-        },
-      ],
-    },
-    {
-      title: 'JUVI Mérida',
-      contacts: [
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'instagram',
-          name: 'juvimid',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'twitter',
-          name: 'JuviMid',
-        },
-      ],
-    },
-    {
-      title: 'JUVI Mérida',
-      contacts: [
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'instagram',
-          name: 'juvimid',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'twitter',
-          name: 'JuviMid',
-        }
-      ],
-    },
-    {
-      title: 'JUVI Puebla',
-      contacts: [
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'instagram',
-          name: 'juvi.puebla',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'twitter',
-          name: 'JuviPuebla',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'facebook',
-          name: 'Juvi Puebla',
-        }
-      ],
-    },
-    {
-      title: 'JUVI Querétaro',
-      contacts: [
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'instagram',
-          name: 'juvi.queretaro',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'twitter',
-          name: 'JuviQueretaro',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'facebook',
-          name: 'Juvi Queretaro',
-        }
-      ],
-    },
-    {
-      title: 'JUVI Monterrey',
-      contacts: [
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'instagram',
-          name: 'juvi.mty',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'twitter',
-          name: 'JuviMty',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'facebook',
-          name: 'Juvi Mty',
-        }
-      ],
-    },
-    {
-      title: 'JUVI Chihuahua',
-      contacts: [
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'instagram',
-          name: 'juvichihuahua',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'twitter',
-          name: 'chihuahuajuvi',
-        },
-      ],
-    },
-    {
-      title: 'JUVI Guadalajara',
-      contacts: [
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'instagram',
-          name: 'juvi.gdl',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'twitter',
-          name: 'guadaljarajuvi',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'facebook',
-          name: 'Juvi Guadalajara',
-        }
-      ],
-    },
-    {
-      title: 'JUVI Aguascalientes',
-      contacts: [
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'instagram',
-          name: 'juviaguas',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'twitter',
-          name: 'JuviAguas',
-        },
-        {
-          link: 'https://www.facebook.com/JUVI.AC',
-          type: 'facebook',
-          name: 'Juvi Aguascalientes',
-        }
-      ],
-    },
-  ];
+  contactText: string;
   organizations: Organization[];
+  form: FormGroup;
+  submitSuccess: boolean;
 
   constructor(private settingService: SettingService,
               private appMetaService: AppMetaService,
-              private organizationService: OrganizationService) {
+              private organizationService: OrganizationService,
+              private contactResponseService: ContactResponseService,
+              private fb: FormBuilder,
+              private notify: Notify) {
+    this.form = this.fb.group({
+      name: [null, [Validators.required]],
+      phone: null,
+      email:  [null, [Validators.required, Validators.email]],
+      subject: [null, [Validators.required]],
+      message: [null, [Validators.required]],
+    });
   }
 
   ngOnInit() {
@@ -210,4 +50,24 @@ export class ContactPageComponent implements OnInit {
     this.organizationService.get().subscribe(organizations => this.organizations = organizations);
   }
 
+
+  submit() {
+    if (this.form.invalid) {
+      this.notify.showTranslated(extract('forms.error'));
+      return;
+    }
+
+    const data = this.form.getRawValue();
+    this.form.disable();
+    this.contactResponseService.post(data).pipe(
+      finalize(() => this.form.enable())
+    ).subscribe(
+      success => {
+        this.submitSuccess = true;
+        this.ngForm.resetForm();
+        this.notify.showTranslated(extract('contactResponse.success'));
+      },
+      error => this.notify.error(error)
+    );
+  }
 }

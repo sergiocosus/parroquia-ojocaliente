@@ -36,6 +36,7 @@ import { ArgumentModule } from '@app/argument/argument.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AdminOrganizationsPageComponent } from './components/admin-organizations-page/admin-organizations-page.component';
 import { OrganizationModule } from '../../modules/organization/organization.module';
+import { AdminContactPageComponent } from './components/admin-contact-page/admin-contact-page.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { OrganizationModule } from '../../modules/organization/organization.modu
     MembersPageComponent,
     AdminArgumentPageComponent,
     AdminOrganizationsPageComponent,
+    AdminContactPageComponent,
   ],
     imports: [
         CommonModule,
