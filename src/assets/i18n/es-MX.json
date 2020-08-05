@@ -118,10 +118,23 @@
     "links": "Enlaces",
     "main": "Inicio",
     "members": "Miembros",
+    "organizations": "Organizaciones",
     "profile": "Perfil",
     "settings": "Ajustes",
     "us": "Nosotros",
     "users": "Usuarios"
+  },
+  "organization": {
+    "address": "Dirección",
+    "createOrganization": "Crear organización",
+    "email": "Email",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "name": "Nombre",
+    "organizations": "Organizaciones",
+    "phone": "Celular",
+    "twitter": "Twitter",
+    "youtube": "Youtube"
   },
   "post": {
     "addImage": "Agregar imagen",

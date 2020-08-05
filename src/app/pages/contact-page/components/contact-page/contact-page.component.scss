@@ -33,7 +33,7 @@
   }
 
   .groups {
-    flex: 0 0 40em;
+    flex: 0 1 40em;
   }
 
   .group {
@@ -42,16 +42,27 @@
     align-items: stretch;
 
     h3 {
+      display: flex;
       background-color: $gray;
       color: black;
-      font-size: 1.5em;
+      font-size: 1.75em;
       font-weight: bold;
       padding-left: 10%;
-      padding-top: .25em;
-      padding-bottom: .25em;
+      height: 2em;
+      align-items: center;
+      margin-bottom: .25em;
+
+      .mat-icon {
+        display: inline-flex;
+        justify-content: center;
+        font-size: 1em;
+        width: 1em;
+        height: 1em;
+      }
+
     }
 
-    .link {
+    .data {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -60,12 +71,32 @@
       text-decoration: none;
       margin: .25em 0;
 
-      span {
+      label {
+        font-weight: bold;
+      }
+
+      span, label {
         font-size: 1.5em;
         padding: .25em;
         color: black;
-        margin-right: .5em;
         line-height: 1em;
+      }
+    }
+
+    .social {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      //color: $gray;
+      text-decoration: none;
+      color: black;
+      font-size: 1em;
+      margin-right: 1em;
+      transition: all .25s;
+
+      &:hover {
+        color: white;
       }
     }
   }

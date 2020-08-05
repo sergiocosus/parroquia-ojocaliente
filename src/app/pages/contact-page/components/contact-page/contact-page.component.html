@@ -5,21 +5,36 @@
 
 <div class="columns">
   <div class="groups">
-    <div class="group" *ngFor="let group of groups">
+    <div class="group" *ngFor="let organization of organizations">
       <h3>
-        {{group.title}}
+        {{organization.name}}
+
+        <div class="spacer"></div>
+
+        <a *ngIf="organization.instagram?.length" [href]="'http://www.instagram.com/' + organization.instagram" class="social" target="_blank">
+          <mat-icon class="fab fa-instagram"></mat-icon>
+        </a>
+        <a *ngIf="organization.facebook?.length" [href]="'http://www.facebook.com/' + organization.facebook" class="social" target="_blank">
+          <mat-icon class="fab fa-facebook-f"></mat-icon>
+        </a>
+        <a *ngIf="organization.twitter?.length" [href]="'http://www.twitter.com/' + organization.twitter" class="social" target="_blank">
+          <mat-icon class="fab fa-twitter"></mat-icon>
+        </a>
+        <a *ngIf="organization.youtube?.length" [href]="'http://www.youtube.com/' + organization.youtube" class="social" target="_blank">
+          <mat-icon class="fab fa-youtube"></mat-icon>
+        </a>
       </h3>
-      <a *ngFor="let contact of group.contacts"
-         [href]="contact.link" class="link" target="_blank">
-
-        <div [ngSwitch]="contact.type">
-          <mat-icon *ngSwitchCase="'instagram'" class="fab fa-instagram"></mat-icon>
-          <mat-icon *ngSwitchCase="'facebook'" class="fab fa-facebook-f"></mat-icon>
-          <mat-icon *ngSwitchCase="'twitter'" class="fab fa-twitter"></mat-icon>
-          <mat-icon *ngSwitchDefault></mat-icon>
-        </div>
-
-        <span>{{contact.name}}</span>
+      <div class="data" *ngIf="organization.address?.length" >
+        <label>{{'organization.address' | translate}}:</label>
+        <span>{{organization.address}}</span>
+      </div>
+      <div class="data"  *ngIf="organization.phone?.length" >
+        <label>{{'organization.phone' | translate}}:</label>
+        <span>{{organization.phone}}</span>
+      </div>
+      <a class="data"  *ngIf="organization.email?.length" [href]="'mailto:' + organization.email" >
+        <label>{{'organization.email' | translate}}:</label>
+        <span>{{organization.email}}</span>
       </a>
     </div>
   </div>

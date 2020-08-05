@@ -34,6 +34,8 @@ import { MemberModule } from '@app/member/member.module';
 import { AdminArgumentPageComponent } from './components/admin-argument-page/admin-argument-page.component';
 import { ArgumentModule } from '@app/argument/argument.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { AdminOrganizationsPageComponent } from './components/admin-organizations-page/admin-organizations-page.component';
+import { OrganizationModule } from '../../modules/organization/organization.module';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     UsersPageComponent,
     MembersPageComponent,
     AdminArgumentPageComponent,
+    AdminOrganizationsPageComponent,
   ],
     imports: [
         CommonModule,
@@ -73,6 +76,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
         MatIconModule,
         MatExpansionModule,
         DragDropModule,
+        OrganizationModule,
     ]
 })
 export class AdminPagesModule {

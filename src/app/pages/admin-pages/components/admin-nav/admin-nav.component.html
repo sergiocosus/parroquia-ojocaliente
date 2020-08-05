@@ -75,6 +75,13 @@
         </a>
       </ng-container>
 
+      <a mat-menu-item [routerLink]="adminPages.organization" (click)="close()"
+         *ngxPermissionsOnly="['read-organization']"
+         routerLinkActive="active">
+        <mat-icon class="fas fa-building"></mat-icon>
+        {{'nav.organizations' | translate}}
+      </a>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

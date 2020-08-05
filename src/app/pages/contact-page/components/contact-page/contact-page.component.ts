@@ -4,6 +4,8 @@ import { ValidSetting } from '@app/api/models/setting.model';
 import * as _ from 'lodash';
 import { AppMetaService } from '@app/shared/services/app-meta.service';
 import { extract } from '@app/shared/services/i18n.service';
+import { OrganizationService } from '@app/api/services/organization.service';
+import { Organization } from '@app/api/models/organization.model';
 
 @Component({
   selector: 'app-contact-page',
@@ -189,10 +191,12 @@ export class ContactPageComponent implements OnInit {
         }
       ],
     },
-  ]
+  ];
+  organizations: Organization[];
 
   constructor(private settingService: SettingService,
-              private appMetaService: AppMetaService) {
+              private appMetaService: AppMetaService,
+              private organizationService: OrganizationService) {
   }
 
   ngOnInit() {
@@ -202,6 +206,8 @@ export class ContactPageComponent implements OnInit {
 
       this.appMetaService.update(extract('contact.contact'), this.contactText);
     });
+
+    this.organizationService.get().subscribe(organizations => this.organizations = organizations);
   }
 
 }

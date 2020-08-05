@@ -15,6 +15,7 @@ export class RouteConstants {
   static readonly settings = 'configuracion';
   static readonly events = 'eventos';
   static readonly gallery = 'galeria';
+  static readonly organization = 'organizacion';
 
   static readonly adminPages = {
     category: `/${RouteConstants.admin}/${RouteConstants.category}`,
@@ -26,6 +27,7 @@ export class RouteConstants {
     galleries: `/${RouteConstants.admin}/${RouteConstants.gallery}`,
     member: `/${RouteConstants.admin}/${RouteConstants.member}`,
     argument: `/${RouteConstants.admin}/${RouteConstants.argument}`,
+    organization: `/${RouteConstants.admin}/${RouteConstants.organization}`,
   };
 }
 

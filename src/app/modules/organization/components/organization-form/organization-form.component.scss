@@ -1,0 +1,11 @@
+@import "~src/variables";
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  mat-form-field {
+    margin-right: .25em;
+  }
+}

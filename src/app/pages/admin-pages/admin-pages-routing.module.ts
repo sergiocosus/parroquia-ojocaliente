@@ -14,6 +14,7 @@ import { UsersPageComponent } from './components/users-page/users-page.component
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { ArgumentsPageComponent } from '../arguments-page/components/arguments-page/arguments-page.component';
 import { AdminArgumentPageComponent } from './components/admin-argument-page/admin-argument-page.component';
+import { AdminOrganizationsPageComponent } from './components/admin-organizations-page/admin-organizations-page.component';
 
 const routes: Routes = [
   {
@@ -63,6 +64,10 @@ const routes: Routes = [
       {
         path: `${RouteConstants.argument}`,
         component: AdminArgumentPageComponent,
+      },
+      {
+        path: `${RouteConstants.organization}`,
+        component: AdminOrganizationsPageComponent,
       }
     ]
   }

@@ -103,6 +103,9 @@ export class LinkListComponent implements OnInit {
   }
 
   selectToEditLink(link: Link) {
+    if (this.selectedLink === link) {
+      return;
+    }
     this.selectedLink = link;
     this.editForm.reset({
       title: link.title,

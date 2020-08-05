@@ -187,3 +187,15 @@ header {
 * {
   flex-shrink: 0;
 }
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 .1em;
+
+  mat-form-field {
+    flex: 1 1 15em;
+    margin: 0 .1em
+  }
+}
+

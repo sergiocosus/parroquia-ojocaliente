@@ -1,0 +1,74 @@
+<h3>
+  {{'organization.createOrganization' | translate}}
+</h3>
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{'organization.createOrganization' | translate}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <app-organization-form class="create-form"
+                         [theForm]="form" (ngSubmit)="submit()">
+    <button mat-raised-button color="primary">
+      <mat-icon>add_circle</mat-icon>
+      {{'form.submit'| translate}}
+    </button>
+  </app-organization-form>
+</mat-expansion-panel>
+
+
+<header>
+  <h3>
+    {{'organization.organizations' | translate}}
+  </h3>
+
+  <div class="spacer"></div>
+
+  <form [formGroup]="filterForm">
+    <mat-checkbox formControlName="with_trashed">
+      <mat-icon>delete</mat-icon>
+      {{'common.withTrashed' | translate}}
+    </mat-checkbox>
+  </form>
+</header>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let organization of organizations"
+                       (click)="selectToEditOrganization(organization)">
+    <mat-expansion-panel-header>
+      {{organization.name}}
+
+      <div class="spacer"></div>
+
+      <ng-container *ngIf="!organization.deleted_at; else deleted">
+        <button mat-icon-button color="warn"
+                *ngxPermissionsOnly="'delete-organization'"
+                (click)="deleteOrganization(organization); $event.stopPropagation()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </ng-container>
+
+      <ng-template #deleted>
+        <button mat-icon-button color="accent"
+                *ngxPermissionsOnly="'delete-organization'"
+                (click)="restoreOrganization(organization); $event.stopPropagation()">
+          <mat-icon>restore</mat-icon>
+        </button>
+      </ng-template>
+    </mat-expansion-panel-header>
+
+    <app-organization-form [theForm]="editForm"
+                   *ngIf="selectedOrganization === organization">
+    </app-organization-form>
+
+    <mat-action-row>
+      <button mat-raised-button color="primary"
+              (click)="editOrganization()"
+              *ngIf="selectedOrganization === organization">
+        <mat-icon>check</mat-icon>
+        {{'common.update' | translate}}
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
