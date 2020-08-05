@@ -39,7 +39,7 @@ export class GalleryLightboxComponent implements OnInit {
       thumbPosition: ThumbnailsPosition.Top,
       itemTemplate: this.itemTemplate,
       thumbTemplate: this.thumbTemplate,
-      thumbLoadingIcon: '',
+      // thumbLoadingIcon: '',
       gestures: false,
     });
 

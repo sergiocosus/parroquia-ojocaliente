@@ -3,7 +3,8 @@
              let-type="type"
              let-picture="data"
              let-currIndex="currIndex">
-  <pinch-zoom *ngIf="type === 'imageViewer'">
+  <pinch-zoom
+    *ngIf="type === 'imageViewer' && [index - 1, index, index +1].includes(currIndex)">
     <img [srcset]="picture.image_srcset"/>
   </pinch-zoom>
 
@@ -22,8 +23,6 @@
       <share-buttons [show]="3"></share-buttons>
       <p [innerHtml]="picture.content"></p>
     </ng-container>
-
-
   </div>
 
   <mat-icon class="close-button" (click)="close()">close</mat-icon>
