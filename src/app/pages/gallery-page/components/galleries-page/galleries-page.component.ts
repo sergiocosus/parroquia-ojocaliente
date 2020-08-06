@@ -31,7 +31,7 @@ export class GalleriesPageComponent implements OnInit {
   ngOnInit() {
     this.metaService.update(this.translate.instant('gallery.galleries'));
 
-    this.galleryService.get().pipe(tap(galleryPagination => {
+    this.galleryService.getPaginated().pipe(tap(galleryPagination => {
       this.galleryPagination = galleryPagination;
     })).subscribe();
   }

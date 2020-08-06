@@ -56,6 +56,15 @@
     </app-post-ckeditor>
   </div>
 
+  <mat-form-field>
+    <mat-label>{{'gallery.gallery' | translate}}</mat-label>
+    <mat-select formControlName="gallery_id">
+      <mat-option *ngFor="let gallery of galleries" [value]="gallery.id">
+        {{gallery.title}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <div class="group">
     <!--
     <section class="coordinates" (click)="openMapModal()">

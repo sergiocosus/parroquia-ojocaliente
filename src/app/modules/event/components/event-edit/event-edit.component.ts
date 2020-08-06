@@ -9,6 +9,8 @@ import { Category } from '@app/api/models/category.model';
 import { Event } from '@app/api/models/event.model';
 import { uploadProgressOperator } from '@app/shared/functions/uploadProgressOperator';
 import { extract } from '@app/shared/services/i18n.service';
+import { GalleryService } from '@app/api/services/gallery.service';
+import { Gallery } from '@app/api/models/gallery.model';
 
 @Component({
   selector: 'app-event-edit',
@@ -26,16 +28,19 @@ export class EventEditComponent implements OnInit {
   form: FormGroup;
   categories: Category[];
   loading = 0;
+  galleries: Gallery[];
 
   constructor(private eventService: EventService,
               private fb: FormBuilder,
               private eventFormService: EventFormService,
               private notify: Notify,
+              private galleryService: GalleryService,
               private dialog: MatDialog) {
   }
 
   ngOnInit() {
     this.form = this.eventFormService.createForm(this.event);
+    this.galleryService.get().subscribe(galleries => this.galleries = galleries);
   }
 
   submit() {

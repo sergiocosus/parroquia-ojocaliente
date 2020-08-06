@@ -26,6 +26,7 @@ export class EventFormService {
       range_at: [event ? [event.begin_at, event.end_at] : null, [Validators.required]],
       notify_at: [event ? event.begin_at : null, []],
       picture: [null, []],
+      gallery_id: [event ? event.gallery_id : null, []],
       latitude: [event ? event.latitude : null, [
         CustomValidators.min(-90),
         CustomValidators.max(90),

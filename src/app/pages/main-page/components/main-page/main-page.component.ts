@@ -52,7 +52,7 @@ export class MainPageComponent implements OnInit {
       this.posts = paginatedPosts.data;
     });
 
-    this.galleryService.get().subscribe(paginatedGalleries => {
+    this.galleryService.getPaginated().subscribe(paginatedGalleries => {
       this.galleries = paginatedGalleries.data;
     });
 

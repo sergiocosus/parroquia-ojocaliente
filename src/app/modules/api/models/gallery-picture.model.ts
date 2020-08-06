@@ -26,8 +26,8 @@ export class GalleryPicture extends Model {
     return this;
   }
 
-  get viewUrl() {
-    return `/${RouteConstants.gallery}/${this.slug}`;
+  get viewUrlParam() {
+    return {picture: this.slug};
   }
 
   get editUrl() {

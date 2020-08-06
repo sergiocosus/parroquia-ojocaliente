@@ -1,6 +1,7 @@
 import { Model } from './model';
 import { User } from '@app/api/models/user.model';
 import { RouteConstants } from '@app/api/classes/route-constants';
+import { Gallery } from '@app/api/models/gallery.model';
 
 // @dynamic
 export class Event extends Model {
@@ -18,11 +19,13 @@ export class Event extends Model {
   created_at: Date;
   updated_at: Date;
   deleted_at: Date;
+  gallery_id: number;
 
   image_url: string;
   image_srcset: string;
 
   author: User;
+  gallery: Gallery;
 
   static parseArray(objs: any[]): Event[] {
     return objs.map(obj => new Event().parse(obj));
@@ -32,6 +35,7 @@ export class Event extends Model {
     super.parse(obj);
 
     this.author = this.author ? new User().parse(this.author) : null;
+    this.gallery = this.gallery ? new Gallery().parse(this.gallery) : null;
     this.description_untagged = this.description.replace(/<(?:.|\n)*?>/gm, '');
 
     return this;

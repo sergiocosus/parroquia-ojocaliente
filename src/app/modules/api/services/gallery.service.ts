@@ -17,10 +17,14 @@ export class GalleryService {
               private paginationService: PaginationService) {
   }
 
-  get(pagination?: PaginationInfo, order?: OrderInfo, filters?: any) {
+  getPaginated(pagination?: PaginationInfo, order?: OrderInfo, filters?: any) {
     const params = this.paginationService.createHttpParams(pagination, order, filters);
-    return this.http.get(`gallery`, {params})
+    return this.http.get(`gallery/paginated`, {params})
       .pipe(this.mapGalleryPaginated());
+  }
+
+  get() {
+    return this.http.get(`gallery`).pipe(this.mapGalleries());
   }
 
   getOne(slug: string) {

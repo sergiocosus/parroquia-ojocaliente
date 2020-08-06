@@ -126,7 +126,9 @@ export class EventCalendarComponent implements OnInit, OnChanges {
   }
 
   refreshEvents() {
-    this.calendarEvents = this.events.map(this.createCalendarEvent.bind(this));
+    if (this.events) {
+      this.calendarEvents = this.events.map(this.createCalendarEvent.bind(this));
+    }
   }
 
 }

@@ -12,18 +12,20 @@ import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { PostModule } from '@app/post/post.module';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { MainEventListComponent } from './components/main-event-list/main-event-list.component';
+import { GalleryModule } from '../gallery/gallery.module';
 
 
 @NgModule({
-  imports: [
-    SharedModule,
-    CalendarModule,
-    MatProgressBarModule,
-    MatButtonToggleModule,
-    ShareButtonsModule,
-    PostModule,
-    MatTabsModule,
-  ],
+    imports: [
+        SharedModule,
+        CalendarModule,
+        MatProgressBarModule,
+        MatButtonToggleModule,
+        ShareButtonsModule,
+        PostModule,
+        MatTabsModule,
+        GalleryModule,
+    ],
   declarations: [
     EventEditComponent,
     EventEditDialogComponent,

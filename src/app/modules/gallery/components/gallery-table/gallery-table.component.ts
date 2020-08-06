@@ -50,7 +50,7 @@ export class GalleryTableComponent implements OnInit {
   private initPaginatorManager() {
     this.paginationManager = new PaginationManager<Gallery>(this.sort);
     this.paginationManager.change.pipe(
-      mergeMap(pd => this.galleryService.get(pd.pagination, pd.order, this.filterForm.getRawValue()))
+      mergeMap(pd => this.galleryService.getPaginated(pd.pagination, pd.order, this.filterForm.getRawValue()))
     ).subscribe(
       paginatedPeople => this.paginationManager.setPagination(paginatedPeople),
       error => this.notify.error(error)

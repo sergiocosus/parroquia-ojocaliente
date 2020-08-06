@@ -29,6 +29,13 @@
     <div [innerHTML]="event.description" class="content"></div>
   </div>
 
+  <div class="pictures" *ngIf="event.gallery">
+    <app-gallery-picture-thumb
+      [routerLink]="[event.gallery.viewUrl, galleryPicture.viewUrlParam]"
+      *ngFor="let galleryPicture of event.gallery.gallery_pictures"
+      [galleryPicture]="galleryPicture"></app-gallery-picture-thumb>
+  </div>
+
   <div class="post-footer">
     <div class="column">
       <share-buttons [show]="3"></share-buttons>

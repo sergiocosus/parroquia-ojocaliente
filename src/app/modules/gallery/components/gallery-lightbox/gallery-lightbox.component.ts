@@ -55,6 +55,11 @@ export class GalleryLightboxComponent implements OnInit {
     this.lightbox.closed.subscribe(() => this.closed.emit());
   }
 
+  setPicture(slug) {
+    const index = this.items.findIndex(item => item.data.slug === slug);
+    this.lightboxRef.set(index);
+  }
+
   close() {
     this.lightbox.close();
   }

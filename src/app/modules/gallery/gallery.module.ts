@@ -15,6 +15,7 @@ import { GalleryTableComponent } from './components/gallery-table/gallery-table.
 import { GalleryLightboxComponent } from './components/gallery-lightbox/gallery-lightbox.component';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { CovalentFileModule } from '@covalent/core/file';
+import { GalleryPictureThumbComponent } from './components/gallery-picture-thumb/gallery-picture-thumb.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +23,16 @@ import { CovalentFileModule } from '@covalent/core/file';
     GalleryFormComponent,
     GalleryPictureFormComponent,
     GalleryTableComponent,
-    GalleryLightboxComponent
+    GalleryLightboxComponent,
+    GalleryPictureThumbComponent
   ],
-  exports: [
-    GalleryThumbComponent,
-    GalleryFormComponent,
-    GalleryTableComponent,
-    GalleryLightboxComponent
-  ],
+    exports: [
+        GalleryThumbComponent,
+        GalleryFormComponent,
+        GalleryTableComponent,
+        GalleryLightboxComponent,
+        GalleryPictureThumbComponent
+    ],
   imports: [
     SharedModule,
     NgxGalleryModule,

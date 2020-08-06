@@ -79,3 +79,16 @@
   }
 
 }
+
+
+.pictures {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: .25em;
+
+  app-gallery-picture-thumb {
+    flex: 0 1 10em;
+    margin: .25em;
+  }
+}

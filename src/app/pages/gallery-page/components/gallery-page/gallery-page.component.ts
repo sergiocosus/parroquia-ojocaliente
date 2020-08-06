@@ -5,7 +5,7 @@ import { AppMetaService } from '@app/shared/services/app-meta.service';
 import { map, mergeMap } from 'rxjs/operators';
 import { Gallery } from '@app/api/models/gallery.model';
 import { GalleryLightboxComponent } from '@app/gallery/components/gallery-lightbox/gallery-lightbox.component';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { RouteConstants } from '@app/api/classes/route-constants';
 
 @Component({
@@ -17,6 +17,7 @@ export class GalleryPageComponent implements OnInit {
   @ViewChild(GalleryLightboxComponent, {static: true}) galleryLightbox: GalleryLightboxComponent;
 
   gallery: Gallery;
+  pictureSlug: string;
 
   constructor(private galleryService: GalleryService,
               private route: ActivatedRoute,
@@ -24,10 +25,19 @@ export class GalleryPageComponent implements OnInit {
               private location: Location,
               private router: Router) {
     this.route.paramMap.pipe(
+      map(params => params.get('picture')),
+    ).subscribe(slug => {
+      this.pictureSlug = slug;
+    });
+
+    this.route.paramMap.pipe(
       map(params => params.get('gallerySlug')),
       mergeMap(slug => this.galleryService.getOne(slug))
     ).subscribe(gallery => {
       this.galleryLightbox.openGallery(gallery);
+      if (this.pictureSlug) {
+        this.galleryLightbox.setPicture(this.pictureSlug);
+      }
       this.metaService.update(
         gallery.title,
         gallery.content,
@@ -37,13 +47,14 @@ export class GalleryPageComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   closed() {
     if (this.location.path().split('/galeria/').length > 1) {
       this.location.back();
 
-      if (this.location.path().split('/galeria/').length > 1)  {
+      if (this.location.path().split('/galeria/').length > 1) {
         this.router.navigateByUrl(RouteConstants.gallery);
       }
     }
