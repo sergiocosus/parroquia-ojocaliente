@@ -4,6 +4,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from
 import { Observable } from 'rxjs';
 import { SessionService } from '@app/api/services/session.service';
 import { isPlatformServer } from '@angular/common';
+import { RouteConstants } from '../../api/classes/route-constants';
 
 
 /**
@@ -39,7 +40,7 @@ export class AuthGuardService implements CanActivate {
 
         if (notLogged) {
           if (this.isLogged) {
-            this.router.navigateByUrl('/dashboard');
+            this.router.navigateByUrl(RouteConstants.adminPages.user);
           }
           return !this.isLogged;
         } else {
