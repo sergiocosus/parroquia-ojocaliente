@@ -23,6 +23,7 @@ import { MyHammerConfig } from '@app/shared/services/my-hammer-config';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { shareButtonsConfig } from './core/config/share-button-config';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { AuthService } from '@app/api/services/auth.service';
 // import { CacheModule, CACHE } from '@ngx-cache/core';
 // import { BrowserCacheModule, MemoryCacheService } from '@ngx-cache/platform-browser';
 
@@ -77,4 +78,7 @@ registerLocaleData(localeMX, 'es-MX');
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
+  constructor(private authService: AuthService) {
+  }
 }

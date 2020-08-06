@@ -17,6 +17,7 @@
   },
   "auth": {
     "acceptTerms": "He leído y acepto los",
+    "adminPage": "Administración",
     "forgotPassword": "Olvidé mi Contraseña",
     "introduceCredentials": "Introduce tus credenciales para continuar.",
     "login": "Iniciar sesión",
@@ -24,8 +25,7 @@
     "registerMe": "Registrarme",
     "successfulCredentials": "Bienvendido!",
     "termsAndConditions": "términos y condiciones",
-    "welcome": "Bienvenido a EstoEsPersonal",
-    "welcomeAgain": "Bienvenido de nuevo"
+    "welcome": "Bienvenido a EstoEsPersonal"
   },
   "category": {
     "categories": "Categorías",

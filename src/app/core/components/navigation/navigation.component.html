@@ -10,12 +10,10 @@
       <ng-template #defaultIcon>
         <img class="page-icon" src="assets/icons/icon-shape.png"/>
       </ng-template>
-
     </mat-toolbar>
     <mat-nav-list>
       <app-nav-pages *ngIf="isHandset$ | async"
                      (selected)="close()"></app-nav-pages>
-      <app-current-user-menu></app-current-user-menu>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

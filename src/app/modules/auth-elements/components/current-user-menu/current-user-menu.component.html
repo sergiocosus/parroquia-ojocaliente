@@ -1,14 +1,14 @@
 <ng-container *ngIf="user">
-  <div class="user-session" [matMenuTriggerFor]="appMenu">
-    <span> {{user.name}} </span>
+  <div class="user-session">
     <app-user-image [user]="user"></app-user-image>
+    <span> {{user.name}} </span>
+    <!--
     <button mat-icon-button class="drop-down">
       <mat-icon class="fas fa-caret-down"></mat-icon>
     </button>
-
-    <app-logout-button></app-logout-button>
+-->
   </div>
-
+<!--
   <mat-menu #appMenu="matMenu">
     <a mat-menu-item [routerLink]="adminPages.user"
        routerLinkActive="active">
@@ -61,6 +61,7 @@
       {{'spark.kiosk.users.stopImpersonate' | translate}}
     </button>
   </mat-menu>
+  -->
 </ng-container>
 
 <ng-container *ngIf="!user">

@@ -1,5 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="submit()" class="form-style">
-  <h2>{{'auth.welcomeAgain' | translate}}</h2>
+  <h2>{{$title | async}} {{'auth.adminPage' | translate}}</h2>
   <p>
     {{'auth.introduceCredentials' | translate}}
   </p>
@@ -30,7 +30,7 @@
     {{'auth.login' | translate}}
   </button>
 
-
+  <!--
   <button mat-raised-button color="primary" type="button"
           class="facebook"
           (click)="socialLogin('facebook')">
@@ -44,13 +44,16 @@
     <mat-icon class="fab fa-google"></mat-icon>
     <span>{{'social.signInWithGoogle' | translate}}</span>
   </button>
+  -->
 </form>
 
 <div class="footer">
+  <!--
   <a class="reset" [routerLink]="registerRoute" (click)="routeChanged.emit()">
     {{'auth.registerMe' | translate}}
   </a>
   -
+  -->
   <a class="reset" (click)="openResetPasswordRequestDialog()">
     {{'auth.forgotPassword' | translate}}
   </a>

@@ -9,13 +9,14 @@ import { BLOG_API_CONFIG, BlogApiConfig } from '../types/api-config';
 import { SessionService } from './session.service';
 import { UserService } from '@app/api/services/user.service';
 import { User } from '@app/api/models/user.model';
+import { RouteConstants } from '@app/api/classes/route-constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   logoutRoute = '/';
-  loginRoute = '/';
+  loginRoute = RouteConstants.adminPages.user;
 
   constructor(@Inject(BLOG_API_CONFIG) private config: BlogApiConfig,
               @Inject(PLATFORM_ID) private platformId: Object,

@@ -7,8 +7,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { User } from '@app/api/models/user.model';
 import { Notify } from '@app/shared/services/notify.service';
 import { RouteConstants } from '@app/api/classes/route-constants';
-import { finalize } from 'rxjs/operators';
+import { finalize, map } from 'rxjs/operators';
 import { AuthPopupService } from '@app/social/services/auth-popup.service';
+import { SettingService } from '@app/api/services/setting.service';
+import { ValidSetting } from '@app/api/models/setting.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -23,17 +26,22 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   loading = false;
   private loadingSocialLogin: boolean;
+  $title: Observable<any>;
 
   constructor(private dialog: MatDialog,
               private authService: AuthService,
               private fb: FormBuilder,
               private router: Router,
               private notify: Notify,
-              private authPopupService: AuthPopupService) {
+              private authPopupService: AuthPopupService,
+              private settingsService: SettingService) {
     this.createForm();
   }
 
   ngOnInit() {
+
+    this.$title = this.settingsService.getCachedSetting(ValidSetting.title)
+      .pipe(map(setting => setting.content));
 
   }
 

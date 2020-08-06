@@ -15,11 +15,20 @@ import { MembersPageComponent } from './components/members-page/members-page.com
 import { AdminArgumentPageComponent } from './components/admin-argument-page/admin-argument-page.component';
 import { AdminOrganizationsPageComponent } from './components/admin-organizations-page/admin-organizations-page.component';
 import { AdminContactPageComponent } from './components/admin-contact-page/admin-contact-page.component';
+import { AuthGuardService } from '../../modules/auth/services/auth-guard.service';
+import { AdminLoginPageComponent } from './components/admin-login-page/admin-login-page.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: AdminLoginPageComponent,
+    canActivate: [AuthGuardService],
+    data: {notLogged: true}
+  },
+  {
+    path: '',
     component: AdminNavComponent,
+    canActivate: [AuthGuardService],
     children: [
       {
         path: `${RouteConstants.post}`,
@@ -74,7 +83,7 @@ const routes: Routes = [
         component: AdminContactPageComponent,
       }
     ]
-  }
+  },
 ];
 
 @NgModule({

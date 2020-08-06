@@ -21,6 +21,8 @@ export class AppComponent {
               private googleAnalytics: GoogleAnalyticsService,
               private router: Router,
               private scriptService: ScriptService) {
+    console.log('holi');
+
     this.emitPageViews();
 
     this.i18nService.init(environment.defaultLanguage, [
@@ -35,6 +37,9 @@ export class AppComponent {
           enable_page_level_ads: true
         });
       });
+    this.authService.updateLoggedUserObservable().subscribe(()=> {
+      console.log('holi');
+    });
   }
 
 

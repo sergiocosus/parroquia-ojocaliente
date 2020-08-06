@@ -5,27 +5,29 @@
       [opened]="!(isHandset$ | async)">
     <mat-toolbar>{{'admin.administration' | translate}}</mat-toolbar>
 
+    <app-current-user-menu></app-current-user-menu>
+
     <mat-nav-list>
-      <a mat-menu-item [routerLink]="adminPages.profile" (click)="close()"
+      <a mat-list-item [routerLink]="adminPages.profile" (click)="close()"
          routerLinkActive="active">
         <mat-icon>account_circle</mat-icon>
         {{'nav.profile' | translate}}
       </a>
 
-      <a mat-menu-item [routerLink]="adminPages.user" (click)="close()"
+      <a mat-list-item [routerLink]="adminPages.user" (click)="close()"
          routerLinkActive="active">
         <mat-icon>group</mat-icon>
         {{'nav.users' | translate}}
       </a>
 
-      <a mat-menu-item [routerLink]="adminPages.settings" (click)="close()"
+      <a mat-list-item [routerLink]="adminPages.settings" (click)="close()"
          *ngxPermissionsOnly="['update-setting']"
          routerLinkActive="active">
         <mat-icon>settings</mat-icon>
         {{'nav.settings' | translate}}
       </a>
 
-      <a mat-menu-item [routerLink]="adminPages.category" (click)="close()"
+      <a mat-list-item [routerLink]="adminPages.category" (click)="close()"
          *ngxPermissionsOnly="['create-category', 'update-category']"
          routerLinkActive="active">
         <mat-icon>category</mat-icon>
@@ -33,7 +35,7 @@
       </a>
 
       <ng-container *appIfSetting="'showGalleries'">
-        <a mat-menu-item [routerLink]="adminPages.galleries" (click)="close()"
+        <a mat-list-item [routerLink]="adminPages.galleries" (click)="close()"
            *ngxPermissionsOnly="['create-gallery', 'update-gallery']"
            routerLinkActive="active">
           <mat-icon>photo_library</mat-icon>
@@ -41,7 +43,7 @@
         </a>
       </ng-container>
 
-      <a mat-menu-item [routerLink]="adminPages.posts" (click)="close()"
+      <a mat-list-item [routerLink]="adminPages.posts" (click)="close()"
          *ngxPermissionsOnly="['read-post']"
          routerLinkActive="active">
         <mat-icon>book</mat-icon>
@@ -49,7 +51,7 @@
       </a>
 
       <ng-container *appIfSetting="'showLinks'">
-        <a mat-menu-item [routerLink]="adminPages.links" (click)="close()"
+        <a mat-list-item [routerLink]="adminPages.links" (click)="close()"
            *ngxPermissionsOnly="['read-link']"
            routerLinkActive="active">
           <mat-icon>link</mat-icon>
@@ -58,7 +60,7 @@
       </ng-container>
 
       <ng-container *appIfSetting="'showMembers'">
-        <a mat-menu-item [routerLink]="adminPages.member" (click)="close()"
+        <a mat-list-item [routerLink]="adminPages.member" (click)="close()"
            *ngxPermissionsOnly="['read-member']"
            routerLinkActive="active">
           <mat-icon class="fas fa-user-friends"></mat-icon>
@@ -67,7 +69,7 @@
       </ng-container>
 
       <ng-container *appIfSetting="'showArguments'">
-        <a mat-menu-item [routerLink]="adminPages.argument" (click)="close()"
+        <a mat-list-item [routerLink]="adminPages.argument" (click)="close()"
            *ngxPermissionsOnly="['read-argument']"
            routerLinkActive="active">
           <mat-icon class="fas fa-scroll"></mat-icon>
@@ -75,20 +77,21 @@
         </a>
       </ng-container>
 
-      <a mat-menu-item [routerLink]="adminPages.organization" (click)="close()"
+      <a mat-list-item [routerLink]="adminPages.organization" (click)="close()"
          *ngxPermissionsOnly="['read-organization']"
          routerLinkActive="active">
         <mat-icon class="fas fa-building"></mat-icon>
         {{'nav.organizations' | translate}}
       </a>
 
-      <a mat-menu-item [routerLink]="adminPages.contact" (click)="close()"
+      <a mat-list-item [routerLink]="adminPages.contact" (click)="close()"
          *ngxPermissionsOnly="['read-contact-response']"
          routerLinkActive="active">
         <mat-icon class="fas fa-id-card"></mat-icon>
         {{'contactResponse.contactResponses' | translate}}
       </a>
 
+      <app-logout-button></app-logout-button>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

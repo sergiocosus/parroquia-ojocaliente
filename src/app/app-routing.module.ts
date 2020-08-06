@@ -5,6 +5,10 @@ import { RouteConstants } from '@app/api/classes/route-constants';
 
 const routes: Routes = [
   {
+    path: RouteConstants.admin,
+    loadChildren: () => import('./pages/admin-pages/admin-pages.module').then(m => m.AdminPagesModule)
+  },
+  {
     path: '',
     component: NavigationComponent,
     children: [
@@ -43,10 +47,6 @@ const routes: Routes = [
       {
         path: RouteConstants.gallery,
         loadChildren: () => import('./pages/gallery-page/gallery-page.module').then(m => m.GalleryPageModule)
-      },
-      {
-        path: RouteConstants.admin,
-        loadChildren: () => import('./pages/admin-pages/admin-pages.module').then(m => m.AdminPagesModule)
       },
       {
         path: RouteConstants.register,

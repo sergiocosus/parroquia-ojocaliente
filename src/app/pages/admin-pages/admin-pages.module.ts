@@ -37,6 +37,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AdminOrganizationsPageComponent } from './components/admin-organizations-page/admin-organizations-page.component';
 import { OrganizationModule } from '../../modules/organization/organization.module';
 import { AdminContactPageComponent } from './components/admin-contact-page/admin-contact-page.component';
+import { AdminLoginPageComponent } from './components/admin-login-page/admin-login-page.component';
+import { AuthElementsModule } from '../../modules/auth-elements/auth-elements.module';
 
 @NgModule({
   declarations: [
@@ -54,32 +56,34 @@ import { AdminContactPageComponent } from './components/admin-contact-page/admin
     AdminArgumentPageComponent,
     AdminOrganizationsPageComponent,
     AdminContactPageComponent,
+    AdminLoginPageComponent,
   ],
-    imports: [
-        CommonModule,
-        AdminPagesRoutingModule,
-        PostModule,
-        MatListModule,
-        SharedModule,
-        NgxPermissionsModule,
-        CategoryModule,
-        UserModule,
-        AuthModule,
-        MatTabsModule,
-        SettingModule,
-        LinkModule,
-        GalleryModule,
-        MemberModule,
-        ArgumentModule,
-        LayoutModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatExpansionModule,
-        DragDropModule,
-        OrganizationModule,
-    ]
+  imports: [
+    CommonModule,
+    AdminPagesRoutingModule,
+    PostModule,
+    MatListModule,
+    SharedModule,
+    NgxPermissionsModule,
+    CategoryModule,
+    UserModule,
+    AuthModule,
+    MatTabsModule,
+    SettingModule,
+    LinkModule,
+    GalleryModule,
+    MemberModule,
+    ArgumentModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatExpansionModule,
+    DragDropModule,
+    OrganizationModule,
+    AuthElementsModule,
+  ]
 })
 export class AdminPagesModule {
 }

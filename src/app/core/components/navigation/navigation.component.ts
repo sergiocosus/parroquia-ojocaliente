@@ -26,7 +26,7 @@ export class NavigationComponent {
     this.$title = this.settingService.getCachedSetting(ValidSetting.title)
       .pipe(map(setting => setting.content));
     this.$pageIconSrcSet = this.settingService.getCachedSetting(ValidSetting.pageIcon)
-      .pipe(map(setting => setting.content));
+      .pipe(map(setting => setting.image_srcset));
   }
 
 
