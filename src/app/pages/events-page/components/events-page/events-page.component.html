@@ -10,8 +10,32 @@
   <share-buttons [show]="3"></share-buttons>
 </header>
  -->
-<div class="columns">
-  <app-main-event-list class="left"></app-main-event-list>
+<mat-toolbar *ngxPermissionsOnly="'create-event'">
+  <button mat-raised-button color="primary"
+          (click)="create()">
+    <mat-icon>add</mat-icon>
+    {{'event.createEvent' | translate}}
+  </button>
 
-  <app-event-calendar class="right"></app-event-calendar>
+  <div class="spacer"></div>
+
+  <form [formGroup]="filterForm">
+    <mat-checkbox formControlName="with_trashed">
+      <mat-icon>delete</mat-icon>
+      {{'common.withTrashed' | translate}}
+    </mat-checkbox>
+  </form>
+</mat-toolbar>
+
+<div class="columns">
+  <app-main-event-list class="left"
+                      (restoreClick)="restoreEvent($event)"
+                       (editClick)="edit($event)"
+                       (deleteClick)="deleteEvent($event)"></app-main-event-list>
+
+  <app-event-calendar class="right"
+                      [events]="events"
+                      (restoreClick)="restoreEvent($event)"
+                      (editClick)="edit($event)"
+                      (deleteClick)="deleteEvent($event)"></app-event-calendar>
 </div>

@@ -68,7 +68,7 @@ export class PostCkeditorComponent extends BaseFormControlWrapperValueAccessor i
   loadCkEditor() {
     forkJoin([
       this.scriptService.loadScript('https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js'),
-      this.scriptService.loadScript('https://cdn.ckeditor.com/ckeditor5/11.2.0/classic//translations/es.js')
+      this.scriptService.loadScript('https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/translations/es.js')
     ]).subscribe(() => {
       this.editor = (window as any).ClassicEditor;
       this.ckEditorLoaded = true;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EventService } from '@app/api/services/event.service';
 import { Event } from '@app/api/models/event.model';
 import { FormControl } from '@angular/forms';
@@ -9,13 +9,16 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./main-event-list.component.scss']
 })
 export class MainEventListComponent implements OnInit {
+  @Output() editClick = new EventEmitter();
+  @Output() restoreClick = new EventEmitter();
+  @Output() deleteClick = new EventEmitter();
+
   events: Event[];
   formControl = new FormControl('expired');
 
   constructor(private eventService: EventService) {
     this.formControl.valueChanges
       .subscribe(value => {
-        console.log(value);
         this.loadEvents();
       });
   }

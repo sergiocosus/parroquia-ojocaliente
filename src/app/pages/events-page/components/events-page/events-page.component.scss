@@ -11,6 +11,10 @@ header {
   width: $lgWidth;
 }
 
+mat-toolbar {
+  @extend .limited-width;
+  width: $lgWidth;
+}
 
 .columns {
   display: flex;

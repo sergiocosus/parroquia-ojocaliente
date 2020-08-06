@@ -97,6 +97,7 @@ app-nav-pages ::ng-deep a {
   //align-items: center;
   justify-content: center;
   background-color: $primary;
+  z-index: 10;
 
   img {
     height: 9em;

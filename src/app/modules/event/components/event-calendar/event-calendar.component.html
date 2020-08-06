@@ -1,19 +1,4 @@
-<mat-toolbar *ngxPermissionsOnly="'create-event'">
-  <button mat-raised-button color="primary"
-          (click)="create()">
-    <mat-icon>add</mat-icon>
-    {{'event.createEvent' | translate}}
-  </button>
 
-  <div class="spacer"></div>
-
-  <form [formGroup]="filterForm">
-    <mat-checkbox formControlName="with_trashed">
-      <mat-icon>delete</mat-icon>
-      {{'common.withTrashed' | translate}}
-    </mat-checkbox>
-  </form>
-</mat-toolbar>
 
 <mat-toolbar class="calendar-controls" *ngIf="view">
   <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>

@@ -1,3 +1,5 @@
+@import "src/variables";
+
 :host {
   display: flex;
   flex-direction: column;
@@ -8,4 +10,11 @@ mat-form-field {
   margin-bottom: -1em;
   margin-right: .5em;
   margin-left: .5em;
+}
+
+app-event-list {
+  @media (min-width: $smWidth) {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
 }

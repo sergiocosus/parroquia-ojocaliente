@@ -1132,12 +1132,11 @@
     "@ckeditor/ckeditor5-core" "^12.3.0"
     "@ckeditor/ckeditor5-upload" "^12.0.0"
 
-"@ckeditor/ckeditor5-angular@^1.0.1":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-angular/-/ckeditor5-angular-1.2.3.tgz#11974244864337c740fc60766b3ed00ac574bafe"
-  integrity sha512-A1dZ7TVhlHTCvBjh9xAQvTX2alMkwE3pbTeOXfPt6AyamhVDnBVKbCa5eDaSd6xeeQHvsqtmMgNHQJn4AhH5mg==
+"@ckeditor/ckeditor5-angular@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-angular/-/ckeditor5-angular-1.0.1.tgz#4f7a9c17125307e2de370694b80f83eb1c1da74d"
+  integrity sha512-8L35lBHJ7aRI4Q6f8E1gadHdXBO4mMiTYOvloPwlhGfkrwOpSqAN0beXtlI21xyx+Ld5CD2OEASFKWPU0tu9eQ==
   dependencies:
-    "@ckeditor/ckeditor5-watchdog" "^17.0.0"
     tslib "^1.9.0"
 
 "@ckeditor/ckeditor5-build-balloon@^12.0.0":
@@ -1257,13 +1256,6 @@
   integrity sha512-JC9sDlRbvmhL+Gqpq4HPZkrnpMFgEwlkVNUd2RKD/heOvzdpMfpLnIFpdXi1ohx/LQHDC9GZce0t6NJM5PbGoA==
   dependencies:
     ckeditor5 "^12.4.0"
-    lodash-es "^4.17.10"
-
-"@ckeditor/ckeditor5-watchdog@^17.0.0":
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-watchdog/-/ckeditor5-watchdog-17.0.0.tgz#8b3517a27dbd70f9686d79aa4c763ccd6d98e6ca"
-  integrity sha512-qwRYWjv6qYuHD3tj4qB7XtuRGQteVtaoVl2Mzg8pNRP85WbTssZxQgDno951pPqR67Mqxe9YwxtrNMiZfQesrw==
-  dependencies:
     lodash-es "^4.17.10"
 
 "@ckeditor/ckeditor5-widget@^11.0.4":

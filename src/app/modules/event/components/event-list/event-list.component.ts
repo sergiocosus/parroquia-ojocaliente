@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Event } from '@app/api/models/event.model';
+import { ConfirmDialogComponent, ConfirmDialogData } from '@app/shared/components/confirm-dialog/confirm-dialog.component';
+import { filter, mergeMap } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { EventService } from '@app/api/services/event.service';
 
 @Component({
   selector: 'app-event-list',
@@ -16,6 +20,8 @@ export class EventListComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
 
   edit(event: Event) {
     this.editClick.emit(event);
