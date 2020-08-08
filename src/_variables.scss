@@ -3,11 +3,11 @@
 
 $primary: #3eb8dd;
 $primary-light: lighten($primary, 10);
-$primary-dark: darken($primary, 10);
+$primary-dark: darken($primary, 30);
 
 $secondary: #ffba5a;
 $secondary-light: lighten($secondary, 30);
-$secondary-dark: darken($secondary, 10);
+$secondary-dark: darken($secondary, 20);
 
 $red:#d93826;
 $yellow:#ffd000;
@@ -19,6 +19,7 @@ $purple:#A367BB;
 $blue-silver:#F0F0F7;
 $silver:#e4e4e4;
 $gray:#CACCCC;
+$darkGray: #4c4e5f;
 
 $secondary-lighter: #EFF5F8;
 

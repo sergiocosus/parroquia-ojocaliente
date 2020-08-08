@@ -12,11 +12,6 @@
     <app-post-ckeditor formControlName="answer" [showImageSelector]="false">
     </app-post-ckeditor>
 
-    <mat-form-field>
-      <mat-label>{{'argument.order' | translate}}</mat-label>
-      <input matInput formControlName="order" type="number">
-    </mat-form-field>
-
     <app-loading-button [loading]="loading">
       <mat-icon class="fa fa-paper-plane"></mat-icon>
       {{'forms.submit' | translate}}

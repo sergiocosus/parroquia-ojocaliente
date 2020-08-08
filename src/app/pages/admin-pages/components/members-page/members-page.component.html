@@ -27,7 +27,7 @@
   </form>
 </header>
 
-<mat-accordion  cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+<mat-accordion  cdkDropList (cdkDropListDropped)="drop($event)">
   <mat-expansion-panel *ngFor="let member of members" cdkDrag [cdkDragData]="member"
                        (click)="selectToEditMember(member)">
     <mat-expansion-panel-header>

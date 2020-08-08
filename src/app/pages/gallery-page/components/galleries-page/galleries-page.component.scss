@@ -23,3 +23,9 @@ mat-toolbar {
   justify-content: center;
   @extend .limited-width;
 }
+
+.share {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

@@ -6,19 +6,21 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { PostModule } from '@app/post/post.module';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [ArgumentsTableComponent, ArgumentFormDialogComponent],
   exports: [
     ArgumentsTableComponent
   ],
-  imports: [
-    SharedModule,
-    MatSortModule,
-    MatTableModule,
-    MatProgressBarModule,
-    PostModule
-  ],
+    imports: [
+        SharedModule,
+        MatSortModule,
+        MatTableModule,
+        MatProgressBarModule,
+        PostModule,
+        DragDropModule
+    ],
   entryComponents: [
     ArgumentFormDialogComponent
   ]

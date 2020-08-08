@@ -49,6 +49,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      color: $darkGray;
     }
 
     .content {
@@ -65,9 +66,9 @@
     align-self: stretch;
     flex-direction: row;
     max-width: 100%;
-    margin-bottom: 2em;
+    margin-bottom: .5em;
     text-align: right;
-    color: $gray;
+    color: $darkGray;
     padding: 1em;
     flex-wrap: wrap;
 
@@ -89,6 +90,11 @@
 
   app-gallery-picture-thumb {
     flex: 0 1 10em;
-    margin: .25em;
+    margin: .5em;
   }
+}
+
+.share {
+  align-items: flex-end;
+  justify-content: center;
 }

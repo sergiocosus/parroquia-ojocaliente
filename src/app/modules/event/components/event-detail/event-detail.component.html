@@ -6,7 +6,9 @@
   <div class="post-body">
     <h2>
       <mat-icon>event</mat-icon>
-      {{event.title}}
+      <div class="spacer">
+        {{event.title}}
+      </div>
 
       <!--
       <a mat-icon-button [routerLink]="event.editUrl"
@@ -37,8 +39,9 @@
   </div>
 
   <div class="post-footer">
-    <div class="column">
-      <share-buttons [show]="3"></share-buttons>
+    <div class="column share">
+      Compartir
+      <share-buttons></share-buttons>
     </div>
   </div>
 </div>

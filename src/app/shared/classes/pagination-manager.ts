@@ -111,7 +111,7 @@ export class PaginationManager<T extends Model> {
    */
   appendElement(element: T) {
     this.dataSource.data.push(element);
-    this.updateData(this.dataSource.data);
+    this.refresh();
   }
 
   /**
@@ -119,7 +119,7 @@ export class PaginationManager<T extends Model> {
    */
   prependElement(element: T) {
     this.dataSource.data.unshift(element);
-    this.updateData(this.dataSource.data);
+    this.refresh();
   }
 
   /**
@@ -149,5 +149,9 @@ export class PaginationManager<T extends Model> {
     if (this.pagination) {
       return !this.pagination.data.length && !this.loading;
     }
+  }
+
+  refresh() {
+    this.updateData(this.dataSource.data);
   }
 }

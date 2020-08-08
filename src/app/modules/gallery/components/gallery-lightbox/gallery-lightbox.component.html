@@ -8,6 +8,7 @@
     <img [srcset]="picture.image_srcset"/>
   </pinch-zoom>
 
+  <!--
   <span class="item-title">
     {{picture.title}}
   </span>
@@ -20,10 +21,11 @@
     </div>
 
     <ng-container *ngIf="expanded">
-      <share-buttons [show]="3"></share-buttons>
+      <share-buttons></share-buttons>
       <p [innerHtml]="picture.content"></p>
     </ng-container>
   </div>
+  -->
 
   <mat-icon class="close-button" (click)="close()">close</mat-icon>
 </ng-template>

@@ -24,7 +24,6 @@ export class ArgumentFormDialogComponent implements OnInit {
     this.form = this.fb.group({
       answer: ['', Validators.required],
       question: ['', Validators.required],
-      order: [],
     });
 
     this.initForm();
@@ -38,7 +37,6 @@ export class ArgumentFormDialogComponent implements OnInit {
       this.form.reset({
         answer: this.argument.answer,
         question: this.argument.question,
-        order: this.argument.order,
       });
     } else {
       this.form.reset({});

@@ -39,8 +39,9 @@ export class ArgumentService {
   }
 
   edit(id: number, params: {
-    argument: string,
-    answer: string
+    argument?: string,
+    answer?: string
+    order?: number
   }) {
     return this.httpClient.put(`argument/${id}`, params,
       {reportProgress: true, observe: 'events'}).pipe(

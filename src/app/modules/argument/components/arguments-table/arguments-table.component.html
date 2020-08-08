@@ -12,7 +12,8 @@
 
 <table mat-table class="full-width-table"
        [dataSource]="paginationManager.dataSource" matSort
-       aria-label="Elements">
+       cdkDropList aria-label="Elements"
+       (cdkDropListDropped)="drop($event)">
 
   <ng-container matColumnDef="image">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -60,9 +61,9 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-row cdkDrag [cdkDragData]="row"
+      *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
 
 <app-laravel-paginator [pagination]="paginationManager.pagination"
                        (page)="paginationManager.onPage($event)"></app-laravel-paginator>

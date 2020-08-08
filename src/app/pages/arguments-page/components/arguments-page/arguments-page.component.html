@@ -9,7 +9,7 @@
 <div class="argument-list">
   <div *ngFor="let argument of arguments; let i = index" class="argument">
     <div class="question">
-      <h3>{{argument.order}}.</h3>
+      <h3>{{argument.order + 1}}.</h3>
       <div [innerHTML]="argument.question">
       </div>
     </div>
@@ -19,7 +19,7 @@
 </div>
 
 <app-header-dot-line>
-  Conoce las fuentes
+  Otras fuentes
   <div class="spacer" slot="extra"></div>
 </app-header-dot-line>
 

@@ -8,6 +8,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { ArgumentFormDialogComponent } from '@app/argument/components/argument-form-dialog/argument-form-dialog.component';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-arguments-table',
@@ -19,7 +20,7 @@ export class ArgumentsTableComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   displayedColumns = [
-    'image', 'id', 'order', 'question', 'actions'
+    'image', 'id', 'question', 'actions'
   ];
 
   paginationManager: PaginationManager<Argument>;
@@ -62,5 +63,23 @@ export class ArgumentsTableComponent implements OnInit {
       .subscribe(updatedArgument => {
         argument.replaceProperties(updatedArgument);
       });
+  }
+
+
+  drop(event: CdkDragDrop<string[]>) {
+    const argumentElement = this.paginationManager.dataSource.data;
+
+    if (event.currentIndex === event.previousIndex) {
+      return;
+    }
+
+    this.argumentService.edit(event.item.data.id, {order: event.currentIndex}).subscribe();
+    this.argumentService.edit(argumentElement[event.currentIndex].id, {order: event.previousIndex}).subscribe();
+
+    const replaced = argumentElement[event.currentIndex];
+    argumentElement[event.currentIndex] = argumentElement[event.previousIndex];
+    argumentElement[event.previousIndex] = replaced;
+
+    this.paginationManager.refresh();
   }
 }

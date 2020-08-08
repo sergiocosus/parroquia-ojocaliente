@@ -131,8 +131,14 @@ export class MembersPageComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<string[]>) {
+    if (event.currentIndex === event.previousIndex) {
+      return;
+    }
     this.memberService.edit(event.item.data.id, {order: event.currentIndex}).subscribe();
     this.memberService.edit(this.members[event.currentIndex].id, {order: event.previousIndex}).subscribe();
-    moveItemInArray(this.members, event.previousIndex, event.currentIndex);
+
+    const replaced = this.members[event.currentIndex];
+    this.members[event.currentIndex] = this.members[event.previousIndex];
+    this.members[event.previousIndex] = replaced;
   }
 }
