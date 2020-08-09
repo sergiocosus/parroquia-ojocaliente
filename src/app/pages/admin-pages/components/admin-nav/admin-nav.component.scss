@@ -33,6 +33,7 @@ mat-sidenav-content {
 
 .content {
   @extend .limited-width;
+  width: $lgWidth;
   padding: 1em;
 }
 
