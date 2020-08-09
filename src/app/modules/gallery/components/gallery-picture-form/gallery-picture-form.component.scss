@@ -5,6 +5,10 @@ form {
   align-items: stretch;
   flex-wrap: wrap;
 
+  max-width: 100%;
+  overflow: hidden;
+  flex-direction: column;
+
   .column {
     display: flex;
     flex-direction: column;

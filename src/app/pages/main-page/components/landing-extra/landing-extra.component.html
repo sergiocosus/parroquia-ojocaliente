@@ -1,0 +1,29 @@
+<gallery [items]="items"
+         [thumb]="false"
+         [counter]="false"
+         [dots]="true"
+         [gestures]="true"
+         [itemTemplate]="itemTemplate">
+</gallery>
+
+
+<ng-template #itemTemplate
+             let-index="index"
+             let-type="type"
+             let-picture="data"
+             let-currIndex="currIndex">
+  <pinch-zoom
+    [disableZoomControl]="true"
+    *ngIf="type === 'imageViewer' && [index - 1, index, index +1].includes(currIndex)">
+    <img [srcset]="picture.image_srcset"/>
+  </pinch-zoom>
+
+  <!--
+  <span class="item-title">
+    {{picture.title}}
+  </span>
+-->
+  <div class="item-content" *ngIf="picture.content">
+    <p [innerHtml]="picture.content"></p>
+  </div>
+</ng-template>

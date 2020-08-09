@@ -1,0 +1,81 @@
+@import "~src/variables";
+
+:host {
+  display: flex;
+  padding: 1em 0;
+  min-height: 90vh;
+}
+
+gallery {
+  height: 90vh;
+  width: 100%;
+
+  ::ng-deep {
+    .g-box {
+      background-color: white;
+    }
+
+    gallery-slider {
+      width: 90%;
+    }
+
+    gallery-item {
+      left: 5%;
+      width: 98%;
+      margin: 0 1%;
+    }
+
+    gallery-item:not(.g-active-item) {
+      opacity: .5;
+      .item-content {
+        display: none;
+      }
+    }
+  }
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  background-color: rgba(black, .75);
+  margin: 3em auto 0;
+  border-radius: 4px;
+  width: 115%;
+  left: -7%;
+  padding: 0 7%;
+
+  text-align: justify;
+  @include animate();
+  font-size: 2em;
+
+  @media (max-width: $smWidth) {
+    font-size: 1.25em;
+  }
+
+  p {
+    margin: .25em 0;
+  }
+}
+
+
+pinch-zoom {
+  height: 100%;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  ::ng-deep {
+    .pz-zoom-button {
+      display: none;
+    }
+  }
+}
