@@ -1,5 +1,6 @@
 import { Model } from '@app/api/models/model';
 import { User } from '@app/api/models/user.model';
+import { Category } from '@app/api/models/category.model';
 
 export class Link extends Model {
   id: number;
@@ -12,6 +13,7 @@ export class Link extends Model {
   deleted_at: string;
 
   creator_user: User;
+  categories: Category[];
 
   static parseArray(objs: any[]): Link[] {
     return objs.map(obj => new Link().parse(obj));
@@ -21,6 +23,7 @@ export class Link extends Model {
     super.parse(obj);
 
     this.creator_user = this.creator_user ? new User().parse(this.creator_user) : null;
+    this.categories = this.categories ? Category.parseArray(this.categories) : null;
 
     return this;
   }

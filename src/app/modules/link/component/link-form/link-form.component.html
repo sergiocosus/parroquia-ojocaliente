@@ -1,18 +1,28 @@
 <form [formGroup]="theForm"
       id="linkEditForm"
       (ngSubmit)="ngSubmit.emit()">
-  <mat-form-field>
-    <input matInput formControlName="title"
-           [placeholder]="'link.title' | translate">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName="url"
-           [placeholder]="'link.url' | translate">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName="description"
-           [placeholder]="'link.description' | translate">
-  </mat-form-field>
+  <div class="form-row">
+    <mat-form-field>
+      <input matInput formControlName="title"
+             [placeholder]="'link.title' | translate">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="url"
+             [placeholder]="'link.url' | translate">
+    </mat-form-field>
+  </div>
+
+  <div class="form-row">
+    <mat-form-field>
+      <input matInput formControlName="description"
+             [placeholder]="'link.description' | translate">
+    </mat-form-field>
+  </div>
+
+  <div class="form-row">
+    <app-categories-search-chip-list [control]="theForm.get('categories')">
+    </app-categories-search-chip-list>
+  </div>
 
   <ng-content></ng-content>
 </form>

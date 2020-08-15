@@ -2,9 +2,10 @@
 
 form {
   display: flex;
-  //flex-direction: column;
+  flex-direction: column;
+}
 
-  mat-form-field {
-    margin-right: .25em;
-  }
+app-categories-search-chip-list {
+  flex-direction: row;
+  flex: 1;
 }

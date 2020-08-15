@@ -23,6 +23,7 @@ gallery {
       left: 5%;
       width: 98%;
       margin: 0 1%;
+      transition: .5s all;
     }
 
     gallery-item:not(.g-active-item) {

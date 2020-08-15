@@ -58,6 +58,14 @@
           {{'nav.links' | translate}}
         </a>
       </ng-container>
+<!--
+      <a mat-list-item [routerLink]="adminPages.links" (click)="close()"
+         *ngxPermissionsOnly="['read-file']"
+         routerLinkActive="active">
+        <mat-icon>description</mat-icon>
+        {{'nav.files' | translate}}
+      </a>
+-->
 
       <ng-container *appIfSetting="'showMembers'">
         <a mat-list-item [routerLink]="adminPages.member" (click)="close()"

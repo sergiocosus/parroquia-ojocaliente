@@ -8,6 +8,7 @@ export class RouteConstants {
   static readonly user = 'usuario';
   static readonly profile = 'perfil';
   static readonly link = 'enlace';
+  static readonly file = 'archivo';
   static readonly contact = 'contacto';
   static readonly new = 'nuevo';
   static readonly register = 'registrar';
@@ -24,6 +25,7 @@ export class RouteConstants {
     user: `/${RouteConstants.admin}/${RouteConstants.user}`,
     settings: `/${RouteConstants.admin}/${RouteConstants.settings}`,
     links: `/${RouteConstants.admin}/${RouteConstants.link}`,
+    file: `/${RouteConstants.admin}/${RouteConstants.file}`,
     galleries: `/${RouteConstants.admin}/${RouteConstants.gallery}`,
     member: `/${RouteConstants.admin}/${RouteConstants.member}`,
     argument: `/${RouteConstants.admin}/${RouteConstants.argument}`,

@@ -9,6 +9,7 @@ import { AutoUnsubscribe } from '@app/shared/decorators/auto-unsubscribe';
 import { SubscriptionManager } from '@app/shared/classes/subscription-manager';
 import { Link } from '@app/api/models/link.model';
 import { LinkService } from '@app/api/services/link.service';
+import { AppValidators } from '../../../../shared/validators/app-validators';
 
 @Component({
   selector: 'app-link-list',
@@ -51,6 +52,7 @@ export class LinkListComponent implements OnInit {
       title: '',
       url: '',
       description: ' ',
+      categories: [[], AppValidators.minLengthArray(1)],
     });
   }
 
@@ -65,6 +67,9 @@ export class LinkListComponent implements OnInit {
     }
 
     const data = this.form.getRawValue();
+    data.category_ids = data.categories.map(category => category.id);
+    delete data.categories;
+
     this.form.disable();
     this.linkService.post(data).pipe(
       finalize(() => this.form.enable())
@@ -111,11 +116,15 @@ export class LinkListComponent implements OnInit {
       title: link.title,
       url: link.url,
       description: link.description,
+      categories: link.categories,
     });
   }
 
   editLink() {
     const data = this.editForm.getRawValue();
+    data.category_ids = data.categories.map(category => category.id);
+    delete data.categories;
+
     this.linkService.edit(this.selectedLink.id, data).subscribe(
       link => {
         this.selectedLink.replaceProperties(link);
