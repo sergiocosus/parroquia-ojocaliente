@@ -1,0 +1,21 @@
+<a *ngIf="organization.facebook?.length"
+   [href]="organization.facebookUrl"
+   class="social" target="_blank">
+  <mat-icon class="fab fa-facebook-f"></mat-icon>
+</a>
+<a *ngIf="organization.youtube?.length"
+   [href]="organization.youtubeUrl"
+   class="social" target="_blank">
+  <mat-icon class="fab fa-youtube"></mat-icon>
+</a>
+<a *ngIf="organization.twitter?.length"
+   [href]="organization.twitterUrl"
+   class="social" target="_blank">
+  <mat-icon class="fab fa-twitter"></mat-icon>
+</a>
+<a *ngIf="organization.instagram?.length"
+   [href]="organization.instagramUrl"
+   class="social" target="_blank">
+  <mat-icon class="fab fa-instagram"></mat-icon>
+</a>
+

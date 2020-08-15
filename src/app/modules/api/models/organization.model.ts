@@ -29,4 +29,20 @@ export class Organization extends Model {
   get editUrl() {
     return [RouteConstants.adminPages.organization, this.id];
   }
+
+  get facebookUrl() {
+    return 'http://www.facebook.com/' + this.facebook;
+  }
+
+  get instagramUrl() {
+    return 'http://www.instagram.com/' + this.instagram;
+  }
+
+  get youtubeUrl() {
+    return 'http://www.youtube.com/' + this.youtube;
+  }
+
+  get twitterUrl() {
+    return 'http://www.twitter.com/' + this.twitter;
+  }
 }

@@ -87,25 +87,28 @@
       }
     }
 
-    .social {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      //color: $gray;
-      text-decoration: none;
-      color: black;
-      font-size: 1em;
-      margin-right: 1em;
-      transition: all .25s;
-      padding: .2em;
+    app-organization-social-links ::ng-deep {
+      .social {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        //color: $gray;
+        text-decoration: none;
+        color: black;
+        font-size: 1em;
+        margin-right: .5em;
+        transition: all .25s;
+        padding: .2em;
 
-      &:hover {
-        color: white;
-        background-color: black;
-        border-radius: .25em;
+        &:hover {
+          color: white;
+          background-color: black;
+          border-radius: .25em;
+        }
       }
     }
+
 
     @media (max-height: $smWidth) {
       h3 {

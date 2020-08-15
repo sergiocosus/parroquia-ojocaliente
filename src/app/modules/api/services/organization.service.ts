@@ -22,8 +22,8 @@ export class OrganizationService {
     );
   }
 
-  getOne(organization_id: number) {
-    return this.httpClient.get(`organization/${organization_id}`).pipe(
+  getOne(slug) {
+    return this.httpClient.get(`organization/${slug}`).pipe(
       this.mapOrganization()
     );
   }

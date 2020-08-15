@@ -5,6 +5,8 @@ import { map } from 'rxjs/operators';
 import { MatSidenav } from '@angular/material/sidenav';
 import { SettingService } from '@app/api/services/setting.service';
 import { ValidSetting } from '@app/api/models/setting.model';
+import { OrganizationService } from '@app/api/services/organization.service';
+import { Organization } from '@app/api/models/organization.model';
 
 @Component({
   selector: 'app-navigation',
@@ -20,13 +22,16 @@ export class NavigationComponent {
     );
   $pageIconSrcSet: Observable<string | boolean>;
   $title: Observable<string | boolean>;
+  $organization: Observable<Organization>;
 
   constructor(private breakpointObserver: BreakpointObserver,
-              private settingService: SettingService) {
+              private settingService: SettingService,
+              private organizationService: OrganizationService) {
     this.$title = this.settingService.getCachedSetting(ValidSetting.title)
       .pipe(map(setting => setting.content));
     this.$pageIconSrcSet = this.settingService.getCachedSetting(ValidSetting.pageIcon)
       .pipe(map(setting => setting.image_srcset));
+    this.$organization = this.organizationService.getOne('juvi-nacional');
   }
 
 

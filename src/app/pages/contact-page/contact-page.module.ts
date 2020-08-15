@@ -6,6 +6,7 @@ import { ContactPageComponent } from './components/contact-page/contact-page.com
 import { SharedModule } from '@app/shared/shared.module';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ElementsModule } from '@app/elements/elements.module';
+import { OrganizationModule } from '../../modules/organization/organization.module';
 
 @NgModule({
   declarations: [ContactPageComponent],
@@ -14,7 +15,8 @@ import { ElementsModule } from '@app/elements/elements.module';
         ContactPageRoutingModule,
         SharedModule,
         ShareButtonsModule,
-        ElementsModule
+        ElementsModule,
+        OrganizationModule
     ]
 })
 export class ContactPageModule { }
