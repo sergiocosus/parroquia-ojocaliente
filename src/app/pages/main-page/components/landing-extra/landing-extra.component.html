@@ -1,29 +1,47 @@
-<gallery [items]="items"
-         [thumb]="false"
-         [counter]="false"
-         [dots]="true"
-         [gestures]="true"
-         [itemTemplate]="itemTemplate">
-</gallery>
-
-
-<ng-template #itemTemplate
-             let-index="index"
-             let-type="type"
-             let-picture="data"
-             let-currIndex="currIndex">
-  <pinch-zoom
-    [disableZoomControl]="true"
-    *ngIf="type === 'imageViewer' && [index - 1, index, index +1].includes(currIndex)">
-    <img [srcset]="picture.image_srcset"/>
-  </pinch-zoom>
-
-  <!--
-  <span class="item-title">
-    {{picture.title}}
-  </span>
--->
-  <div class="item-content" *ngIf="picture.content">
-    <p [innerHtml]="picture.content"></p>
+<section class="mission-and-vision">
+  <div class="subtitle">
+    <h3>Misión</h3>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+      asperiores beatae culpa cumque eveniet exercitationem fuga fugit, illum
+      labore minima necessitatibus nihil, officiis praesentium quam qui quia
+      soluta tempora vero.
+    </div>
   </div>
-</ng-template>
+  <img class="page-icon"
+       *ngIf="$pageIconSrcSet | async; let srcset"
+       [srcset]="srcset"/>
+  <div class="subtitle">
+    <h3>Visión</h3>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto
+      earum facere illum impedit laudantium nostrum sunt voluptates. Accusamus
+      assumenda ex illum ipsa iusto maiores nesciunt porro quas, quos rem?
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="picture" *ngFor="let picture of gallery.gallery_pictures">
+    <img class="gallery-image"
+         [srcset]="picture.image_srcset"/>
+    <span class="item-title">
+      {{picture.title}}
+    </span>
+    <div class="item-content" *ngIf="picture.content">
+      <p [innerHtml]="picture.content"></p>
+    </div>
+  </div>
+</section>
+
+
+<section class="social">
+  <h3>
+    Síguenos
+  </h3>
+
+  <app-organization-social-links
+    class="line" *ngIf="$organization | async; let organization"
+    [organization]="organization">
+  </app-organization-social-links>
+</section>

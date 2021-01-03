@@ -42,23 +42,40 @@ app-header-dot-line {
     margin-bottom: 1em;
     color: black;
 
+    mat-panel-title {
+      max-width: 100%;
+    }
+
     .question {
       display: flex;
       align-items: center;
       margin-bottom: 1em;
       padding-right: 5%;
+      width: 100%;
+      max-width: 100%;
 
-      h3 {
-        font-size: 4em;
+      .number {
+        font-size: 3em;
         font-weight: bold;
         color: black;
         margin: 0;
         margin-right: .5em;
+
+        @media (max-width: $smWidth) {
+          font-size: 2em;
+        }
       }
 
       > div {
         flex: 1;
-        font-size: 2em;
+        font-size: 1.5em;
+        color: black;
+        font-weight: normal;
+        max-width: 80%;
+
+        @media (max-width: $smWidth) {
+          font-size: 1em;
+        }
       }
     }
   }
@@ -67,7 +84,14 @@ app-header-dot-line {
     background-color: #CACCCC;
     padding: 1em;
     padding-right: 5%;
-    font-size: 2em;
+    font-size: 1em;
+  }
+
+  .search {
+    font-size: 1.25em;
+    mat-label {
+      margin-right: .25em;
+    }
   }
 }
 

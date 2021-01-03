@@ -28,13 +28,6 @@
   }
 }
 
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: $primary;
-}
-
 .content {
   display: flex;
   flex-direction: column;
@@ -53,28 +46,6 @@ mat-sidenav-content {
 app-nav-pages ::ng-deep a {
   mat-icon {
     margin-right: .25em;
-  }
-}
-
-.top-bar {
-  padding-bottom: .5em;
-  justify-content: center;
-  margin-top: -1em;
-  app-nav-pages {
-    display: flex;
-
-    ::ng-deep a {
-      margin-right: 1em;
-
-      .mat-list-item-content {
-        display: flex;
-        align-items: center;
-
-        mat-icon {
-          margin-right: .1em;
-        }
-      }
-    }
   }
 }
 
@@ -98,6 +69,7 @@ app-nav-pages ::ng-deep a {
   justify-content: center;
   background-color: $primary;
   z-index: 10;
+  padding-bottom: 2.2em;
 
   img {
     height: 9em;
@@ -143,6 +115,34 @@ app-nav-pages ::ng-deep a {
 
     img {
       height: 8em;
+    }
+  }
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba($primary, .5);
+  backdrop-filter: saturate(100%) blur(10px);
+
+  padding-bottom: .25em;
+  justify-content: center;
+  margin-top: -3.2em;
+  app-nav-pages {
+    display: flex;
+
+    ::ng-deep a {
+      margin-right: 1em;
+
+      .mat-list-item-content {
+        display: flex;
+        align-items: center;
+
+        mat-icon {
+          margin-right: .1em;
+        }
+      }
     }
   }
 }

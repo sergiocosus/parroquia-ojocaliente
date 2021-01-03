@@ -11,19 +11,21 @@ import { ElementsModule } from '@app/elements/elements.module';
 import { LandingExtraComponent } from './components/landing-extra/landing-extra.component';
 import { GalleryModule } from '@ngx-gallery/core';
 import { PinchZoomModule } from 'ngx-pinch-zoom';
+import { OrganizationModule } from '../../modules/organization/organization.module';
 
 @NgModule({
   declarations: [MainPageComponent, LandingPageComponent, LandingExtraComponent],
-  imports: [
-    SharedModule,
-    MainPageRoutingModule,
-    PostModule,
-    AdsenseModule,
-    ShareButtonsModule,
-    ElementsModule,
-    GalleryModule,
-    PinchZoomModule
-  ]
+    imports: [
+        SharedModule,
+        MainPageRoutingModule,
+        PostModule,
+        AdsenseModule,
+        ShareButtonsModule,
+        ElementsModule,
+        GalleryModule,
+        PinchZoomModule,
+        OrganizationModule
+    ]
 })
 export class MainPageModule {
 }

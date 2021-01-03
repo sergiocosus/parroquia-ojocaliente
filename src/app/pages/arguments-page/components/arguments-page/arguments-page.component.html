@@ -7,15 +7,26 @@
 </app-header-dot-line>
 
 <div class="argument-list">
-  <div *ngFor="let argument of arguments; let i = index" class="argument">
-    <div class="question">
-      <h3>{{argument.order + 1}}.</h3>
-      <div [innerHTML]="argument.question">
-      </div>
-    </div>
+  <mat-form-field class="search">
+    <mat-label>Buscar</mat-label>
+    <input matInput [formControl]="searchControl"/>
+    <mat-icon matPrefix>search</mat-icon>
+  </mat-form-field>
+
+  <mat-expansion-panel *ngFor="let argument of arguments; let i = index" class="argument">
+    <mat-expansion-panel-header collapsedHeight="6em">
+      <mat-panel-title>
+        <h3 class="question">
+          <span class="number">{{argument.order + 1}}.</span>
+          <div [innerHTML]="argument.question">
+          </div>
+        </h3>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
     <div class="answer" [innerHTML]="argument.answer">
     </div>
-  </div>
+  </mat-expansion-panel>
 </div>
 
 <app-header-dot-line>

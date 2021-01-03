@@ -3,6 +3,7 @@
 .main-landing {
   display: flex;
   position: relative;
+  justify-content: center;
   max-width: 100vw;
   overflow: hidden;
   align-items: stretch;
@@ -10,7 +11,11 @@
   background-image: url("/assets/images/landing/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: calc(100vh - 3em);
+  height: calc(100vh - 12em);
+
+  @media (max-width: $smWidth) {
+    height: calc(100vh - 6em);
+  }
 }
 
 .transparent {
@@ -32,6 +37,7 @@ header {
   width: auto;
   z-index: 1;
   padding: 0 1em;
+  margin-top: -1em;
 
   h1 {
     color: white;
