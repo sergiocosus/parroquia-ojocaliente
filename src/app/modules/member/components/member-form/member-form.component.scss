@@ -26,4 +26,19 @@ form {
       flex: 1;
     }
   }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 20em;
+      margin: .25em;
+      padding: .25em;
+    }
+  }
+
+
 }

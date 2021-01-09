@@ -1,9 +1,21 @@
 <div class="transparent"></div>
 
+<div class="header-description">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, corporis cupiditate deserunt dolorum illum incidunt inventore ipsum minus modi nisi nulla quasi repudiandae rerum saepe similique suscipit temporibus voluptas voluptates.
+</div>
+
 <div class="people">
   <div class="person" *ngFor="let member of members">
-    <img [srcset]="member.image_srcset">
-    <span>{{member.name}}</span>
+    <div class="description-hover">
+      <img [srcset]="member.image_srcset">
+      <div class="description">
+        <span>{{member.description}}</span>
+      </div>
+    </div>
+    <span class="name">{{member.name}}</span>
+    <div class="organization">
+      {{member?.organization?.name}}
+    </div>
   </div>
 </div>
 

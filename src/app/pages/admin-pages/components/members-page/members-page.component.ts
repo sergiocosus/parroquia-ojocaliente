@@ -52,6 +52,8 @@ export class MembersPageComponent implements OnInit {
     return this.fb.group({
       name: ['', Validators.required],
       picture: [null, Validators.required],
+      description: [null],
+      organization_id: [null],
     });
   }
 
@@ -110,6 +112,8 @@ export class MembersPageComponent implements OnInit {
       this.loadingUpdate = false;
       this.editForm.reset({
         name: member.name,
+        description: member.description,
+        organization_id: member.organization_id,
       });
     }
   }

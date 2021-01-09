@@ -117,8 +117,10 @@
   },
   "member": {
     "createMember": "Crear Miembro",
+    "description": "Descripción",
     "members": "Miembros",
-    "name": "Nombre"
+    "name": "Nombre",
+    "organization": "Organización"
   },
   "nav": {
     "arguments": "Argumentos",

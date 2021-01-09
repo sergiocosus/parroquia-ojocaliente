@@ -1,6 +1,7 @@
 import { Model } from './model';
 import { Moment } from 'moment';
 import { RouteConstants } from '../classes/route-constants';
+import { Organization } from '@app/api/models/organization.model';
 
 export class Member extends Model {
   id: number;
@@ -8,6 +9,9 @@ export class Member extends Model {
   image_url: string;
   image_srcset: string;
   order: number;
+  description: string;
+  organization_id: number;
+  organization: Organization;
   created_at: Moment;
   updated_at: Moment;
   deleted_at: Moment | string;
@@ -19,10 +23,12 @@ export class Member extends Model {
   parse(obj): any {
     super.parse(obj);
 
+    this.organization = this.organization ? new Organization().parse(this.organization) : null;
+
     return this;
   }
 
   get editUrl() {
-    return `/admin/${RouteConstants.post}`;
+    return `/admin/${RouteConstants.member}`;
   }
 }
