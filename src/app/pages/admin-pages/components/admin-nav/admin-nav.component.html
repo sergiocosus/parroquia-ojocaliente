@@ -34,14 +34,14 @@
         <span>{{'nav.categories' | translate}}</span>
       </a>
 
-      <ng-container *appIfSetting="'showGalleries'">
+      <!--<ng-container *appIfSetting="'showGalleries'">-->
         <a mat-list-item [routerLink]="adminPages.galleries" (click)="close()"
            *ngxPermissionsOnly="['create-gallery', 'update-gallery']"
            routerLinkActive="active">
           <mat-icon>photo_library</mat-icon>
           {{'nav.galleries' | translate}}
         </a>
-      </ng-container>
+      <!--</ng-container>-->
 
       <a mat-list-item [routerLink]="adminPages.posts" (click)="close()"
          *ngxPermissionsOnly="['read-post']"

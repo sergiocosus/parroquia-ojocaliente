@@ -58,6 +58,7 @@
 
     .item-content {
       transform: translateX(-100%);
+      font-size: 1.1em;
     }
 
     &:hover {
@@ -81,7 +82,7 @@
     left: 0;
     right: 0;
     color: #fff;
-    background-color: rgba(black, .75);
+    background-color: rgba(black, .6);
     border-radius: 4px;
     padding: 0 7%;
     max-width: 100%;
